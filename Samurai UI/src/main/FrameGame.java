@@ -22,7 +22,9 @@ public class FrameGame extends JFrame{
 	 */
 	public FrameGame() {
 		
-		this.setTitle("SAMURAI");
+//		this.setTitle("SAMURAI");
+		// 此处应该为去掉窗口的标题栏
+		this.setUndecorated(true);
 		Toolkit toolkit = this.getToolkit();
 		Dimension dimension = toolkit.getScreenSize();
 		//设置不可改变大小
