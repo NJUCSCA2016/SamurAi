@@ -17,7 +17,7 @@ import ui.panelmain.PanelMain;
 public class PanelStartMovie extends JPanel implements Runnable{
 	
 	/**
-	 * µ±Ç°Í¼Æ¬Êı
+	 * å½“å‰å›¾ç‰‡æ•°
 	 */
 	private int num = 0;
 	
@@ -26,21 +26,21 @@ public class PanelStartMovie extends JPanel implements Runnable{
 	private PanelMain panelMain = null;
 	
 	/**
-	 * ¿ªÊ¼²¥·Å¿ª³¡¶¯»­
-	 * ²¥·Å½áÊøºóÁ¢¿ÌÉ¾³ı¸ÃPanel
+	 * å¼€å§‹æ’­æ”¾å¼€åœºåŠ¨ç”»
+	 * æ’­æ”¾ç»“æŸåç«‹åˆ»åˆ é™¤è¯¥Panel
 	 */
 	public PanelStartMovie(JFrame frame) {
 		
 		this.frame = frame;
-		//ÇëÇó½¹µã
+		//è¯·æ±‚ç„¦ç‚¹
 		this.requestFocus();
-		//¿ªÊ¼²¥·Å
+		//æ’­æ”¾åŠ¨ç”»
 		new Thread(this).start();
 		
 	}
 	
 	public void paint(Graphics g){
-		System.out.println("¸ÉÕâĞĞÏÂÃæµÄ»î");
+		System.out.println("Draw Image");
 		//g.drawImage(imgMovie.image[num], 0, 0, null);
 		
 	}
@@ -48,23 +48,23 @@ public class PanelStartMovie extends JPanel implements Runnable{
 	
 	@Override
 	public void run() {
-		//´´½¨Ö÷½çÃæ£¬·ÅÔÚÍâÃæ£¬±ÜÃâif()ÖĞ´´½¨Ê±¼äÌ«³¤µ¼ÖÂsleepÑÓ³¤
+		//åœ¨å¼€å§‹å³åˆå§‹åŒ–è¯¥panel ï¼Œ é¿å…å»¶è¿Ÿã€‚ å¹¶ä¸”ä¸åœ¨if(num == 0)ä¸­è°ƒç”¨ï¼Œå»é™¤å¯¹ç¬¬ä¸€ä¸ªThread.sleepçš„å½±å“
 		this.panelMain = new PanelMain();
 		
-		//²»Ê¹ÓÃforÑ­»·£¬Ö±½Ówhile(true)Ñ­»·£¬´Ë´¦Ö±½ÓÓ²±àÂë¡£
+		//ç›´æ¥ç¡¬ç¼–ç 
 		while(true){
 			
 			
 			repaint();
-			//´ÓÒ»¿ªÊ¼¾Í·ÅÒôÀÖ
+			//å¼€åœºå°±æ”¾æ­Œ
 			
 			if(this.num  == 0){
-				//Å¶£¿Ã»ÓĞmusic £¿ Ë­ËµµÄ
+				//è°è¯´æ²¡æ­Œçš„ã€‚
 				System.out.println("Play Music");
 				//this.playMusic();
 			}
 			System.out.println("Biu~Biu~Biu~");
-			//¿ÉÒÔ¿¼ÂÇ¸ü¸ÄÏß³ÌËÙ¶È¡£´Ë´¦Ôİ²»´¦Àí£¬µÈÎÒ¸ã¶¨ÁËmovieÔÙÀ´ÅªËû
+			//å¯ä»¥è€ƒè™‘æ›´æ”¹çº¿ç¨‹é€Ÿåº¦ã€‚æ­¤å¤„æš‚ä¸å¤„ç†ï¼Œç­‰æˆ‘æå®šäº†movieå†æ¥å¼„ä»–
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
@@ -72,14 +72,14 @@ public class PanelStartMovie extends JPanel implements Runnable{
 			}
 			
 			this.num++;
-			//TODO : ÅªºÃimgMovie ºó £¬ ¸ü¸Änum > imgMovie.length
+			//TODO : å¼„å¥½imgMovie å ï¼Œ æ›´æ”¹num > imgMovie.length
 			if(num >= 10){
-				//È¡Ïû½¹µã
+				//å–æ¶ˆç„¦ç‚¹
 				this.setFocusable(false);
-				//ÒÆ³ı¸ÃPanel
+				//ç§»é™¤è¯¥Panel
 				this.frame.remove(this);
 				this.frame.setContentPane(this.panelMain);
-				//ÒÆ³ı¾Écontentpaneºó½øĞĞÖØ»­
+				//ç§»é™¤æ—§contentpaneåè¿›è¡Œé‡ç”»
 				this.frame.revalidate();
 				
 				break;
@@ -88,7 +88,7 @@ public class PanelStartMovie extends JPanel implements Runnable{
 		System.out.println("Movie finished . ");
 	}
 	
-	
+	 
 	
 
 }

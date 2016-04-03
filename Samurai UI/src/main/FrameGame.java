@@ -18,24 +18,25 @@ import ui.startmovie.PanelStartMovie;
 public class FrameGame extends JFrame{
 
 	/**
-	 * ÉèÖÃ´°¿Ú²ÎÊý
+	 * è®¾ç½®çª—å£å‚æ•°
 	 */
 	public FrameGame() {
 		
 		this.setTitle("SAMURAI");
 		Toolkit toolkit = this.getToolkit();
 		Dimension dimension = toolkit.getScreenSize();
-		//ÉèÖÃ²»¿É¸Ä±ä´óÐ¡
+		//è®¾ç½®ä¸å¯æ”¹å˜å¤§å°
+		this.setResizable(false);
 		this.setVisible(false);
 		this.setSize(1250, 700);
-		//ÉèÖÃ×ø±ê
+		//è®¾ç½®åæ ‡
 		int x = this.getWidth() + dimension.width >> 1;
 		int y = this.getHeight() + dimension.height >> 1;
  		this.setLocation(x, y);
  		
  		this.setUndecorated(true);
  		//TODO : Logo
- 		//ÉèÖÃlogo £º  this.setIconImage();
+ 		//è®¾ç½®logo ï¼š  this.setIconImage();
 		
  		this.setContentPane(new PanelStartMovie(this));
  		

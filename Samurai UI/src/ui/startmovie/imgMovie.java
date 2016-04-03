@@ -19,7 +19,7 @@ public class imgMovie {
 		
 		image = new Image[100];
 		
-		//TODO : 画好背景。然后加载入
+		//TODO : 鍔犺浇movie鍥剧墖
 		
 	}
 	

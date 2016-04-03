@@ -17,7 +17,7 @@ public class PanelMain extends JPanel{
 	
 	public void paint(Graphics g){
 		System.out.println("Repaint");
-		//TODO : »æÖÆ±³¾°µÈÒ»ÏµÁĞ²Ù×÷
+		//TODO :é‡ç”»ä¸»çª—å£
 		
 	}
 	
