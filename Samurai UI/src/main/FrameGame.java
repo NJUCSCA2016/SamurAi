@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Date : Apr 3, 2016 3:56:28 PM
  */
 package main;
@@ -22,8 +22,9 @@ public class FrameGame extends JFrame{
 	 */
 	public FrameGame() {
 		
-//		this.setTitle("SAMURAI");
-		// 此处应该为去掉窗口的标题栏
+		//设置的是鼠标放在任务栏上显示的标题。去除后放在上面就没标题了。Undecorate不会改变任务栏上的标题
+		this.setTitle("SAMURAI");
+		
 		this.setUndecorated(true);
 		Toolkit toolkit = this.getToolkit();
 		Dimension dimension = toolkit.getScreenSize();
