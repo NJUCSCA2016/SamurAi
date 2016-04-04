@@ -9,7 +9,21 @@ import main.SuperButton;
  * @author Alone
  * Written by YYM
  */
-public class ButtonExit implements SuperButton{
+public class ButtonExit extends SuperButton{
+
+	/**
+	 * @param x
+	 * @param y
+	 * @param w
+	 * @param h
+	 */
+	public ButtonExit(int x, int y, int w, int h) {
+		super(x, y, w, h);
+		
+		//设置Icon . 
+		this.setIcon(null);
+		
+	}
 	
 	/**
 	 * �?出游�?

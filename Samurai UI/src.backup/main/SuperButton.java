@@ -11,8 +11,30 @@ import javax.swing.JButton;
  */
 public abstract class SuperButton extends JButton{
 
-	//参数设置方法
-	private void setConfig(){};
+	private int x ;
+	private int y ;
+	private int w ;
+	private int h ; 
+	
+	/**
+	 * 设置各类参数
+	 */
+	public SuperButton(int x , int y , int w , int h) {
+		
+		this.x = x;
+		this.y = y; 
+		this.w = w;
+		this.h = h;
+		this.setBounds(x, y, w, h);
+		
+		//TODO �? Button全部设置为�?�明�?
+		
+	}
+	
+	
+	private void setConfig(){
+		
+	}
 	
 	
 	

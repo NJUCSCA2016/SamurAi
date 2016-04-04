@@ -9,16 +9,8 @@ import javax.swing.JButton;
  * @author Alone
  * Written by YYM
  */
-public class ButtonExample extends JButton{
+public class ButtonExample {
 	
-	/**
-	 * 设置参数，参照这个
-	 */
-	public ButtonExample() {
-		
-		this.setIcon(null);
-		//this.setBounds(0, y, width, height);
-		this.addActionListener(null);
-	}
+	
 	
 }
