@@ -7,6 +7,6 @@ package image;
  * @author Alone
  * Written by YYM
  */
-public class imgBackground {
+public class ImgBackground {
 
 }

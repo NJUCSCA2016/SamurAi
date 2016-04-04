@@ -9,8 +9,12 @@ package main;
  */
 public class Main {
 		
+	public static Thread loadImage;
+
 	public static void main(String[] args) {
-		
+		Main.loadImage = new Thread(new ImgMovie());
+		Main.loadImage.start();
+		//开始即加载。否则加载过程耗时导致movie显示出问题
 		new FrameGame();
 		
 	}

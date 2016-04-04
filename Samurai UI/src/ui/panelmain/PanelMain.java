@@ -16,6 +16,8 @@ public class PanelMain extends JPanel{
 	
 	
 	public void paint(Graphics g){
+		//清除原来的
+		super.paint(g);
 		System.out.println("Repaint");
 		//TODO :重画主窗口
 		

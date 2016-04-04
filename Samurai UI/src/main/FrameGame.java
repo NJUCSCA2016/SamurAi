@@ -7,9 +7,11 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import ui.startmovie.PanelStartMovie;
+import ui.startmovie.ImgMovie;
 
 /**
  * @author Alone
@@ -22,35 +24,36 @@ public class FrameGame extends JFrame{
 	 */
 	public FrameGame() {
 		
-		//设置的是鼠标放在任务栏上显示的标题。去除后放在上面就没标题了。Undecorate不会改变任务栏上的标题
 		this.setTitle("SAMURAI");
-		
-		this.setUndecorated(true);
 		Toolkit toolkit = this.getToolkit();
 		Dimension dimension = toolkit.getScreenSize();
 		//设置不可改变大小
 		this.setResizable(false);
-		this.setVisible(false);
 		this.setSize(1250, 700);
 		//设置坐标
-		int x = this.getWidth() + dimension.width >> 1;
-		int y = this.getHeight() + dimension.height >> 1;
- 		this.setLocation(x, y);
+		int x = this.getWidth() - dimension.width >> 1;
+		int y = this.getHeight() - dimension.height >> 1;
+		
+ 		this.setLocation(x, y-10);
+ 		//设置logo
+ 		this.setIconImage(new ImageIcon("Image/Others/Logo.png").getImage());
  		
  		this.setUndecorated(true);
- 		//TODO : Logo
- 		//设置logo ：  this.setIconImage();
-		
- 		this.setContentPane(new PanelStartMovie(this));
  		
-		this.setVisible(true); 
+ 		//图片加载完成后跳出
+ 		while(Main.loadImage.isAlive()){
+ 		}
+ 		
+ 		this.setContentPane(new PanelStartMovie(this));
+ 		this.setVisible(true); 
+		
 		
 	}
-	
-	private Image getLogo(){
-		
-		
-		return null;
-	}
+	//不要了
+	//private Image getLogo(){
+	//	
+	//	
+	//	return null;
+	//}
 	
 }

@@ -40,8 +40,8 @@ public class PanelStartMovie extends JPanel implements Runnable{
 	}
 	
 	public void paint(Graphics g){
-		System.out.println("Draw Image");
-		//g.drawImage(imgMovie.image[num], 0, 0, null);
+		
+		g.drawImage(ImgMovie.image[num], 0, 0, null);
 		
 	}
 	
@@ -53,27 +53,27 @@ public class PanelStartMovie extends JPanel implements Runnable{
 		
 		//直接硬编码
 		while(true){
+			//TODO : 在该loading线程中完成其他一系列初始化操作。
 			
-			
-			repaint();
+			this.repaint();
 			//开场就放歌
 			
 			if(this.num  == 0){
 				//谁说没歌的。
-				System.out.println("Play Music");
+				//System.out.println("Play Music");
 				//this.playMusic();
 			}
-			System.out.println("Biu~Biu~Biu~");
+	
 			//可以考虑更改线程速度。此处暂不处理，等我搞定了movie再来弄他
 			try {
-				Thread.sleep(50);
+				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			
 			this.num++;
 			//TODO : 弄好imgMovie 后 ， 更改num > imgMovie.length
-			if(num >= 10){
+			if(num >= 70){
 				//取消焦点
 				this.setFocusable(false);
 				//移除该Panel
