@@ -3,6 +3,8 @@
  */
 package main;
 
+import ui.startmovie.ImgMovie;
+
 /**
  * @author Alone
  * Written by YYM
@@ -14,7 +16,7 @@ public class Main {
 	public static void main(String[] args) {
 		Main.loadImage = new Thread(new ImgMovie());
 		Main.loadImage.start();
-		//¿ªÊ¼¼´¼ÓÔØ¡£·ñÔò¼ÓÔØ¹ı³ÌºÄÊ±µ¼ÖÂmovieÏÔÊ¾³öÎÊÌâ
+		//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ø¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½Ìºï¿½Ê±ï¿½ï¿½ï¿½ï¿½movieï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		new FrameGame();
 		
 	}
