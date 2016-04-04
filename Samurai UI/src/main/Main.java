@@ -10,13 +10,13 @@ import ui.startmovie.ImgMovie;
  * Written by YYM
  */
 public class Main {
-		
+	
 	public static Thread loadImage;
-
+	
 	public static void main(String[] args) {
 		Main.loadImage = new Thread(new ImgMovie());
 		Main.loadImage.start();
-		//��ʼ�����ء�������ع��̺�ʱ����movie��ʾ������
+		//开始即加载。否则加载过程耗时导致movie显示出问题
 		new FrameGame();
 		
 	}
