@@ -31,15 +31,16 @@ public class FrameGame extends JFrame{
 		this.setResizable(false);
 		this.setSize(1250, 700);
 		//设置坐标
-		int x = this.getWidth() - dimension.width >> 1;
-		int y = this.getHeight() - dimension.height >> 1;
+		int x = dimension.width - this.getWidth() >> 1;
+		int y = dimension.height - this.getHeight() >> 1;
 		
  		this.setLocation(x, y-10);
  		//设置logo
  		this.setIconImage(new ImageIcon("Image/Others/Logo.png").getImage());
  		
  		this.setUndecorated(true);
- 		
+// 		System.out.println(x);
+// 		System.out.println(y);
  		//图片加载完成后跳出
  		while(Main.loadImage.isAlive()){
  		}
