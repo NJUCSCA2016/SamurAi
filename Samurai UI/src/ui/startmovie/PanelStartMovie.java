@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Date : Apr 3, 2016 5:34:55 PM
  */
 package ui.startmovie;
@@ -73,7 +73,7 @@ public class PanelStartMovie extends JPanel implements Runnable{
 			
 			this.num++;
 			//TODO : 弄好imgMovie 后 ， 更改num > imgMovie.length
-			if(num == 60){
+			if(num == 69){
 				this.repaint();
 				//TODO 添加一个Button ， 注册事件为一下内容。
 				//取消焦点
