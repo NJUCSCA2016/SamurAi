@@ -17,7 +17,7 @@ import ui.panelmain.PanelMain;
 public class PanelStartMovie extends JPanel implements Runnable{
 	
 	/**
-	 * 当前图片数
+	 * 当前图片�?
 	 */
 	private int num = 0;
 	
@@ -26,7 +26,7 @@ public class PanelStartMovie extends JPanel implements Runnable{
 	private PanelMain panelMain = null;
 	
 	/**
-	 * 开始播放开场动画
+	 * �?始播放开场动�?
 	 * 播放结束后立刻删除该Panel
 	 */
 	public PanelStartMovie(JFrame frame) {
@@ -48,18 +48,18 @@ public class PanelStartMovie extends JPanel implements Runnable{
 	
 	@Override
 	public void run() {
-		//在开始即初始化该panel ， 避免延迟。 并且不在if(num == 0)中调用，去除对第一个Thread.sleep的影响
+		//在开始即初始化该panel �? 避免延迟�? 并且不在if(num == 0)中调用，去除对第�?个Thread.sleep的影�?
 		this.panelMain = new PanelMain();
 		
-		//直接硬编码
+		//直接硬编�?
 		while(true){
-			//TODO : 在该loading线程中完成其他一系列初始化操作。
+			//TODO : 在该loading线程中完成其他一系列初始化操作�??
 			
 			this.repaint();
-			//开场就放歌
+			//�?场就放歌
 			
 			if(this.num  == 0){
-				//谁说没歌的。
+				//谁说没歌的�??
 				//System.out.println("Play Music");
 				//this.playMusic();
 			}
@@ -72,16 +72,16 @@ public class PanelStartMovie extends JPanel implements Runnable{
 			}
 			
 			this.num++;
-			//TODO : 弄好imgMovie 后 ， 更改num > imgMovie.length
+			//TODO : 弄好imgMovie �? �? 更改num > imgMovie.length
 			if(num == 60){
 				this.repaint();
-				//TODO 添加一个Button ， 注册事件为一下内容。
+				//TODO 添加�?个Button �? 注册事件为一下内容�??
 				//取消焦点
 				this.setFocusable(false);
 				//移除该Panel
 				this.frame.remove(this);
 				this.frame.setContentPane(this.panelMain);
-				//移除旧contentpane后进行重画
+				//移除旧contentpane后进行重�?
 				this.frame.revalidate();
 				
 				break;

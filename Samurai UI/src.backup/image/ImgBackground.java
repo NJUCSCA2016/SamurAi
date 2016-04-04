@@ -1,5 +1,5 @@
 /**
- * Date : Apr 3, 2016 5:47:58 PM
+ * Date : Apr 3, 2016 5:48:15 PM
  */
 package image;
 
@@ -7,6 +7,6 @@ package image;
  * @author Alone
  * Written by YYM
  */
-public class ImgAct {
+public class ImgBackground {
 
 }
