@@ -22,3 +22,17 @@ PanelMain主框架搭成
 万总：音乐音效
 俐俐：主界面背景，以及主界面各Button的图
 完成后标记一下，同步一下
+
+
+2016.4.5
+框架已搭好，所有的注释参考PanelMain和ButtonExample 。 
+万总需要完成Panel背景绘画的接口。定义绘画背景功能
+可以完成panelGame和panelhelp等panel的基本设计
+俐俐需要完成其余各界面的设计图。
+
+
+
+
+
+
+

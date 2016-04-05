@@ -24,7 +24,6 @@ public class ImgMovie implements Runnable{
 		try {
 		//TODO : 还要加载 Loading和片尾图片
 			for(int i = 1 ; i <= 70 ;i++){
-				System.out.println("Read");
 				//经测试，ImageIcon比ImageIo快很多
 				image[i-1] = new ImageIcon("Image/Start/" + i + ".png").getImage();
 			

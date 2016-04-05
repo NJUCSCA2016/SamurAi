@@ -3,6 +3,9 @@
  */
 package ui.panelmain;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import main.SuperButton;
 
 /**
@@ -10,24 +13,22 @@ import main.SuperButton;
  * Written by YYM
  */
 public class ButtonExit extends SuperButton{
-
-	/**
-	 * @param x
-	 * @param y
-	 * @param w
-	 * @param h
-	 */
-	public ButtonExit(int x, int y, int w, int h) {
-		super(x, y, w, h);
+	
+	
+	public ButtonExit() {
 		
-		//设置Icon . 
+		super(0,0,0,0);
+		
+		//TODO : 设置Icon . 
 		this.setIcon(null);
 		
+		this.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		
 	}
-	
-	/**
-	 * 退出游戏
-	 */
 	
 	
 	

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Date : Apr 3, 2016 5:34:55 PM
  */
 package ui.startmovie;
@@ -50,7 +50,7 @@ public class PanelStartMovie extends JPanel implements Runnable{
 	public void run() {
 		//在开始即初始化该panel ， 避免延迟。 并且不在if(num == 0)中调用，去除对第一个Thread.sleep的影响
 		this.panelMain = new PanelMain();
-		
+		//TODO ： 放歌
 		//直接硬编码
 		while(true){
 			//TODO : 在该loading线程中完成其他一系列初始化操作。
@@ -58,21 +58,21 @@ public class PanelStartMovie extends JPanel implements Runnable{
 			this.repaint();
 			//开场就放歌
 			
-			if(this.num  == 0){
-				//谁说没歌的。
-				//System.out.println("Play Music");
-				//this.playMusic();
-			}
+//			if(this.num  == 0){
+//				//谁说没歌的。
+//				//System.out.println("Play Music");
+//				//this.playMusic();
+//			}
 	
 			//可以考虑更改线程速度。此处暂不处理，等我搞定了movie再来弄他
 			try {
-				Thread.sleep(200);
+				Thread.sleep(150);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			
 			this.num++;
-			//TODO : 弄好imgMovie 后 ， 更改num > imgMovie.length
+			//TODO : 弄好imgMovie 后 ， 更改num
 			if(num == 69){
 				this.repaint();
 				//TODO 添加一个Button ， 注册事件为一下内容。
@@ -89,8 +89,6 @@ public class PanelStartMovie extends JPanel implements Runnable{
 		}
 		System.out.println("Movie finished . ");
 	}
-	
-	 
-	
+		
 
 }

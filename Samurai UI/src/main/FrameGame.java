@@ -34,13 +34,12 @@ public class FrameGame extends JFrame{
 		int x = dimension.width - this.getWidth() >> 1;
 		int y = dimension.height - this.getHeight() >> 1;
 		
- 		this.setLocation(x, y-10);
+ 		this.setLocation(x, y-20);
  		//设置logo
  		this.setIconImage(new ImageIcon("Image/Others/Logo.png").getImage());
  		
  		this.setUndecorated(true);
-// 		System.out.println(x);
-// 		System.out.println(y);
+ 		
  		//图片加载完成后跳出
  		while(Main.loadImage.isAlive()){
  		}

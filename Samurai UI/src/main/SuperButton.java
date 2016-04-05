@@ -3,13 +3,16 @@
  */
 package main;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 
 /**
  * @author Alone
  * Written by YYM
  */
-public abstract class SuperButton extends JButton{
+public abstract class SuperButton extends JButton implements ActionListener{
 
 	private int x ;
 	private int y ;
@@ -27,15 +30,10 @@ public abstract class SuperButton extends JButton{
 		this.h = h;
 		this.setBounds(x, y, w, h);
 		
-		//TODO ： Button全部设置为透明的
-		
+		// Button全部设置为透明的
+		this.setContentAreaFilled(false);
 	}
 	
-	
-	private void setConfig(){
-		
-	}
-	
-	
+	public void actionPerformed(ActionEvent ae){}
 	
 }

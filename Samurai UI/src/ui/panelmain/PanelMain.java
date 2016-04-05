@@ -14,6 +14,15 @@ import javax.swing.JPanel;
 public class PanelMain extends JPanel{
 
 	
+	public PanelMain(){
+		//TODO : 绘制背景 ，此处@万总， 写一个接口，定义creatWindow方法。
+		//TODO : 创建Button。
+		
+		
+	}
+	
+	
+	
 	
 	public void paint(Graphics g){
 		//清除原来的
