@@ -18,7 +18,6 @@ public class ImgMovie implements Runnable{
 	/**
 	 * 线程式加载图片
 	 */
-
 	public void run() {
 		
 		try {

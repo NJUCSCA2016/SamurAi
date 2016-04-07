@@ -4,27 +4,26 @@
 package main;
 
 import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import ui.startmovie.PanelStartMovie;
-import ui.startmovie.ImgMovie;
 
 /**
  * @author Alone
  * Written by YYM
  */
 public class FrameGame extends JFrame{
-
+	
 	/**
 	 * 设置窗口参数
 	 */
 	public FrameGame() {
 		
 		this.setTitle("SAMURAI");
+		
 		Toolkit toolkit = this.getToolkit();
 		Dimension dimension = toolkit.getScreenSize();
 		//设置不可改变大小

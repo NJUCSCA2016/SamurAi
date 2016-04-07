@@ -38,14 +38,12 @@ public class PanelStartMovie extends JPanel implements Runnable{
 		new Thread(this).start();
 		
 	}
-	
+
 	public void paint(Graphics g){
 		
 		g.drawImage(ImgMovie.image[num], 0, 0, null);
 		
 	}
-	
-	
 	@Override
 	public void run() {
 		//在开始即初始化该panel ， 避免延迟。 并且不在if(num == 0)中调用，去除对第一个Thread.sleep的影响

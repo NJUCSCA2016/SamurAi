@@ -42,6 +42,7 @@ public class ButtonExample extends SuperButton implements MouseListener{
 		this.fatherPanel = fatherPanel;
 		this.button = this;
 		this.setIcon(null);
+		this.addMouseListener(this);
 		
 	}
 
@@ -49,7 +50,7 @@ public class ButtonExample extends SuperButton implements MouseListener{
 		
 		this.frame.setContentPane(new PanelExample());
 		this.remove(this.fatherPanel);
-		
+		this.revalidate();
 		
 	}
 
