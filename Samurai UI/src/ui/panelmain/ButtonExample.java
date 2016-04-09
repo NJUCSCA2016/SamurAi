@@ -41,9 +41,6 @@ public class ButtonExample extends SuperButton{
 		this.frame = frame;
 		this.fatherPanel = fatherPanel;
 		this.button = this;
-		this.setIcon(null);
-		this.addMouseListener(this);
-		
 	}
 
 	public void mouseClicked(MouseEvent e) {

@@ -16,9 +16,10 @@ public class ButtonHelp extends SuperButton{
 	private JFrame frame ;
 	private JPanel fatherPanel;
 	
-	public ButtonHelp(JPanel fatherPanel) {
+	public ButtonHelp(JFrame frame,JPanel fatherPanel) {
 		super(0,0,0,0,null,null,null);
-		// TODO Auto-generated constructor stub
+		this.frame = frame;
+		this.fatherPanel = fatherPanel;
 	}
 	public void mouseClicked(MouseEvent e) {
 		//TODO 改变Button的大小

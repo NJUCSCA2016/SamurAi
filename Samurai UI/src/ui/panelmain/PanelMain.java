@@ -17,6 +17,9 @@ public class PanelMain extends JPanel{
 	public PanelMain(){
 		//TODO : 绘制背景 ，此处@万总， 写一个接口，定义creatWindow方法。
 		//TODO : 创建Button。
+		this.setLayout(null);
+		
+		
 		
 		
 	}
@@ -27,8 +30,8 @@ public class PanelMain extends JPanel{
 	public void paint(Graphics g){
 		//清除原来的
 		super.paint(g);
-		System.out.println("Repaint");
 		//TODO :重画主窗口
+		
 		
 	}
 	

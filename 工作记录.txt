@@ -30,6 +30,9 @@ PanelMain主框架搭成
 可以完成panelGame和panelhelp等panel的基本设计
 俐俐需要完成其余各界面的设计图。
 
+2016.4.9
+可能显示Play有Bug
+如果Img***前面的Img变成小写了统统改成Img
 
 
 

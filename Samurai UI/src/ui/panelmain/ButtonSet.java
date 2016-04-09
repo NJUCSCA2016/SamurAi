@@ -27,8 +27,6 @@ public class ButtonSet extends SuperButton{
 		super(0, 0, 0, 0,null,null,null);
 		this.frame = frame;
 		this.fatherPanel = fatherPanel;
-		this.setIcon(null);
-		this.addMouseListener(this);
 	}
 	
 	public void mouseClicked(MouseEvent e) {
