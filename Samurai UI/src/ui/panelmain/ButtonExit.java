@@ -14,37 +14,27 @@ import main.SuperButton;
  * @author Alone
  * Written by YYM
  */
-public class ButtonExit extends SuperButton implements MouseListener{
+public class ButtonExit extends SuperButton{
 
 	public ButtonExit() {
 		
-		super(0,0,0,0);
-		
-		//TODO : 设置Icon . 
-		this.setIcon(null);
-		this.addMouseListener(this);
+		super(0,0,0,0,null,null,null);
+	
 		
 	}
 	public void mouseClicked(MouseEvent e) {
+		//TODO ： 改变Button的大小
 		System.exit(0);
 	}
 
 	public void mouseEntered(MouseEvent e) {
-		// TODO 改变Button的image
-		
-		this.setIcon(null);
+		// TODO 改变Button的大小
 		
 	}
 	public void mouseExited(MouseEvent e) {
-		//TODO : 还原Button的image
-		
-		this.setIcon(null);
+		//TODO : 还原Button的大小
 		
 	}
-	
-	public void mousePressed(MouseEvent arg0) {	}
-	public void mouseReleased(MouseEvent arg0) {}
-	
 	
 	
 }

@@ -17,14 +17,14 @@ import ui.panelsetting.PanelSet;
  * @author Alone
  * Written by YYM
  */
-public class ButtonSet extends SuperButton implements MouseListener{
+public class ButtonSet extends SuperButton{
 
 	private JFrame frame;
 	private JPanel fatherPanel;
 	
 	
 	public ButtonSet(JFrame frame , JPanel fatherPanel) {
-		super(0, 0, 0, 0);
+		super(0, 0, 0, 0,null,null,null);
 		this.frame = frame;
 		this.fatherPanel = fatherPanel;
 		this.setIcon(null);
@@ -32,27 +32,18 @@ public class ButtonSet extends SuperButton implements MouseListener{
 	}
 	
 	public void mouseClicked(MouseEvent e) {
+		//TODO 改变Button的大小
+		
 		this.frame.setContentPane(new PanelSet());
 		this.remove(this.fatherPanel);
 		this.revalidate();
 	}
 
 	public void mouseEntered(MouseEvent e) {
-		// TODO 改变Button的image
-		
-		this.setIcon(null);
-		
+		// TODO 改变Button的大小
 	}
 	public void mouseExited(MouseEvent e) {
-		//TODO : 还原Button的image
-		
-		this.setIcon(null);
-		
+		//TODO : 还原Button的大小
 	}
-	
-	public void mousePressed(MouseEvent arg0) {	}
-	public void mouseReleased(MouseEvent arg0) {}
-	
-
 	
 }

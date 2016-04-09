@@ -17,7 +17,7 @@ import ui.panelexample.PanelExample;
  * @author Alone
  * Written by YYM
  */
-public class ButtonExample extends SuperButton implements MouseListener{
+public class ButtonExample extends SuperButton{
 	
 	//TODO : 考虑设置一个总控制类，frame从其中获取而非作为参数传入
 	private JFrame frame;
@@ -37,7 +37,7 @@ public class ButtonExample extends SuperButton implements MouseListener{
 	 */
 	public ButtonExample(JFrame frame , JPanel fatherPanel) {
 		//TODO : 定义每个Butto的参数
-		super(0, 0, 0, 0);
+		super(0, 0, 0, 0,null,null,null);
 		this.frame = frame;
 		this.fatherPanel = fatherPanel;
 		this.button = this;
@@ -55,22 +55,22 @@ public class ButtonExample extends SuperButton implements MouseListener{
 	}
 
 	public void mouseEntered(MouseEvent e) {
-		// TODO 改变Button的image
+		// TODO 改变Button的大小
 		
 		this.button.setIcon(null);
 		
 	}
 	public void mouseExited(MouseEvent e) {
-		//TODO : 还原Button的image
+		//TODO : 还原Button的大小
 		
-		this.button.setIcon(null);
+//		this.button.setIcon(null);
 		
 	}
 	
-	
-	
-	public void mousePressed(MouseEvent arg0) {	}
-	public void mouseReleased(MouseEvent arg0) {}
-	
-	
+//	
+//	
+//	public void mousePressed(MouseEvent arg0) {	}
+//	public void mouseReleased(MouseEvent arg0) {}
+//	
+//	
 }

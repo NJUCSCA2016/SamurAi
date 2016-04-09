@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  */
 public class ImgMovie implements Runnable{
 	
-	public static Image[] image= new Image[70];
+	public static Image[] image= new Image[85];
 	
 	/**
 	 * 线程式加载图片
@@ -22,7 +22,7 @@ public class ImgMovie implements Runnable{
 		
 		try {
 		//TODO : 还要加载 Loading和片尾图片
-			for(int i = 1 ; i <= 70 ;i++){
+			for(int i = 1 ; i <= 85 ;i++){
 				//经测试，ImageIcon比ImageIo快很多
 				image[i-1] = new ImageIcon("Image/Start/" + i + ".png").getImage();
 			

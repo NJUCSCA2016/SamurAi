@@ -4,10 +4,9 @@
 package ui.startmovie;
 
 import java.awt.Graphics;
-
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import ui.panelmain.PanelMain;
 
 /**
@@ -23,6 +22,8 @@ public class PanelStartMovie extends JPanel implements Runnable{
 	
 	private JFrame frame ; 
 	
+	private JButton play;
+	
 	private PanelMain panelMain = null;
 	
 	/**
@@ -30,6 +31,12 @@ public class PanelStartMovie extends JPanel implements Runnable{
 	 * 播放结束后立刻删除该Panel
 	 */
 	public PanelStartMovie(JFrame frame) {
+		
+		this.setLayout(null);
+//		this.play.setFocusPainted(false);
+//		this.play.setBorderPainted(false);
+//		this.play.setText("");
+//		this.play.setVisible(false);
 		
 		this.frame = frame;
 		//请求焦点
@@ -40,18 +47,16 @@ public class PanelStartMovie extends JPanel implements Runnable{
 	}
 
 	public void paint(Graphics g){
-		
 		g.drawImage(ImgMovie.image[num], 0, 0, null);
-		
 	}
 	@Override
 	public void run() {
 		//在开始即初始化该panel ， 避免延迟。 并且不在if(num == 0)中调用，去除对第一个Thread.sleep的影响
 		this.panelMain = new PanelMain();
+		this.play = new ButtonPlay(this.frame, this, this.panelMain);
 		//TODO ： 放歌
 		//直接硬编码
 		while(true){
-			//TODO : 在该loading线程中完成其他一系列初始化操作。
 			
 			this.repaint();
 			//开场就放歌
@@ -71,22 +76,39 @@ public class PanelStartMovie extends JPanel implements Runnable{
 			
 			this.num++;
 			//TODO : 弄好imgMovie 后 ， 更改num
-			if(num == 69){
-				this.repaint();
-				//TODO 添加一个Button ， 注册事件为一下内容。
-				//取消焦点
-				this.setFocusable(false);
-				//移除该Panel
-				this.frame.remove(this);
-				this.frame.setContentPane(this.panelMain);
-				//移除旧contentpane后进行重画
-				this.frame.revalidate();
-				
+			if(num == 86){
+//				this.repaint();
+//				// 添加一个Button ， 注册事件为一下内容。
+//				//取消焦点
+//				this.setFocusable(false);
+//				//移除该Panel
+//				this.frame.remove(this);
+//				this.frame.setContentPane(this.panelMain);
+//				//移除旧contentpane后进行重画
+//				this.frame.revalidate();
+//				
 				break;
 			}
+
 		}
-		System.out.println("Movie finished . ");
+		this.num = 70;
+		this.add(this.play);
+//		System.out.println("Movie finished . ");
 	}
+
+//		try {
+//			Thread.sleep(50);
+//		} catch (InterruptedException e1) {
+//			e1.printStackTrace();
+//		}
+//		this.setFocusable(false);
+//		//移除该Panel
+//		this.frame.remove(this);
+//		this.frame.setContentPane(this.panelMain);
+//		//移除旧contentpane后进行重画
+//		this.frame.revalidate();
+//	}
+
 		
 
 }
