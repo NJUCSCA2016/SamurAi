@@ -25,7 +25,7 @@ public class ButtonPeopleGame extends SuperButton{
 	 * 人人对战
 	 */
 	public ButtonPeopleGame(JFrame frame , JPanel fatherPanel) {
-		super(0, 0, 0, 0,null,null,null);
+		super(0, 0, 0, 0, null, null, null);
 		this.frame = frame;
 		this.fatherPanel = fatherPanel;
 	}

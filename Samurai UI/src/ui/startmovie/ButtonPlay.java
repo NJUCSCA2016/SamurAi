@@ -15,7 +15,7 @@ public class ButtonPlay extends SuperButton{
 	private JPanel newPanel;
 
 	public ButtonPlay(JFrame frame, JPanel fatherPanel, JPanel newPanel) {
-		super(350, 485, 300, 80, ImgButton.play1, ImgButton.play2, ImgButton.play3);
+		super(350, 485, 300, 80, ImgButton.PLAY_1, ImgButton.PLAY_2, ImgButton.PLAY_3);
 		this.frame = frame;
 		this.fatherPanel = fatherPanel;
 		this.newPanel = newPanel;

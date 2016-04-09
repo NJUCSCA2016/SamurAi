@@ -24,7 +24,7 @@ public class ButtonSet extends SuperButton{
 	
 	
 	public ButtonSet(JFrame frame , JPanel fatherPanel) {
-		super(0, 0, 0, 0,null,null,null);
+		super(0, 0, 0, 0, null, null, null);
 		this.frame = frame;
 		this.fatherPanel = fatherPanel;
 	}
