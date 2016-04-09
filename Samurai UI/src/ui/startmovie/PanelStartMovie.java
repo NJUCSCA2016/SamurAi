@@ -56,7 +56,12 @@ public class PanelStartMovie extends JPanel implements Runnable{
 		this.play = new ButtonPlay(this.frame, this, this.panelMain);
 		//TODO ： 放歌
 		//直接硬编码
-		while(true){
+		/**
+		 * 我在这里把num的范围给改了，
+		 * 是因为看到数组越界实在太不舒服了
+		 * @author Water
+		 */
+		while(num < ImgMovie.image.length){ 
 			
 			this.repaint();
 			//开场就放歌
@@ -76,6 +81,11 @@ public class PanelStartMovie extends JPanel implements Runnable{
 			
 			this.num++;
 			//TODO : 弄好imgMovie 后 ， 更改num
+			/**
+			 * TODO: 由于我把上面的num范围给改了，
+			 * 所以这里可能不需要使用num来进行判断
+			 * @author Water
+			 */
 			if(num == 86){
 //				this.repaint();
 //				// 添加一个Button ， 注册事件为一下内容。
