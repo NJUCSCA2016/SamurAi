@@ -19,22 +19,13 @@ public class ButtonExit extends SuperButton{
 	public ButtonExit() {
 		
 		super(0,0,0,0,null,null,null);
-		System.exit(0);
+	
 		
 	}
 	public void mouseClicked(MouseEvent e) {
-		//TODO �? 改变Button的大�?
+		super.mouseClicked(e);
+		
 		System.exit(0);
 	}
-
-	public void mouseEntered(MouseEvent e) {
-		// TODO 改变Button的大�?
-		
-	}
-	public void mouseExited(MouseEvent e) {
-		//TODO : 还原Button的大�?
-		
-	}
-	
 	
 }
