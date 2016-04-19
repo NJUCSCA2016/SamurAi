@@ -43,7 +43,7 @@ public class FrameGame extends JFrame{
  		while(Main.loadImage.isAlive()){
  		}
  		
- 		this.setContentPane(new PanelStartMovie(this));
+ 		this.setContentPane(new PanelStartMovie());
  		this.setVisible(true); 
 		
 		

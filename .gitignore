@@ -1,1 +1,2 @@
 /bin/
+git config --system core.ignorecase false

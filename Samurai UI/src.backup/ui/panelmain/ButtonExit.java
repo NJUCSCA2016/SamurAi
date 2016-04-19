@@ -19,7 +19,7 @@ public class ButtonExit extends SuperButton{
 	public ButtonExit() {
 		
 		super(0,0,0,0,null,null,null);
-	
+		System.exit(0);
 		
 	}
 	public void mouseClicked(MouseEvent e) {

@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import main.SingletonClass;
 import main.SuperButton;
 import ui.panelexample.PanelExample;
 
@@ -29,21 +30,16 @@ public class ButtonExample extends SuperButton{
 	/**
 	 * 此对象本身的引用
 	 */
-	private JButton button;
 	
-	
-	/**
-	 *游戏示例Button
-	 */
-	public ButtonExample(JFrame frame , JPanel fatherPanel) {
+	public ButtonExample(JPanel fatherPanel) {
 		//TODO : 定义每个Butto的参�?
 		super(0, 0, 0, 0,null,null,null);
-		this.frame = frame;
+		this.frame = SingletonClass.getFrameInstance();
 		this.fatherPanel = fatherPanel;
-		this.button = this;
 	}
 
 	public void mouseClicked(MouseEvent e) {
+		super.mouseClicked(e);
 		
 		this.frame.setContentPane(new PanelExample());
 		this.remove(this.fatherPanel);
@@ -51,23 +47,4 @@ public class ButtonExample extends SuperButton{
 		
 	}
 
-	public void mouseEntered(MouseEvent e) {
-		// TODO 改变Button的大�?
-		
-		this.button.setIcon(null);
-		
-	}
-	public void mouseExited(MouseEvent e) {
-		//TODO : 还原Button的大�?
-		
-//		this.button.setIcon(null);
-		
-	}
-	
-//	
-//	
-//	public void mousePressed(MouseEvent arg0) {	}
-//	public void mouseReleased(MouseEvent arg0) {}
-//	
-//	
 }

@@ -19,11 +19,13 @@ public abstract class SuperButton extends JButton implements MouseListener{
 	
 	/**
 	 * 此SuperButton只能建立方形的Button ,建立圆形参照 http://biancheng.dnbcw.info/java/39029.html
+	 * 
+	 * 使用MouseListener 无法实现在点击时更改样式。故仍使用getModel
 	 */
-	private int x ;
-	private int y ;
-	private int w ;
-	private int h ; 
+	protected int x ;
+	protected int y ;
+	protected int w ;
+	protected int h ; 
 	
 //	private ImageIcon buttonImg ;
 	/**
@@ -52,6 +54,7 @@ public abstract class SuperButton extends JButton implements MouseListener{
 		this.setContentAreaFilled(false);
 		this.setFocusPainted(false);
 		this.setBorderPainted(false);
+		
 	}
 	/**
 	 * 绘制每个Button的背�?
@@ -65,27 +68,59 @@ public abstract class SuperButton extends JButton implements MouseListener{
 	 * Clicked方法留在子类Button中来实现，�?�Enter和Exit只涉及图标变化�?�故可置于此实现
 	 */
 	public void mouseClicked(MouseEvent e) {
-		this.currentImage = this.clickImage;
+		try {
+			Thread.sleep(50);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
 		//TODO : �?有子类必须要重载此方法�??
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		this.currentImage = this.enterImage;
-		//TODO : 为重新设置大小�?�需重载此方�?
+		repaint();
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		this.currentImage = this.initImage;
-		//TODO �? 同上
+		repaint();
 	}
 
 	@Override
-	public void mousePressed(MouseEvent e) {}
+	public void mousePressed(MouseEvent e) {	
+		this.currentImage = this.clickImage;
+		repaint();
+		try {
+			Thread.sleep(50);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {}
+	
+	/**
+	 * @param enterImage the enterImage to set
+	 */
+	public void setEnterImage(Image enterImage) {
+		this.enterImage = enterImage;
+	}
+	/**
+	 * @param clickImage the clickImage to set
+	 */
+	public void setClickImage(Image clickImage) {
+		this.clickImage = clickImage;
+	}
+	/**
+	 * @param currentImage the currentImage to set
+	 */
+	public void setCurrentImage(Image currentImage) {
+		this.currentImage = currentImage;
+	}
+	
 	
 	
 }

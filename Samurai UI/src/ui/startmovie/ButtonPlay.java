@@ -6,39 +6,33 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import image.ImgButton;
-import main.SuperButton;
+import main.SingletonClass;
+import main.DynamicButton;
+import ui.panelmain.PanelMain;
 
-public class ButtonPlay extends SuperButton{
+public class ButtonPlay extends DynamicButton{
 	
 	private JFrame frame;
+	
 	private JPanel fatherPanel;
-	private JPanel newPanel;
 
-	public ButtonPlay(JFrame frame, JPanel fatherPanel, JPanel newPanel) {
+	public ButtonPlay(JPanel fatherPanel) {
 		super(350, 485, 300, 80, ImgButton.PLAY_1, ImgButton.PLAY_2, ImgButton.PLAY_3);
-		this.frame = frame;
 		this.fatherPanel = fatherPanel;
-		this.newPanel = newPanel;
+		this.frame = SingletonClass.getFrameInstance();
 	}
 	
 	public void mouseClicked(MouseEvent e){
 		super.mouseClicked(e);
-		this.setBounds(390, 495, 220, 60);
-
+//		this.setBounds(390, 495, 220, 60);
+		
 		this.setFocusable(false);
 		//移除该Panel
 		this.frame.remove(this);
-		this.frame.setContentPane(this.newPanel);
+		this.frame.setContentPane(new PanelMain());
 		//移除旧contentpane后进行重画
 		this.frame.revalidate();
 		
 	}
-	public void mouseEntered(MouseEvent e){
-		super.mouseEntered(e);
-		this.setBounds(370, 490, 260, 70);
-	}
-	public void mouseExited(MouseEvent e){
-		super.mouseExited(e);
-		this.setBounds(350, 485, 300, 80);
-	}
+	
 }

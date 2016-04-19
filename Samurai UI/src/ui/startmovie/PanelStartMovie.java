@@ -20,7 +20,7 @@ public class PanelStartMovie extends JPanel implements Runnable{
 	 */
 	private int num = 0;
 	
-	private JFrame frame ; 
+//	private JFrame frame ; 
 	
 	private JButton play;
 	
@@ -30,7 +30,7 @@ public class PanelStartMovie extends JPanel implements Runnable{
 	 * 开始播放开场动画
 	 * 播放结束后立刻删除该Panel
 	 */
-	public PanelStartMovie(JFrame frame) {
+	public PanelStartMovie() {
 		
 		this.setLayout(null);
 //		this.play.setFocusPainted(false);
@@ -38,7 +38,7 @@ public class PanelStartMovie extends JPanel implements Runnable{
 //		this.play.setText("");
 //		this.play.setVisible(false);
 		
-		this.frame = frame;
+//		this.frame = frame;
 		//请求焦点
 		this.requestFocus();
 		//播放动画
@@ -46,14 +46,14 @@ public class PanelStartMovie extends JPanel implements Runnable{
 		
 	}
 
-	public void paint(Graphics g){
+	public void paintComponent(Graphics g){
 		g.drawImage(ImgMovie.image[num], 0, 0, null);
 	}
 	@Override
 	public void run() {
 		//在开始即初始化该panel ， 避免延迟。 并且不在if(num == 0)中调用，去除对第一个Thread.sleep的影响
 		this.panelMain = new PanelMain();
-		this.play = new ButtonPlay(this.frame, this, this.panelMain);
+		this.play = new ButtonPlay(this.panelMain);
 		//TODO ： 放歌
 		//直接硬编码
 		/**
@@ -86,7 +86,7 @@ public class PanelStartMovie extends JPanel implements Runnable{
 			 * 所以这里可能不需要使用num来进行判断
 			 * @author Water
 			 */
-			if(num == 86){
+//			if(num == 86){
 //				this.repaint();
 //				// 添加一个Button ， 注册事件为一下内容。
 //				//取消焦点
@@ -97,8 +97,8 @@ public class PanelStartMovie extends JPanel implements Runnable{
 //				//移除旧contentpane后进行重画
 //				this.frame.revalidate();
 //				
-				break;
-			}
+//				break;
+//			}
 
 		}
 		this.num = 70;

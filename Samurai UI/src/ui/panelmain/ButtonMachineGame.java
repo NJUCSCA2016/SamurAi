@@ -9,40 +9,29 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import main.SuperButton;
+import main.SingletonClass;
+import main.DynamicButton;
 import ui.panelgame.PanelGame;
 
 /**
  * @author Alone
  * Written by YYM
  */
-public class ButtonMachineGame extends SuperButton{
-	
-	private JFrame frame;
-	private JPanel fatherPanel;
+public class ButtonMachineGame extends DynamicButton{
 	
 	/**
 	 *人机对战
 	 */
-	public ButtonMachineGame(JFrame frame , JPanel fatherPanel) {
+	public ButtonMachineGame(JPanel fatherPanel) {
 		super(0, 0, 0, 0,null,null,null);
-		this.frame = frame;
 		this.fatherPanel = fatherPanel;
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		//TODO 改变Button的大小
-		
+		super.mouseClicked(e);
 		this.frame.setContentPane(new PanelGame());
 		this.remove(this.fatherPanel);
 		this.revalidate();
 	}
 
-	public void mouseEntered(MouseEvent e) {
-		// TODO 改变Button的大小
-	}
-	public void mouseExited(MouseEvent e) {
-		//TODO : 还原Button的大小
-	}
-	
 }

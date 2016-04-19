@@ -8,13 +8,13 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import main.SuperButton;
+import main.DynamicButton;
 
 /**
  * @author Alone
  * Written by YYM
  */
-public class ButtonExit extends SuperButton{
+public class ButtonExit extends DynamicButton{
 
 	public ButtonExit() {
 		
@@ -23,18 +23,9 @@ public class ButtonExit extends SuperButton{
 		
 	}
 	public void mouseClicked(MouseEvent e) {
-		//TODO ： 改变Button的大小
+		super.mouseClicked(e);
+		
 		System.exit(0);
 	}
-
-	public void mouseEntered(MouseEvent e) {
-		// TODO 改变Button的大小
-		
-	}
-	public void mouseExited(MouseEvent e) {
-		//TODO : 还原Button的大小
-		
-	}
-	
 	
 }

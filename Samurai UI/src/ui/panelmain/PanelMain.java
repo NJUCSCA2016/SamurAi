@@ -7,32 +7,37 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import main.Background;
+
 /**
  * @author Alone
  * Written by YYM
  */
 public class PanelMain extends JPanel{
-
+	
+	private Background bk = null;
 	
 	public PanelMain(){
-		//TODO : 绘制背景 ，此处@万总， 写一个接口，定义creatWindow方法。
-		//TODO : 创建Button。
+		
 		this.setLayout(null);
 		
+		//TODO : 添加主界面的背景
+		bk = new Background(null);
+		this.add(bk);
 		
+		this.add(new ButtonExample(this));
+		this.add(new ButtonHelp(this));
+		this.add(new ButtonMachineGame(this));
+		this.add(new ButtonPeopleGame(this));
+		this.add(new ButtonSet(this));
+		this.add(new ButtonExit());
 		
 		
 	}
 	
-	
-	
-	
-	public void paint(Graphics g){
-		//清除原来的
-		super.paint(g);
-		//TODO :重画主窗口
-		
-		
+	public void paintComponent(Graphics g){
+		bk.creatBack(g);
+		super.paintComponents(g);
 	}
 	
 }

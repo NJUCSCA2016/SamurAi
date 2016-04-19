@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import main.SingletonClass;
 import main.SuperButton;
 import ui.panelgame.PanelGame;
 
@@ -24,24 +25,17 @@ public class ButtonPeopleGame extends SuperButton{
 	/**
 	 * 人人对战
 	 */
-	public ButtonPeopleGame(JFrame frame , JPanel fatherPanel) {
-		super(0, 0, 0, 0, null, null, null);
-		this.frame = frame;
+	public ButtonPeopleGame(JPanel fatherPanel) {
+		super(0, 0, 0, 0,null,null,null);
+		this.frame = SingletonClass.getFrameInstance();
 		this.fatherPanel = fatherPanel;
 	}
 	
 	public void mouseClicked(MouseEvent e) {
-		//TODO 改变Button的大�?
+		super.mouseClicked(e);
 		this.frame.setContentPane(new PanelGame());
 		this.remove(this.fatherPanel);
 		this.revalidate();
-	}
-
-	public void mouseEntered(MouseEvent e) {
-		// TODO 改变Button的大�?
-	}
-	public void mouseExited(MouseEvent e) {
-		//TODO : 还原Button的大�?
 	}
 	
 }
