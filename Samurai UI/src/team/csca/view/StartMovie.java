@@ -3,6 +3,7 @@ package team.csca.view;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -13,7 +14,7 @@ import javax.swing.JPanel;
  * @author Water
  * @author YYM
  */
-public class StartMovie extends JPanel {
+public class StartMovie extends JPanel implements KeyListener {
 	public int i = 1;
 
 	public Image image;
@@ -21,14 +22,19 @@ public class StartMovie extends JPanel {
 	private MainFrame frame;
 
 	public void paint(Graphics g) {
-		g.drawImage(image, 0, 0, null);
+		g.drawImage(getImage(i), 0, 0, null);
+	}
+
+	private Image getImage(int i2) {
+		image = new ImageIcon("Image/Start/" + i2 + ".png").getImage();
+		return image;
 	}
 
 	public StartMovie(MainFrame frame) {
 		this.frame = frame;
 		// 设置焦点
 		this.setFocusable(true);
-		// this.addKeyListener(new StartMovie(this));
+		this.addKeyListener(StartMovie.this);
 		new Thread(new movie()).start();
 	}
 
@@ -37,20 +43,23 @@ public class StartMovie extends JPanel {
 		 * 线程式加载图片
 		 */
 		public void run() {
-
-			try {
+			while (true) {
 				// TODO : 还要加载 Loading和片尾图片
-				for (i = 1; i <= 90; i++) {
-					// 经测试，ImageIcon比ImageIo快很多
-					image = new ImageIcon("Image/Start/" + i + ".png").getImage();
-					repaint();
-					Thread.sleep(50);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			if(i == 90){
+				// 经测试，ImageIcon比ImageIo快很多
 				
+				repaint();
+				try {			
+					// TODO: 调慢一点
+					Thread.sleep(50);
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				if (i == 90) {
+					frame.remove(StartMovie.this);
+					System.out.println(111);
+				}
+				i++;
 			}
 
 		}
@@ -59,11 +68,21 @@ public class StartMovie extends JPanel {
 	/**
 	 * 键盘事件
 	 */
+
+	@Override
 	public void keyReleased(KeyEvent e) {
 		// 空格skip
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			i = 69;
+			i = 89;
 		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
 	}
 
 }
