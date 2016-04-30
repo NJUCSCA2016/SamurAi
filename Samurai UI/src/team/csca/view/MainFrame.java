@@ -4,8 +4,11 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
+
+import team.csca.controller.Controller;
 
 /**
  * This class decides the main frame of this software and other classes about
@@ -19,6 +22,8 @@ public class MainFrame extends JFrame {
 	 * 鼠标
 	 */
 	private Cursor cursor;
+	
+	private MainFrame frame;
 
 	public MainFrame() {
 		// 设置标题栏
@@ -30,6 +35,10 @@ public class MainFrame extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		// 设置尺寸
 		this.setSize(1250, 700);
+		
+		Controller.getController().setFrame(frame);
+		
+		this.setLayout(null);
 
 		// 设置屏幕居中
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
