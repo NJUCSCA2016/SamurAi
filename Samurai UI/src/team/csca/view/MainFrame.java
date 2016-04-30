@@ -55,8 +55,7 @@ public class MainFrame extends JFrame {
 				new Point(0, 0), "mycursor");
 		this.setCursor(cursor);
 		
-		this.jpanelStartMovie();
-
+		this.jpanelStartMovie();	
 	}
 
 	private void jpanelStartMovie() {
