@@ -1,5 +1,7 @@
 package team.csca.main;
 
+import team.csca.view.MainFrame;
+
 /**
  * 整个游戏的入口
  * @author Water
@@ -8,7 +10,7 @@ package team.csca.main;
 public class Main {
 
 	public static void main(String[] args) {
-		SamuraiTest st = new SamuraiTest();
+		new MainFrame().setVisible(true);
 	}
 
 }

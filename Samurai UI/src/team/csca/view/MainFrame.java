@@ -45,7 +45,16 @@ public class MainFrame extends JFrame {
 		cursor = Toolkit.getDefaultToolkit().createCustomCursor(ImgSystem.cursor, 
 				new Point(0, 0), "mycursor");
 		this.setCursor(cursor);
+		
+		this.jpanelStartMovie();
 
 	}
+
+	private void jpanelStartMovie() {
+		this.setContentPane(new StartMovie(this));
+		
+	}
+
+	
 
 }
