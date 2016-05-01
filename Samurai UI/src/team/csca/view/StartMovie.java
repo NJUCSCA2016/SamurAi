@@ -50,13 +50,16 @@ public class StartMovie extends JPanel implements KeyListener {
 				// 经测试，ImageIcon比ImageIo快很多
 				
 				repaint();
-				try {			
-					// TODO: 调慢一点
-					Thread.sleep(50);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
+				if (i<=90) {
+					try {			
+						// TODO: 调慢一点
+						Thread.sleep(50);
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					}	
 				}
+				
 				if (i == 90) {
 					// 取消焦点
 					StartMovie.this.setFocusable(false);
