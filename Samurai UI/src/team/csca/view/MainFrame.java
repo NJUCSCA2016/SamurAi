@@ -23,7 +23,7 @@ public class MainFrame extends JFrame {
 	 */
 	private Cursor cursor;
 	
-	private MainFrame frame;
+//	private MainFrame frame;
 
 	public MainFrame() {
 		// 设置标题栏
@@ -36,7 +36,7 @@ public class MainFrame extends JFrame {
 		// 设置尺寸
 		this.setSize(1250, 700);
 		
-		Controller.getController().setFrame(frame);
+		Controller.getController().setFrame(this);
 		
 		this.setLayout(null);
 

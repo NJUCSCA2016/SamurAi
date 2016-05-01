@@ -23,20 +23,13 @@ public class StartMovie extends JPanel implements KeyListener {
 	
 	private StartGame st;
 
-	public void paint(Graphics g) {
-		g.drawImage(getImage(i), 0, 0, null);
-	}
 
-	private Image getImage(int i2) {
-		image = new ImageIcon("Image/Start/" + i2 + ".png").getImage();
-		return image;
-	}
 
 	public StartMovie(MainFrame frame) {
 		this.frame = frame;
 		// 设置焦点
 		this.setFocusable(true);
-		this.addKeyListener(StartMovie.this);
+		frame.addKeyListener(StartMovie.this);
 		new Thread(new movie()).start();
 	}
 
@@ -62,6 +55,7 @@ public class StartMovie extends JPanel implements KeyListener {
 				
 				if (i == 90) {
 					// 取消焦点
+					st=new StartGame(frame);
 					StartMovie.this.setFocusable(false);
 					// 增加开始游戏panel
 					frame.setContentPane(st);				
@@ -81,6 +75,15 @@ public class StartMovie extends JPanel implements KeyListener {
 		}
 	}
 
+	public void paint(Graphics g) {
+		g.drawImage(getImage(i), 0, 0, null);
+	}
+
+	private Image getImage(int i2) {
+		image = new ImageIcon("Image/Start/" + i2 + ".png").getImage();
+		return image;
+	}
+	
 	/**
 	 * 键盘事件
 	 */
