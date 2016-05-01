@@ -2,10 +2,10 @@ package team.csca.controller;
 
 
 import team.csca.controller.Controller;
-import team.csca.view.MainFrame;
+import team.csca.view.JFrameMain;
 
 public class Controller {
-	private MainFrame frame;
+	private JFrameMain frame;
 	
 	private static Controller controller;
 	
@@ -16,7 +16,7 @@ public class Controller {
 		return controller;
 	}
 	
-	public void setFrame(MainFrame frame) {
+	public void setFrame(JFrameMain frame) {
 		this.frame = frame;
 	}
 	

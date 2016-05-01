@@ -1,6 +1,6 @@
 package team.csca.main;
 
-import team.csca.view.MainFrame;
+import team.csca.view.JFrameMain;
 
 /**
  * 整个游戏的入口
@@ -10,7 +10,7 @@ import team.csca.view.MainFrame;
 public class Main {
 
 	public static void main(String[] args) {
-		new MainFrame().setVisible(true);
+		new JFrameMain().setVisible(true);
 	}
 
 }
