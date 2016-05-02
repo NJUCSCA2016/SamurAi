@@ -8,5 +8,7 @@ package image;
  * Written by YYM
  */
 public class ImgAI {
-
+	/**
+	 * 放置AI的图片类
+	 */
 }
