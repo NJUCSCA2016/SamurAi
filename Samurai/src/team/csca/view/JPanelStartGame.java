@@ -16,14 +16,15 @@ public class JPanelStartGame extends JPanel{
 	private Layer[] layers;
 	// 开始界面
 	public Image img =  new ImageIcon("Image/Start/80.png").getImage();
-	
-	JButton jbnPlay = new JButton();
+//	
+//	JButton jbnPlay = new JButton();
+//	JButton jbnPlay = new JButtonPlay(this);
 	
 	ImageIcon iiStart = new ImageIcon("Image/Button/P2.png");
 
-	public void paint(Graphics g){
-		g.drawImage(img, 0, 0, null);
-	}
+//	public void paint(Graphics g){
+//		g.drawImage(img, 0, 0, null);
+//	}
 	
 	public JPanelStartGame(JFrameMain frame){
 		this.frame = frame;
@@ -31,9 +32,11 @@ public class JPanelStartGame extends JPanel{
 		layers = new Layer[] {
 			new LayerBackground(0, 0, 1250, 700, img),	
 		};
-		this.add(jbnPlay);
-		jbnPlay.setIcon(iiStart);
-		jbnPlay.setBounds(350, 480, 300, 75);
+//		JButton jbnPlay = new JButtonPlay(this);
+//		this.add(jbnPlay);
+//		this.add(jbnPlay);
+//		jbnPlay.setIcon(iiStart);
+//		jbnPlay.setBounds(350, 480, 300, 75);
 		
 	}
 	

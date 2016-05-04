@@ -7,12 +7,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import main.Background;
-import main.SingletonClass;
 import sounds.Sounds;
 
 public class PanelSet extends JPanel{
 
-	private Sounds sound = SingletonClass.getSoundInstance();
+	private Sounds sound = Sounds.SOUNDS;
 	
 	private Background border;
 	

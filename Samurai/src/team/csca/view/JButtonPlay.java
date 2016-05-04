@@ -1,20 +1,21 @@
-package ui.startmovie;
+package team.csca.view;
 
 import java.awt.event.MouseEvent;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import image.ImgButton;
-import main.DynamicButton;
-import main.FrameGame;
 import ui.panelmain.PanelMain;
 
-public class ButtonPlay extends DynamicButton{
-	
-	private JPanel fatherPanel;
+/**
+ * 
+ * @author YYM
+ *
+ */
+public class JButtonPlay extends DynamicButton{
 
-	public ButtonPlay(JPanel fatherPanel) {
+	private JPanel fatherPanel;
+	
+	public JButtonPlay(JPanel fatherPanel){
 		super(350, 485, 300, 80, ImgButton.PLAY_1, ImgButton.PLAY_2, ImgButton.PLAY_3);
 		this.fatherPanel = fatherPanel;
 	}
@@ -31,5 +32,4 @@ public class ButtonPlay extends DynamicButton{
 		this.frame.revalidate();
 		
 	}
-	
 }

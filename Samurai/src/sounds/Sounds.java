@@ -3,12 +3,18 @@ package sounds;
 
 public class Sounds {
 	
+	public final static Sounds SOUNDS = new Sounds();
+	
 	private boolean gameSoundsOn = true;
 	
 	private boolean backSoundsOn = true;
 	
-	
-	
+	/**
+	 * 私有构造函数。不可外部创建对象
+	 */
+	private Sounds(){
+		//Do nothing
+	}
 	
 	/**
 	 * 播放音乐

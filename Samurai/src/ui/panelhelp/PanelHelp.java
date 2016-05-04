@@ -2,11 +2,8 @@ package ui.panelhelp;
 
 import java.awt.Graphics;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import main.Background;
-import main.SingletonClass;
 
 public class PanelHelp extends JPanel{
 	
@@ -21,8 +18,6 @@ public class PanelHelp extends JPanel{
 	protected int lastIndex = 10;
 	
 	public PanelHelp(){
-		
-		SingletonClass.getFrameInstance();
 		
 		this.setLayout(null);
 		

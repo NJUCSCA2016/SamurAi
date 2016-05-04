@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
@@ -23,13 +24,14 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 	
 	private JPanelStartGame st;
 
-
+//	private JButton btnPlay;
 
 	public JPanelStartMovie(JFrameMain frame) {
 		this.frame = frame;
 		// 设置焦点
 		this.setFocusable(true);
 		frame.addKeyListener(JPanelStartMovie.this);
+		this.add(new JButtonPlay(this));
 		new Thread(new movie()).start();
 	}
 
@@ -46,6 +48,7 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 				if (i==1) {
 					// 当movie线程开启时马上new一个主界面panel，避免延迟
 					st = new JPanelStartGame(frame);
+//					btnPlay = new JButtonPlay(st);
 				}
 				
 				if (i<=90) {

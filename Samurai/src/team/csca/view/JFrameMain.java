@@ -25,6 +25,8 @@ public class JFrameMain extends JFrame {
 	 */
 	private Cursor cursor;
 	
+	public final static JFrameMain J_FRAME_MAIN = new JFrameMain();
+	
 //	private MainFrame frame;
 
 	public JFrameMain() {
@@ -55,6 +57,7 @@ public class JFrameMain extends JFrame {
 		// 设置默认鼠标
 		cursor = Toolkit.getDefaultToolkit().createCustomCursor(ImgSystem.cursor, 
 				new Point(0, 0), "mycursor");
+		
 		this.setCursor(cursor);
 		// 设置起始panel
 		this.jpanelStartMovie();	

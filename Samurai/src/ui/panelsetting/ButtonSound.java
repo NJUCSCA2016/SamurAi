@@ -1,6 +1,5 @@
 package ui.panelsetting;
 
-import main.SingletonClass;
 import main.StaticButton;
 import sounds.Sounds;
 

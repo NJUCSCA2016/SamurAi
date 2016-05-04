@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
-import main.SingletonClass;
 import main.StaticButton;
 import ui.panelmain.PanelMain;
 
