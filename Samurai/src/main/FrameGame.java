@@ -17,10 +17,12 @@ import ui.startmovie.PanelStartMovie;
  */
 public class FrameGame extends JFrame{
 	
+	public final static FrameGame FRAME_GAME = new FrameGame();
+	
 	/**
 	 * 设置窗口参数
 	 */
-	public FrameGame() {
+	private FrameGame() {
 		
 		this.setTitle("SAMURAI");
 		

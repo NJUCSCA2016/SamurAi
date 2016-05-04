@@ -19,9 +19,9 @@ public class Main {
 		Main.loadImage.start();
 		//开始即加载。否则加载过程耗时导致movie显示出问题
 		//此处初始化实例。
-		SingletonClass.getSoundInstance();
-		SingletonClass.getFrameInstance();
-		
+//		SingletonClass.getSoundInstance();
+//		SingletonClass.getFrameInstance();
+		FrameGame fg = FrameGame.FRAME_GAME;
 	}
 	
 }

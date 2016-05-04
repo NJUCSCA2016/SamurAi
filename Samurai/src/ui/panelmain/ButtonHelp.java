@@ -6,7 +6,6 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import main.SingletonClass;
 import main.DynamicButton;
 import ui.panelgame.PanelGame;
 import ui.panelhelp.PanelHelp;

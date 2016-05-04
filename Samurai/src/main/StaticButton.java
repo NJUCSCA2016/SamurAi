@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 public abstract class StaticButton extends JButton{
 
-	protected JFrame frame = SingletonClass.getFrameInstance();
+	protected JFrame frame = FrameGame.FRAME_GAME;
 	/**
 	 * 不会随着鼠标放上去而改变图案的Button
 	 */
