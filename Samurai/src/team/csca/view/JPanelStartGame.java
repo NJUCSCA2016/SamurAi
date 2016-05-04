@@ -40,6 +40,6 @@ public class JPanelStartGame extends JPanel{
 		
 	}
 	public void paint(Graphics g){
-		g.drawString("MUMAAAAA", getWidth() >> 1, getHeight() >> 1);
+//		g.drawString("MUMAAAAA", getWidth() >> 1, getHeight() >> 1);
 	}
 }

@@ -56,7 +56,8 @@ public class JFrameMain extends JFrame {
 				Controller.getController().setFrame(this);
 				// 设置为自由布局
 				this.setLayout(null);
-
+				//设置不可改变大小
+				this.setResizable(false);
 				// 设置屏幕居中
 				Toolkit toolkit = Toolkit.getDefaultToolkit();
 				Dimension screen = toolkit.getScreenSize();

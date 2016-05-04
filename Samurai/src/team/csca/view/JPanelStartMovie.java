@@ -92,12 +92,12 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 			remove(btnPlay);
 			pic_Number = 90;
 			//TODO : 一下范围均为尚未抠图的情况下画的
-			while(pic_Number >= 1){
+			while(pic_Number <= 133){
 				
 				repaint();
 				try{			
 					// TODO: 调慢一点
-					Thread.sleep(50);
+					Thread.sleep(125 );
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -107,7 +107,7 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 					mainPanel = new JPanelStartGame();
 				}
 				
-				pic_Number--;
+				pic_Number++;
 			}
 			setFocusable(false);
 			//移除该Panel
@@ -121,7 +121,6 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 	}
 	
 	public void paintComponent(Graphics g) {
-		System.out.println(pic_Number);
 		g.drawImage(getImage(pic_Number), 0, 0, null);
 	}
 
