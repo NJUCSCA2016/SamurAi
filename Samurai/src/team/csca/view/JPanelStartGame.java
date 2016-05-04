@@ -11,7 +11,7 @@ public class JPanelStartGame extends JPanel{
 	/*
 	 * Frame
 	 */
-	private JFrameMain frame;
+	private JFrameMain frame = JFrameMain.J_FRAME_MAIN;
 	
 	private Layer[] layers;
 	// 开始界面
@@ -26,8 +26,8 @@ public class JPanelStartGame extends JPanel{
 //		g.drawImage(img, 0, 0, null);
 //	}
 	
-	public JPanelStartGame(JFrameMain frame){
-		this.frame = frame;
+	public JPanelStartGame(){
+		
 		this.setLayout(null);
 		layers = new Layer[] {
 			new LayerBackground(0, 0, 1250, 700, img),	
@@ -39,5 +39,7 @@ public class JPanelStartGame extends JPanel{
 //		jbnPlay.setBounds(350, 480, 300, 75);
 		
 	}
-	
+	public void paint(Graphics g){
+		g.drawString("MUMAAAAA", getWidth() >> 1, getHeight() >> 1);
+	}
 }

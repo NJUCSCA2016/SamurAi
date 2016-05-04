@@ -10,7 +10,7 @@ import team.csca.view.JFrameMain;
 public class Main {
 
 	public static void main(String[] args) {
-		new JFrameMain().setVisible(true);
+		JFrameMain.J_FRAME_MAIN.init();
 	}
 
 }
