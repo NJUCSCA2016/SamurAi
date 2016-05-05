@@ -475,7 +475,7 @@ public final class SamuraiInfo {
 	     * @param curY 当前Y坐标
 	     * @return
 	     */
-	    private boolean checkOutOfField(int curX , int curY){
+	    public boolean checkOutOfField(int curX , int curY){
 			return curX < 0 || this.gameInfo.width <= curX || curY < 0 || this.gameInfo.height <= curY;
 	    }
 	    

@@ -15,6 +15,7 @@ import data.SamuraiInfo;
  * 
  * AI 是不知道每次对方AI的行为的，只能知道它的位置，当然，是显示的情况下。
  * 
+ *@warning :  每个AI即使在操作之后并不能更新自身的视野。
  * 
  * @author Alone
  * Written by YYM
@@ -68,4 +69,69 @@ public abstract class Player {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 *  Basic 
+	 */
+	public boolean canOccupy(int direction){
+		return this.canOccupy(direction);
+	}
+	
+	public boolean canMveOneStep(int direction){
+		return this.centerControl.canMoveOneStep(direction);
+	}
+	
+	public boolean canMoveTwoStep(int direction1 , int direction2){
+		return this.centerControl.canMoveTwoStep(direction1, direction2);
+	}
+	
+	public boolean canMoveThreeStep(int direction1 , int direction2 , int direction3){
+		return this.centerControl.canMoveThreeStep(direction1, direction2, direction3);
+	}
+	
+	public boolean canHide(){
+		return this.centerControl.canHide();
+	}
+	
+	public boolean canShow() {
+		return this.centerControl.canShow();
+	}
+	
+	public void hide(){
+		this.centerControl.hide();
+	}
+	
+	public void show(){
+		this.centerControl.show();
+	}
+	
+	public void occupy(int direction){
+		this.centerControl.occupy(direction);
+	}
+	
+	public void moveOneStep(int direction) {
+		this.centerControl.moveOneStep(direction);
+	}
+	
+	public void moveTwoStep(int direction1 , int direction2){
+		this.centerControl.moveTwoStep(direction1, direction2);
+	}
+	
+	public void moveThreeStep(int direction1 , int direction2 , int direction3) {
+		this.centerControl.moveThreeStep(direction1, direction2, direction3);
+	}
+	
+	public void moveThenHit(int moveDirection , int hitDirection){
+		this.centerControl.moveThenHit(moveDirection, hitDirection);
+	}
+	
+	public void hitThenMove(int hitDirection , int moveDirection){
+		this.centerControl.hitThenMove(hitDirection, moveDirection);
+	}
 }

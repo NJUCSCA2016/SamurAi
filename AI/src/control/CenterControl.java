@@ -29,7 +29,7 @@ public class CenterControl {
 		return this.canOccupy(direction);
 	}
 	
-	public boolean canMveOneStep(int direction){
+	public boolean canMoveOneStep(int direction){
 		return this.samuraiInfo.canMoveOneStep(direction);
 	}
 	
@@ -80,4 +80,5 @@ public class CenterControl {
 	public void hitThenMove(int hitDirection , int moveDirection){
 		this.samuraiInfo.hitThenMove(hitDirection, moveDirection);
 	}
+	
 }
