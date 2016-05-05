@@ -3,6 +3,8 @@
  */
 package ai;
 
+import java.util.ArrayList;
+
 import control.CenterControl;
 import data.GameInfo;
 import data.SamuraiInfo;
@@ -42,6 +44,12 @@ public abstract class Player {
 	 */
 	protected final static int MAX_PATH = 5;
 	/**
+	 * Using this to store all the enemies' location in sight . 
+	 * 
+	 * Which can be seen by all AI
+	 */
+	protected static ArrayList<int[]> enemy_Location = new ArrayList<int[]>(3);
+	/**
 	 * 
 	 * @param info
 	 * @return
@@ -54,9 +62,9 @@ public abstract class Player {
 		this.samuraiInfo = samuraiInfo;
 	}
 	
-	
-	
-	
+	/**
+	 *  The following is the basic high level judge.	 
+	 */
 	
 	
 	

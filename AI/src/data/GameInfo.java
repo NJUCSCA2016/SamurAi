@@ -81,6 +81,7 @@ public final class GameInfo {
 	this.turn = 0;
 	this.curePeriod = 0;
 	this.field = new int[this.height][this.width];
+	//在这里我们获取AI中的当前可以见到的敌方AI。
 	System.out.println("0");
     }
     
