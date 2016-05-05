@@ -14,6 +14,7 @@ import data.GameInfo;
 public class Main {
 	
 	public static void main(String[] argv) {
+//		System.out.println((1+4)+" ");
 		//用于初始化ActionInfo中信息。
 		new ActionInfo();
 		

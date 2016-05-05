@@ -97,7 +97,7 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 				repaint();
 				try{			
 					// TODO: 调慢一点
-					Thread.sleep(125 );
+					Thread.sleep(125);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
