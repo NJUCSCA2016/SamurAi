@@ -10,6 +10,10 @@ import data.SamuraiInfo;
 /**
  * 这个类用于规范Player 的一些基本操作。
  * 具体的每个高级操作落实到每个实体中。
+ * 
+ * AI 是不知道每次对方AI的行为的，只能知道它的位置，当然，是显示的情况下。
+ * 
+ * 
  * @author Alone
  * Written by YYM
  */
@@ -27,6 +31,8 @@ public abstract class Player {
 	 * 行动力消耗
 	 */
 	public final int[] cost = {0, 4, 4, 4, 4, 2, 2, 2, 2, 1, 1};
+	
+	protected int current_Cost = 0;
 	/**
 	 * 最大行动力
 	 */
@@ -47,4 +53,11 @@ public abstract class Player {
 		this.gameInfo = gameInfo;
 		this.samuraiInfo = samuraiInfo;
 	}
+	
+	
+	
+	
+	
+	
+	
 }

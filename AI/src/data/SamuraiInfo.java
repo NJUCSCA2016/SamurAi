@@ -6,13 +6,15 @@ package data;
  * 
  * @version version two . In the first version , there exits a class called service . while in this version. I delete it and move all its method to this class
  * 
+ * 
+ * @version version three : The basic operation is done . Then finished the link between AI and this Info.
+ * 
+ * @version version four . In this version , All the basic operations are finished . Then go and finished the Center and simple player
+ * 
  * 这个类为逻辑处理类。
  * 处理各种低级的行动。移动一步、两步、三步。攻击。隐身。显示。
  * @author With You
  *
- *
- * @version version three : The basic operation is done . Then finished the link between AI and this Info.
- * 
  * @warning  warning : All these methods in this class is never permitted to call by ANY CLASS except CLASS CONTROL !
  */
 
@@ -73,7 +75,8 @@ public final class SamuraiInfo {
 		 */
 	  
 	  
-	   /**
+	   /** 
+	    * 
 	     * 判断是否可以隐藏
 	     * @param curY 一维
 	     * @param curX 二维
@@ -95,7 +98,7 @@ public final class SamuraiInfo {
 	     */
 	    public boolean canOccupy(){
 	    	//如果要执行1-4 那么判断是否为隐藏。若隐藏则不执行命令
-	    	if(this.hidden == 0){
+	    	if(this.hidden == 1){
 	    		return false;
 	    	}
 	    	//如果边上都是自己或者友军的地盘。没有必要去占领。
@@ -110,7 +113,7 @@ public final class SamuraiInfo {
 	     * @return
 	     */
 	    public boolean canShow(){
-	    	if (this.hidden != 1){
+	    	if (this.hidden == 0){
 		    	return false;
 				}
 	    	
@@ -123,10 +126,15 @@ public final class SamuraiInfo {
 				}
 				return true;
 	    }
-	
+	    
+	    public void show(){
+	    	this.hidden = 0;
+	    	System.out.print(10 + " ");
+	    }
+	    
 	    public void hide(){
 	    	this.hidden = 1;
-	    	System.out.print(10 + " ");
+	    	System.out.print(9 + " ");
 	    }
 	    
 	    public void occupy(int direction){
