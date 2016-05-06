@@ -2,12 +2,10 @@ package ui.startmovie;
 
 import java.awt.event.MouseEvent;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import image.ImgButton;
 import main.DynamicButton;
-import main.FrameGame;
 import ui.panelmain.PanelMain;
 
 public class ButtonPlay extends DynamicButton{

@@ -1,7 +1,6 @@
 package ui.panelsetting;
 
 import main.StaticButton;
-import sounds.Sounds;
 
 public class ButtonSound extends StaticButton{
 	

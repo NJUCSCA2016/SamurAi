@@ -24,7 +24,7 @@ public class JButtonProps extends DynamicButton{
 	
 	public void mouseClicked(MouseEvent e){
 		super.mouseClicked(e);
-		
+		this.setButtonImg( ImgButton.BUTTON_PROPS_ENTER);
 		//TODO : 完成道具模式面板。
 //		frameMain.setContentPane(null);
 		frameMain.remove(fatherPanel);

@@ -4,9 +4,10 @@
 package ui.startmovie;
 
 import java.awt.Graphics;
+
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import ui.panelmain.PanelMain;
 
 /**

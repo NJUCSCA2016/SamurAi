@@ -18,7 +18,7 @@ public class JButtonSituation extends DynamicButton{
 	
 	public void mouseClicked(MouseEvent e){
 		super.mouseClicked(e);
-		
+		this.setButtonImg( ImgButton.BUTTON_SITUATION_ENTER);
 		//TODO : 完成情景模式面板
 //		frameMain.setContentPane(null);
 		frameMain.remove(fatherPanel);

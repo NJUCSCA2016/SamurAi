@@ -159,14 +159,14 @@ public class ImgButton {
 		//TODO : Finishing the two picture of the initial type of two button 
 		NEXT_RIGHT_INIT = new ImageIcon("Image/HelpPanel/right_button_init.png").getImage();
 		
-		NEXT_RIGHT_ENTER = new ImageIcon("Image/HelpPanel/right_button_unclicked.png").getImage();
+		NEXT_RIGHT_ENTER = new ImageIcon("Image/HelpPanel/right_button_enter.png").getImage();
 		NEXT_RIGHT_CLICKED = new ImageIcon("Image/HelpPanel/right_button_clicked.png").getImage();
 		NEXT_RIGHT_ENABLE = new ImageIcon("Image/HelpPanel/right_button_enable.png").getImage();
 		
-		NEXT_LEFT_INIT = new ImageIcon("Image/HelpPanel/right_button_init.png").getImage();
+		NEXT_LEFT_INIT = new ImageIcon("Image/HelpPanel/left_button_init.png").getImage();
 		
 		NEXT_LEFT_CLICKED =  new ImageIcon("Image/HelpPanel/left_button_clicked.png").getImage();
-		NEXT_LEFT_ENTER = new ImageIcon("Image/HelpPanel/left_button_unclicked.png").getImage();
+		NEXT_LEFT_ENTER = new ImageIcon("Image/HelpPanel/left_button_enter.png").getImage();
 		NEXT_LEFT_ENABLE = new ImageIcon("Image/HelpPanel/left_button_enable.png").getImage();
 		
 		

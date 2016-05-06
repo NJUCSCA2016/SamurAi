@@ -5,8 +5,6 @@ import java.awt.Image;
 
 import javax.swing.JPanel;
 
-import ui.startmovie.ImgMovie;
-
 public class Background extends JPanel{
 
 	private Image background = null;

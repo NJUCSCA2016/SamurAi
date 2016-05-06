@@ -3,10 +3,6 @@
  */
 package ui.panelmain;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import main.DynamicButton;
 

@@ -20,9 +20,17 @@ public class JButtonPlay extends DynamicButton{
 	}
 	
 	public void mouseClicked(MouseEvent e){
+		
 		super.mouseClicked(e);
 //		this.setBounds(390, 495, 220, 60);
-		
+		this.setButtonImg(ImgButton.PLAY_2);
+		try {
+			Thread.sleep(10);
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
 		this.fatherPanel.startTwo();
 	}
+	
+
 }

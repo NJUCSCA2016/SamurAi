@@ -21,7 +21,7 @@ public class JButtonExit extends DynamicButton{
 	
 	public void mouseClicked(MouseEvent e){
 		super.mouseClicked(e);
-		
+		this.setButtonImg( ImgButton.BUTTON_EXIT_ENTER);
 		System.exit(0);
 	}
 }

@@ -1,7 +1,9 @@
 package ui.panelhelp;
 
 import java.awt.event.MouseEvent;
+
 import javax.swing.JPanel;
+
 import main.DynamicButton;
 import ui.panelmain.PanelMain;
 

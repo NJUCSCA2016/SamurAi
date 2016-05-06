@@ -1,11 +1,8 @@
-package ui.csca.view.help;
+package team.csca.view.help;
 
-import java.awt.event.ActionEvent;
-
-import com.sun.glass.events.MouseEvent;
+import java.awt.event.MouseEvent;
 
 import team.csca.view.extend.DynamicButton;
-import team.csca.view.extend.LayerBackground;
 import team.csca.view.image.ImgButton;
 
 public class JButtonPre extends DynamicButton{
@@ -16,27 +13,35 @@ public class JButtonPre extends DynamicButton{
 	
 	public JButtonPre(JPanelHelp fatherPanel){
 		
-		super(0, 0, 0, 0, ImgButton.NEXT_LEFT_INIT, ImgButton.NEXT_LEFT_ENTER , ImgButton.NEXT_LEFT_CLICKED);
+		super(245, 585, 50, 50, ImgButton.NEXT_LEFT_INIT, ImgButton.NEXT_LEFT_ENTER , ImgButton.NEXT_LEFT_CLICKED);
 		this.fatherPanel = fatherPanel;
-		
+		this.setButtonImg(ImgButton.NEXT_LEFT_ENABLE);
+		this.setEnabled(false);
+		this.removeMouseListener(this);
 	}
 	
 	public void mouseClicked(MouseEvent e){
-		
+			
 			this.fatherPanel.numOfPic--;
-			if(this.fatherPanel.numOfPic == this.fatherPanel.LAST_INDEX-1){
-				this.buttonNext.setEnabled(true);
+			if(this.fatherPanel.numOfPic == (JPanelHelp.LAST_INDEX-1)){
+				this.buttonNext.activate();
 			}
 			if(this.fatherPanel.numOfPic == 0){
 				this.setButtonImg(ImgButton.NEXT_LEFT_ENABLE);
 				this.setEnabled(false);
+				this.removeMouseListener(this);
+			}else{
+				
+					this.setButtonImg(ImgButton.NEXT_LEFT_ENTER);
+
 			}
 			
 			this.fatherPanel.updateBackground();
 			
 	}
-	
 	protected void activate(){
+		this.setButtonImg(ImgButton.NEXT_LEFT_INIT);
+		this.addMouseListener(this);
 		this.setEnabled(true);
 	}
 	

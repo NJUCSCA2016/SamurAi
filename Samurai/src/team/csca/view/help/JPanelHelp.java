@@ -1,4 +1,4 @@
-package ui.csca.view.help;
+package team.csca.view.help;
 
 import java.awt.Graphics;
 
@@ -9,7 +9,7 @@ import team.csca.view.image.ImgBackground;
 
 public class JPanelHelp extends JPanel{
 	
-	protected final static int LAST_INDEX = ImgBackground.HELP_BACKGOUNDS.length - 1;
+	protected final static int LAST_INDEX = 2;
 	
 	protected int numOfPic = 0;
 	

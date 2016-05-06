@@ -3,6 +3,7 @@ package ui.panelhelp;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
+
 import main.Background;
 
 public class PanelHelp extends JPanel{

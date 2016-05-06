@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgButton;
+import team.csca.view.set.JPanelSetting;
 
 /**
  * 
@@ -25,9 +26,8 @@ public class JButtonSetting extends DynamicButton{
 	
 	public void mouseClicked(MouseEvent e){
 		super.mouseClicked(e);
-		
-		//TODO : 完成设置模式面板
-//		frameMain.setContentPane(null);
+		this.setButtonImg(ImgButton.BUTTON_SET_ENTER);
+		frameMain.setContentPane(new JPanelSetting());
 		frameMain.remove(fatherPanel);
 		frameMain.revalidate();
 	}

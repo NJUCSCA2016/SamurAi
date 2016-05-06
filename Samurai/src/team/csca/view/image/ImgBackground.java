@@ -33,5 +33,13 @@ public class ImgBackground {
 				};
 	}
 	
+	/**
+	 * 
+	 * Background of setting panel
+	 * 
+	 */
+	
+	public final static Image SETTING_PANEL_BACKGROUND = new ImageIcon("Image/SetPanel/back_set.png").getImage();
+	
 	
 }

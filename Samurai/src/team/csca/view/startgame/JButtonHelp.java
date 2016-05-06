@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.frame.JFrameMain;
+import team.csca.view.help.JPanelHelp;
 import team.csca.view.image.ImgButton;
 
 /**
@@ -24,9 +25,9 @@ public class JButtonHelp extends DynamicButton{
 	
 	public void mouseClicked(MouseEvent e){
 		super.mouseClicked(e);
-		
-		//TODO : 完成帮助面板
-//		frameMain.setContentPane(null);
+		this.setButtonImg(ImgButton.BUTTON_HELP_ENTER);
+		repaint();
+		frameMain.setContentPane(new JPanelHelp());
 		frameMain.remove(fatherPanel);
 		frameMain.revalidate();
 	}
