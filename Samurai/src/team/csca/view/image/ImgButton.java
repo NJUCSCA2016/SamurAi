@@ -133,4 +133,41 @@ public class ImgButton {
 		
 	}
 
+	/**
+	 * 
+	 * Button in Help Panel
+	 * 
+	 */
+	
+	public final static Image NEXT_RIGHT_UNCLICK;
+	
+	public final static Image NEXT_RIGHT_CLICKED;
+	
+	public final static Image NEXT_LEFT_UNCLICK;
+	
+	public final static Image NEXT_LEFT_CLICKED;
+	
+	static{
+		
+		NEXT_RIGHT_UNCLICK = new ImageIcon("Image/HelpPanel/right_button_unclicked.png").getImage();
+		NEXT_RIGHT_CLICKED = new ImageIcon("Image/HelpPanel/right_button_clicked.png").getImage();
+		NEXT_LEFT_CLICKED =  new ImageIcon("Image/HelpPanel/left_button_clicked.png").getImage();
+		NEXT_LEFT_UNCLICK = new ImageIcon("Image/HelpPanel/left_button_unclicked.png").getImage();
+		
+	}
+	
+	public final static Image RETURN_FROM_HELP_UNCLICK;
+	
+	public final static Image RETURN_FROM_HELP_CLICKED;
+	
+	static{
+		
+		RETURN_FROM_HELP_UNCLICK = new ImageIcon("Image/HelpPanel/return_button_unclicked.png").getImage();
+		RETURN_FROM_HELP_CLICKED = new ImageIcon("Image/HelpPanel/return_button_clicked.png").getImage();
+		
+	}
+	
+	
+	
+	
 }

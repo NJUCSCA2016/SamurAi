@@ -14,6 +14,24 @@ public class ImgBackground {
 	
 	public final static Image MAIN_PANEL_BACKGROUND2 = new ImageIcon("Image/MainPanel/title.png").getImage();
 	
+	/**
+	 * 
+	 * Background of panel help
+	 * 
+	 * Using Array to store this series of Image
+	 * 
+	 */
+	
+	public final static Image[] HELP_BACKGOUNDS;
+	
+	static{
+		HELP_BACKGOUNDS = new Image[]{
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page1.png").getImage() ,
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page2.png").getImage() ,
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page3.png").getImage(),
+				//TODO : Any more pictures;
+				};
+	}
 	
 	
 }
