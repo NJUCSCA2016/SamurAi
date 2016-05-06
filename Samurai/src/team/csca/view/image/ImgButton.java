@@ -152,35 +152,36 @@ public class ImgButton {
 	
 	public final static Image NEXT_LEFT_CLICKED;
 	
-	public final static Image NEXTL_LEFT_ENABLE;
+	public final static Image NEXT_LEFT_ENABLE;
 	
 	
 	static{
 		//TODO : Finishing the two picture of the initial type of two button 
-		NEXT_RIGHT_INIT = new ImageIcon("Image/HelpPanel/right_button_enable.png").getImage();
+		NEXT_RIGHT_INIT = new ImageIcon("Image/HelpPanel/right_button_init.png").getImage();
 		
 		NEXT_RIGHT_ENTER = new ImageIcon("Image/HelpPanel/right_button_unclicked.png").getImage();
 		NEXT_RIGHT_CLICKED = new ImageIcon("Image/HelpPanel/right_button_clicked.png").getImage();
 		NEXT_RIGHT_ENABLE = new ImageIcon("Image/HelpPanel/right_button_enable.png").getImage();
 		
-		NEXT_LEFT_INIT = new ImageIcon("Image/HelpPanel/right_button_enable.png").getImage();
+		NEXT_LEFT_INIT = new ImageIcon("Image/HelpPanel/right_button_init.png").getImage();
 		
 		NEXT_LEFT_CLICKED =  new ImageIcon("Image/HelpPanel/left_button_clicked.png").getImage();
 		NEXT_LEFT_ENTER = new ImageIcon("Image/HelpPanel/left_button_unclicked.png").getImage();
-		NEXTL_LEFT_ENABLE = new ImageIcon("Image/HelpPanel/left_button_enable.png").getImage();
+		NEXT_LEFT_ENABLE = new ImageIcon("Image/HelpPanel/left_button_enable.png").getImage();
 		
 		
 	}
 	
-	public final static Image RETURN_FROM_HELP_UNCLICK;
+	public final static Image RETURN_FROM_HELP_INIT;
 	
 	public final static Image RETURN_FROM_HELP_ENTER;
 	
 	public final static Image RETURN_FROM_HELP_CLICKED;
 	
+	
 	static{
 		
-		RETURN_FROM_HELP_UNCLICK = new ImageIcon("Image/HelpPanel/return_button_unclicked.png").getImage();
+		RETURN_FROM_HELP_INIT = new ImageIcon("Image/HelpPanel/return_button_init.png").getImage();
 		RETURN_FROM_HELP_ENTER = new ImageIcon("Image/HelpPanel/return_button_enter.png").getImage();
 		RETURN_FROM_HELP_CLICKED = new ImageIcon("Image/HelpPanel/return_button_clicked.png").getImage();
 		

@@ -2,36 +2,38 @@ package ui.csca.view.help;
 
 import java.awt.event.ActionEvent;
 
-import team.csca.view.extend.LayerBackground;
+import com.sun.glass.events.MouseEvent;
 
-public class JButtonPre {
+import team.csca.view.extend.DynamicButton;
+import team.csca.view.extend.LayerBackground;
+import team.csca.view.image.ImgButton;
+
+public class JButtonPre extends DynamicButton{
 	
 	private JPanelHelp fatherPanel;
-	
-	private LayerBackground inside;
 	
 	private JButtonNext buttonNext = null;
 	
 	public JButtonPre(JPanelHelp fatherPanel){
 		
-		super(0, 0, 0, 0, null);
+		super(0, 0, 0, 0, ImgButton.NEXT_LEFT_INIT, ImgButton.NEXT_LEFT_ENTER , ImgButton.NEXT_LEFT_CLICKED);
 		this.fatherPanel = fatherPanel;
-		this.inside = fatherPanel.getInside();
-		this.addActionListener(this);
 		
 	}
 	
-	public void actionPerformed(ActionEvent ae){
-		if(this.fatherPanel.numOfPic != 0){
+	public void mouseClicked(MouseEvent e){
+		
 			this.fatherPanel.numOfPic--;
-			if(this.fatherPanel.numOfPic == this.fatherPanel.lastIndex-1){
+			if(this.fatherPanel.numOfPic == this.fatherPanel.LAST_INDEX-1){
 				this.buttonNext.setEnabled(true);
 			}
-//			TODO : 设置背景
-//			this.inside.setBackground();
-		}else{
-			this.setEnabled(false);
-		}
+			if(this.fatherPanel.numOfPic == 0){
+				this.setButtonImg(ImgButton.NEXT_LEFT_ENABLE);
+				this.setEnabled(false);
+			}
+			
+			this.fatherPanel.updateBackground();
+			
 	}
 	
 	protected void activate(){
