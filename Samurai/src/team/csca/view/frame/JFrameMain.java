@@ -7,7 +7,6 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-import team.csca.controller.Controller;
 import team.csca.view.image.ImgSystem;
 import team.csca.view.startmovie.JPanelStartMovie;
 
@@ -49,16 +48,18 @@ public class JFrameMain extends JFrame {
 				this.setTitle("Samurai");
 				
 				// 设置可以关闭窗口
-				// TODO: 可能需要隐藏标题栏
+				
 				this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 				// 设置尺寸
 				this.setSize(1250, 700);
 				// 为控制器添加对Frame的引用
-				Controller.getController().setFrame(this);
+//				Controller.getController().setFrame(this);
 				// 设置为自由布局
 				this.setLayout(null);
-				//设置不可改变大小
+				// 设置不可改变大小
 				this.setResizable(false);
+				// 去除边框
+				this.setUndecorated(true);
 				// 设置屏幕居中
 				Toolkit toolkit = Toolkit.getDefaultToolkit();
 				Dimension screen = toolkit.getScreenSize();
