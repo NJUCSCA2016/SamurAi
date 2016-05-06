@@ -1,14 +1,15 @@
-package team.csca.view;
+package team.csca.view.frame;
 
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
-import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
 import team.csca.controller.Controller;
+import team.csca.view.image.ImgSystem;
+import team.csca.view.startmovie.JPanelStartMovie;
 
 /**
  * This class decides the main frame of this software 

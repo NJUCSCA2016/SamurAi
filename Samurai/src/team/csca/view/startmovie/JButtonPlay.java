@@ -1,10 +1,9 @@
-package team.csca.view;
+package team.csca.view.startmovie;
 
 import java.awt.event.MouseEvent;
 
-import javax.swing.JPanel;
-
-import ui.panelmain.PanelMain;
+import team.csca.view.extend.DynamicButton;
+import team.csca.view.image.ImgButton;
 
 /**
  * 

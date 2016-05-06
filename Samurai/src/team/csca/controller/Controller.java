@@ -1,8 +1,7 @@
 package team.csca.controller;
 
 
-import team.csca.controller.Controller;
-import team.csca.view.JFrameMain;
+import team.csca.view.frame.JFrameMain;
 
 public class Controller {
 	private JFrameMain frame;

@@ -1,6 +1,6 @@
 package team.csca.main;
 
-import team.csca.view.JFrameMain;
+import team.csca.view.frame.JFrameMain;
 
 /**
  * 整个游戏的入口

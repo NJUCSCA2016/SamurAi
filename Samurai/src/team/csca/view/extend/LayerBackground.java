@@ -1,9 +1,7 @@
-package team.csca.view;
+package team.csca.view.extend;
 
 import java.awt.Graphics;
 import java.awt.Image;
-
-import team.csca.view.*;
 
 public class LayerBackground extends Layer {
 	

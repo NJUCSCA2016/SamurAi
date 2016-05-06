@@ -1,4 +1,4 @@
-package team.csca.view;
+package team.csca.view.startmovie;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -8,7 +8,8 @@ import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import ui.panelmain.PanelMain;
+import team.csca.view.frame.JFrameMain;
+import team.csca.view.startgame.JPanelStartGame;
 
 /**
  * 这个文件写开场动画

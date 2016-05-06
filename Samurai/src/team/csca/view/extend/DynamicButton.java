@@ -1,11 +1,9 @@
-package team.csca.view;
+package team.csca.view.extend;
 
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
-import team.csca.view.*;
 
 public abstract class DynamicButton extends StaticButton implements MouseListener {
 

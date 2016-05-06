@@ -1,4 +1,4 @@
-package team.csca.view;
+package team.csca.view.extend;
 
 import java.awt.Graphics;
 

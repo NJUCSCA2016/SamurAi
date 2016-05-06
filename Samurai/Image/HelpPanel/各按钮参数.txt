@@ -1,0 +1,13 @@
+left_button_unclicked和left_button_clicked:
+大小：50*50（像素）
+相对于主界面的位置（north:585 south:635 west:245 east:295）
+
+right_button_unclicked和right_button_clicked:
+大小：50*50（像素）
+相对于主界面的位置（north:585 south:635 west:925 east:975）
+
+return_button_unclicked和return_button_clicked:
+大小：60*60（像素）
+相对于主界面的位置（north:103 south:163 west:928 east:988）
+
+主界面：1250*700（像素）

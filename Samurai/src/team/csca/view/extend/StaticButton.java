@@ -1,10 +1,12 @@
-package team.csca.view;
+package team.csca.view.extend;
 
 import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+
+import team.csca.view.frame.JFrameMain;
 
 /**
  * 
