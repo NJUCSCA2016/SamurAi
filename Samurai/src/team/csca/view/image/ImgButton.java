@@ -138,21 +138,35 @@ public class ImgButton {
 	 * Button in Help Panel
 	 * 
 	 */
+	public final static Image NEXT_RIGHT_INIT;
 	
-	public final static Image NEXT_RIGHT_UNCLICK;
+	public final static Image NEXT_RIGHT_ENTER;
 	
 	public final static Image NEXT_RIGHT_CLICKED;
 	
-	public final static Image NEXT_LEFT_UNCLICK;
+	public final static Image NEXT_RIGHT_ENABLE;
+	
+	public final static Image NEXT_LEFT_INIT;
+	
+	public final static Image NEXT_LEFT_ENTER;
 	
 	public final static Image NEXT_LEFT_CLICKED;
 	
+	public final static Image NEXTL_LEFT_ENABLE;
+	
+	
 	static{
 		
-		NEXT_RIGHT_UNCLICK = new ImageIcon("Image/HelpPanel/right_button_unclicked.png").getImage();
+		NEXT_RIGHT_INIT = new ImageIcon().getImage();
+		NEXT_RIGHT_ENTER = new ImageIcon("Image/HelpPanel/right_button_unclicked.png").getImage();
 		NEXT_RIGHT_CLICKED = new ImageIcon("Image/HelpPanel/right_button_clicked.png").getImage();
+		NEXT_RIGHT_ENABLE = new ImageIcon("Image/HelpPanel/right_button_enable.png").getImage();
+		
+		NEXT_LEFT_INIT = new ImageIcon().getImage();
 		NEXT_LEFT_CLICKED =  new ImageIcon("Image/HelpPanel/left_button_clicked.png").getImage();
-		NEXT_LEFT_UNCLICK = new ImageIcon("Image/HelpPanel/left_button_unclicked.png").getImage();
+		NEXT_LEFT_ENTER = new ImageIcon("Image/HelpPanel/left_button_unclicked.png").getImage();
+		NEXTL_LEFT_ENABLE = new ImageIcon("Image/HelpPanel/left_button_enable.png").getImage();
+		
 		
 	}
 	
