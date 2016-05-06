@@ -24,14 +24,22 @@ public class JPanelStartGame extends JPanel{
 			new LayerBackground(0, 0, 1250, 700, ImgBackground.MAIN_PANEL_BACKGROUND1),	
 			new LayerBackground(269, 20, 700, 150, ImgBackground.MAIN_PANEL_BACKGROUND2),
 		};
+		// 添加按钮
 		
-		
-		
+		this.add(new JButtonPP(this));
+		this.add(new JButtonSituation(this));
+		this.add(new JButtonSetting(this));
+		this.add(new JButtonPM(this));
+		this.add(new JButtonProps(this));
+		this.add(new JButtonHelp(this));
+		this.add(new JButtonExit());
 		
 	}
-	public void paint(Graphics g){
+	public void paintComponent(Graphics g){
 		for(int i = 0 ; i < this.layers.length ; i++){
 			layers[i].createWindow(g);
 		}
+		
+		super.paintComponents(g);
 	}
 }
