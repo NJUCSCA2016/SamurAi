@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
+import ai.TeamPlayer;
 import data.GameInfo;
 
 /**
@@ -81,10 +82,11 @@ public final class GameInfo {
 	this.turn = 0;
 	this.curePeriod = 0;
 	this.field = new int[this.height][this.width];
-	//在这里我们获取AI中的当前可以见到的敌方AI。
+	
 	
 	System.out.println("0");
     }
+    
     
     
     /**
@@ -131,7 +133,6 @@ public final class GameInfo {
 		}
 		//以0填充field[i]
 		for (int i = 0; i < this.height; ++i){
-			
 			Arrays.fill(this.field[i], 0);
 		}
 		
@@ -142,6 +143,13 @@ public final class GameInfo {
     			this.field[i][j] = Integer.parseInt(res[j+1]);
     		}
     	}
+    	//更新Player的信息。
+    	TeamPlayer.SWORDS.updateSamuraiInfo(samuraiInfo[this.weapon - 1]);
+    	
+    	
+    	//更新视野信息。
+    	
+    	
     }
  
 //    

@@ -151,7 +151,7 @@ public final class SamuraiInfo {
 	    			if(! this.checkOutOfField(attackX, attackY)){
 	    				//将该人物占领的区域设置为自身的区域
 	    				//除去了原方法中的内嵌循环检查。不需要检查其中是否含有其他人物。因为这是会由GameManager来判断的。  				
-	    				this.gameInfo.field[attackX][attackY] = weapon;
+	    				this.gameInfo.field[attackY][attackX] = weapon;
 	    			}
 	    	}
 	    	System.out.print(direction + " ");

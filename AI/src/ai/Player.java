@@ -63,12 +63,27 @@ public abstract class Player {
 		this.samuraiInfo = samuraiInfo;
 	}
 	
+	public void updateSamuraiInfo(SamuraiInfo samuraiInfo){
+		this.samuraiInfo = samuraiInfo;
+	}
+	
+	/**
+	 * 
+	 * 有需要遍历一下已占领及友军已占领区域来判断是否有敌军
+	 * 
+	 */
+	
 	/**
 	 *  The following is the basic high level judge.	 
 	 */
 	
 	
-	
+	public boolean canKill(){
+		
+		
+		return false;
+		
+	}
 	
 	
 	

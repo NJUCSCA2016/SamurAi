@@ -11,6 +11,13 @@ import data.GameInfo;
  */
 public class TeamPlayer extends Player{
 	
+	public final static TeamPlayer SWORDS = new TeamPlayer();
+	
+	private TeamPlayer(){
+	}
+	
+	
+	
 	public GameInfo play(GameInfo info) {
 		
 		/**
