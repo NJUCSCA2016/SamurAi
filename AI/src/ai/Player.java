@@ -3,8 +3,6 @@
  */
 package ai;
 
-import java.util.ArrayList;
-
 import control.CenterControl;
 import data.GameInfo;
 import data.SamuraiInfo;
@@ -19,6 +17,12 @@ import data.SamuraiInfo;
  * 
  * @author Alone
  * Written by YYM
+ * 
+ * 
+ * @see : 游戏的目标是为了占领更多的领域。而不是杀人。
+ * 
+ * 
+ * 
  */
 public abstract class Player {
 	/**
@@ -34,7 +38,11 @@ public abstract class Player {
 	 * 行动力消耗
 	 */
 	public final int[] cost = {0, 4, 4, 4, 4, 2, 2, 2, 2, 1, 1};
-	
+	/**
+	 * 
+	 * 当前已消耗行动力
+	 * 
+	 */
 	protected int current_Cost = 0;
 	/**
 	 * 最大行动力
@@ -48,14 +56,20 @@ public abstract class Player {
 	 * Using this to store all the enemies' location in sight . 
 	 * 
 	 * Which can be seen by all AI
+	 * 
+	 * 只能用于UI中。此处不适用
 	 */
-	protected static ArrayList<int[]> enemy_Location = new ArrayList<int[]>(3);
+//	protected static ArrayList<int[]> enemy_Location = new ArrayList<int[]>(3);
+	
+	
+	
+	
 	/**
 	 * 
 	 * @param info
 	 * @return
 	 */
-	public abstract GameInfo play(GameInfo info);
+	public abstract void play();
 	
 	public void initial(CenterControl centerControl , GameInfo gameInfo , SamuraiInfo samuraiInfo){
 		this.centerControl =centerControl;

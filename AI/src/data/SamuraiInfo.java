@@ -2,6 +2,9 @@
  * Date : Mar 28, 2016 6:47:01 PM
  */
 package data;
+
+import java.util.ArrayList;
+
 /**
  * 
  * @version version two . In the first version , there exits a class called service . while in this version. I delete it and move all its method to this class
@@ -44,20 +47,17 @@ public final class SamuraiInfo {
 		 */
 		private int[][] offset = ActionInfo.MOVE_OFFSET;
 		private int[][][] attackField = ActionInfo.ATTACK_FIELD.SPEAR.attack_Field;
-//		/**
-//		 *  攻击范围，不去用旋转来计算，直接将其列出
-//		 */
-//		private final static int[][] ox = {
-//				{0, 0, 0, 0, 0, 0, 0},
-//				{0, 0, 1, 1, 2, 0, 0},
-//				{-1,-1,-1,0, 1, 1, 1}
-//		};
-//		private final static int[][] oy = {
-//				{1, 2, 3, 4},
-//				{1, 2, 0, 1, 0},
-//				{-1,-1,1, 1, 1,-1, 0}
-//		};
-	  
+		
+		
+		/**
+		 * 在自身范围内的敌军的AI。如果有的话而且剁得到的话。就杀了吧。
+		 * @Limit  
+		 * 我懒得管别人那是不是有人。不过我这里有人的话，一定是要狗带的。
+		 */
+		public ArrayList<int[]> enemyInOwnEyes = new ArrayList<int[]>();
+		
+		public ArrayList<int[]> placeWaitingToOccupy = new ArrayList<int[]>();
+		
 	  
 	  public SamuraiInfo(GameInfo gameInfo){
 		this.homeX = 0;
@@ -101,12 +101,17 @@ public final class SamuraiInfo {
 	    	if(this.hidden == 1){
 	    		return false;
 	    	}
-	    	//如果边上都是自己或者友军的地盘。没有必要去占领。
-	    	
+//	    	//如果边上都是自己或者友军的地盘。没有必要去占领。
+//	    	if(placeWaitingToOccupy.isEmpty() && enemyInOwnEyes.isEmpty()){
+//	    		return false;
+//	    	}
 	    	//敌方老巢
-	    	return false;
+	    	return true;
 //			return myself.hidden == 0;
 	    }
+	    
+	    
+	    
 
 	    /**
 	     * 判断是否可以现身

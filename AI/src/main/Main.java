@@ -31,7 +31,7 @@ public class Main {
 		    }
 		    else {
 		    	// 未被击杀，或者以及从治愈周期恢复
-		    	p.play(info);
+		    	p.play();
 			
 		    	System.out.println("0");
 		    }

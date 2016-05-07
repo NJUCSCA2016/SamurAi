@@ -5,8 +5,6 @@ package ai;
 
 import java.util.Random;
 
-import data.GameInfo;
-
 
 /**
  * @author Alone
@@ -30,7 +28,7 @@ public class SimplePlayer extends Player{
 	     * AI 的核心算法
 	     */
 
-	public GameInfo play(GameInfo info){
+	public void play(){
 		int power = this.maxPower;
 		int action;
 
@@ -54,7 +52,7 @@ public class SimplePlayer extends Player{
 		}
 		
 		//更新游戏信息
-		return new GameInfo(info);
+		
 	}
 
 }

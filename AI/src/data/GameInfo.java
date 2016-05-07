@@ -5,10 +5,8 @@ package data;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 import ai.TeamPlayer;
-import data.GameInfo;
 
 /**
  * @author Alone
@@ -124,31 +122,75 @@ public final class GameInfo {
     	res = this.read();
 		this.curePeriod = Integer.parseInt(res[0]);
 		
-		//获取每个武士信息
-		for (int i = 0; i < GameInfo.PLAYER_NUM; ++i){
-			res = this.read();
-			this.samuraiInfo[i].curX = Integer.parseInt(res[0]);
-			this.samuraiInfo[i].curY = Integer.parseInt(res[1]);
-			this.samuraiInfo[i].hidden = Integer.parseInt(res[2]);
-		}
-		//以0填充field[i]
-		for (int i = 0; i < this.height; ++i){
-			Arrays.fill(this.field[i], 0);
-		}
+		/**
+		 * Consider get the ally first.
+		 */
 		
-    	for (int i = 0; i < this.height; ++i){
+		
+		
+			int i = 0 ;
+			
+			for( ; i < GameInfo.PLAYER_NUM>> 1 ; ++i){
+				res = this.read();
+				this.samuraiInfo[i].curX = Integer.parseInt(res[0]);
+				this.samuraiInfo[i].curY = Integer.parseInt(res[1]);
+				this.samuraiInfo[i].hidden = Integer.parseInt(res[2]);
+			}
+			SamuraiInfo myself = samuraiInfo[this.weapon - 1];
+			//更新Player的信息。
+	    	TeamPlayer.SWORDS.updateSamuraiInfo(myself);
+			++i;
+			/**
+			 * Update the enemies' information.
+			 */
+			for(; i < GameInfo.PLAYER_NUM  ; ++i){
+				
+				res = this.read();
+				int curX =  Integer.parseInt(res[0]);
+				int curY = Integer.parseInt(res[1]);
+				this.samuraiInfo[i].curX = curX;
+				this.samuraiInfo[i].curY = curY;
+				//This info is of no use
+				this.samuraiInfo[i].hidden = Integer.parseInt(res[2]);
+				/**
+				 * Consider to use what to store the information.
+				 * Array is too waste and not convenient to search 
+				 * You only need to know the enemy in your side
+				 */
+				
+				//Only need to judge one coordinate
+				//If is not -1 ; then it must lies in allies' and my own sight 
+				if(curX != -1){
+					//Five Manhattan distance
+					if(Math.abs(myself.curX - curX) + Math.abs(myself.curY - curY) <= 5){
+						myself.enemyInOwnEyes.add(new int[]{curX , curY});
+					}
+				}
+				
+				
+			}
+			
+//      This step is of no need to do. For the loop immediately after it will get each element of the field
+			
+//		//以0填充field[i]
+//		for (i = 0; i < this.height; ++i){
+//			Arrays.fill(this.field[i], 0);
+//		}
+//		
+		/**
+		 *  Finished the 	sight in own sight 
+		 */
+    	for (i = 0; i < this.height; ++i){
     		res = this.read();
     		
     		for (int j = 0; j < this.width; ++j){
     			this.field[i][j] = Integer.parseInt(res[j+1]);
+    			if(Math.abs(myself.curX - j) + Math.abs(myself.curY - i) <= 5 && this.field[i][j] >= 3){
+    				myself.placeWaitingToOccupy.add(new int[]{j , i});
+    			}
     		}
     	}
-    	//更新Player的信息。
-    	TeamPlayer.SWORDS.updateSamuraiInfo(samuraiInfo[this.weapon - 1]);
-    	
-    	
-    	//更新视野信息。
-    	
+
     	
     }
  
