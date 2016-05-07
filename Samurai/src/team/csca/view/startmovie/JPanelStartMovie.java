@@ -53,7 +53,7 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 			 * 如下面的类
 			 */
 			
-			while (pic_Number <= 90) {
+			while (pic_Number <= 165) {
 				
 				// 经测试，ImageIcon比ImageIo快很多
 				repaint();
@@ -68,7 +68,7 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 
 				pic_Number++;
 			}
-			pic_Number = 70;
+			pic_Number = 145;
 			//显现Play
 			add(btnPlay);
 
@@ -91,10 +91,11 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 			JPanelStartGame mainPanel = null;
 			//移除Play
 			remove(btnPlay);
-			pic_Number = 90;
-			//TODO : 一下范围均为尚未抠图的情况下画的
-			while(pic_Number <= 133){
+			pic_Number = 165;
+			
+			while(pic_Number <= 209){
 				
+				pic_Number++;
 				repaint();
 				try{			
 					// TODO: 调慢一点
@@ -104,11 +105,11 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 					e.printStackTrace();
 				}	
 				
-				if(pic_Number == 90){
+				if(pic_Number == 166){
 					mainPanel = new JPanelStartGame();
 				}
 				
-				pic_Number++;
+				
 			}
 			setFocusable(false);
 			//移除该Panel
@@ -126,7 +127,7 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 	}
 
 	private Image getImage(int i2) {
-		image = new ImageIcon("Image/Start/" + i2 + ".png").getImage();
+		image = new ImageIcon("Image/Start/" + i2 + ".jpg").getImage();
 		return image;
 	}
 	
@@ -197,7 +198,7 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// 空格skip
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			pic_Number = 89;
+			pic_Number = 163;
 //			System.out.println(222);
 		}
 	}

@@ -15,7 +15,7 @@ public class JButtonPlay extends DynamicButton{
 	private JPanelStartMovie fatherPanel;
 	
 	public JButtonPlay(JPanelStartMovie fatherPanel){
-		super(350, 485, 300, 80, ImgButton.PLAY_1, ImgButton.PLAY_2, ImgButton.PLAY_3);
+		super(385, 480, 300, 80, ImgButton.PLAY_1, ImgButton.PLAY_2, ImgButton.PLAY_3);
 		this.fatherPanel = fatherPanel;
 	}
 	
