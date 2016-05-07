@@ -18,23 +18,40 @@ import team.csca.view.startgame.JPanelStartGame;
  * @author YYM
  */
 public class JPanelStartMovie extends JPanel implements KeyListener {
+	/**
+	 * 图片计数器
+	 */
 	public int pic_Number = 1;
 
+	/**
+	 * 所要播放的动画
+	 */
 	public Image image;
 
+	/**
+	 * Frame
+	 */
 	private JFrameMain frame =JFrameMain.J_FRAME_MAIN;
 
+	/**
+	 * Play按钮
+	 */
 	private JButtonPlay btnPlay;
+	
+	private boolean homeMusic;
 
 	public JPanelStartMovie() {
 		
 		// 设置焦点
 		this.setFocusable(true);
+		// 增加键盘事件监听
 		this.addKeyListener(this);
+		// 添加Play按钮到面板上
 		this.btnPlay = new JButtonPlay(this);
 //		this.btnPlay.setEnabled(false);
 //		this.btnPlay.setVisible(false);
 //		this.add(this.btnPlay);
+		// 开启第一部分动画线程
 		new Thread(new MoviePartOne()).start();
 		
 	}

@@ -16,7 +16,7 @@ public class JButtonGameSound extends StaticButton implements ActionListener{
 	private boolean gameSoundOn = true;
 	
 	public JButtonGameSound(){
-		super(500, 600, 47, 47, ImgSystem.TICK);
+		super(728, 352, 47, 47, ImgSystem.TICK);
 		this.addActionListener(this);
 	}
 	/**
