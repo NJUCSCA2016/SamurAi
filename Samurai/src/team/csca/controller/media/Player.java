@@ -99,7 +99,7 @@ public class Player {
 			
 			musicPlayer = new SimplePlayer();
 			try{
-				musicPlayer.open(new File("media/music/" + name + ".mp3"));
+				musicPlayer.open(new File("media/" + name + ".mp3"));
 				musicPlayer.setLoop(true);
 				musicPlayer.setLoopCount(1000);
 			}catch (Exception e) {
