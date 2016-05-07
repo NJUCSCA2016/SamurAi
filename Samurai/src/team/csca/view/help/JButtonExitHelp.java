@@ -7,12 +7,12 @@ import team.csca.view.extend.DynamicButton;
 import team.csca.view.image.ImgButton;
 import team.csca.view.startgame.JPanelStartGame;
 
-public class JButtonExit extends DynamicButton{
+public class JButtonExitHelp extends DynamicButton{
 	
 	private JPanelHelp fatherPanel;
 	
-	public JButtonExit(JPanelHelp fatherPanel){
-		super(928, 103, 60, 60, ImgButton.RETURN_FROM_HELP_INIT, ImgButton.RETURN_FROM_HELP_ENTER, ImgButton.RETURN_FROM_HELP_CLICKED);
+	public JButtonExitHelp(JPanelHelp fatherPanel){
+		super(928, 103, 60, 60, ImgButton.RETURN_FROM_INIT, ImgButton.RETURN_FROM_ENTER, ImgButton.RETURN_FROM_CLICKED);
 		this.fatherPanel = fatherPanel;
 	}
 	

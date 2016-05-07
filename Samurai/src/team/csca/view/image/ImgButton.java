@@ -171,19 +171,23 @@ public class ImgButton {
 		
 		
 	}
+	/**
+	 * 
+	 * 面板通用返回按钮
+	 * 
+	 */
+	public final static Image RETURN_FROM_INIT;
 	
-	public final static Image RETURN_FROM_HELP_INIT;
+	public final static Image RETURN_FROM_ENTER;
 	
-	public final static Image RETURN_FROM_HELP_ENTER;
-	
-	public final static Image RETURN_FROM_HELP_CLICKED;
+	public final static Image RETURN_FROM_CLICKED;
 	
 	
 	static{
 		
-		RETURN_FROM_HELP_INIT = new ImageIcon("Image/HelpPanel/return_button_init.png").getImage();
-		RETURN_FROM_HELP_ENTER = new ImageIcon("Image/HelpPanel/return_button_enter.png").getImage();
-		RETURN_FROM_HELP_CLICKED = new ImageIcon("Image/HelpPanel/return_button_clicked.png").getImage();
+		RETURN_FROM_INIT = new ImageIcon("Image/HelpPanel/return_button_init.png").getImage();
+		RETURN_FROM_ENTER = new ImageIcon("Image/HelpPanel/return_button_enter.png").getImage();
+		RETURN_FROM_CLICKED = new ImageIcon("Image/HelpPanel/return_button_clicked.png").getImage();
 		
 	}
 	

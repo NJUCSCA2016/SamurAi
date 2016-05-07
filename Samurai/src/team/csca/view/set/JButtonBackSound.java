@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import team.csca.controller.media.Player;
 import team.csca.view.extend.StaticButton;
+import team.csca.view.image.ImgSystem;
 
 public class JButtonBackSound extends StaticButton implements ActionListener{
 	
@@ -12,7 +13,8 @@ public class JButtonBackSound extends StaticButton implements ActionListener{
 	
 	public JButtonBackSound() {
 		//TODO : add the button and its configure
-		super(0, 0, 0, 0, null);
+		super(700, 300, 47, 47, ImgSystem.TICK);
+		this.addActionListener(this);
 	}
 
 	@Override
@@ -22,11 +24,13 @@ public class JButtonBackSound extends StaticButton implements ActionListener{
 			this.backSoundOn = false;
 			this.setButtonImg(null);
 			Player.MUSiC_PLAYER.turnOffBack();
+			
 		}else{
 			this.backSoundOn = true;
 			//TODO : Add the initial button
-			this.setButtonImg(null);
+			this.setButtonImg(ImgSystem.TICK);
 			Player.MUSiC_PLAYER.turnOnBack();
+			
 		}
 		
 	}

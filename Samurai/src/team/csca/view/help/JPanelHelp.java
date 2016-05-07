@@ -28,7 +28,7 @@ public class JPanelHelp extends JPanel{
 		
 		this.add(buttonPre);
 		this.add(buttonNext);
-		this.add(new JButtonExit(this));
+		this.add(new JButtonExitHelp(this));
 	}
 	
 	public void paintComponent(Graphics g){
