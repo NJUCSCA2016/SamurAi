@@ -12,6 +12,35 @@ import saint.media.SimplePlayer;
  *
  */
 public class Player {
+	
+	/**
+	 * @author With You
+	 * Using in JButtonGameSound and making sure it's singleton
+	 */
+	public final static Player MUSiC_PLAYER = new Player();
+	
+	private boolean back_ON = true;
+	
+	private boolean game_ON = true;
+	
+	private Player(){}
+	
+	public void turnOnBack(){
+		this.back_ON = true;
+	}
+	
+	public void turnOffBack(){
+		this.back_ON = false;
+	}
+	
+	public void turnOnGame(){
+		this.game_ON = true;
+	}
+	
+	public void turnOffGame() {
+		this.game_ON = false;
+	}
+	
 	// TODO: 目前并不清楚我们需要用到哪些类型的音频，所以先按照学长的来写。
 	/**
 	 * 功能是用来打开mp3类型的文件

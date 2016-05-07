@@ -15,7 +15,8 @@ public class JPanelSetting extends JPanel{
 		
 		this.background = new LayerBackground(0, 0, 1250, 700, ImgBackground.SETTING_PANEL_BACKGROUND);
 		
-		
+		this.add(new JButtonBackSound());
+		this.add(new JButtonGameSound());
 		
 	}
 	
