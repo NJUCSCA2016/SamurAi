@@ -233,7 +233,7 @@ public final class SamuraiInfo {
 		 * 以下所有的移动操作之后
 		 * 均执行Hide操作
 		 * 
-		 * Warning ! ： All the direction is the action code but not 1234
+		 * @Warning ! ： All the direction is the action code but not 1234
 		 *
 		 */
 		

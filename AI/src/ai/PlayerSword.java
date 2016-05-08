@@ -2,6 +2,7 @@ package ai;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 import data.SamuraiInfo;
 
@@ -30,9 +31,15 @@ public class PlayerSword extends Player{
 	private int[] enemyThree;
 	private int weaponThree;
 	/**
-	 * 12个方向。
+	 * 12 / 16个方向。
 	 */
-	private int[] directions = new int[12];
+	private int[] directions;
+	
+	private int[] indexOfMax;
+	
+	private Random random = new Random();
+	
+	
 	
 	@Override
 	public void play() {
@@ -94,11 +101,19 @@ public class PlayerSword extends Player{
 	 */
 	public void occupyField(){
 		//将Directions以0填充。
+		if(this.markFieldOnOwn){
+			this.directions = new int[16];
+		}else{
+			this.directions = new int[12];
+		}
 		Arrays.fill(directions, 0);
 		
 		this.census();
-		if(directions[directions.length - 1] == 0){
-			
+		//TODO : 这里的数组遍历是错误的。
+		//TODO : 改为this.indexOfMax的遍历就好了
+		if(this.indexOfMax.length == this.directions.length){
+			//完全有可能。此时应该采取相应行为。
+			//
 		}else{
 			int i = directions.length - 1;
 			for(; i > 0 ; i--){
@@ -107,43 +122,202 @@ public class PlayerSword extends Player{
 					break;
 				}
 			}
+			int actionCodeField = directions.length  - i;
+			
+			takeAction(i + random.nextInt(actionCodeField));
+			
 		}
 		//Move to where there exist enemy.
-		int action = 0;
-		
-		
 	}
 	
-	public void takeAction(){
+	public void takeAction(int actionCode){
+		//TODO : 补全下面的操作。
+		switch (actionCode) {
+		case 0:
+			this.occupy(1);
+			break;
+		case 1:
+			this.occupy(2);
+			break;
+		case 2:
+			this.occupy(3);
+			break;
+		case 3:
+			this.occupy(4);
+			break;
+		case 4:
+			
+			break;
+		case 5:
+			
+			break;
+		case 6:
+			
+			break;
+		case 7:
+			
+			break;
+		case 8:
+			
+			break;
+		case 9:
+			
+			break;
+		case 10:
+			
+			break;
+		case 11:
 		
+			break;
+		case 12:
+			
+			break;
+		case 13:
+			
+			break;
+		case 14:
+			
+			break;
+		case 15:
+			
+			break;
+		case 16:
+			
+			break;
+		default:
+			break;
+		}
 	}
 	
+	
+	/**
+	 * 
+	 * 统计方法： 统计并确定占领位置最多的Greedy判断。
+	 * 
+	 */
 	public void census(){
-		
+		if(this.markFieldOnOwn){
+			this.onOwnField();
+		}else{
+			this.notOnOwnField();
+		}	
+		getMaxIndex();
+	}
+	
+	public void getMaxIndex(){
+		int max = directions[0];
+		int count = 1;
+		for(int i = 1 ; i < directions.length ; i++){
+			if(max == directions[i]){
+				count ++;
+			}else if(max < directions[i]){
+				max = directions[i];
+				count = 1;
+			}
+		}
+		count = 0;
+		this.indexOfMax = new int[count];
+		for(int i = 0 ; i < directions.length ; i++){
+			if(directions[i] == max){
+				indexOfMax[count] = i;
+				count++;
+			}
+		}
+	}
+	
+	
+	public void onOwnField(){
+
 		int curX = this.samuraiInfo.curX;
 		int curY = this.samuraiInfo.curY;
-	
-		if(this.markFieldOnOwn){
-				/**
-				 * 自己这里被占领。
-				 */
+		
+		for(int i = 12 ; i < 16 ; i++){
+			directions[i]++;
+		}
+		
+			/**
+			 * 自己这里没被占了
+			 */
 			for(int[] eachBlock : this.placeWaitingToOccupy){
-				
 				int blockX = eachBlock[0];
 				int blockY = eachBlock[1];
 			
 				int offsetX = blockX - curX;
 				int offsetY = blockY - curY;
 				
-				if(offsetX == 0){
-					
-				}else if(offsetY == 0){
-					
+				if(offsetY == 0){
+					if(offsetX < 0){
+						//左
+						this.directions[0]++;
+						if(offsetX > -4){
+							//右移后左击
+							this.directions[12]++;
+						}
+					}else{
+						//右
+						this.directions[1]++;
+						if(offsetX < 4){
+							//左移后右击
+							this.directions[13]++;
+						}
+					}
+				}else if(offsetX == 0){
+					if(offsetY > 0){
+						//上
+						this.directions[2]++;
+						if(offsetY < 4){
+							//下移后上击
+							this.directions[14]++;
+						}
+					}else{
+						//下
+						this.directions[3]++;
+						if(offsetY > -4){
+							//上移后下击。
+							this.directions[15]++;
+						}
+					}
+				}else if(offsetX == -1){
+					if(offsetY > 0){
+						//左上
+						this.directions[4]++;
+					}else{
+						//左下
+						this.directions[5]++;
+					}
+				}else if(offsetX == 1){
+					if(offsetY > 0){
+						//右上
+						this.directions[6]++;
+					}else{
+						//右下
+						this.directions[7]++;
+					}
+				}else if (offsetY == 1) {
+					if(offsetX > 0){
+						//上右
+						this.directions[8]++;
+					}else{
+						//上左
+						this.directions[9]++;
+					}
+				}else if(offsetY == -1){
+					if(offsetX > 0){
+						this.directions[10]++;
+					}else{
+						this.directions[11]++;
+					}
 				}
-				
+				//其他的因为打不到所以就不干了	
+					
 			}
-			
-		}else{
+	}
+	
+	public void notOnOwnField(){
+		
+		int curX = this.samuraiInfo.curX;
+		int curY = this.samuraiInfo.curY;
+		
 			/**
 			 * 自己这里没被占了
 			 */
@@ -204,9 +378,6 @@ public class PlayerSword extends Player{
 				//其他的因为打不到所以就不干了	
 					
 			}
-		}
-		
-		Arrays.sort(directions);
 	}
 	
 	
