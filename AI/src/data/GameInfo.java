@@ -142,8 +142,9 @@ public final class GameInfo {
 				this.samuraiInfo[i].curX = Integer.parseInt(res[0]);
 				this.samuraiInfo[i].curY = Integer.parseInt(res[1]);
 				this.samuraiInfo[i].hidden = Integer.parseInt(res[2]);
-			}
 				this.samuraiInfo[i].weapon = i;
+			}
+			SamuraiInfo myself = this.samuraiInfo[this.weapon - 1];
 			//更新Player的信息。
 	    	TeamPlayer.SWORDS.updateSamuraiInfo(myself);
 			++i;
