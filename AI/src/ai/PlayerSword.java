@@ -1,34 +1,10 @@
 package ai;
 
+import data.SamuraiInfo;
+
 public class PlayerSword extends Player{
 	
-	/**
-	 *  假设有三个在上场 ， 你只能杀一个。那么可能杀了以后你就死了。就逃跑吧
-	 */
-	public final static int RUN_AWAY = 0;
-	/**
-	 * 可以杀一个人并且应该为安全的
-	 */
-	public final static int CAN_KILL_ONE = 1;
-	/**
-	 * 双杀。不需要考虑会不会死。死俩值了
-	 */
-	public final static int DOUBLE_KILL = 2;
-	/**
-	 * 嘿嘿
-	 */
-	public final static int TRIPLE_KILL = 3;
-	/**
-	 * 该片区域全部被占领了，并且没有人在。
-	 */
-	public final static int OCCUPY_ALL = 4;
-	/**
-	 * 没人并且部分占领了。
-	 */
-	public final static int NOBODY_PART = 5;
-	
-	
-	
+
 	@Override
 	public void play() {
 		// TODO Auto-generated method stub
@@ -36,11 +12,50 @@ public class PlayerSword extends Player{
 	}
 	
 	public int analizeField(){
+		//如果这里有人的话就先杀人。
+		int enemiesNum = this.samuraiInfo.enemyInOwnEyes.size();
+		//Which is most situation
+		if(enemiesNum == 1){
+			int[] only = this.samuraiInfo.enemyInOwnEyes.get(0);
+			if(CanKillOne(only)){
+				return Player.CAN_KILL_ONE;
+			}else{
+				return Player.ONE_OUT_REACH;
+			}
+			
+		}else if(enemiesNum == 2){
+			int[] first = this.samuraiInfo.enemyInOwnEyes.get(0);
+			int[] second = this.samuraiInfo.enemyInOwnEyes.get(1);
+			
+			if(first[0] == second[0] || first[1] == second[1]){
+				if(this.CanKillOne(first) && this.CanKillOne(second)){
+					return Player.DOUBLE_KILL;
+				}
+			}else{
+				
+			}
+			
+		}
+		if(enemiesNum > 0){
+			int canKillNum = 0;
+			for(int[] each : this.samuraiInfo.enemyInOwnEyes){
+				if(Math.abs(each[0] - this.samuraiInfo.curX) + Math.abs(each[1] - this.samuraiInfo.curY) <= 5){
+					canKillNum++;
+				}
+			}
+		}
 		
 		
 		
-		
-		return 0;
+		return Player.OCCUPY_ALL;
+	}
+	
+	public boolean CanKillOne(int[] only){
+		return (only[0] - this.samuraiInfo.curX <= 1 && this.samuraiInfo.curX  - only[0] <= 1 )||(only[1] - this.samuraiInfo.curY <= 1 && this.samuraiInfo.curY  - only[1] <= 1 );
+	}
+	
+	public boolean CanKillOnlyOne(int[] only, int curX , int curY){
+		return (only[0] - curX <= 1 && curX  - only[0] <= 1 )||(only[1] - curY <= 1 && curY  - only[1] <= 1 );
 	}
 	
 	

@@ -26,10 +26,13 @@ public class ImgBackground {
 	
 	static{
 		HELP_BACKGOUNDS = new Image[]{
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page0.png").getImage(),
 				new ImageIcon("Image/HelpPanel/backgroundhelp_page1.png").getImage() ,
 				new ImageIcon("Image/HelpPanel/backgroundhelp_page2.png").getImage() ,
 				new ImageIcon("Image/HelpPanel/backgroundhelp_page3.png").getImage(),
-				//TODO : Any more pictures;
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page4.png").getImage(),
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page5.png").getImage(),
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page6.png").getImage(),
 				};
 	}
 	

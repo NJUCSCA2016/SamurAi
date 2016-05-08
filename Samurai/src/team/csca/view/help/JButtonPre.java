@@ -13,7 +13,7 @@ public class JButtonPre extends DynamicButton{
 	
 	public JButtonPre(JPanelHelp fatherPanel){
 		
-		super(245, 585, 50, 50, ImgButton.NEXT_LEFT_INIT, ImgButton.NEXT_LEFT_ENTER , ImgButton.NEXT_LEFT_CLICKED);
+		super(266, 576, 50, 50, ImgButton.NEXT_LEFT_INIT, ImgButton.NEXT_LEFT_ENTER , ImgButton.NEXT_LEFT_CLICKED);
 		this.fatherPanel = fatherPanel;
 		this.setButtonImg(ImgButton.NEXT_LEFT_ENABLE);
 		this.setEnabled(false);

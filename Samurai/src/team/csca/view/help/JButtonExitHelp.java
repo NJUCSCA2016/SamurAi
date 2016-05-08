@@ -12,7 +12,7 @@ public class JButtonExitHelp extends DynamicButton{
 	private JPanelHelp fatherPanel;
 	
 	public JButtonExitHelp(JPanelHelp fatherPanel){
-		super(928, 103, 60, 60, ImgButton.RETURN_FROM_INIT, ImgButton.RETURN_FROM_ENTER, ImgButton.RETURN_FROM_CLICKED);
+		super(983, 92, 60, 60, ImgButton.RETURN_FROM_INIT, ImgButton.RETURN_FROM_ENTER, ImgButton.RETURN_FROM_CLICKED);
 		this.fatherPanel = fatherPanel;
 	}
 	

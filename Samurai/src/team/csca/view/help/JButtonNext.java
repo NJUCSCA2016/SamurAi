@@ -13,7 +13,7 @@ public class JButtonNext extends DynamicButton{
 	
 	public JButtonNext(JPanelHelp fatherPanel){
 		
-		super(925, 585, 50, 50, ImgButton.NEXT_RIGHT_INIT , ImgButton.NEXT_RIGHT_ENTER , ImgButton.NEXT_RIGHT_CLICKED);
+		super(926, 576, 50, 50, ImgButton.NEXT_RIGHT_INIT , ImgButton.NEXT_RIGHT_ENTER , ImgButton.NEXT_RIGHT_CLICKED);
 		this.fatherPanel = fatherPanel;
 	
 	}
