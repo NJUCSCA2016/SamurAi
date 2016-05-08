@@ -1,6 +1,7 @@
 package ai;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import data.SamuraiInfo;
 
@@ -14,18 +15,24 @@ public class PlayerSword extends Player{
 	 * 我懒得管它放在哪了。放在Player里面也可以。放在这里也无妨。等我写完了再移过去吧。
 	 */
 	
-	public ArrayList<int[]> enemyInOwnEyes = new ArrayList<int[]>();
+	public ArrayList<int[]> enemyInOwnEyes = new ArrayList<int[]>(3);
 	public ArrayList<int[]> placeWaitingToOccupy = new ArrayList<int[]>();
 	
-	public ArrayList<int[]> otherEnemies = new ArrayList<int[]>();
+	public ArrayList<int[]> otherEnemies = new ArrayList<int[]>(3);
 	public int enemiesNum = 0;
 
+	public boolean markFieldOnOwn = false;
+	
 	private int[] enemyOne;
 	private int weaponOne;
 	private int[] enemyTwo;
 	private int weaponTwo;
 	private int[] enemyThree;
 	private int weaponThree;
+	/**
+	 * 12个方向。
+	 */
+	private int[] directions = new int[12];
 	
 	@Override
 	public void play() {
@@ -41,27 +48,82 @@ public class PlayerSword extends Player{
 			/**
 			 * 执行移动和占领。
 			 */
-			
-			this.moveAndOccupy();
-			
+			this.occupyField();
 		}else {
 			/**
 			 * 当前没有任何敌军。
 			 * 可以往前走。但是注意不要走到有敌军的地方。
 			 * 需要考虑友军那边的敌军
-			 * 
+			 * 对于Sword。攻击范围比较长。所以可以往友军那边走。
+			 * TODO：  如果友军那边没有敌军。则待定。
+			 * //TODO : 添加计算行动方向的方法。此方法可以置于Player中。因为其他武士也会需要。
 			 */
+			//根据敌军数目来确定行动。
+			switch (this.otherEnemies.size()) {
+			case 0:
+				//随意走一个方向
+				break;
+			case 1:
+				
+				break;
+			case 2 :
+				
+				break;
+			case 3 :
+				
+				break;
+			default:
+				break;
+			}
 			
-			
-			
+//			if(this.otherEnemies.isEmpty()){
+//				
+//			}else{
+//				
+//				
+//			}
+//			
 		}
+		//@Notice : 如果不能杀的话一定要采取行动。否则后果很难看。
 	}
 	/**
 	 * 
+	 * @Thingking : 当人物重合时怎么办。他们有可能用的不是这里面的GameInfo。所以需要考虑。我想偷偷的Approach他们。然后Kill
 	 * 当周围没有敌军时，采取此方法。分析周围战场。占领能够占领最多的地方的方向。
 	 * 
 	 */
-	public void moveAndOccupy(){
+	public void occupyField(){
+		//将Directions以0填充。
+		Arrays.fill(directions, 0);
+		
+		int curX = this.samuraiInfo.curX;
+		int curY = this.samuraiInfo.curY;
+	
+		if(this.markFieldOnOwn){
+				/**
+				 * 自己这里没被占领。
+				 */
+			for(int[] eachBlock : this.placeWaitingToOccupy){
+				
+				int blockX = eachBlock[0];
+				int blockY = eachBlock[1];
+			
+				int offsetX = blockX - curX;
+				int offsetY = blockY - curY;
+				
+				if(offsetX == 0){
+					
+				}else if(offsetY == 0){
+					
+				}
+				
+			}
+			
+		}else{
+			/**
+			 * 自己这里没被占了
+			 */
+		}
 		
 		
 		

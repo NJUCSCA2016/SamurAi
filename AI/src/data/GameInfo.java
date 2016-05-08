@@ -201,6 +201,7 @@ public final class GameInfo {
 //			Arrays.fill(this.field[i], 0);
 //		}
 //		
+			
 		/**
 		 *  Finished the 	sight in own sight 
 		 */
@@ -209,7 +210,10 @@ public final class GameInfo {
     		
     		for (int j = 0; j < this.width; ++j){
     			this.field[i][j] = Integer.parseInt(res[j+1]);
-    			if(Math.abs(myself.curX - j) + Math.abs(myself.curY - i) <= 5 && this.field[i][j] >= 3){
+    			if(this.field[i][j] == -1 ||(Math.abs(myself.curX - j) + Math.abs(myself.curY - i) <= 5 && this.field[i][j] >= 3)){
+    				if(myself.curX == j && myself.curY == i){
+    					this.playerAI.markFieldOnOwn = true;
+    				}
     				this.playerAI.placeWaitingToOccupy.add(new int[]{j , i});
     			}
     		}
