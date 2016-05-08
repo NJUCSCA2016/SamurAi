@@ -96,12 +96,36 @@ public class PlayerSword extends Player{
 		//将Directions以0填充。
 		Arrays.fill(directions, 0);
 		
+		this.census();
+		if(directions[directions.length - 1] == 0){
+			
+		}else{
+			int i = directions.length - 1;
+			for(; i > 0 ; i--){
+				if(directions[i] != directions[i+1]){
+					i++;
+					break;
+				}
+			}
+		}
+		//Move to where there exist enemy.
+		int action = 0;
+		
+		
+	}
+	
+	public void takeAction(){
+		
+	}
+	
+	public void census(){
+		
 		int curX = this.samuraiInfo.curX;
 		int curY = this.samuraiInfo.curY;
 	
 		if(this.markFieldOnOwn){
 				/**
-				 * 自己这里没被占领。
+				 * 自己这里被占领。
 				 */
 			for(int[] eachBlock : this.placeWaitingToOccupy){
 				
@@ -123,10 +147,66 @@ public class PlayerSword extends Player{
 			/**
 			 * 自己这里没被占了
 			 */
+			for(int[] eachBlock : this.placeWaitingToOccupy){
+				int blockX = eachBlock[0];
+				int blockY = eachBlock[1];
+			
+				int offsetX = blockX - curX;
+				int offsetY = blockY - curY;
+				
+				if(offsetY == 0){
+					if(offsetX < 0){
+						//左
+						this.directions[0]++;
+					}else{
+						//右
+						this.directions[1]++;
+					}
+				}else if(offsetX == 0){
+					if(offsetY > 0){
+						//上
+						this.directions[2]++;
+					}else{
+						//下
+						this.directions[3]++;
+					}
+				}else if(offsetX == -1){
+					if(offsetY > 0){
+						//左上
+						this.directions[4]++;
+					}else{
+						//左下
+						this.directions[5]++;
+					}
+				}else if(offsetX == 1){
+					if(offsetY > 0){
+						//右上
+						this.directions[6]++;
+					}else{
+						//右下
+						this.directions[7]++;
+					}
+				}else if (offsetY == 1) {
+					if(offsetX > 0){
+						//上右
+						this.directions[8]++;
+					}else{
+						//上左
+						this.directions[9]++;
+					}
+				}else if(offsetY == -1){
+					if(offsetX > 0){
+						this.directions[10]++;
+					}else{
+						this.directions[11]++;
+					}
+				}
+				//其他的因为打不到所以就不干了	
+					
+			}
 		}
 		
-		
-		
+		Arrays.sort(directions);
 	}
 	
 	
