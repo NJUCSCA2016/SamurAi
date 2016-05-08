@@ -39,13 +39,13 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 	 */
 	private JButtonPlay btnPlay;
 	
-	/**
-	 * 背景音乐
-	 */
-	private boolean homeMusic;
+//	/**
+//	 * 背景音乐
+//	 */
+//	private boolean homeMusic;
 
 	public JPanelStartMovie() {
-		this.homeMusic = true;
+//		this.homeMusic = true;
 		// 设置焦点
 		this.setFocusable(true);
 		// 增加键盘事件监听
