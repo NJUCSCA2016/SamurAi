@@ -26,6 +26,14 @@ public class JPanelPP extends JPanel implements KeyListener{
 	
 	int x,y;
 	
+	int index;
+	
+	int maxPower = 7;
+	
+	int nowPower;
+	
+	int cost;
+	
 	
 	public JPanelPP(){
 		this.setFocusable(true);
@@ -108,17 +116,26 @@ public class JPanelPP extends JPanel implements KeyListener{
 		// TODO Auto-generated method stub
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_UP:
-			// TODO 
+			// TODO:不知道AI是怎么表示出来的
 			System.out.println(121);
+			if (nowPower - cost >= 0 && x+1 <=14) {
+				x=x+1;
+			}
 			break;
 		case KeyEvent.VK_DOWN:
-			
+			if (nowPower - cost >= 0 && x-1 >= 0) {
+				x=x-1;
+			}
 			break;
 		case KeyEvent.VK_LEFT:
-			
+			if (nowPower - cost >= 0 && y-1 >= 0) {
+				y=y-1;
+			}
 			break;
 		case KeyEvent.VK_RIGHT:
-			
+			if (nowPower - cost >= 0 && y+1 <=14) {
+				y=y+1;
+			}
 			break;
 		default:
 			break;
