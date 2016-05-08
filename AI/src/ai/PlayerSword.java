@@ -35,7 +35,13 @@ public class PlayerSword extends Player{
 		
 	}
 	
-
+	public int analizeField(){
+		
+		
+		
+		
+		return 0;
+	}
 	
 	
 	
