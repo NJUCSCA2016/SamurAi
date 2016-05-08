@@ -8,6 +8,7 @@ import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import team.csca.controller.media.Player;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.startgame.JPanelStartGame;
 
@@ -18,23 +19,43 @@ import team.csca.view.startgame.JPanelStartGame;
  * @author YYM
  */
 public class JPanelStartMovie extends JPanel implements KeyListener {
+	/**
+	 * 图片计数器
+	 */
 	public int pic_Number = 1;
 
+	/**
+	 * 所要播放的动画
+	 */
 	public Image image;
 
+	/**
+	 * Frame
+	 */
 	private JFrameMain frame =JFrameMain.J_FRAME_MAIN;
 
+	/**
+	 * Play按钮
+	 */
 	private JButtonPlay btnPlay;
+	
+	/**
+	 * 背景音乐
+	 */
+	private boolean homeMusic;
 
 	public JPanelStartMovie() {
-		
+		this.homeMusic = true;
 		// 设置焦点
 		this.setFocusable(true);
+		// 增加键盘事件监听
 		this.addKeyListener(this);
+		// 添加Play按钮到面板上
 		this.btnPlay = new JButtonPlay(this);
 //		this.btnPlay.setEnabled(false);
 //		this.btnPlay.setVisible(false);
 //		this.add(this.btnPlay);
+		// 开启第一部分动画线程
 		new Thread(new MoviePartOne()).start();
 		
 	}
@@ -52,7 +73,10 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 			 * @author With You
 			 * 如下面的类
 			 */
-			
+			if (homeMusic) {
+				// TODO
+				Player.playMusic("bgm");
+			}
 			while (pic_Number <= 165) {
 				
 				// 经测试，ImageIcon比ImageIo快很多
