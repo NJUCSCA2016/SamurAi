@@ -29,12 +29,12 @@ public class JButtonGameSound extends StaticButton implements ActionListener{
 		if(gameSoundOn){
 			this.gameSoundOn = false;
 			this.setButtonImg(null);
-			Player.MUSiC_PLAYER.turnOffGame();
+			Player.MUSiC_PLAYER.changeGame_ON();
 		}else{
 			this.gameSoundOn = true;
 			//TODO : Add the initial button
 			this.setButtonImg(ImgSystem.TICK);
-			Player.MUSiC_PLAYER.turnOnGame();
+			Player.MUSiC_PLAYER.changeGame_ON();
 		}
 		
 	}

@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import main.Background;
+import team.csca.controller.media.Player;
 
 /**
  * @author Alone
@@ -31,7 +32,6 @@ public class PanelMain extends JPanel{
 		this.add(new ButtonPeopleGame(this));
 		this.add(new ButtonSet(this));
 		this.add(new ButtonExit());
-		
 		
 	}
 	
