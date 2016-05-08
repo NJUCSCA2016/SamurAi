@@ -2,9 +2,11 @@ package team.csca.view.startgame;
 
 import java.awt.event.MouseEvent;
 
+import team.csca.controller.media.Player;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgButton;
+import team.csca.view.pp.JPanelPP;
 
 /**
  * 
@@ -27,7 +29,9 @@ public class JButtonPP extends DynamicButton{
 		this.setButtonImg(ImgButton.BUTTON_PEOPLE_ENTER);
 		//TODO : 完成人机对战面板
 //		frameMain.setContentPane(null);
-		frameMain.remove(fatherPanel);
+		frameMain.remove(this.fatherPanel);
+		frameMain.setContentPane(new JPanelPP());
+		Player.stopMusic();
 		frameMain.revalidate();
 		
 	}
