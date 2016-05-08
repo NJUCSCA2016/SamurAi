@@ -3,8 +3,6 @@
  */
 package data;
 
-import java.util.ArrayList;
-
 /**
  * 
  * @version version two . In the first version , there exits a class called service . while in this version. I delete it and move all its method to this class
@@ -31,7 +29,11 @@ public final class SamuraiInfo {
 	  public int homeX, homeY;
 	  public int curX, curY;
 	  public int rank, score, hidden;
-
+	  /**
+	   * 用于标识友军AI。方便我以后来查水表
+	   */
+	  public int weapon;
+	  
 		/**
 		 * 游戏信息
 		 */
@@ -49,17 +51,7 @@ public final class SamuraiInfo {
 		private int[][][] attackField = ActionInfo.ATTACK_FIELD.SPEAR.attack_Field;
 		
 		
-		/**
-		 * 在自身范围内的敌军的AI。如果有的话而且剁得到的话。就杀了吧。
-		 * @Limit  
-		 * 我懒得管别人那是不是有人。不过我这里有人的话，一定是要狗带的。
-		 */
-		public ArrayList<int[]> enemyInOwnEyes = new ArrayList<int[]>();
-		
-		public ArrayList<int[]> placeWaitingToOccupy = new ArrayList<int[]>();
-		
-	  
-	  public SamuraiInfo(GameInfo gameInfo){
+		public SamuraiInfo(GameInfo gameInfo){
 		this.homeX = 0;
 		this.homeY = 0;
 		this.curX = 0;

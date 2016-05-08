@@ -6,6 +6,7 @@ package data;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+import ai.PlayerSword;
 import ai.TeamPlayer;
 
 /**
@@ -17,6 +18,12 @@ public final class GameInfo {
 	 * 本来为了实现面向对象编程。这里的实例变量应该都改为private
 	 * 但是于此处不考虑，均为public直接获取
 	 */
+	
+	/**
+	 * 懒得set了
+	 */
+	public PlayerSword playerAI;
+	
 	private static BufferedReader stdReader;
 	public static final int PLAYER_NUM = 6;
 
@@ -136,7 +143,7 @@ public final class GameInfo {
 				this.samuraiInfo[i].curY = Integer.parseInt(res[1]);
 				this.samuraiInfo[i].hidden = Integer.parseInt(res[2]);
 			}
-			SamuraiInfo myself = samuraiInfo[this.weapon - 1];
+				this.samuraiInfo[i].weapon = i;
 			//更新Player的信息。
 	    	TeamPlayer.SWORDS.updateSamuraiInfo(myself);
 			++i;
@@ -152,6 +159,7 @@ public final class GameInfo {
 				this.samuraiInfo[i].curY = curY;
 				//This info is of no use
 				this.samuraiInfo[i].hidden = Integer.parseInt(res[2]);
+				this.samuraiInfo[i].weapon = i;
 				/**
 				 * Consider to use what to store the information.
 				 * Array is too waste and not convenient to search 
@@ -162,12 +170,27 @@ public final class GameInfo {
 				//If is not -1 ; then it must lies in allies' and my own sight 
 				if(curX != -1){
 					//Five Manhattan distance
-					if(Math.abs(myself.curX - curX) + Math.abs(myself.curY - curY) <= 5){
-						myself.enemyInOwnEyes.add(new int[]{curX , curY});
+					for(SamuraiInfo eachAI : this.samuraiInfo){
+						/**
+						 * 如果是当前的AI添加到in own eyes
+						 */
+						if(Math.abs(eachAI.curX - curX) + Math.abs(eachAI.curY - curY) <= 5){
+							if(eachAI.weapon == this.weapon){
+								/**
+								 * 在我的视野范围内
+								 */
+								this.playerAI.enemyInOwnEyes.add(new int[]{curX , curY});
+								this.playerAI.enemiesNum++;
+							
+							}else{
+								/**
+							 	* 只能添加到Other Enemies
+							 	*/
+								this.playerAI.otherEnemies.add(new int[]{curX , curY});
+							}
+						}
 					}
 				}
-				
-				
 			}
 			
 //      This step is of no need to do. For the loop immediately after it will get each element of the field
@@ -186,7 +209,7 @@ public final class GameInfo {
     		for (int j = 0; j < this.width; ++j){
     			this.field[i][j] = Integer.parseInt(res[j+1]);
     			if(Math.abs(myself.curX - j) + Math.abs(myself.curY - i) <= 5 && this.field[i][j] >= 3){
-    				myself.placeWaitingToOccupy.add(new int[]{j , i});
+    				this.playerAI.placeWaitingToOccupy.add(new int[]{j , i});
     			}
     		}
     	}

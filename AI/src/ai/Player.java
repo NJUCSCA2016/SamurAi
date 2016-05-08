@@ -3,6 +3,8 @@
  */
 package ai;
 
+import java.util.ArrayList;
+
 import control.CenterControl;
 import data.GameInfo;
 import data.SamuraiInfo;
@@ -86,6 +88,7 @@ public abstract class Player {
 	 * 最大行动力
 	 */
 	public final int maxPower = 7;
+
 	/**
 	 * 哈密尔顿距离最大值
 	 */
