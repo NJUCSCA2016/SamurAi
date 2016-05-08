@@ -25,21 +25,22 @@ public class Player {
 	
 	private Player(){}
 	
-	public void turnOnBack(){
-		this.back_ON = true;
-	}
+//	public void turnOnBack(){
+//		this.back_ON = true;
+//	}
+//	
+//	public void turnOffBack(){
+//		this.back_ON = false;
+//	}
 	
-	public void turnOffBack(){
-		this.back_ON = false;
-	}
+//	public void turnOnGame(){
+//		this.game_ON = true;
+//	}
+//	
+//	public void turnOffGame() {
+//		this.game_ON = false;
+//	}
 	
-	public void turnOnGame(){
-		this.game_ON = true;
-	}
-	
-	public void turnOffGame() {
-		this.game_ON = false;
-	}
 	
 	// TODO: 目前并不清楚我们需要用到哪些类型的音频，所以先按照学长的来写。
 	/**
@@ -47,6 +48,23 @@ public class Player {
 	 * 在项目中是专门用来播放mp3类型的背景音乐
 	 */
 	private static SimplePlayer musicPlayer = null;
+	
+	public boolean isBack_ON() {
+		return back_ON;
+	}
+
+	public void changeBack_ON() {
+		this.back_ON = !this.back_ON;
+	}
+
+	public boolean isGame_ON() {
+		return game_ON;
+	}
+
+	public void changeGame_ON() {
+		this.game_ON = !this.game_ON;
+	}
+
 	/**
 	 * 功能是用来打开mp3类型的文件
 	 * 在项目中是专门用来播放mp3类型的游戏音效

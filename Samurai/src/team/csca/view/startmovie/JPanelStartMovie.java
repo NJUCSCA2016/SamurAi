@@ -73,7 +73,7 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 			 * @author With You
 			 * 如下面的类
 			 */
-			if (homeMusic) {
+			if (Player.MUSiC_PLAYER.isBack_ON()) {
 				// TODO
 				Player.playMusic("bgm");
 			}

@@ -23,14 +23,15 @@ public class JButtonBackSound extends StaticButton implements ActionListener{
 		if(backSoundOn){
 			this.backSoundOn = false;
 			this.setButtonImg(null);
-			Player.MUSiC_PLAYER.turnOffBack();
+			Player.MUSiC_PLAYER.changeBack_ON();
+			Player.MUSiC_PLAYER.stopMusic();
 			
 		}else{
 			this.backSoundOn = true;
 			//TODO : Add the initial button
 			this.setButtonImg(ImgSystem.TICK);
-			Player.MUSiC_PLAYER.turnOnBack();
-			
+			Player.MUSiC_PLAYER.changeBack_ON();
+			Player.MUSiC_PLAYER.playMusic("bgm");
 		}
 		
 	}
