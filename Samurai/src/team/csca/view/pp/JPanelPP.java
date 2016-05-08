@@ -23,9 +23,10 @@ public class JPanelPP extends JPanel{
 				new LayerBackground(0, 0, 1250, 700, ImgBackground.PP_PANEL),
 				
 		};
-		if (Player.MUSiC_PLAYER.isBack_ON()) {
-			Player.playMusic("bgm2");
-		}
+//		if (Player.MUSiC_PLAYER.isBack_ON()) {
+//			Player.stopMusic();
+//			Player.playMusic("bgm2");
+//		}
 	}
 	
 	public void paintComponent(Graphics g){

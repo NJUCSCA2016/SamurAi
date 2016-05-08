@@ -32,6 +32,9 @@ public class JButtonPP extends DynamicButton{
 		frameMain.remove(this.fatherPanel);
 		frameMain.setContentPane(new JPanelPP());
 		Player.stopMusic();
+		if (Player.MUSiC_PLAYER.isBack_ON()) {
+			Player.playMusic("bgm2");
+		}
 		frameMain.revalidate();
 		
 	}

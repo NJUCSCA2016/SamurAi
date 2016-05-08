@@ -139,8 +139,8 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 			//移除该Panel
 			frame.remove(JPanelStartMovie.this);
 			frame.setContentPane(mainPanel);
-			Player.MUSiC_PLAYER.stopMusic();
-			Player.MUSiC_PLAYER.playMusic("bgm1");
+			Player.stopMusic();
+			Player.playMusic("bgm1");
 			//移除旧contentpane后进行重画
 			frame.revalidate();
 			
