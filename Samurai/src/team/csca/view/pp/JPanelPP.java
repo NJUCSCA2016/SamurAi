@@ -1,6 +1,10 @@
 package team.csca.view.pp;
 
+import java.awt.AWTEvent;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
 import java.util.Random;
 
 import javax.swing.JPanel;
@@ -16,11 +20,15 @@ import team.csca.view.image.ImgSystem;
  * @author Water
  *
  */
-public class JPanelPP extends JPanel{
+public class JPanelPP extends JPanel implements KeyListener{
 	private Layer[] layers;
+	
+	int x,y;
 	
 	
 	public JPanelPP(){
+		this.setFocusable(true);
+		this.addKeyListener(this);
 		Random r = new Random();
 		int[] x = new int[6];
 		int[] y = new int[6];
@@ -42,39 +50,42 @@ public class JPanelPP extends JPanel{
 		// y = y[i] * (-36) + 624
 		layers = new Layer[]{
 				new LayerBackground(0, 0, 1250, 700, ImgBackground.PP_PANEL),
-//				new LayerBackground(30*x[0] + 15*y[0] + 232, -36*y[0] + 624, 30, 30, ImgSystem.logo),
-				new LayerBackground(234, 624, 30, 30, ImgSystem.logo),
-				new LayerBackground(234+41, 624, 30, 30, ImgSystem.logo),
-				new LayerBackground(234+82, 624, 30, 30, ImgSystem.logo),
-				new LayerBackground(234+123, 624, 30, 30, ImgSystem.logo),
-				new LayerBackground(234+164, 624, 30, 30, ImgSystem.logo),
-				new LayerBackground(234+205, 624, 30, 30, ImgSystem.logo),
-				new LayerBackground(234+246, 624, 30, 30, ImgSystem.logo),
-				new LayerBackground(234+287, 624, 30, 30, ImgSystem.logo),
+//				new LayerBackground(40*x[0] + 13*y[0] + 232, -36*y[0] + 624, 30, 30, ImgSystem.logo),
+//				new LayerBackground(234, 624, 30, 30, ImgSystem.logo),
+//				new LayerBackground(234+41, 624, 30, 30, ImgSystem.logo),
+//				new LayerBackground(234+82, 624, 30, 30, ImgSystem.logo),
+//				new LayerBackground(234+123, 624, 30, 30, ImgSystem.logo),
+//				new LayerBackground(234+164, 624, 30, 30, ImgSystem.logo),
+//				new LayerBackground(234+205, 624, 30, 30, ImgSystem.logo),
+//				new LayerBackground(234+246, 624, 30, 30, ImgSystem.logo),
+//				new LayerBackground(234+287, 624, 30, 30, ImgSystem.logo),
 //				new LayerBackground(234+13, 624-36, 30, 30, ImgSystem.logo),
 //				new LayerBackground(234+26, 624-72, 30, 30, ImgSystem.logo),
 //				new LayerBackground(234+39, 624-108, 30, 30, ImgSystem.logo),
 //				new LayerBackground(234+52, 624-144, 30, 30, ImgSystem.logo),
-//				new LayerBackground(30*x[1] + 15*y[1] + 232, -36*y[1] + 624, 30, 30, ImgSystem.logo),
-//				new LayerBackground(x[0] * 40 + y[0] * 13 + 232, y[0] * (-36) + 624, 
+//				new LayerBackground(40*x[1] + 13*y[1] + 234, -36*y[1] + 624, 
 //						30, 30, ImgSystem.logo),
-//				new LayerBackground(x[1] * 40 + y[1] * 13 + 232, y[1] * (-36) + 624, 
-//						30, 30, ImgSystem.logo),
-//				new LayerBackground(x[2] * 40 + y[2] * 13 + 232, y[2] * (-36) + 624, 
-//						30, 30, ImgSystem.logo),
-//				new LayerBackground(x[3] * 40 + y[3] * 13 + 232, y[3] * (-36) + 624, 
-//						30, 30, ImgSystem.logo),
-//				new LayerBackground(x[4] * 40 + y[4] * 13 + 232, y[4] * (-36) + 624, 
-//						30, 30, ImgSystem.logo),
-//				new LayerBackground(x[5] * 40 + y[5] * 13 + 232, y[5] * (-36) + 624, 
-//						30, 30, ImgSystem.logo),
+				// TODO: 需要把武士的图片加进去
+				new LayerBackground(x[0] * 40 + y[0] * 13 + 234, y[0] * (-36) + 624, 
+						30, 30, ImgSystem.logo),
+				new LayerBackground(x[1] * 40 + y[1] * 13 + 234, y[1] * (-36) + 624, 
+						30, 30, ImgSystem.logo),
+				new LayerBackground(x[2] * 40 + y[2] * 13 + 234, y[2] * (-36) + 624, 
+						30, 30, ImgSystem.logo),
+				new LayerBackground(x[3] * 40 + y[3] * 13 + 234, y[3] * (-36) + 624, 
+						30, 30, ImgSystem.logo),
+				new LayerBackground(x[4] * 40 + y[4] * 13 + 234, y[4] * (-36) + 624, 
+						30, 30, ImgSystem.logo),
+				new LayerBackground(x[5] * 40 + y[5] * 13 + 234, y[5] * (-36) + 624, 
+						30, 30, ImgSystem.logo),
 				
 		};
-		
+	
 		//		if (Player.MUSiC_PLAYER.isBack_ON()) {
 //			Player.stopMusic();
 //			Player.playMusic("bgm2");
 //		}
+		
 	}
 	
 	public void paintComponent(Graphics g){
@@ -84,4 +95,42 @@ public class JPanelPP extends JPanel{
 		
 		super.paintComponents(g);
 	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		switch (e.getKeyCode()) {
+		case KeyEvent.VK_UP:
+			// TODO 
+			System.out.println(121);
+			break;
+		case KeyEvent.VK_DOWN:
+			
+			break;
+		case KeyEvent.VK_LEFT:
+			
+			break;
+		case KeyEvent.VK_RIGHT:
+			
+			break;
+		default:
+			break;
+		}
+		repaint();
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 }

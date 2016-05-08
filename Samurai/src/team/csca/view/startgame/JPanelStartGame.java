@@ -1,6 +1,7 @@
 package team.csca.view.startgame;
 
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -10,6 +11,7 @@ import team.csca.view.extend.LayerBackground;
 import team.csca.view.image.ImgBackground;
 
 public class JPanelStartGame extends JPanel{
+	
 	
 	private Layer[] layers;
 	
@@ -42,4 +44,6 @@ public class JPanelStartGame extends JPanel{
 		
 		super.paintComponents(g);
 	}
+	
+
 }
