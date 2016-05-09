@@ -1,27 +1,23 @@
-package team.csca.view.pp;
+package team.csca.view.pm;
 
-import java.awt.AWTEvent;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
 import java.util.Random;
 
 import javax.swing.JPanel;
 
-import team.csca.controller.media.Player;
 import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
 import team.csca.view.image.ImgBackground;
 import team.csca.view.image.ImgSamurai;
-import team.csca.view.image.ImgSystem;
 
 /**
- * 人人对战
+ * 人机对战
  * @author Water
  *
  */
-public class JPanelPP extends JPanel implements KeyListener{
+public class JPanelPM extends JPanel implements KeyListener{
 	private Layer[] layers;
 	
 	int x,y;
@@ -35,7 +31,7 @@ public class JPanelPP extends JPanel implements KeyListener{
 	int cost;
 	
 	
-	public JPanelPP(){
+	public JPanelPM(){
 		this.setFocusable(true);
 		this.addKeyListener(this);
 		Random r = new Random();
@@ -152,3 +148,4 @@ public class JPanelPP extends JPanel implements KeyListener{
 	
 
 }
+

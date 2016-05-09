@@ -6,7 +6,7 @@ import team.csca.controller.media.Player;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgButton;
-import team.csca.view.pp.JPanelPP;
+import team.csca.view.pm.JPanelPM;
 
 /**
  * 
@@ -30,11 +30,11 @@ public class JButtonPP extends DynamicButton{
 		//TODO : 完成人机对战面板
 //		frameMain.setContentPane(null);
 		frameMain.remove(this.fatherPanel);
-		frameMain.setContentPane(new JPanelPP());
-		Player.stopMusic();
-		if (Player.MUSiC_PLAYER.isBack_ON()) {
-			Player.playMusic("bgm2");
-		}
+		frameMain.setContentPane(new JPanelPM());
+//		Player.stopMusic();
+//		if (Player.MUSiC_PLAYER.isBack_ON()) {
+//			Player.playMusic("bgm2");
+//		}
 		frameMain.revalidate();
 		
 	}
