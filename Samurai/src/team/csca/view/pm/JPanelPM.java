@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
+import team.csca.view.extend.PlayMovie;
 import team.csca.view.image.ImgBackground;
 import team.csca.view.image.ImgSamurai;
 
@@ -30,8 +31,12 @@ public class JPanelPM extends JPanel implements KeyListener{
 	
 	int cost;
 	
+	PlayMovie p = new PlayMovie();
 	
 	public JPanelPM(){
+		p.setPath("Image/Start");
+		p.setNum(50);
+		p.playMovie("Image/Start", 50);
 		this.setFocusable(true);
 		this.addKeyListener(this);
 		Random r = new Random();
