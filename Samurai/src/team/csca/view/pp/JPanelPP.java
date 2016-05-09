@@ -76,17 +76,17 @@ public class JPanelPP extends JPanel implements KeyListener{
 //						30, 30, ImgSystem.logo),
 				// TODO: 需要把武士的图片加进去
 				new LayerBackground(x[0] * 40 + y[0] * 13 + 234, y[0] * (-36) + 624, 
-						30, 30, ImgSamurai.AI_1),
+						30, 30, ImgSamurai.A0),
 				new LayerBackground(x[1] * 40 + y[1] * 13 + 234, y[1] * (-36) + 624, 
-						30, 30, ImgSamurai.AI_2),
+						30, 30, ImgSamurai.A1),
 				new LayerBackground(x[2] * 40 + y[2] * 13 + 234, y[2] * (-36) + 624, 
-						30, 30, ImgSamurai.AI_3),
+						30, 30, ImgSamurai.A2),
 				new LayerBackground(x[3] * 40 + y[3] * 13 + 234, y[3] * (-36) + 624, 
-						30, 30, ImgSamurai.AI_4),
+						30, 30, ImgSamurai.B0),
 				new LayerBackground(x[4] * 40 + y[4] * 13 + 234, y[4] * (-36) + 624, 
-						30, 30, ImgSamurai.AI_5),
+						30, 30, ImgSamurai.B1),
 				new LayerBackground(x[5] * 40 + y[5] * 13 + 234, y[5] * (-36) + 624, 
-						30, 30, ImgSamurai.AI_6),
+						30, 30, ImgSamurai.B2),
 				
 		};
 	

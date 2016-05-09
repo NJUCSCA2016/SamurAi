@@ -10,39 +10,51 @@ import javax.swing.ImageIcon;
  *
  */
 public class ImgSamurai {
-	public static final Image AI_1 = new ImageIcon("Image/AI/2AI1.png").getImage();
+	public static final Image A0 = new ImageIcon("Image/AI/A0.png").getImage();
 	
-	public static final Image AI_2 = new ImageIcon("Image/AI/2AI2.png").getImage();
+	public static final Image A1 = new ImageIcon("Image/AI/A1.png").getImage();
 	
-	public static final Image AI_3 = new ImageIcon("Image/AI/2AI3.png").getImage();
+	public static final Image A2 = new ImageIcon("Image/AI/A2.png").getImage();
 	
-	public static final Image AI_4 = new ImageIcon("Image/AI/2AI4.png").getImage();
+	public static final Image B0 = new ImageIcon("Image/AI/B0.png").getImage();
 	
-	public static final Image AI_5 = new ImageIcon("Image/AI/2AI5.png").getImage();
+	public static final Image B1 = new ImageIcon("Image/AI/B1.png").getImage();
 	
-	public static final Image AI_6 = new ImageIcon("Image/AI/2AI6.png").getImage();
+	public static final Image B2 = new ImageIcon("Image/AI/B2.png").getImage();
 	
-	public static final Image AI_1_LEFT = new ImageIcon("Image/AI/AI1_LEFT.png").getImage();
+	public static final Image A0_LEFT = new ImageIcon("Image/AI/A0_LEFT.png").getImage();
 	
-	public static final Image AI_2_LEFT = new ImageIcon("Image/AI/AI2_LEFT.png").getImage();
+	public static final Image A1_LEFT = new ImageIcon("Image/AI/A1_LEFT.png").getImage();
 	
-	public static final Image AI_3_LEFT = new ImageIcon("Image/AI/AI3_LEFT.png").getImage();
+	public static final Image A2_LEFT = new ImageIcon("Image/AI/A2_LEFT.png").getImage();
 	
-	public static final Image AI_4_LEFT = new ImageIcon("Image/AI/AI4_LEFT.png").getImage();
+	public static final Image B0_LEFT = new ImageIcon("Image/AI/B0_LEFT.png").getImage();
 	
-	public static final Image AI_5_LEFT = new ImageIcon("Image/AI/AI5_LEFT.png").getImage();
+	public static final Image B1_LEFT = new ImageIcon("Image/AI/B1_LEFT.png").getImage();
 	
-	public static final Image AI_6_LEFT = new ImageIcon("Image/AI/AI6_LEFT.png").getImage();
+	public static final Image B2_LEFT = new ImageIcon("Image/AI/B2_LEFT.png").getImage();
 	
-	public static final Image AI_1_RIGHT = new ImageIcon("Image/AI/AI1_RIGHT.png").getImage();
+	public static final Image A0_RIGHT = new ImageIcon("Image/AI/A0_RIGHT.png").getImage();
 	
-	public static final Image AI_2_RIGHT = new ImageIcon("Image/AI/AI2_RIGHT.png").getImage();
+	public static final Image A1_RIGHT = new ImageIcon("Image/AI/A1_RIGHT.png").getImage();
 
-	public static final Image AI_3_RIGHT = new ImageIcon("Image/AI/AI3_RIGHT.png").getImage();
+	public static final Image A2_RIGHT = new ImageIcon("Image/AI/A2_RIGHT.png").getImage();
 	
-	public static final Image AI_4_RIGHT = new ImageIcon("Image/AI/AI4_RIGHT.png").getImage();
+	public static final Image B0_RIGHT = new ImageIcon("Image/AI/B0_RIGHT.png").getImage();
 	
-	public static final Image AI_5_RIGHT = new ImageIcon("Image/AI/AI5_RIGHT.png").getImage();
+	public static final Image B1_RIGHT = new ImageIcon("Image/AI/B1_RIGHT.png").getImage();
 	
-	public static final Image AI_6_RIGHT = new ImageIcon("Image/AI/AI6_RIGHT.png").getImage();
+	public static final Image B2_RIGHT = new ImageIcon("Image/AI/B2_RIGHT.png").getImage();
+	
+	public static final Image A0_BACK = new ImageIcon("Image/AI/A0_BACK.png").getImage();
+	
+	public static final Image A1_BACK = new ImageIcon("Image/AI/A1_BACK.png").getImage();
+	
+	public static final Image A2_BACK = new ImageIcon("Image/AI/A2_BACK.png").getImage();
+	
+	public static final Image B0_BACK = new ImageIcon("Image/AI/B0_BACK.png").getImage();
+	
+	public static final Image B1_BACK = new ImageIcon("Image/AI/B1_BACK.png").getImage();
+	
+	public static final Image B2_BACK = new ImageIcon("Image/AI/B2_BACK.png").getImage();
 }
