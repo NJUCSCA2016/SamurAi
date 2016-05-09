@@ -1,0 +1,6 @@
+button_loginfailed_retry1/2:
+x:266 y:503 w:249 h:103
+button_loginfailed_return1/2:
+x:756 y:503 w:249 h:103
+button_loginwaiting_return:
+x:1112 y:0 w:203 h:150
