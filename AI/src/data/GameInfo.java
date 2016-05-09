@@ -171,7 +171,8 @@ public final class GameInfo {
 				//If is not -1 ; then it must lies in allies' and my own sight 
 				if(curX != -1){
 					//Five Manhattan distance
-					for(SamuraiInfo eachAI : this.samuraiInfo){
+					for(int i1 = 0 ; i1 < 3 ; i1++){
+						SamuraiInfo eachAI = this.samuraiInfo[i1];
 						/**
 						 * 如果是当前的AI添加到in own eyes
 						 */
@@ -187,7 +188,7 @@ public final class GameInfo {
 								/**
 							 	* 只能添加到Other Enemies
 							 	*/
-								this.playerAI.otherEnemies.add(new int[]{curX , curY});
+								this.playerAI.otherEnemies.add(eachAI);
 							}
 						}
 					}

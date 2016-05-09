@@ -19,17 +19,17 @@ public class PlayerSword extends Player{
 	public ArrayList<int[]> enemyInOwnEyes = new ArrayList<int[]>(3);
 	public ArrayList<int[]> placeWaitingToOccupy = new ArrayList<int[]>();
 	
-	public ArrayList<int[]> otherEnemies = new ArrayList<int[]>(3);
+	public ArrayList<SamuraiInfo> otherEnemies = new ArrayList<SamuraiInfo>(3);
 	public int enemiesNum = 0;
 
 	public boolean markFieldOnOwn = false;
-	
-	private int[] enemyOne;
-	private int weaponOne;
-	private int[] enemyTwo;
-	private int weaponTwo;
-	private int[] enemyThree;
-	private int weaponThree;
+//	
+//	private int[] enemyOne;
+//	private int weaponOne;
+//	private int[] enemyTwo;
+//	private int weaponTwo;
+//	private int[] enemyThree;
+//	private int weaponThree;
 	/**
 	 * 12 / 16个方向。
 	 */
@@ -93,6 +93,9 @@ public class PlayerSword extends Player{
 		}
 		//@Notice : 如果不能杀的话一定要采取行动。否则后果很难看。
 	}
+	
+	
+	
 	/**
 	 * 
 	 * @Thingking : 当人物重合时怎么办。他们有可能用的不是这里面的GameInfo。所以需要考虑。我想偷偷的Approach他们。然后Kill
@@ -111,9 +114,18 @@ public class PlayerSword extends Player{
 		this.census();
 		//TODO : 这里的数组遍历是错误的。
 		//TODO : 改为this.indexOfMax的遍历就好了
+		//如果两个数组的大小完全相同。这就说明可能每个都是0.需要添加判断。
 		if(this.indexOfMax.length == this.directions.length){
 			//完全有可能。此时应该采取相应行为。
-			//
+			if(this.directions[0] == 0){
+				//移动不占领。
+				//TODO
+			}else{
+				// 说明每个方向都是一样的。
+				//向人多的一占领
+				//TODO
+			}
+	
 		}else{
 			int i = directions.length - 1;
 			for(; i > 0 ; i--){
@@ -128,6 +140,37 @@ public class PlayerSword extends Player{
 			
 		}
 		//Move to where there exist enemy.
+	}
+	/**
+	 * 
+	 * @param enemyX
+	 * @param enemyY
+	 * @param weapon
+	 * @return
+	 */
+	public int checkDirectionOFEnemy(int enemyX, int enemyY, int weapon){
+		int offsetX = Math.abs(enemyX - this.samuraiInfo.curX);
+		int offsetY = Math.abs(enemyY - this.samuraiInfo.curY);
+		int totle = offsetX + offsetY;
+		/**
+		 *@Warning ：  如果是碰到对面的剑士。Be careful
+		 */
+		if(weapon == this.samuraiInfo.weapon){
+			if(totle < 8 && (offsetX <= 1 || offsetY <= 1)){
+				/**
+				 * Dangerous
+				 */
+				return Player.DANGER;
+			}else{
+				
+			}
+		}else{
+			if(totle > 10){
+				return Player.TOO_FAR;
+			}
+		}
+		
+		return 1; 
 	}
 	
 	public void takeAction(int actionCode){

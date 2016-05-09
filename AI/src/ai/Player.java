@@ -63,6 +63,27 @@ public abstract class Player {
 	public final static int NOBODY_PART = 7;
 	
 	
+	/**
+	 * 战场分析功能
+	 */
+	
+	public final static int LEFT_SIDE = 0;
+	
+	public final static int RIGHT_SIDE = 1;
+	
+	public final static int UP_SIDE = 2;
+	
+	public final static int DOWN_SIDE = 3;
+	
+//	public final static int 	
+	
+	public final static int TOO_FAR = 8;
+	
+	public final static int DANGER =  9;
+	
+	
+	
+	
 	
 	
 	/**
