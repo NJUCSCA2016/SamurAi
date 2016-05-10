@@ -60,7 +60,7 @@ public class Player {
 	}
 
 	public void changeBack_ON() {
-		this.back_ON = !this.back_ON;
+		this.back_ON = (!this.back_ON);
 	}
 	
 	public boolean isGame_ON() {
@@ -68,18 +68,18 @@ public class Player {
 	}
 
 	public void changeGame_ON() {
-		this.game_ON = !this.game_ON;
+		this.game_ON = (!this.game_ON);
 	}
 	
 
 	public void setBackVol(int volBack){
 		this.vol_Back = volBack;
-		this.midiPlayer.setVolume((float) (volBack / 10.0));
+		this.midiPlayer.setVolume((float) ((float)volBack / 10.0));
 	}
 	
 	public void setGameVol(int volGame){
 		this.vol_Game = volGame;
-		this.soundPlayer.setVolume((float) (volGame / 10.0));
+		this.soundPlayer.setVolume((float) ((float)volGame / 10.0));
 	}
 	
 	public int getVolBack(){

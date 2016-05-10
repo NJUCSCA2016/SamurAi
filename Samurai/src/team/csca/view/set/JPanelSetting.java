@@ -1,5 +1,6 @@
 package team.csca.view.set;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -33,7 +34,8 @@ public class JPanelSetting extends JPanel{
 		this.add(new JButtonExitSet(this));
 		
 		//添加一系列的音量控制按钮。
-		
+		this.add(new JButtonBackSoundZero(jButtonBackSound, this));
+		this.add(new JButtonGameSoundZero(jButtonGameSound, this));
 		
 		for(int i = 1 ; i < 11 ; i++) {
 			this.add(new JButtonBackSoundLine(425 + 30 * i, i, jButtonBackSound, this));
@@ -42,7 +44,7 @@ public class JPanelSetting extends JPanel{
 		
 	}
 	
-	public void paint(Graphics g){
+	public void paintComponent(Graphics g){
 		
 		this.background.createWindow(g);
 		g.drawImage(VOLUME_BACK, 375, 323, null);
