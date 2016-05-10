@@ -33,7 +33,6 @@ public class JButtonGameSound extends StaticButton implements ActionListener{
 		
 		
 		if(Player.MUSiC_PLAYER.isGame_ON()){
-			
 			this.setButtonImg(null);
 			Player.MUSiC_PLAYER.changeGame_ON();
 		}else{
@@ -42,6 +41,7 @@ public class JButtonGameSound extends StaticButton implements ActionListener{
 			Player.MUSiC_PLAYER.setGameVol(Player.MUSiC_PLAYER.getVolGame());
 		}
 		
+		repaint();
 	}
 	
 
