@@ -23,6 +23,9 @@ public class JPanelPM extends JPanel implements KeyListener{
 	
 	int x,y;
 	
+	/**
+	 * 
+	 */
 	int index;
 	
 	int maxPower = 7;
