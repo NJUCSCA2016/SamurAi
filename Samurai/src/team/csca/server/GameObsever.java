@@ -1,4 +1,4 @@
-package team.csca.vie.server;
+package team.csca.server;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

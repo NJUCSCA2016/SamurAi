@@ -19,8 +19,10 @@ public class UserImp implements User{
 	private final static ArrayList<String> USERNAMES = new ArrayList<String>();
 	private final static ArrayList<String> PASSWORDS = new ArrayList<String>();
 	
+	private int currentCientNums = 0;
+	private String hostName = null;
 	
-	
+ 	
 	private final static int SUCCEED = 0;
 	private final static int NAME_INVALID = 1;
 	private final static int PASSWORD_ERROR = 2;

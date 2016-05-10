@@ -23,6 +23,7 @@ public class Player {
 	
 	private boolean game_ON = true;
 	
+	
 	private Player(){}
 	
 //	public void turnOnBack(){
@@ -64,7 +65,15 @@ public class Player {
 	public void changeGame_ON() {
 		this.game_ON = !this.game_ON;
 	}
-
+	
+	public void setBackVol(int volBack){
+		this.midiPlayer.setVolume(volBack);
+	}
+	
+	public void setGameVol(int volGame){
+		this.soundPlayer.setVolume(volGame);
+	}
+	
 	/**
 	 * 功能是用来打开mp3类型的文件
 	 * 在项目中是专门用来播放mp3类型的游戏音效

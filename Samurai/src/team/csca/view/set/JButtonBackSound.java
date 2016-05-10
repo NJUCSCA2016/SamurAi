@@ -13,7 +13,7 @@ public class JButtonBackSound extends StaticButton implements ActionListener{
 	
 	public JButtonBackSound() {
 		//TODO : add the button and its configure
-		super(728, 273, 47, 47, null);
+		super(715, 250, 52, 52, null);
 		if (backSoundOn) {
 			this.setButtonImg(ImgSystem.TICK);
 		}else if(!backSoundOn){

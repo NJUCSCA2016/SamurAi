@@ -12,7 +12,7 @@ public class JButtonExitSet extends DynamicButton{
 	private JPanelSetting fatherPanel;
 	
 	public JButtonExitSet(JPanelSetting fatherPanel){
-		super(928, 103, 60, 60, ImgButton.RETURN_FROM_INIT, ImgButton.RETURN_FROM_ENTER, ImgButton.RETURN_FROM_CLICKED);
+		super(834, 148, 60, 60, ImgButton.RETURN_FROM_INIT, ImgButton.RETURN_FROM_ENTER, ImgButton.RETURN_FROM_CLICKED);
 		this.fatherPanel = fatherPanel;
 	}
 	

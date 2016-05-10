@@ -8,6 +8,9 @@ import java.rmi.registry.Registry;
 /**
  * 
  * 服务器
+ * 
+ * 迭代一 ：  该服务器智能实现单个游戏的开启 ， 不支持多游戏开启
+ * 
  * @author With You
  *
  */

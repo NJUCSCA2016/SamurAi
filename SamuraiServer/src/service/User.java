@@ -34,7 +34,8 @@ public interface User extends Remote{
 	 */
 	public boolean logout(String userName) throws RemoteException;
 	/**
-	 * 用户选择模式
+	 * 房主选择模式 。
+	 * 第一个登陆的人作为房主
 	 * @param moodleCode
 	 * @throws RemoteException
 	 */
