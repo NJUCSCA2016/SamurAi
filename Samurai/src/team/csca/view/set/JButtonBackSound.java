@@ -9,38 +9,36 @@ import team.csca.view.image.ImgSystem;
 
 public class JButtonBackSound extends StaticButton implements ActionListener{
 	
-	private static boolean backSoundOn = true;
+//	private static boolean backSoundOn = true;
 	
 	public JButtonBackSound() {
-		//TODO : add the button and its configure
+		
 		super(715, 250, 52, 52, null);
-		if (backSoundOn) {
+		
+		if (Player.MUSiC_PLAYER.isBack_ON()) {
 			this.setButtonImg(ImgSystem.TICK);
-		}else if(!backSoundOn){
-			this.setButtonImg(null);
 		}
+		
 		this.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if(backSoundOn){
-			JButtonBackSound.backSoundOn = false;
+		
+		if(Player.MUSiC_PLAYER.isBack_ON()){
 			this.setButtonImg(null);
 			Player.MUSiC_PLAYER.changeBack_ON();
 			Player.stopMusic();
 			
 		}else{
-			JButtonBackSound.backSoundOn = true;
-			//TODO : Add the initial button
 			this.setButtonImg(ImgSystem.TICK);
 			Player.MUSiC_PLAYER.changeBack_ON();
+			Player.MUSiC_PLAYER.setBackVol(Player.MUSiC_PLAYER.getVolBack());
 			Player.playMusic("bgm1");
 		}
 		
 	}
 	
-
 	
 }

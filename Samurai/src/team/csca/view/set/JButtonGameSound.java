@@ -13,10 +13,15 @@ public class JButtonGameSound extends StaticButton implements ActionListener{
 	 *  游戏音效默认为开启
 	 */
 	
-	private boolean gameSoundOn = true;
+//	private static boolean gameSoundOn = true;
 	
 	public JButtonGameSound(){
-		super(715, 375, 52, 52, ImgSystem.TICK);
+		super(715, 375, 52, 52, null);
+		
+		if(Player.MUSiC_PLAYER.isGame_ON()){
+			this.setButtonImg(ImgSystem.TICK);
+		}
+		
 		this.addActionListener(this);
 	}
 	/**
@@ -26,19 +31,18 @@ public class JButtonGameSound extends StaticButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if(gameSoundOn){
-			this.gameSoundOn = false;
+		
+		if(Player.MUSiC_PLAYER.isGame_ON()){
+			
 			this.setButtonImg(null);
 			Player.MUSiC_PLAYER.changeGame_ON();
 		}else{
-			this.gameSoundOn = true;
-			//TODO : Add the initial button
 			this.setButtonImg(ImgSystem.TICK);
 			Player.MUSiC_PLAYER.changeGame_ON();
+			Player.MUSiC_PLAYER.setGameVol(Player.MUSiC_PLAYER.getVolGame());
 		}
 		
 	}
 	
-	
-	
+
 }

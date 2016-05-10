@@ -1,5 +1,6 @@
 package team.csca.view.set;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,18 +9,17 @@ import team.csca.view.extend.StaticButton;
 import team.csca.view.image.ImgOthers;
 import team.csca.view.image.ImgSystem;
 
-public class JButtonGameSoundLine extends StaticButton implements ActionListener{
+public class JButtonGameSoundZero extends StaticButton implements ActionListener{
 	
 	private JPanelSetting fatherPanel ;
-	private int sound_SeriesNumber;
+	private int sound_SeriesNumber = 0;
 	private JButtonGameSound gameSound;
 	
-	public JButtonGameSoundLine(int x, int sound_SeriesNumber, JButtonGameSound gameSound ,JPanelSetting fatherPanel) {
-		super(x, 440, 30 , 43, null);
+	public JButtonGameSoundZero(JButtonGameSound gameSound , JPanelSetting fatherPanel) {
+		super(425, 440, 30, 43, null);
 		
-		this.sound_SeriesNumber = sound_SeriesNumber;
-		this.fatherPanel = fatherPanel;
 		this.gameSound = gameSound;
+		this.fatherPanel = fatherPanel;
 		
 		this.addActionListener(this);
 //		this.setOpaque(true);
@@ -28,13 +28,10 @@ public class JButtonGameSoundLine extends StaticButton implements ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//Tick
-		if(! Player.MUSiC_PLAYER.isGame_ON()){
-			this.gameSound.setButtonImg(ImgSystem.TICK);
-			Player.MUSiC_PLAYER.changeGame_ON();
-		}
 		this.fatherPanel.setGameVol(ImgOthers.SOUNDS_VOLUME[sound_SeriesNumber]);
+		gameSound.setButtonImg(null);
 		Player.MUSiC_PLAYER.setGameVol(sound_SeriesNumber);
+		Player.MUSiC_PLAYER.turnOffGame();
 		repaint();
 	}
 	

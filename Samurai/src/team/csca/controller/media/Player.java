@@ -18,11 +18,16 @@ public class Player {
 	 * Using in JButtonGameSound and making sure it's singleton
 	 */
 	public final static Player MUSiC_PLAYER = new Player();
-	
+	/**
+	 * 默认为开，并且音量最大
+	 */
 	private boolean back_ON = true;
 	
 	private boolean game_ON = true;
 	
+	private int vol_Back = 10;
+	
+	private int vol_Game = 10;
 	
 	private Player(){}
 	
@@ -30,17 +35,17 @@ public class Player {
 //		this.back_ON = true;
 //	}
 //	
-//	public void turnOffBack(){
-//		this.back_ON = false;
-//	}
+	public void turnOffBack(){
+		this.back_ON = false;
+	}
 	
 //	public void turnOnGame(){
 //		this.game_ON = true;
 //	}
 //	
-//	public void turnOffGame() {
-//		this.game_ON = false;
-//	}
+	public void turnOffGame() {
+		this.game_ON = false;
+	}
 	
 	
 	// TODO: 目前并不清楚我们需要用到哪些类型的音频，所以先按照学长的来写。
@@ -57,7 +62,7 @@ public class Player {
 	public void changeBack_ON() {
 		this.back_ON = !this.back_ON;
 	}
-
+	
 	public boolean isGame_ON() {
 		return game_ON;
 	}
@@ -66,14 +71,24 @@ public class Player {
 		this.game_ON = !this.game_ON;
 	}
 	
+
 	public void setBackVol(int volBack){
-		this.midiPlayer.setVolume(volBack);
+		this.vol_Back = volBack;
+		this.midiPlayer.setVolume((float) (volBack / 10.0));
 	}
 	
 	public void setGameVol(int volGame){
-		this.soundPlayer.setVolume(volGame);
+		this.vol_Game = volGame;
+		this.soundPlayer.setVolume((float) (volGame / 10.0));
 	}
 	
+	public int getVolBack(){
+		return this.vol_Back;
+	}
+	
+	public int getVolGame(){
+		return this.vol_Game;
+	}
 	/**
 	 * 功能是用来打开mp3类型的文件
 	 * 在项目中是专门用来播放mp3类型的游戏音效
