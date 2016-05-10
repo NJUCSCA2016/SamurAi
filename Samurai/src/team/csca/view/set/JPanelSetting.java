@@ -55,10 +55,12 @@ public class JPanelSetting extends JPanel{
 	
 	public void setBackVol(Image volumeBack){
 		JPanelSetting.VOLUME_BACK = volumeBack;
+		repaint();
 	}
 	
 	public void setGameVol(Image volumeGame){
 		JPanelSetting.VOLUME_GAME = volumeGame;
+		repaint();
 	}
 	
 }
