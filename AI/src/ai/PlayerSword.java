@@ -112,34 +112,70 @@ public class PlayerSword extends Player{
 		Arrays.fill(directions, 0);
 		
 		this.census();
-		//TODO : 这里的数组遍历是错误的。
-		//TODO : 改为this.indexOfMax的遍历就好了
+		//TODO : 这里的数组遍历有可能是错误的。
 		//如果两个数组的大小完全相同。这就说明可能每个都是0.需要添加判断。
 		if(this.indexOfMax.length == this.directions.length){
 			//完全有可能。此时应该采取相应行为。
 			if(this.directions[0] == 0){
 				//移动不占领。
 				//TODO
+				/**
+				 * 根据自己所在位置行动。
+				 */
+				int curX = this.samuraiInfo.curX ;
+				int curY = this.samuraiInfo.curY;
+				
+				
 			}else{
 				// 说明每个方向都是一样的。
 				//向人多的一占领
-				//TODO
+				if(enemiesNum != 0){
+					// 敌军所在方向。
+					int[] direction = new int[otherEnemies.size()];
+					for(int i = 0 ; i < otherEnemies.size() ; i++){
+						SamuraiInfo eachInfo = otherEnemies.get(i);
+						//每个友军视野中的敌军的方向。
+						direction[i] = checkDirectionOFEnemy(eachInfo.curX , eachInfo.curY , eachInfo.weapon);
+					}
+					//
+					int count = 0 ;
+					for(int j = 0 ; j < direction.length ; j++){
+						if(direction[j] < Player.DANGER){
+							count++;
+						}
+					}
+					//
+					if(count == 0){
+						takeActionFirst(random.nextInt(16));
+					}else if(count == 1){
+						
+					}
+					
+				}else{
+					takeActionFirst(random.nextInt(16));
+				}
 			}
 	
 		}else{
-			int i = directions.length - 1;
-			for(; i > 0 ; i--){
-				if(directions[i] != directions[i+1]){
-					i++;
-					break;
-				}
-			}
-			int actionCodeField = directions.length  - i;
 			
-			takeAction(i + random.nextInt(actionCodeField));
+			int i = indexOfMax.length - 1;
+			if(i == 0){
+				takeActionFirst(this.indexOfMax[0]);
+			}else{
+				for(; i > 0 ; i--){
+					if(directions[indexOfMax[i]] != directions[indexOfMax[i+1]]){
+						i++;
+						break;	
+					}
+				}
+				int actionCodeField = indexOfMax.length- i;
+			
+				takeActionFirst(i + random.nextInt(actionCodeField));
+			}
 			
 		}
 		//Move to where there exist enemy.
+		
 	}
 	/**
 	 * 
@@ -149,31 +185,43 @@ public class PlayerSword extends Player{
 	 * @return
 	 */
 	public int checkDirectionOFEnemy(int enemyX, int enemyY, int weapon){
-		int offsetX = Math.abs(enemyX - this.samuraiInfo.curX);
-		int offsetY = Math.abs(enemyY - this.samuraiInfo.curY);
-		int totle = offsetX + offsetY;
+		int offsetX = enemyX - this.samuraiInfo.curX;
+		int offsetY = enemyY - this.samuraiInfo.curY;
+		int totle =  Math.abs(offsetX) + Math.abs(offsetY);
 		/**
 		 *@Warning ：  如果是碰到对面的剑士。Be careful
 		 */
 		if(weapon == this.samuraiInfo.weapon){
-			if(totle < 8 && (offsetX <= 1 || offsetY <= 1)){
-				/**
-				 * Dangerous
-				 */
-				return Player.DANGER;
-			}else{
-				
-			}
+//			if(totle < 8 && (offsetX <= 1 || offsetY <= 1)){
+//				/**
+//				 * Dangerous 可能被对方的剑士杀掉。
+//				 */
+//				return Player.DANGER;
+//			}else{
+//				 
+//			}
+			//TODO : 可能需要增进 ，但是我不想写了。
+			return Player.DANGER;
 		}else{
-			if(totle > 10){
-				return Player.TOO_FAR;
-			}
-		}
-		
-		return 1; 
+				//完全可以靠近它
+				return judgeDirection(offsetX, offsetY);
+		} 
 	}
 	
-	public void takeAction(int actionCode){
+	public int judgeDirection(int offsetX , int offsetY){
+		if(offsetX == 0){
+			return offsetY > 0 ? Player.UP_SIDE  : Player.DOWN_SIDE;
+	 	}else if(offsetY == 0){
+	 		return offsetX > 0 ? Player.RIGHT_SIDE : Player.LEFT_SIDE;
+	 	}else if(offsetX > 0){
+	 		return offsetY > 0 ? (offsetY <= offsetX ? Player.RIGHT_UP : Player.UP_RIGHT) : (offsetY > -offsetX ? Player.RIGHT_DOWN : Player.DOWN_RIGHT);
+	 	}else{
+	 		return offsetY > 0 ? (offsetY > -offsetX ? Player.UP_LEFT : Player.LEFT_UP) : (offsetY > offsetX ? Player.LEFT_DOWN : Player.DOWN_LEFT);
+	 	}
+	}
+	
+	
+	public void takeActionFirst(int actionCode){
 		//TODO : 补全下面的操作。
 		switch (actionCode) {
 		case 0:
@@ -189,43 +237,40 @@ public class PlayerSword extends Player{
 			this.occupy(4);
 			break;
 		case 4:
-			
+			this.moveThenHit(5, 3);
 			break;
 		case 5:
-			
+			this.moveThenHit(5, 4);
 			break;
 		case 6:
-			
+			this.moveThenHit(6, 3);	
 			break;
 		case 7:
-			
+			this.moveThenHit(6, 4);
 			break;
 		case 8:
-			
+			this.moveThenHit(7, 1);
 			break;
 		case 9:
-			
+			this.moveThenHit(7, 2);
 			break;
 		case 10:
-			
+			this.moveThenHit(8, 1);
 			break;
 		case 11:
-		
+			this.moveThenHit(8, 2);
 			break;
 		case 12:
-			
+			this.moveThenHit(6, 1);
 			break;
 		case 13:
-			
+			this.moveThenHit(5, 2);
 			break;
 		case 14:
-			
+			this.moveThenHit(8, 3);
 			break;
 		case 15:
-			
-			break;
-		case 16:
-			
+			this.moveThenHit(7, 4);
 			break;
 		default:
 			break;
@@ -258,8 +303,9 @@ public class PlayerSword extends Player{
 				count = 1;
 			}
 		}
-		count = 0;
 		this.indexOfMax = new int[count];
+		
+		count = 0;
 		for(int i = 0 ; i < directions.length ; i++){
 			if(directions[i] == max){
 				indexOfMax[count] = i;
@@ -346,8 +392,10 @@ public class PlayerSword extends Player{
 					}
 				}else if(offsetY == -1){
 					if(offsetX > 0){
+						//下右
 						this.directions[10]++;
 					}else{
+						//下左
 						this.directions[11]++;
 					}
 				}

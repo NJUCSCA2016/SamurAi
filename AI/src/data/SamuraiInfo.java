@@ -305,17 +305,19 @@ public final class SamuraiInfo {
 		 * 先移动再攻击
 		 * 先攻击再移动
 		 */
-		public void hitThenMove(int moveDirection , int hitDirection){
+		public void hitThenMove(int hitDirection , int moveDirection){
 			
-			this.moveOneStep(moveDirection);
 			this.occupy(hitDirection);
+			this.moveOneStep(moveDirection);
+			
 			
 		}
 		
-		public void moveThenHit(int hitDirection , int moveDirection){
+		public void moveThenHit(int moveDirection , int hitDirection){
 			
-			this.occupy(hitDirection);
 			this.moveOneStep(moveDirection);
+			this.occupy(hitDirection);
+			
 //			this.checkThenHide();			
 		}
 		
