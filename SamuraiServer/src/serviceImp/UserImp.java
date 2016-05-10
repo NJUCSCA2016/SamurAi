@@ -4,7 +4,12 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import service.User;
-
+/**
+ * 
+ * User 代理实现类
+ * @author With You
+ *
+ */
 public class UserImp implements User{
 	
 	/**
@@ -13,6 +18,8 @@ public class UserImp implements User{
 	 */
 	private final static ArrayList<String> USERNAMES = new ArrayList<String>();
 	private final static ArrayList<String> PASSWORDS = new ArrayList<String>();
+	
+	
 	
 	private final static int SUCCEED = 0;
 	private final static int NAME_INVALID = 1;
@@ -29,6 +36,9 @@ public class UserImp implements User{
 		// 注册成功
 		return true;
 	}
+	
+	
+	
 	
 	@Override
 	public int login(String userName, String password) throws RemoteException {
@@ -52,6 +62,14 @@ public class UserImp implements User{
 		return true;
 	}
 
-	
 
+
+
+	@Override
+	public void chooseMoodle(int moodleCode) throws RemoteException {
+		
+		
+		
+	}
+	
 }

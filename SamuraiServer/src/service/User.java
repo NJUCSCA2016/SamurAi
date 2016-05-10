@@ -2,7 +2,12 @@ package service;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-
+/**
+ * 
+ * 用户登入登出接口。
+ * @author With You
+ *
+ */
 public interface User extends Remote{
 	
 	/**
@@ -28,6 +33,12 @@ public interface User extends Remote{
 	 * @throws RemoteException
 	 */
 	public boolean logout(String userName) throws RemoteException;
+	/**
+	 * 用户选择模式
+	 * @param moodleCode
+	 * @throws RemoteException
+	 */
+	public void chooseMoodle(int moodleCode) throws RemoteException;
 	
 	
 	

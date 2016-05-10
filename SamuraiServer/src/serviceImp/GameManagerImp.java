@@ -3,7 +3,12 @@ package serviceImp;
 import java.rmi.RemoteException;
 
 import service.GameObserver;
-
+/**
+ * 
+ * GameObserver代理实现类
+ * @author With You
+ *
+ */
 public class GameManagerImp implements GameObserver{
 
 	@Override
