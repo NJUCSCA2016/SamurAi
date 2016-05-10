@@ -74,12 +74,12 @@ public class Player {
 
 	public void setBackVol(int volBack){
 		this.vol_Back = volBack;
-		this.midiPlayer.setVolume((float) ((float)volBack / 10.0));
+		Player.midiPlayer.setVolume((float) ((float)volBack / 10.0));
 	}
 	
 	public void setGameVol(int volGame){
 		this.vol_Game = volGame;
-		this.soundPlayer.setVolume((float) ((float)volGame / 10.0));
+		Player.soundPlayer.setVolume((float) ((float)volGame / 10.0));
 	}
 	
 	public int getVolBack(){

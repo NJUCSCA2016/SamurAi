@@ -28,13 +28,13 @@ public class JButtonGameSoundLine extends StaticButton implements ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		this.fatherPanel.setGameVol(ImgOthers.SOUNDS_VOLUME[sound_SeriesNumber]);
+		Player.MUSiC_PLAYER.setGameVol(sound_SeriesNumber);
 		//Tick
 		if(! Player.MUSiC_PLAYER.isGame_ON()){
 			this.gameSound.setButtonImg(ImgSystem.TICK);
 			Player.MUSiC_PLAYER.changeGame_ON();
 		}
-		this.fatherPanel.setGameVol(ImgOthers.SOUNDS_VOLUME[sound_SeriesNumber]);
-		Player.MUSiC_PLAYER.setGameVol(sound_SeriesNumber);
 		repaint();
 	}
 	
