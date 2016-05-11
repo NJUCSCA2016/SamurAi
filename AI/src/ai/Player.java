@@ -186,7 +186,7 @@ public abstract class Player {
 		return this.canOccupy(direction);
 	}
 	
-	public boolean canMveOneStep(int direction){
+	public boolean canMoveOneStep(int direction){
 		return this.centerControl.canMoveOneStep(direction);
 	}
 	

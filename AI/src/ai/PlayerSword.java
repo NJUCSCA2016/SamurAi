@@ -2,8 +2,10 @@ package ai;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
+import data.ActionInfo;
 import data.SamuraiInfo;
 
 public class PlayerSword extends Player{
@@ -18,9 +20,10 @@ public class PlayerSword extends Player{
 	
 	public ArrayList<int[]> enemyInOwnEyes = new ArrayList<int[]>(3);
 	public ArrayList<int[]> placeWaitingToOccupy = new ArrayList<int[]>();
-	
+	private ArrayList<int[]> enemiesCanKill = new ArrayList<int[]>(3);
 	public ArrayList<SamuraiInfo> otherEnemies = new ArrayList<SamuraiInfo>(3);
 	public int enemiesNum = 0;
+	
 
 	public boolean markFieldOnOwn = false;
 //	
@@ -39,28 +42,25 @@ public class PlayerSword extends Player{
 	
 	private Random random = new Random();
 	
+	private int curX ;
 	
+	private int curY;
 	
 	@Override
 	public void play() {
+		
+		curX = this.samuraiInfo.curX;
+		curY = this.samuraiInfo.curY;
 		/**
 		 * 可能需要分析上一步的对局信息。
 		 * 这里先不考虑上一步的时候的对局
 		 */
 		if(this.enemiesNum > 0){
-			//TODO 如果当前站的位置有敌军Be careful
-			if(this.samuraiInfo.hidden == 1){
-				this.show();
-				this.current_Cost++;
-			}
+			this.searchThenKill();
 			/**
 			 * 执行对峙分析
 			 */
 		}else if(! this.placeWaitingToOccupy.isEmpty()){
-			if(this.samuraiInfo.hidden == 1){
-				this.show();
-				this.current_Cost++;
-			}
 			this.occupyField();
 		}else {
 			this.justMove();
@@ -68,6 +68,198 @@ public class PlayerSword extends Player{
 		//@Notice : 如果不能杀的话一定要采取行动。否则后果很难看。
 	}
 	
+	public void searchThenKill(){
+		boolean mark = false;
+		
+		for(int i =0 ; i < enemiesNum ; i++){
+			int[] each = enemyInOwnEyes.get(i);
+			if(CanKillOne(each)){
+				this.enemiesCanKill.add(each);
+				if(each[0] == curX && each[1] == curY){
+					mark = true;
+				}
+			}
+		}
+		//TODO 如果当前站的位置有敌军Be careful
+		
+		if(enemiesCanKill.size() == 0){
+			//在边角。冒险approach吧。
+			if(this.samuraiInfo.hidden == 0){
+				this.occupyField();
+			}else{
+				//留在原地。不好出手。
+				if(this.canShow()){
+					this.show();
+					//搜寻四个方向。
+					int[] fourDirect = new int[4];
+					for(int[] each : this.placeWaitingToOccupy){
+						if(each[0] == curX){
+							if(each[1] < curY){
+								fourDirect[2]++;
+							}else {
+								fourDirect[3]++;
+							}
+						}else if(each[1] == curY){
+							if(each[0] < curX){
+								fourDirect[0]++;
+							}else{
+								fourDirect[1]++;
+							}
+						}
+					}
+					 int max = 0;
+					ArrayList<Integer> indexes = new ArrayList<Integer>();
+					for(int i = 0 ; i < 4 ; i++){
+						if(fourDirect[i] > max){
+							max = fourDirect[i];
+							indexes.clear();
+							indexes.add(i);
+						}else if(fourDirect[i] == max){
+							indexes.add(i);
+						}
+					}
+					if(max == 0){
+						int moveDirect = random.nextInt(4) + 5 ;
+						moveTwoStep(moveDirect, moveDirect);
+					}else{
+						int act = random.nextInt(4) + 1;
+						show();
+						occupy(act);
+						hide();
+					}
+				}else{
+					justMove();
+				}
+			}
+		}else{
+			
+			if(this.samuraiInfo.hidden == 1){
+				if(! this.canShow()){
+					int[] blocksAround = new int[4];
+					Arrays.fill(blocksAround, -1);
+					if(! this.samuraiInfo.checkOutOfField(curX - 1, curY)){
+						if(this.gameInfo.field[curX - 1][curY] < 3){
+							blocksAround[0] = this.gameInfo.field[curX - 1][curY];
+						}
+					}
+					if(! this.samuraiInfo.checkOutOfField(curX + 1, curY)){
+						if(this.gameInfo.field[curX + 1][curY] < 3){
+							blocksAround[1] = this.gameInfo.field[curX - 1][curY];
+						}
+					}
+					if(! this.samuraiInfo.checkOutOfField(curX, curY - 1)){
+						if(this.gameInfo.field[curX][curY - 1] < 3){
+							blocksAround[2] = this.gameInfo.field[curX][curY - 1];
+						}
+					}
+					if(! this.samuraiInfo.checkOutOfField(curX, curY + 1)){
+						if(this.gameInfo.field[curX][curY] < 3){
+							blocksAround[3] = this.gameInfo.field[curX][curY + 1];
+						}
+					}
+					if(mark){
+						//这情况就非常严重的。
+						//说明别人就站在你头上。
+						//检查是否有可以跑的地方。如果没有。嗯，只能够等死了。如果有的话。好，杀了他把。
+						checkAndKill();
+					}
+					else{
+						//自己人
+						leaveAndKill();
+					}
+					
+				}
+			}else{
+				this.placeWaitingToOccupy.clear();
+				this.placeWaitingToOccupy.addAll(this.enemyInOwnEyes);
+				this.markFieldOnOwn = mark;
+				this.occupyField();
+			}
+			
+		}
+	}
+	
+	public void checkAndKill(){
+		ArrayList<Integer> canMoveDirect = new ArrayList<Integer>(4);
+		if(canMoveOneStep(5)){
+			canMoveDirect.add(5);
+		}
+		if(canMoveOneStep(6)){
+			canMoveDirect.add(6);
+		}
+		if(canMoveOneStep(7)){
+			canMoveDirect.add(7);
+		}
+		if(canMoveOneStep(8)){
+			canMoveDirect.add(8);
+		}
+		int max = 0;
+		int maxIndex1 = 0;
+		int maxIndex2 = 0;
+		if(canMoveDirect.size() > 0){
+			
+			int[][] maxNum = new int[canMoveDirect.size()][4];
+			for(int i = 0 ; i < canMoveDirect.size() ; i ++){
+				maxNum[i] = howManyEnemies(canMoveDirect.get(i));
+				for(int j = 0 ; j < 4 ; j ++){
+					if(maxNum[i][j] > max){
+						maxIndex1 = i;
+						maxIndex2 = j;
+					}
+				}
+			}
+//			moveOneStep(canMoveDirect.get(0));
+//			curX = this.samuraiInfo.curX;
+//			curY = this.samuraiInfo.curY;
+//			if(howManyEnemies(canMoveDirect.get(0) - 4) != 0){
+//				show();
+//				occupy(canMoveDirect.get(0) - 4);
+//			}else{
+//				
+//			}
+			
+		}
+		//等死吧
+	}
+	
+	public int[] howManyEnemies(int moveDirection){
+		int curX = 0;
+		int curY = 0;
+		curX = this.curX + ActionInfo.MOVE_OFFSET[moveDirection - 5][0];
+		curY = this.curY + ActionInfo.MOVE_OFFSET[moveDirection - 5][1];
+		int[] count = new int[4];
+		for(int[] each : this.enemiesCanKill){
+//		switch (moveDirection) {
+//		case 1:
+			if(each[0] < curX && each[1] == curY){
+				count[0]++;
+			}
+//			break;
+//		case 2:
+			else if(each[0] > curX && each[1] == curY){
+				count[1]++; 
+			}
+//			break;
+//		case 3:
+			else if(each[0] == curX && each[1] < curY){
+				count[2]++;
+			}
+//			break;	
+//		case 4:
+			else if(each[0] == curX && each[1] > curY){
+				count[3]++;
+			}
+//			break;
+//		default:
+//			break;
+//		}
+		}
+		return count;
+	}
+	
+	public void leaveAndKill(){
+		
+	}
 	
 	public void justMove(){
 		/**
@@ -79,8 +271,11 @@ public class PlayerSword extends Player{
 		 * //TODO : 添加计算行动方向的方法。此方法可以置于Player中。因为其他武士也会需要。
 		 */
 		//根据敌军数目来确定行动。
-		int curX = this.samuraiInfo.curX;
-		int curY = this.samuraiInfo.curY;
+		if(canHide()){
+			hide();
+			current_Cost++;
+		}
+		
 		if(curX == this.samuraiInfo.width >> 1 && curY == this.samuraiInfo.height >> 1){
 			takeActionFirst(16 + random.nextInt(4));
 		}else if(curX < this.samuraiInfo.width >> 1 && curY < this.samuraiInfo.height >> 1){
@@ -105,9 +300,7 @@ public class PlayerSword extends Player{
 			default:
 				break;
 			}
-			if(current_Cost < 7){
-				this.hide();
-			}
+			current_Cost += 6;
 		}else if(curX == this.samuraiInfo.width >> 1 && curY > this.samuraiInfo.height >> 1){
 			switch (random.nextInt(3)) {
 			case 0:
@@ -122,52 +315,46 @@ public class PlayerSword extends Player{
 			default:
 				break;
 			}
-			if(current_Cost < 7){
-				this.hide();
-			}
+			current_Cost += 6;
+			
 		}else if(curX > this.samuraiInfo.width >> 1 && curY == this.samuraiInfo.height >> 1){
 			switch (random.nextInt(3)) {
 			case 0:
-				
+				moveThreeStep(5, 5, 5);
 				break;
 			case 1:
-				
+				moveThreeStep(5, 5, 7);
 				break;
 			case 2:
-				
+				moveThreeStep(5, 5, 8);
 				break;
 			default:
 				break;
 			}
-			if(current_Cost < 7){
-				this.hide();
-			}
+			current_Cost += 6;
+			
 		}else if(curX < this.samuraiInfo.width >> 1 && curY == this.samuraiInfo.height >> 1){
 			switch (random.nextInt(3)) {
 			case 0:
-				
+				moveThreeStep(6, 6, 6);
 				break;
 			case 1:
-				
+				moveThreeStep(6, 6, 7);
 				break;
 			case 2:
-				
+				moveThreeStep(6, 6, 8);
 				break;
 			default:
 				break;
 			}
-			if(current_Cost < 7){
-				this.hide();
-			}
+			current_Cost += 6;
+			
 		}
 		
 	}
 	
 	/**
-	 * 
-	 * @Thingking : 当人物重合时怎么办。他们有可能用的不是这里面的GameInfo。所以需要考虑。我想偷偷的Approach他们。然后Kill
-	 * 当周围没有敌军时，采取此方法。分析周围战场。占领能够占领最多的地方的方向。
-	 * 
+	 * TODO : 忘记添加边上是否有友军的判断。
 	 */
 	public void occupyField(){
 		//将Directions以0填充。
@@ -198,14 +385,19 @@ public class PlayerSword extends Player{
 				}
 				
 			}else{
+				if(this.samuraiInfo.hidden == 1){
+					this.show();
+					this.current_Cost++;
+				}
 				// 说明每个方向都是一样的。
 				//向人多的一占领
-				if(enemiesNum != 0){
+				int othersNum = this.otherEnemies.size();
+				if(othersNum != 0){
 					// 敌军所在方向。
-					int[] direction = new int[enemiesNum];
-					int[] distance = new int[enemiesNum];
+					int[] direction = new int[othersNum];
+					int[] distance = new int[othersNum];
 					Arrays.fill(distance, 0);
-					for(int i = 0 ; i < enemiesNum ; i++){
+					for(int i = 0 ; i < othersNum ; i++){
 						SamuraiInfo eachInfo = otherEnemies.get(i);
 						//每个友军视野中的敌军的方向。
 						direction[i] = checkDirectionOFEnemy(eachInfo.curX , eachInfo.curY , eachInfo.weapon);
@@ -222,7 +414,7 @@ public class PlayerSword extends Player{
 //								indexInDirection = i;
 //							}
 //						}
-					if(enemiesNum == 1){
+					if(othersNum == 1){
 						takeActionSecond(direction[indexInDirection]);
 					}
 //					else if(enemiesNum == 2){
@@ -258,6 +450,10 @@ public class PlayerSword extends Player{
 			}
 	
 		}else{
+			if(this.samuraiInfo.hidden == 1){
+				this.show();
+				this.current_Cost++;
+			}
 			int i = indexOfMax.length - 1;
 			if(i == 0){
 				takeActionFirst(this.indexOfMax[0]);
@@ -321,7 +517,7 @@ public class PlayerSword extends Player{
 	
 	public int judgeDirection(int offsetX , int offsetY){
 		if(offsetX == 0){
-			return offsetY > 0 ? Player.UP_SIDE  : Player.DOWN_SIDE;
+			return offsetY > 0 ? Player.DOWN_SIDE  : Player.UP_SIDE;
 	 	}else if(offsetY == 0){
 	 		return offsetX > 0 ? Player.RIGHT_SIDE : Player.LEFT_SIDE;
 	 	}else if(offsetX > 0){
@@ -338,19 +534,23 @@ public class PlayerSword extends Player{
 		}else{
 			this.current_Cost += 6;
 		}
-		//TODO : 补全下面的操作。
+
 		switch (actionCode) {
 		case 0:
 			this.occupy(1);
+			this.moveOneStep(5);
 			break;
 		case 1:
 			this.occupy(2);
+			this.moveOneStep(6);
 			break;
 		case 2:
 			this.occupy(3);
+			this.moveOneStep(7);
 			break;
 		case 3:
 			this.occupy(4);
+			this.moveOneStep(8);
 			break;
 		case 4:
 			this.moveThenHit(5, 3);
@@ -452,9 +652,6 @@ public class PlayerSword extends Player{
 	
 	public void onOwnField(){
 
-		int curX = this.samuraiInfo.curX;
-		int curY = this.samuraiInfo.curY;
-		
 		for(int i = 12 ; i < 16 ; i++){
 			directions[i]++;
 		}
@@ -552,8 +749,6 @@ public class PlayerSword extends Player{
 	
 	public void notOnOwnField(){
 		
-		int curX = this.samuraiInfo.curX;
-		int curY = this.samuraiInfo.curY;
 		
 			/**
 			 * 自己这里没被占了
@@ -656,14 +851,7 @@ public class PlayerSword extends Player{
 				}
 				
 			}
-		}else{
-			
 		}
-		
-		
-		
-		
-		
 		return Player.OCCUPY_ALL;
 	}
 	

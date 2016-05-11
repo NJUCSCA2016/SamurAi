@@ -153,6 +153,9 @@ public final class GameInfo {
 			/**
 			 * Update the enemies' information.
 			 */
+			this.playerAI.enemiesNum = 0;
+			this.playerAI.enemyInOwnEyes.clear();
+			this.playerAI.markFieldOnOwn = false;
 			for(; i < GameInfo.PLAYER_NUM  ; ++i){
 				
 				res = this.read();
@@ -208,6 +211,7 @@ public final class GameInfo {
 		/**
 		 *  Finished the 	sight in own sight 
 		 */
+		this.playerAI.placeWaitingToOccupy.clear();
     	for (i = 0; i < this.height; ++i){
     		res = this.read();
     		
