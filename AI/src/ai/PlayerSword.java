@@ -63,44 +63,105 @@ public class PlayerSword extends Player{
 			}
 			this.occupyField();
 		}else {
-			/**
-			 * 当前没有任何敌军。
-			 * 可以往前走。但是注意不要走到有敌军的地方。
-			 * 需要考虑友军那边的敌军
-			 * 对于Sword。攻击范围比较长。所以可以往友军那边走。
-			 * TODO：  如果友军那边没有敌军。则待定。
-			 * //TODO : 添加计算行动方向的方法。此方法可以置于Player中。因为其他武士也会需要。
-			 */
-			//根据敌军数目来确定行动。
-			switch (this.otherEnemies.size()) {
-			case 0:
-				//随意走一个方向
-				break;
-			case 1:
-				
-				break;
-			case 2 :
-				
-				break;
-			case 3 :
-				
-				break;
-			default:
-				break;
-			}
-			
-//			if(this.otherEnemies.isEmpty()){
-//				
-//			}else{
-//				
-//				
-//			}
-//			
+			this.justMove();
 		}
 		//@Notice : 如果不能杀的话一定要采取行动。否则后果很难看。
 	}
 	
 	
+	public void justMove(){
+		/**
+		 * 当前没有任何敌军。
+		 * 可以往前走。但是注意不要走到有敌军的地方。
+		 * 需要考虑友军那边的敌军
+		 * 对于Sword。攻击范围比较长。所以可以往友军那边走。
+		 * TODO：  如果友军那边没有敌军。则待定。
+		 * //TODO : 添加计算行动方向的方法。此方法可以置于Player中。因为其他武士也会需要。
+		 */
+		//根据敌军数目来确定行动。
+		int curX = this.samuraiInfo.curX;
+		int curY = this.samuraiInfo.curY;
+		if(curX == this.samuraiInfo.width >> 1 && curY == this.samuraiInfo.height >> 1){
+			takeActionFirst(16 + random.nextInt(4));
+		}else if(curX < this.samuraiInfo.width >> 1 && curY < this.samuraiInfo.height >> 1){
+			takeActionFirst(18);
+		}else if(curX < this.samuraiInfo.width >> 1 && curY > this.samuraiInfo.height >> 1){
+			takeActionFirst(19);
+		}else if(curX > this.samuraiInfo.width >> 1 && curY < this.samuraiInfo.height >> 1){
+			takeActionFirst(16);
+		}else if(curX > this.samuraiInfo.width >> 1 && curY > this.samuraiInfo.height >> 1){
+			takeActionFirst(17);
+		}else if(curX == this.samuraiInfo.width >> 1 && curY < this.samuraiInfo.height >> 1){
+			switch (random.nextInt(3)) {
+			case 0:
+				moveThreeStep(7, 7, 7);
+				break;
+			case 1:
+				moveThreeStep(7, 7, 5);
+				break;
+			case 2:
+				moveThreeStep(7, 7, 6);
+				break;
+			default:
+				break;
+			}
+			if(current_Cost < 7){
+				this.hide();
+			}
+		}else if(curX == this.samuraiInfo.width >> 1 && curY > this.samuraiInfo.height >> 1){
+			switch (random.nextInt(3)) {
+			case 0:
+				moveThreeStep(8, 8, 8);
+				break;
+			case 1:
+				moveThreeStep(8, 8, 5);
+				break;
+			case 2:
+				moveThreeStep(8, 8, 6);
+				break;
+			default:
+				break;
+			}
+			if(current_Cost < 7){
+				this.hide();
+			}
+		}else if(curX > this.samuraiInfo.width >> 1 && curY == this.samuraiInfo.height >> 1){
+			switch (random.nextInt(3)) {
+			case 0:
+				
+				break;
+			case 1:
+				
+				break;
+			case 2:
+				
+				break;
+			default:
+				break;
+			}
+			if(current_Cost < 7){
+				this.hide();
+			}
+		}else if(curX < this.samuraiInfo.width >> 1 && curY == this.samuraiInfo.height >> 1){
+			switch (random.nextInt(3)) {
+			case 0:
+				
+				break;
+			case 1:
+				
+				break;
+			case 2:
+				
+				break;
+			default:
+				break;
+			}
+			if(current_Cost < 7){
+				this.hide();
+			}
+		}
+		
+	}
 	
 	/**
 	 * 
