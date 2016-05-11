@@ -75,21 +75,21 @@ public abstract class Player {
 	
 	public final static int DOWN_SIDE = 3;
 	
-	public final static int LEFT_UP = 4;
-	
-	public final static int LEFT_DOWN = 5;
-	
-	public final static int RIGHT_UP = 6;
-	
-	public final static int RIGHT_DOWN = 7;
-	
-	public final static int UP_LEFT = 8;
-	
-	public final static int UP_RIGHT = 9;
-	
-	public final static int DOWN_LEFT = 10;
-	
-	public final static int DOWN_RIGHT = 11;
+//	public final static int LEFT_UP = 4;
+//	
+//	public final static int LEFT_DOWN = 5;
+//	
+//	public final static int RIGHT_UP = 6;
+//	
+//	public final static int RIGHT_DOWN = 7;
+//	
+//	public final static int UP_LEFT = 8;
+//	
+//	public final static int UP_RIGHT = 9;
+//	
+//	public final static int DOWN_LEFT = 10;
+//	
+//	public final static int DOWN_RIGHT = 11;
 	
 	public final static int DANGER =  12;
 	

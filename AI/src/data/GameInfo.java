@@ -143,6 +143,8 @@ public final class GameInfo {
 				this.samuraiInfo[i].curY = Integer.parseInt(res[1]);
 				this.samuraiInfo[i].hidden = Integer.parseInt(res[2]);
 				this.samuraiInfo[i].weapon = i;
+				this.samuraiInfo[i].width = this.width;
+				this.samuraiInfo[i].height = this.height;
 			}
 			SamuraiInfo myself = this.samuraiInfo[this.weapon - 1];
 			//更新Player的信息。

@@ -29,6 +29,7 @@ public final class SamuraiInfo {
 	  public int homeX, homeY;
 	  public int curX, curY;
 	  public int rank, score, hidden;
+	  public int width , height;
 	  /**
 	   * 用于标识友军AI。方便我以后来查水表
 	   */
@@ -349,7 +350,6 @@ public final class SamuraiInfo {
 			for (int i = 3; i < GameInfo.PLAYER_NUM; ++i){
 //				
 //				这里我为了提高效率，不选择不重叠。
-//				实际上根据我的设置，是不会主动和别的敌军或者其他重叠的
 //				//AI的curXY并没有更新
 //				if (this.XAfterStep == this.gameInfo.samuraiInfo[i].curX && this.YAfterStep == this.gameInfo.samuraiInfo[i].curY){
 //					return false;
@@ -388,11 +388,16 @@ public final class SamuraiInfo {
 				return false;
 			}
 			
-			for (int i = 3; i < GameInfo.PLAYER_NUM; ++i){
-				if ( this.XAfterStep == this.gameInfo.samuraiInfo[i].homeX && this.YAfterStep == this.gameInfo.samuraiInfo[i].homeY ){
+			for (int i = 0 ; i < GameInfo.PLAYER_NUM; ++i){
+
+				if (this.XAfterStep == this.gameInfo.samuraiInfo[i].curX && this.YAfterStep == this.gameInfo.samuraiInfo[i].curY){
 					return false;
 				}
-			}
+
+				if (i != this.gameInfo.weapon && (this.XAfterStep == this.gameInfo.samuraiInfo[i].homeX && this.YAfterStep == this.gameInfo.samuraiInfo[i].homeY)){
+					return false;
+				}
+			}	
 			return true;	
 	    }
 	    /**
@@ -415,11 +420,16 @@ public final class SamuraiInfo {
 				return false;
 			}
 			
-			for (int i = 3; i < GameInfo.PLAYER_NUM; ++i){
-				if ( this.XAfterStep == this.gameInfo.samuraiInfo[i].homeX && this.YAfterStep == this.gameInfo.samuraiInfo[i].homeY ){
+			for (int i = 0; i < GameInfo.PLAYER_NUM; ++i){
+
+				if (this.XAfterStep == this.gameInfo.samuraiInfo[i].curX && this.YAfterStep == this.gameInfo.samuraiInfo[i].curY){
 					return false;
 				}
-			}
+
+				if (i != this.gameInfo.weapon && (this.XAfterStep == this.gameInfo.samuraiInfo[i].homeX && this.YAfterStep == this.gameInfo.samuraiInfo[i].homeY)){
+					return false;
+				}
+			}	
 			return true;	
 	    }
 		/**
