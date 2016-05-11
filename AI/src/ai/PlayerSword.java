@@ -235,6 +235,11 @@ public class PlayerSword extends Player{
 		default:
 			break;
 		}
+		if(this.current_Cost < 7){
+			if(this.canHide()){
+				this.samuraiInfo.hide();
+			}
+		}
 	}
 	
 	/**
