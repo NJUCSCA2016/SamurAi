@@ -1,15 +1,33 @@
 package team.csca.view.pm;
 
+import java.awt.event.MouseEvent;
+
 import team.csca.view.extend.DynamicButton;
+import team.csca.view.help.JPanelHelp;
+import team.csca.view.image.ImgButton;
+import team.csca.view.startgame.JPanelStartGame;
 
 /**
  * 返回按钮
+ * 
  * @author Water
  *
  */
-public class JButtonBack extends DynamicButton{
-	public JButtonBack(){
-		// TODO
-		super(0, 0, 0, 0, null, null, null);
+public class JButtonBack extends DynamicButton {
+	private JPanelPM fatherPanel;
+
+	public JButtonBack(JPanelPM fatherPanel){
+		// TODO:这个位置我也不知道怎么调。。。
+		super(1000, 500, 300, 300, ImgButton.BACK_INIT, ImgButton.BACK_ENTER, ImgButton.BACK_CLICKED);
+		this.fatherPanel = fatherPanel;
+	}
+
+	public void mouseClicked(MouseEvent e) {
+		super.mouseClicked(e);
+
+		this.frame.remove(this.fatherPanel);
+		this.frame.setContentPane(new JPanelStartGame());
+		this.frame.revalidate();
+
 	}
 }

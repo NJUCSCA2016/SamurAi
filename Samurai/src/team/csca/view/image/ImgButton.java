@@ -191,7 +191,25 @@ public class ImgButton {
 		
 	}
 	
+	/**
+	 * 
+	 * 人机对战里的按钮
+	 * 
+	 */
+	public final static Image BACK_INIT;
 	
+	public final static Image BACK_ENTER;
+	
+	public final static Image BACK_CLICKED;
+	
+	static{
+		// E:\大一下\SamurAi\Samurai\Image\Gamepanel\buttons
+		BACK_INIT = new ImageIcon("Image/HelpPanel/return_button_init.png").getImage();
+		// TODO:换图
+		BACK_ENTER = new ImageIcon("Image/Gamepanel/buttons/back.png").getImage();
+		// TODO:换图
+		BACK_CLICKED = new ImageIcon("Image/Gamepanel/buttons/back.png").getImage();
+	}
 	
 	
 }

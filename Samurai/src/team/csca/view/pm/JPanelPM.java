@@ -37,11 +37,14 @@ public class JPanelPM extends JPanel implements KeyListener{
 	PlayMovie p = new PlayMovie();
 	
 	public JPanelPM(){
-		p.setPath("Image/Start");
-		p.setNum(50);
-		p.playMovie("Image/Start", 50);
+//		p.setPath("Image/Start");
+//		p.setNum(50);
+//		p.playMovie("Image/Start", 50);
+		
 		this.setFocusable(true);
+		this.requestFocus();
 		this.addKeyListener(this);
+		this.add(new JButtonBack(this));
 		Random r = new Random();
 		int[] x = new int[6];
 		int[] y = new int[6];
