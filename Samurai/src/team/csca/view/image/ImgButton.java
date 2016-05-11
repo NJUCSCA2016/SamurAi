@@ -204,7 +204,7 @@ public class ImgButton {
 	
 	static{
 		// E:\大一下\SamurAi\Samurai\Image\Gamepanel\buttons
-		BACK_INIT = new ImageIcon("Image/HelpPanel/return_button_init.png").getImage();
+		BACK_INIT = new ImageIcon("Image/Gamepanel/buttons/back.png").getImage();
 		// TODO:换图
 		BACK_ENTER = new ImageIcon("Image/Gamepanel/buttons/back.png").getImage();
 		// TODO:换图

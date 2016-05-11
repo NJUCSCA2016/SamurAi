@@ -21,7 +21,7 @@ import team.csca.view.image.ImgSamurai;
 public class JPanelPM extends JPanel implements KeyListener{
 	private Layer[] layers;
 	
-	int x,y;
+	int m,n;
 	
 	/**
 	 * 
@@ -36,18 +36,20 @@ public class JPanelPM extends JPanel implements KeyListener{
 	
 	PlayMovie p = new PlayMovie();
 	
+	int[] x = new int[6];
+	int[] y = new int[6];
+	
 	public JPanelPM(){
 //		p.setPath("Image/Start");
 //		p.setNum(50);
 //		p.playMovie("Image/Start", 50);
-		
+		this.setLayout(null);
 		this.setFocusable(true);
 		this.requestFocus();
 		this.addKeyListener(this);
 		this.add(new JButtonBack(this));
 		Random r = new Random();
-		int[] x = new int[6];
-		int[] y = new int[6];
+		
 		// 从左到右是x,从上到下是y
 		// 关于x的系数为正，关于y的系数为负
 		x[0] = r.nextInt(8);
@@ -108,6 +110,8 @@ public class JPanelPM extends JPanel implements KeyListener{
 		for(int i = 0 ; i < this.layers.length ; i++){
 			layers[i].createWindow(g);
 		}
+		// TODO：这里的g.drawImage是动画移动的关键，但是貌似移动写错了
+		g.drawImage(ImgSamurai.A0, x[0] * 40 + y[0] * 13 + 234, y[0] * (-36) + 624, 30, 30, this);
 		
 		super.paintComponents(g);
 	}
@@ -124,24 +128,27 @@ public class JPanelPM extends JPanel implements KeyListener{
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_UP:
 			// TODO:不知道AI是怎么表示出来的
-			System.out.println(121);
-			if (nowPower - cost >= 0 && x+1 <=14) {
-				x=x+1;
+//			System.out.println(121);
+			if (nowPower - cost >= 0 && y[0]+1 <=14) {
+				y[0]+=1;
+				repaint();
+				System.out.println(x[0]);
 			}
 			break;
+			// TODO:这里开始貌似写错了
 		case KeyEvent.VK_DOWN:
-			if (nowPower - cost >= 0 && x-1 >= 0) {
-				x=x-1;
+			if (nowPower - cost >= 0 && x[0]-1 >= 0) {
+				
 			}
 			break;
 		case KeyEvent.VK_LEFT:
-			if (nowPower - cost >= 0 && y-1 >= 0) {
-				y=y-1;
+			if (nowPower - cost >= 0 && y[0]-1 >= 0) {
+				
 			}
 			break;
 		case KeyEvent.VK_RIGHT:
-			if (nowPower - cost >= 0 && y+1 <=14) {
-				y=y+1;
+			if (nowPower - cost >= 0 && y[0]+1 <=14) {
+				
 			}
 			break;
 		default:
