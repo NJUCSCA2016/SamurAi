@@ -28,7 +28,7 @@ public class GamePlayer {
 	 */
 	private int recoverRound;
 	/**
-	 * 从0到5分别为A0，B0，A1，B1，A2，B2
+	 * 从0到5分别为A0，A1，A2，B0，B1，B2
 	 */
 	private int index;
 	/**
@@ -61,21 +61,156 @@ public class GamePlayer {
 	public Point[] getSight(int x, int y, int direction) {
 		if (this.getWeaponID() == 0) {
 			if (this.getDirection() == 0) {
-				// TODO
+				if (this.y <= 10) {
+					Point[] sight = new Point[4];
+					sight[0] = new Point(x, y + 1);
+					sight[1] = new Point(x, y + 2);
+					sight[2] = new Point(x, y + 3);
+					sight[3] = new Point(x, y + 4);
+					return sight;
+				}
+				if (this.y == 11) {
+					Point[] sight = new Point[3];
+					sight[0] = new Point(x, y + 1);
+					sight[1] = new Point(x, y + 2);
+					sight[2] = new Point(x, y + 3);
+					return sight;
+				}
+				if (this.y == 12) {
+					Point[] sight = new Point[2];
+					sight[0] = new Point(x, y + 1);
+					sight[1] = new Point(x, y + 2);
+					return sight;
+				}
+				if (this.y == 13) {
+					Point[] sight = new Point[1];
+					sight[0] = new Point(x, y + 1);
+					return sight;
+				}
+				if (this.y >= 14) {
+					return null;
+				}
 			}
 			if (this.getDirection() == 1) {
-				
+				if (this.y >= 4) {
+					Point[] sight = new Point[4];
+					sight[0] = new Point(x, y - 1);
+					sight[1] = new Point(x, y - 2);
+					sight[2] = new Point(x, y - 3);
+					sight[3] = new Point(x, y - 4);
+					return sight;
+				}
+				if (this.y == 3) {
+					Point[] sight = new Point[3];
+					sight[0] = new Point(x, y - 1);
+					sight[1] = new Point(x, y - 2);
+					sight[2] = new Point(x, y - 3);
+					return sight;
+				}
+				if (this.y == 2) {
+					Point[] sight = new Point[2];
+					sight[0] = new Point(x, y - 1);
+					sight[1] = new Point(x, y - 2);
+					return sight;
+				}
+				if (this.y == 1) {
+					Point[] sight = new Point[1];
+					sight[0] = new Point(x, y - 1);
+					return sight;
+				}
+				if (this.y == 0) {
+					return null;
+				}
 			}
 			if (this.getDirection() == 2) {
-				
+				if (this.x >= 4) {
+					Point[] sight = new Point[4];
+					sight[0] = new Point(x - 1, y);
+					sight[1] = new Point(x - 2, y);
+					sight[2] = new Point(x - 3, y);
+					sight[3] = new Point(x - 4, y);
+					return sight;
+				}
+				if (this.x == 3) {
+					Point[] sight = new Point[3];
+					sight[0] = new Point(x - 1, y);
+					sight[1] = new Point(x - 2, y);
+					sight[2] = new Point(x - 3, y);
+					return sight;
+				}
+				if (this.x == 2) {
+					Point[] sight = new Point[2];
+					sight[0] = new Point(x - 1, y);
+					sight[1] = new Point(x - 2, y);
+					return sight;
+				}
+				if (this.x == 1) {
+					Point[] sight = new Point[1];
+					sight[0] = new Point(x - 1, y);
+					return sight;
+				}
+				if (this.x == 0) {
+					return null;
+				}
 			}
 			if (this.getDirection() == 3) {
-				
+				if (this.x <= 10) {
+					Point[] sight = new Point[4];
+					sight[0] = new Point(x + 1, y);
+					sight[1] = new Point(x + 2, y);
+					sight[2] = new Point(x + 3, y);
+					sight[3] = new Point(x + 4, y);
+					return sight;
+				}
+				if (this.x == 11) {
+					Point[] sight = new Point[3];
+					sight[0] = new Point(x + 1, y);
+					sight[1] = new Point(x + 2, y);
+					sight[2] = new Point(x + 3, y);
+					return sight;
+				}
+				if (this.x == 12) {
+					Point[] sight = new Point[2];
+					sight[0] = new Point(x + 1, y);
+					sight[1] = new Point(x + 2, y);
+					return sight;
+				}
+				if (this.x == 13) {
+					Point[] sight = new Point[1];
+					sight[0] = new Point(x + 1, y);
+					return sight;
+				}
+				if (this.x == 14) {
+					return null;
+				}
 			}
 		}
 		if (this.getWeaponID() == 1) {
 			if (this.getDirection() == 0) {
-				
+				if (this.x <= 12 && this.y <= 12) {
+					Point[] sight = new Point[5];
+					sight[0] = new Point(x, y + 1);
+					sight[1] = new Point(x, y + 2);
+					sight[2] = new Point(x + 1, y);
+					sight[3] = new Point(x + 2, y);
+					sight[4] = new Point(x + 1, y + 1);
+					return sight;
+				}
+				if (this.x == 13 && this.y <= 12) {
+					Point[] sight = new Point[4];
+					sight[0] = new Point(x, y + 1);
+					sight[1] = new Point(x + 1, y);
+					sight[2] = new Point(x + 2, y);
+					sight[3] = new Point(x + 1, y + 1);
+					return sight;
+				}
+				if (this.x == 14 && this.y <= 12) {
+					Point[] sight = new Point[2];
+					sight[0] = new Point(x + 1, y);
+					sight[1] = new Point(x + 2, y);
+					return sight;
+				}
+				// TODO：还有y方向上的情况
 			}
 			if (this.getDirection() == 1) {
 				
@@ -122,11 +257,11 @@ public class GamePlayer {
 	}
 	
 	public int getWeaponID() {
-		return index / 2;
+		return index % 3;
 	}
 
 	public int getCampID() {
-		return index % 2;
+		return index / 3;
 	}
 
 	public int getX() {
