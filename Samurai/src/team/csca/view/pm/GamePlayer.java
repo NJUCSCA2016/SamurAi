@@ -59,7 +59,9 @@ public class GamePlayer {
 	 * @return
 	 */
 	public Point[] getSight(int x, int y, int direction) {
+		// 长矛
 		if (this.getWeaponID() == 0) {
+			// 向下
 			if (this.getDirection() == 0) {
 				if (this.y <= 10) {
 					Point[] sight = new Point[4];
@@ -91,6 +93,7 @@ public class GamePlayer {
 					return null;
 				}
 			}
+			// 向上
 			if (this.getDirection() == 1) {
 				if (this.y >= 4) {
 					Point[] sight = new Point[4];
@@ -122,6 +125,7 @@ public class GamePlayer {
 					return null;
 				}
 			}
+			// 向左
 			if (this.getDirection() == 2) {
 				if (this.x >= 4) {
 					Point[] sight = new Point[4];
@@ -153,6 +157,7 @@ public class GamePlayer {
 					return null;
 				}
 			}
+			// 向右
 			if (this.getDirection() == 3) {
 				if (this.x <= 10) {
 					Point[] sight = new Point[4];
@@ -185,7 +190,9 @@ public class GamePlayer {
 				}
 			}
 		}
+		// 剑
 		if (this.getWeaponID() == 1) {
+			// 向下
 			if (this.getDirection() == 0) {
 				if (this.x <= 12 && this.y <= 12) {
 					Point[] sight = new Point[5];
@@ -211,6 +218,9 @@ public class GamePlayer {
 					return sight;
 				}
 				// TODO：还有y方向上的情况
+				if (this.x <= 12 && this.y == 13) {
+					
+				}
 			}
 			if (this.getDirection() == 1) {
 				
