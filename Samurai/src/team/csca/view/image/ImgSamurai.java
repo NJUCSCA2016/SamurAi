@@ -57,4 +57,16 @@ public class ImgSamurai {
 	public static final Image B1_BACK = new ImageIcon("Image/AI/B1_BACK.png").getImage();
 	
 	public static final Image B2_BACK = new ImageIcon("Image/AI/B2_BACK.png").getImage();
+	
+	public static final Image A0_FLAG = new ImageIcon("Image/Gamepanel/flags/flag1.png").getImage();
+	
+	public static final Image A1_FLAG = new ImageIcon("Image/Gamepanel/flags/flag2.png").getImage();
+	
+	public static final Image A2_FLAG = new ImageIcon("Image/Gamepanel/flags/flag3.png").getImage();
+	
+	public static final Image B0_FLAG = new ImageIcon("Image/Gamepanel/flags/flag4.png").getImage();
+	
+	public static final Image B1_FLAG = new ImageIcon("Image/Gamepanel/flags/flag5.png").getImage();
+	
+	public static final Image B2_FLAG = new ImageIcon("Image/Gamepanel/flags/flag6.png").getImage();
 }

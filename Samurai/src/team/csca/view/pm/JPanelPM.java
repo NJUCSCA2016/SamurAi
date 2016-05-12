@@ -98,12 +98,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// new LayerBackground(40*x[1] + 13*y[1] + 234, -36*y[1] + 624,
 				// 30, 30, ImgSystem.logo),
 				// TODO: 需要把武士的图片加进去
-				new LayerBackground(x[0] * 40 + y[0] * 13 + 234, y[0] * (-36) + 624, 30, 30, ImgSamurai.A0),
-				new LayerBackground(x[1] * 40 + y[1] * 13 + 234, y[1] * (-36) + 624, 30, 30, ImgSamurai.A1),
-				new LayerBackground(x[2] * 40 + y[2] * 13 + 234, y[2] * (-36) + 624, 30, 30, ImgSamurai.A2),
-				new LayerBackground(x[3] * 40 + y[3] * 13 + 234, y[3] * (-36) + 624, 30, 30, ImgSamurai.B0),
-				new LayerBackground(x[4] * 40 + y[4] * 13 + 234, y[4] * (-36) + 624, 30, 30, ImgSamurai.B1),
-				new LayerBackground(x[5] * 40 + y[5] * 13 + 234, y[5] * (-36) + 624, 30, 30, ImgSamurai.B2),
+				new LayerBackground(x[0] * 40 + y[0] * 13 + 234, y[0] * (-36) + 624, 30, 30, ImgSamurai.A0_FLAG),
+				new LayerBackground(x[1] * 40 + y[1] * 13 + 234, y[1] * (-36) + 624, 30, 30, ImgSamurai.A1_FLAG),
+				new LayerBackground(x[2] * 40 + y[2] * 13 + 234, y[2] * (-36) + 624, 30, 30, ImgSamurai.A2_FLAG),
+				new LayerBackground(x[3] * 40 + y[3] * 13 + 234, y[3] * (-36) + 624, 30, 30, ImgSamurai.B0_FLAG),
+				new LayerBackground(x[4] * 40 + y[4] * 13 + 234, y[4] * (-36) + 624, 30, 30, ImgSamurai.B1_FLAG),
+				new LayerBackground(x[5] * 40 + y[5] * 13 + 234, y[5] * (-36) + 624, 30, 30, ImgSamurai.B2_FLAG),
 
 		};
 
@@ -120,12 +120,15 @@ public class JPanelPM extends JPanel implements KeyListener {
 		}
 		// TODO：这里的g.drawImage是动画移动的关键，但是貌似移动写错了
 		// g.drawImage(arg0, arg1, arg2, arg3, arg4, arg5);
-		g.drawImage(ImgSamurai.A0, x[0] * 40 + y[0] * 13 + 234, y[0] * (-36) + 624, 30, 30, this);
-		g.drawImage(ImgSamurai.A1, x[1] * 40 + y[1] * 13 + 234, y[1] * (-36) + 624, 30, 30, this);
-		g.drawImage(ImgSamurai.A2, x[2] * 40 + y[2] * 13 + 234, y[2] * (-36) + 624, 30, 30, this);
-		g.drawImage(ImgSamurai.B0, x[3] * 40 + y[3] * 13 + 234, y[3] * (-36) + 624, 30, 30, this);
-		g.drawImage(ImgSamurai.B1, x[4] * 40 + y[4] * 13 + 234, y[4] * (-36) + 624, 30, 30, this);
-		g.drawImage(ImgSamurai.B2, x[5] * 40 + y[5] * 13 + 234, y[5] * (-36) + 624, 30, 30, this);
+		
+			g.drawImage(ImgSamurai.A0, x[0] * 40 + y[0] * 13 + 234, y[0] * (-36) + 624, 30, 30, this);
+			g.drawImage(ImgSamurai.A1, x[1] * 40 + y[1] * 13 + 234, y[1] * (-36) + 624, 30, 30, this);
+			g.drawImage(ImgSamurai.A2, x[2] * 40 + y[2] * 13 + 234, y[2] * (-36) + 624, 30, 30, this);
+			g.drawImage(ImgSamurai.B0, x[3] * 40 + y[3] * 13 + 234, y[3] * (-36) + 624, 30, 30, this);
+			g.drawImage(ImgSamurai.B1, x[4] * 40 + y[4] * 13 + 234, y[4] * (-36) + 624, 30, 30, this);
+			g.drawImage(ImgSamurai.B2, x[5] * 40 + y[5] * 13 + 234, y[5] * (-36) + 624, 30, 30, this);
+		
+	
 		g.setFont(messageFont);
 		g.drawString(Integer.toString(nowPower), 1100, 600);
 		super.paintComponents(g);
