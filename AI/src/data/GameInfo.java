@@ -146,7 +146,7 @@ public final class GameInfo {
 				this.samuraiInfo[i].width = this.width;
 				this.samuraiInfo[i].height = this.height;
 			}
-			SamuraiInfo myself = this.samuraiInfo[this.weapon - 1];
+			SamuraiInfo myself = this.samuraiInfo[this.weapon];
 			//更新Player的信息。
 	    	TeamPlayer.SWORDS.updateSamuraiInfo(myself);
 			++i;
