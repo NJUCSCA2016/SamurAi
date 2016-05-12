@@ -89,7 +89,7 @@ public class PlayerSword extends Player{
 			}else{
 				//留在原地。不好出手。
 				if(this.canShow()){
-					this.show();
+//					this.show();
 					//搜寻四个方向。
 					int[] fourDirect = new int[4];
 					for(int[] each : this.placeWaitingToOccupy){
@@ -119,12 +119,17 @@ public class PlayerSword extends Player{
 						}
 					}
 					if(max == 0){
+						// No where to occupy
+						this.show();
 						int moveDirect = random.nextInt(4) + 5 ;
 						moveTwoStep(moveDirect, moveDirect);
-					}else{
-						int act = random.nextInt(4) + 1;
+						if(canHide()){
+							this.hide();
+						}
+					}else{			
+						int act = random.nextInt(indexes.size());
 						show();
-						occupy(act);
+						occupy(indexes.get(act) + 1);
 						hide();
 					}
 				}else{
@@ -135,37 +140,37 @@ public class PlayerSword extends Player{
 			
 			if(this.samuraiInfo.hidden == 1){
 				if(! this.canShow()){
-					int[] blocksAround = new int[4];
-					Arrays.fill(blocksAround, -1);
-					if(! this.samuraiInfo.checkOutOfField(curX - 1, curY)){
-						if(this.gameInfo.field[curX - 1][curY] < 3){
-							blocksAround[0] = this.gameInfo.field[curX - 1][curY];
-						}
-					}
-					if(! this.samuraiInfo.checkOutOfField(curX + 1, curY)){
-						if(this.gameInfo.field[curX + 1][curY] < 3){
-							blocksAround[1] = this.gameInfo.field[curX - 1][curY];
-						}
-					}
-					if(! this.samuraiInfo.checkOutOfField(curX, curY - 1)){
-						if(this.gameInfo.field[curX][curY - 1] < 3){
-							blocksAround[2] = this.gameInfo.field[curX][curY - 1];
-						}
-					}
-					if(! this.samuraiInfo.checkOutOfField(curX, curY + 1)){
-						if(this.gameInfo.field[curX][curY] < 3){
-							blocksAround[3] = this.gameInfo.field[curX][curY + 1];
-						}
-					}
+//					int[] blocksAround = new int[4];
+//					Arrays.fill(blocksAround, -1);
+//					if(! this.samuraiInfo.checkOutOfField(curX - 1, curY)){
+//						if(this.gameInfo.field[curX - 1][curY] < 3){
+//							blocksAround[0] = this.gameInfo.field[curX - 1][curY];
+//						}
+//					}
+//					if(! this.samuraiInfo.checkOutOfField(curX + 1, curY)){
+//						if(this.gameInfo.field[curX + 1][curY] < 3){
+//							blocksAround[1] = this.gameInfo.field[curX - 1][curY];
+//						}
+//					}
+//					if(! this.samuraiInfo.checkOutOfField(curX, curY - 1)){
+//						if(this.gameInfo.field[curX][curY - 1] < 3){
+//							blocksAround[2] = this.gameInfo.field[curX][curY - 1];
+//						}
+//					}
+//					if(! this.samuraiInfo.checkOutOfField(curX, curY + 1)){
+//						if(this.gameInfo.field[curX][curY] < 3){
+//							blocksAround[3] = this.gameInfo.field[curX][curY + 1];
+//						}
+//					}
 					if(mark){
 						//这情况就非常严重的。
 						//说明别人就站在你头上。
 						//检查是否有可以跑的地方。如果没有。嗯，只能够等死了。如果有的话。好，杀了他把。
-						checkAndKill();
+						checkAndKill(1);
 					}
 					else{
 						//自己人
-						leaveAndKill();
+						checkAndKill(2);
 					}
 					
 				}
@@ -178,36 +183,61 @@ public class PlayerSword extends Player{
 			
 		}
 	}
-	
-	public void checkAndKill(){
+	/**
+	 * @param model Model One . Yourself is hidden and enemy with you
+	 */
+	public void checkAndKill(int model){
 		ArrayList<Integer> canMoveDirect = new ArrayList<Integer>(4);
-		if(canMoveOneStep(5)){
-			canMoveDirect.add(5);
+
+		for(int i = 5 ; i <= 8 ; i++){
+			if(canMoveOneStep(i)){
+				canMoveDirect.add(i);
+			}
 		}
-		if(canMoveOneStep(6)){
-			canMoveDirect.add(6);
-		}
-		if(canMoveOneStep(7)){
-			canMoveDirect.add(7);
-		}
-		if(canMoveOneStep(8)){
-			canMoveDirect.add(8);
-		}
-		int max = 0;
-		int maxIndex1 = 0;
-		int maxIndex2 = 0;
+		
+		//最大敌军数目方向
+		
 		if(canMoveDirect.size() > 0){
+			int max = 0;
+			//List to store the coordinations of enemies
+			List<int[]> maxIndex = new ArrayList<int[]>(3);
 			
 			int[][] maxNum = new int[canMoveDirect.size()][4];
+			
 			for(int i = 0 ; i < canMoveDirect.size() ; i ++){
+				//Judge the max number of enemies
 				maxNum[i] = howManyEnemies(canMoveDirect.get(i));
 				for(int j = 0 ; j < 4 ; j ++){
 					if(maxNum[i][j] > max){
-						maxIndex1 = i;
-						maxIndex2 = j;
+						max = maxNum[i][j];
+						maxIndex.clear();
+						maxIndex.add(new int[]{i , j});
+					}else if(maxNum[i][j] == max){
+						maxIndex.add(new int[]{i , j});
 					}
 				}
 			}
+//			In this method , you've already known that you're hidden.
+			if(model == 2 && max == 0){
+//No one can be kill ;
+//	This is impossible But I add two situation in it.
+//			Only one step is always the most safe.
+//				if(canMoveDirect.size() == 1){
+//					moveOneStep(canMoveDirect.get(0));
+//					show();
+//				}else{
+//					
+//				}
+				moveOneStep(canMoveDirect.get(random.nextInt(canMoveDirect.size())));
+				
+			}else{
+				//随机杀一个人最多的
+				int[] getRandomAct = maxIndex.get(random.nextInt(maxIndex.size()));
+				moveOneStep(canMoveDirect.get(getRandomAct[0]));
+				show();
+				occupy(getRandomAct[1] + 1);
+			}
+			
 //			moveOneStep(canMoveDirect.get(0));
 //			curX = this.samuraiInfo.curX;
 //			curY = this.samuraiInfo.curY;
@@ -222,31 +252,35 @@ public class PlayerSword extends Player{
 		//等死吧
 	}
 	
+	
+	
 	public int[] howManyEnemies(int moveDirection){
-		int curX = 0;
-		int curY = 0;
-		curX = this.curX + ActionInfo.MOVE_OFFSET[moveDirection - 5][0];
-		curY = this.curY + ActionInfo.MOVE_OFFSET[moveDirection - 5][1];
+		
+		int curX = this.curX + ActionInfo.MOVE_OFFSET[moveDirection - 5][0];
+		int curY = this.curY + ActionInfo.MOVE_OFFSET[moveDirection - 5][1];
+		
 		int[] count = new int[4];
 		for(int[] each : this.enemiesCanKill){
+			int offsetX = each[0] - curX;
+			int offsetY =  each[1] - curY;
 //		switch (moveDirection) {
 //		case 1:
-			if(each[0] < curX && each[1] == curY){
+			if(each[0] < curX && each[1] == curY &&  offsetX >= -4){
 				count[0]++;
 			}
 //			break;
 //		case 2:
-			else if(each[0] > curX && each[1] == curY){
+			else if(each[0] > curX && each[1] == curY&& offsetX <= 4){
 				count[1]++; 
 			}
 //			break;
 //		case 3:
-			else if(each[0] == curX && each[1] < curY){
+			else if(each[0] == curX && each[1] < curY && offsetY >= -4 ){
 				count[2]++;
 			}
 //			break;	
 //		case 4:
-			else if(each[0] == curX && each[1] > curY){
+			else if(each[0] == curX && each[1] > curY && offsetY <= 4 ){
 				count[3]++;
 			}
 //			break;
@@ -257,9 +291,9 @@ public class PlayerSword extends Player{
 		return count;
 	}
 	
-	public void leaveAndKill(){
-		
-	}
+//	public void leaveAndKill(){
+//		
+//	}
 	
 	public void justMove(){
 		/**
@@ -400,7 +434,7 @@ public class PlayerSword extends Player{
 					for(int i = 0 ; i < othersNum ; i++){
 						SamuraiInfo eachInfo = otherEnemies.get(i);
 						//每个友军视野中的敌军的方向。
-						direction[i] = checkDirectionOFEnemy(eachInfo.curX , eachInfo.curY , eachInfo.weapon);
+						direction[i] = checkDirectionOFEnemy(eachInfo.curX , eachInfo.curY);
 						distance[i] = Math.abs(eachInfo.curX - this.samuraiInfo.curX) + Math.abs(eachInfo.curY - this.samuraiInfo.curY);
 					}
 					//TODO
@@ -506,9 +540,9 @@ public class PlayerSword extends Player{
 	 * @param weapon
 	 * @return
 	 */
-	public int checkDirectionOFEnemy(int enemyX, int enemyY, int weapon){
-		int offsetX = enemyX - this.samuraiInfo.curX;
-		int offsetY = enemyY - this.samuraiInfo.curY;
+	public int checkDirectionOFEnemy(int enemyX, int enemyY){
+		int offsetX = enemyX - curX;
+		int offsetY = enemyY - curY;
 		/**
 		 *@Warning ：  如果是碰到对面的剑士。Be careful
 		 */
@@ -823,85 +857,85 @@ public class PlayerSword extends Player{
 			}
 	}
 	
-	
-	public int analizeField(){
-		//如果这里有人的话就先杀人。
-		
-		//Which is most situation
-		
-		if(this.enemiesNum > 0){
-			if(this.enemiesNum == 1){
-				int[] only = this.enemyInOwnEyes.get(0);
-				if(CanKillOne(only)){
-					return Player.CAN_KILL_ONE;
-				}else{
-					return Player.ONE_OUT_REACH;
-				}
-				
-			}else if(this.enemiesNum == 2){
-				int[] first = this.enemyInOwnEyes.get(0);
-				int[] second = this.enemyInOwnEyes.get(1);
-				
-				if(first[0] == second[0] || first[1] == second[1]){
-					if(this.CanKillOne(first) && this.CanKillOne(second)){
-						return Player.DOUBLE_KILL;
-					}
-				}else{
-					
-				}
-				
-			}
-		}
-		return Player.OCCUPY_ALL;
-	}
-	
-	
-	
-	
+//	
+//	public int analizeField(){
+//		//如果这里有人的话就先杀人。
+//		
+//		//Which is most situation
+//		
+//		if(this.enemiesNum > 0){
+//			if(this.enemiesNum == 1){
+//				int[] only = this.enemyInOwnEyes.get(0);
+//				if(CanKillOne(only)){
+//					return Player.CAN_KILL_ONE;
+//				}else{
+//					return Player.ONE_OUT_REACH;
+//				}
+//				
+//			}else if(this.enemiesNum == 2){
+//				int[] first = this.enemyInOwnEyes.get(0);
+//				int[] second = this.enemyInOwnEyes.get(1);
+//				
+//				if(first[0] == second[0] || first[1] == second[1]){
+//					if(this.CanKillOne(first) && this.CanKillOne(second)){
+//						return Player.DOUBLE_KILL;
+//					}
+//				}else{
+//					
+//				}
+//				
+//			}
+//		}
+//		return Player.OCCUPY_ALL;
+//	}
+//	
+//	
+//	
+//	
 	public boolean CanKillOne(int[] only){
 		return (only[0] - this.samuraiInfo.curX <= 1 && this.samuraiInfo.curX  - only[0] <= 1 )||(only[1] - this.samuraiInfo.curY <= 1 && this.samuraiInfo.curY  - only[1] <= 1 );
 	}
-	
-	public boolean CanKillOnlyOne(int[] only, int curX , int curY){
-		return (only[0] - curX <= 1 && curX  - only[0] <= 1 )||(only[1] - curY <= 1 && curY  - only[1] <= 1 );
-	}
-	
-	
-	
-//	public boolean checkAndKill(){
+//	
+//	public boolean CanKillOnlyOne(int[] only, int curX , int curY){
+//		return (only[0] - curX <= 1 && curX  - only[0] <= 1 )||(only[1] - curY <= 1 && curY  - only[1] <= 1 );
+//	}
+//	
+//	
+//	
+////	public boolean checkAndKill(){
+////		
+////		
+////		
+////	}
+////	
+//	
+//	/**
+//	 * 
+//	 *	只有一个人在边上，必须得杀啊。
+//	 *没准还可以double kill
+//	 * @return
+//	 */
+//	public void  mustKillTheOnlyOneLajiGuy(){
+//		//Kill
+//	}
+//	/**
+//	 * 
+//	 * 能双杀还不杀这不傻逼吗。
+//	 * 
+//	 */
+//	public void mustDoubleKill(){
 //		
+//	}
+//	/**
+//	 * 
+//	 * 这个就不太可能了。
+//	 * 尴尬脸.jpg
+//	 * 
+//	 */
+//	public void allKill(){
 //		
 //		
 //	}
-//	
-	
-	/**
-	 * 
-	 *	只有一个人在边上，必须得杀啊。
-	 *没准还可以double kill
-	 * @return
-	 */
-	public void  mustKillTheOnlyOneLajiGuy(){
-		//Kill
-	}
-	/**
-	 * 
-	 * 能双杀还不杀这不傻逼吗。
-	 * 
-	 */
-	public void mustDoubleKill(){
-		
-	}
-	/**
-	 * 
-	 * 这个就不太可能了。
-	 * 尴尬脸.jpg
-	 * 
-	 */
-	public void allKill(){
-		
-		
-	}
 
 
 }
