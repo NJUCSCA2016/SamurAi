@@ -58,9 +58,16 @@ public class JPanelPM extends JPanel implements KeyListener {
 	 */
 	int[] x = new int[6];
 	int[] y = new int[6];
-
+	/**
+	 * 代表大本营的位置
+	 */
 	int[] homeX = new int[6];
 	int[] homeY = new int[6];
+	/**
+	 * 代表占领的位置
+	 */
+	int[] occupation = new int[225];
+
 
 	Font messageFont = new Font("宋体", Font.PLAIN, 40);
 
@@ -113,7 +120,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 		// 从左到右是x,从上到下是y
 		// 关于x的系数为正，关于y的系数为负
 		x[0] = r.nextInt(7) + 1;
-		y[0] = 0;
+		// TODO:y[0]被改了，原来为0
+		y[0] = 8;
 		x[1] = 14;
 		y[1] = r.nextInt(5) + 1;
 		x[2] = 0;
@@ -127,6 +135,19 @@ public class JPanelPM extends JPanel implements KeyListener {
 		for (int i = 0; i < 6; i++) {
 			homeX[i] = x[i];
 			homeY[i] = y[i];
+		}
+		/**
+		 * 初始化occupation
+		 */
+		for (int i = 0; i < occupation.length; i++) {
+			occupation[i] = -1;
+		}
+		/**
+		 * 把所有大本营初始化
+		 */
+		for (int i = 0; i < 6; i++) {
+			int temp = 15 * homeX[i] + homeY[i];
+			occupation[temp] = i;
 		}
 		// x = x[i] * 40 + y[i] * 13 + 232
 		// y = y[i] * (-36) + 624
@@ -157,7 +178,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				new LayerBackground(x[4] * 40 + y[4] * 13 + 227, y[4] * (-36) + 622, 58, 36, ImgSamurai.B1_SHADOW),
 				new LayerBackground(x[5] * 40 + y[5] * 13 + 227, y[5] * (-36) + 622, 58, 36, ImgSamurai.B2_SHADOW),
 				/**
-				 * 大本营标志
+				 * 大本营标志，旗帜
 				 */
 				new LayerBackground(x[0] * 40 + y[0] * 13 + 252, y[0] * (-36) + 614, 30, 30, ImgSamurai.A0_FLAG),
 				new LayerBackground(x[1] * 40 + y[1] * 13 + 252, y[1] * (-36) + 614, 30, 30, ImgSamurai.A1_FLAG),
@@ -177,12 +198,20 @@ public class JPanelPM extends JPanel implements KeyListener {
 
 	public void paintComponent(Graphics g) {
 		calculateIndex();
-		
+
 		for (int i = 0; i < this.layers.length; i++) {
 			layers[i].createWindow(g);
 		}
-		// TODO：这里的g.drawImage是动画移动的关键，但是貌似移动写错了
-		// g.drawImage(arg0, arg1, arg2, arg3, arg4, arg5);
+		// 行
+		for (int i = 0; i < 15; i++) {
+			// 列
+			for (int j = 0; j < 15; j++) {
+				int temp = 15 * i + j;
+				if (occupation[temp] != -1) {
+					g.drawImage(ImgSamurai.AI_SHADOW[occupation[temp]], i * 40 + j * 13 + 227, j * (-36) + 622, 58, 36, this);
+				}
+			}
+		}
 
 		g.drawImage(ImgSamurai.A0_PICTURE[direction[0]], x[0] * 40 + y[0] * 13 + 228, y[0] * (-36) + 600, 50, 50, this);
 		g.drawImage(ImgSamurai.A1_PICTURE[direction[1]], x[1] * 40 + y[1] * 13 + 228, y[1] * (-36) + 600, 50, 50, this);
@@ -197,6 +226,9 @@ public class JPanelPM extends JPanel implements KeyListener {
 		g.drawString("IsHidden: " + isHidden(), 900, 400);
 		g.drawString("Direction: " + Integer.toString(direction[index]), 900, 450);
 		super.paintComponents(g);
+		/**
+		 * 提示是哪一个武士在行动
+		 */
 		if (index == 0) {
 			g.drawImage(ImgSamurai.A0, 1000, 600, 30, 30, this);
 		}
@@ -353,42 +385,42 @@ public class JPanelPM extends JPanel implements KeyListener {
 			 * B0 - A0 - A1 - B1 - B2 - A2 0 - 3 - 4 - 1 - 2 - 5 - 3 - 0 - 1 - 4
 			 * - 5 - 2
 			 */
-//			if (round % 12 == 0) {
-//				index = 0;
-//			}
-//			if (round % 12 == 1) {
-//				index = 3;
-//			}
-//			if (round % 12 == 2) {
-//				index = 4;
-//			}
-//			if (round % 12 == 3) {
-//				index = 1;
-//			}
-//			if (round % 12 == 4) {
-//				index = 2;
-//			}
-//			if (round % 12 == 5) {
-//				index = 5;
-//			}
-//			if (round % 12 == 6) {
-//				index = 3;
-//			}
-//			if (round % 12 == 7) {
-//				index = 0;
-//			}
-//			if (round % 12 == 8) {
-//				index = 1;
-//			}
-//			if (round % 12 == 9) {
-//				index = 4;
-//			}
-//			if (round % 12 == 10) {
-//				index = 5;
-//			}
-//			if (round % 12 == 11) {
-//				index = 2;
-//			}
+			// if (round % 12 == 0) {
+			// index = 0;
+			// }
+			// if (round % 12 == 1) {
+			// index = 3;
+			// }
+			// if (round % 12 == 2) {
+			// index = 4;
+			// }
+			// if (round % 12 == 3) {
+			// index = 1;
+			// }
+			// if (round % 12 == 4) {
+			// index = 2;
+			// }
+			// if (round % 12 == 5) {
+			// index = 5;
+			// }
+			// if (round % 12 == 6) {
+			// index = 3;
+			// }
+			// if (round % 12 == 7) {
+			// index = 0;
+			// }
+			// if (round % 12 == 8) {
+			// index = 1;
+			// }
+			// if (round % 12 == 9) {
+			// index = 4;
+			// }
+			// if (round % 12 == 10) {
+			// index = 5;
+			// }
+			// if (round % 12 == 11) {
+			// index = 2;
+			// }
 			calculateIndex();
 			nowPower = 7;
 			repaint();
@@ -412,13 +444,19 @@ public class JPanelPM extends JPanel implements KeyListener {
 			}
 			repaint();
 			break;
+		case KeyEvent.VK_R:
+			cost = 4;
+			// TODO:增加判断条件
+			occupy();
+			repaint();
+			break;
 		default:
 			break;
 		}
 		// repaint();
 
 	}
-	
+
 	public void calculateIndex() {
 		if (round % 12 == 0) {
 			index = 0;
@@ -458,8 +496,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		}
 
 	}
-	
-	
+
 	/**
 	 * 是否能先行 TODO：增加其他判定条件
 	 * 
@@ -542,8 +579,57 @@ public class JPanelPM extends JPanel implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-
 	}
+
+	public void occupy() {
+		// 长矛
+		if (index == 0 || index == 3) {
+			// 向下
+			if (direction[index] == 0 || direction[index] == 4) {
+				// TODO: 添加判断条件
+				int temp = 15 * x[index] + y[index];
+				occupation[temp - 1] = index;
+				occupation[temp - 2] = index;
+				occupation[temp - 3] = index;
+				occupation[temp - 4] = index;
+			}
+			if (direction[index] == 1 || direction[index] == 5) {
+				// TODO: 添加判断条件
+				int temp = 15 * x[index] + y[index];
+				occupation[temp + 1] = index;
+				occupation[temp + 2] = index;
+				occupation[temp + 3] = index;
+				occupation[temp + 4] = index;
+			}
+			if (direction[index] == 2 || direction[index] == 6) {
+				// TODO: 添加判断条件
+				int temp = 15 * x[index] + y[index];
+				occupation[temp - 15] = index;
+				occupation[temp - 30] = index;
+				occupation[temp - 45] = index;
+				occupation[temp - 60] = index;
+			}
+			if (direction[index] == 3 || direction[index] == 7) {
+				// TODO: 添加判断条件
+				int temp = 15 * x[index] + y[index];
+				occupation[temp + 15] = index;
+				occupation[temp + 30] = index;
+				occupation[temp + 45] = index;
+				occupation[temp + 60] = index;
+			}
+			
+			
+		}
+		// 剑
+		if (index == 1 || index == 4) {
+
+		}
+		// 战斧
+		if (index == 2 || index == 5) {
+
+		}
+	}
+
+
 
 }
