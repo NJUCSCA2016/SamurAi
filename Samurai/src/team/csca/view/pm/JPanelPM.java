@@ -121,7 +121,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		// 关于x的系数为正，关于y的系数为负
 		x[0] = r.nextInt(7) + 1;
 		// TODO:y[0]被改了，原来为0
-		y[0] = 8;
+		y[0] = 2;
 		x[1] = 14;
 		y[1] = r.nextInt(5) + 1;
 		x[2] = 0;
@@ -446,6 +446,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			break;
 		case KeyEvent.VK_R:
 			cost = 4;
+			nowPower = nowPower - cost;
 			// TODO:增加判断条件
 			occupy();
 			repaint();
@@ -588,34 +589,93 @@ public class JPanelPM extends JPanel implements KeyListener {
 			if (direction[index] == 0 || direction[index] == 4) {
 				// TODO: 添加判断条件
 				int temp = 15 * x[index] + y[index];
-				occupation[temp - 1] = index;
-				occupation[temp - 2] = index;
-				occupation[temp - 3] = index;
-				occupation[temp - 4] = index;
+				if (y[index] >= 4) {
+					occupation[temp - 1] = index;
+					occupation[temp - 2] = index;
+					occupation[temp - 3] = index;
+					occupation[temp - 4] = index;
+				}
+				if (y[index] == 3) {
+					occupation[temp - 1] = index;
+					occupation[temp - 2] = index;
+					occupation[temp - 3] = index;
+				}
+				if (y[index] == 2) {
+					occupation[temp - 1] = index;
+					occupation[temp - 2] = index;
+				}
+				if (y[index] == 1) {
+					occupation[temp - 1] = index;
+				}
 			}
 			if (direction[index] == 1 || direction[index] == 5) {
 				// TODO: 添加判断条件
 				int temp = 15 * x[index] + y[index];
-				occupation[temp + 1] = index;
-				occupation[temp + 2] = index;
-				occupation[temp + 3] = index;
-				occupation[temp + 4] = index;
+				if (y[index] <= 10) {
+					occupation[temp + 1] = index;
+					occupation[temp + 2] = index;
+					occupation[temp + 3] = index;
+					occupation[temp + 4] = index;
+				}
+				if (y[index] == 11) {
+					occupation[temp + 1] = index;
+					occupation[temp + 2] = index;
+					occupation[temp + 3] = index;
+				}
+				if (y[index] == 12) {
+					occupation[temp + 1] = index;
+					occupation[temp + 2] = index;
+				}
+				if (y[index] == 13) {
+					occupation[temp + 1] = index;
+				}
+				
 			}
 			if (direction[index] == 2 || direction[index] == 6) {
 				// TODO: 添加判断条件
 				int temp = 15 * x[index] + y[index];
-				occupation[temp - 15] = index;
-				occupation[temp - 30] = index;
-				occupation[temp - 45] = index;
-				occupation[temp - 60] = index;
+				if (x[index] >= 4) {
+					occupation[temp - 15] = index;
+					occupation[temp - 30] = index;
+					occupation[temp - 45] = index;
+					occupation[temp - 60] = index;
+				}
+				if (x[index] == 3) {
+					occupation[temp - 15] = index;
+					occupation[temp - 30] = index;
+					occupation[temp - 45] = index;
+				}
+				if (x[index] == 2) {
+					occupation[temp - 15] = index;
+					occupation[temp - 30] = index;
+				}
+				if (x[index] == 1) {
+					occupation[temp - 15] = index;
+				}
+				
 			}
 			if (direction[index] == 3 || direction[index] == 7) {
 				// TODO: 添加判断条件
 				int temp = 15 * x[index] + y[index];
-				occupation[temp + 15] = index;
-				occupation[temp + 30] = index;
-				occupation[temp + 45] = index;
-				occupation[temp + 60] = index;
+				if (x[index] <= 10) {
+					occupation[temp + 15] = index;
+					occupation[temp + 30] = index;
+					occupation[temp + 45] = index;
+					occupation[temp + 60] = index;
+				}
+				if (x[index] == 11) {
+					occupation[temp + 15] = index;
+					occupation[temp + 30] = index;
+					occupation[temp + 45] = index;
+				}
+				if (x[index] == 12) {
+					occupation[temp + 15] = index;
+					occupation[temp + 30] = index;
+				}
+				if (x[index] == 13) {
+					occupation[temp + 15] = index;
+				}
+				
 			}
 			
 			
