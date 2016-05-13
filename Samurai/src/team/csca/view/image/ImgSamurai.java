@@ -70,6 +70,8 @@ public class ImgSamurai {
 	public static final Image B1_FLAG = new ImageIcon("Image/Gamepanel/flags/flag5.png").getImage();
 
 	public static final Image B2_FLAG = new ImageIcon("Image/Gamepanel/flags/flag6.png").getImage();
+	
+	public static final Image[] FLAGS = {A0_FLAG, A1_FLAG, A2_FLAG, B0_FLAG, B1_FLAG, B2_FLAG};
 
 	public static final Image A0_HIDE = new ImageIcon("Image/AI/A0_HIDE.png").getImage();
 

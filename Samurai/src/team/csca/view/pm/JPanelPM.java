@@ -151,7 +151,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 		}
 		// x = x[i] * 40 + y[i] * 13 + 232
 		// y = y[i] * (-36) + 624
-		layers = new Layer[] { new LayerBackground(0, 0, 1250, 700, ImgBackground.PP_PANEL),
+		layers = new Layer[] { 
+				new LayerBackground(0, 0, 1250, 700, ImgBackground.PP_PANEL),
 				// new LayerBackground(40*x[0] + 13*y[0] + 232, -36*y[0] + 624,
 				// 30, 30, ImgSystem.logo),
 				// new LayerBackground(234, 624, 30, 30, ImgSystem.logo),
@@ -202,6 +203,14 @@ public class JPanelPM extends JPanel implements KeyListener {
 		for (int i = 0; i < this.layers.length; i++) {
 			layers[i].createWindow(g);
 		}
+		/**
+		 * 防止大本营被占领
+		 */
+		for (int i = 0; i < 6; i++) {
+			int temp = 15 * homeX[i] + homeY[i];
+			occupation[temp] = i;
+		}
+		
 		// 行
 		for (int i = 0; i < 15; i++) {
 			// 列
@@ -213,6 +222,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 			}
 		}
 
+//		for (int i = 1; i < 7; i++) {
+//			g.drawImage(ImgSamurai.FLAGS[i - 1], x[i - 1] * 40 + y[i - 1] * 13 + 252, y[i - 1] * (-36) + 614, 30, 30, this);
+//		}
+		for (int i = 7; i < this.layers.length; i++) {
+			layers[i].createWindow(g);
+		}
 		g.drawImage(ImgSamurai.A0_PICTURE[direction[0]], x[0] * 40 + y[0] * 13 + 228, y[0] * (-36) + 600, 50, 50, this);
 		g.drawImage(ImgSamurai.A1_PICTURE[direction[1]], x[1] * 40 + y[1] * 13 + 228, y[1] * (-36) + 600, 50, 50, this);
 		g.drawImage(ImgSamurai.A2_PICTURE[direction[2]], x[2] * 40 + y[2] * 13 + 228, y[2] * (-36) + 600, 50, 50, this);
