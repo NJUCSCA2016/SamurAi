@@ -176,6 +176,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 	}
 
 	public void paintComponent(Graphics g) {
+		calculateIndex();
+		
 		for (int i = 0; i < this.layers.length; i++) {
 			layers[i].createWindow(g);
 		}
@@ -188,10 +190,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 		g.drawImage(ImgSamurai.B0_PICTURE[direction[3]], x[3] * 40 + y[3] * 13 + 228, y[3] * (-36) + 600, 50, 50, this);
 		g.drawImage(ImgSamurai.B1_PICTURE[direction[4]], x[4] * 40 + y[4] * 13 + 228, y[4] * (-36) + 600, 50, 50, this);
 		g.drawImage(ImgSamurai.B2_PICTURE[direction[5]], x[5] * 40 + y[5] * 13 + 228, y[5] * (-36) + 600, 50, 50, this);
-
+		// FIXME:测试用代码
 		g.setFont(messageFont);
-		g.drawString("Power: " + Integer.toString(nowPower), 900, 400);
-		g.drawString("Index: " + Integer.toString(index), 900, 450);
+		g.drawString("Power: " + Integer.toString(nowPower), 900, 300);
+		g.drawString("Index: " + Integer.toString(index), 900, 350);
+		g.drawString("IsHidden: " + isHidden(), 900, 400);
+		g.drawString("Direction: " + Integer.toString(direction[index]), 900, 450);
 		super.paintComponents(g);
 		if (index == 0) {
 			g.drawImage(ImgSamurai.A0, 1000, 600, 30, 30, this);
@@ -233,11 +237,25 @@ public class JPanelPM extends JPanel implements KeyListener {
 			// {
 			// FIXME:修改判定条件
 			// if (canMoveTo(0, 1)) {
-			if (canMoveTo(0, 1) && hasPower()) {
+			if (canMoveTo(0, 1) && hasPower() && !isHidden()) {
 				// if (y[index]+1 <=14) {
 				nowPower = nowPower - cost;
 				y[index] += 1;
 				direction[index] = 1;
+				// if (isHidden()) {
+				// direction[index] = 5;
+				// }
+				repaint();
+				System.out.println(x[0]);
+			}
+			if (canMoveTo(0, 1) && hasPower() && isHidden()) {
+				// if (y[index]+1 <=14) {
+				nowPower = nowPower - cost;
+				y[index] += 1;
+				direction[index] = 5;
+				// if (isHidden()) {
+				// direction[index] = 5;
+				// }
 				repaint();
 				System.out.println(x[0]);
 			}
@@ -250,11 +268,24 @@ public class JPanelPM extends JPanel implements KeyListener {
 			// {
 			// FIXME:修改判定条件
 			// if (canMoveTo(0, -1)) {
-			if (canMoveTo(0, -1) && hasPower()) {
+			if (canMoveTo(0, -1) && hasPower() && !isHidden()) {
 				// if (y[index]-1 >= 0) {
 				nowPower = nowPower - cost;
 				y[index] -= 1;
 				direction[index] = 0;
+				// if (isHidden()) {
+				// direction[index] = 4;
+				// }
+				repaint();
+			}
+			if (canMoveTo(0, -1) && hasPower() && isHidden()) {
+				// if (y[index]-1 >= 0) {
+				nowPower = nowPower - cost;
+				y[index] -= 1;
+				direction[index] = 4;
+				// if (isHidden()) {
+				// direction[index] = 4;
+				// }
 				repaint();
 			}
 			break;
@@ -265,11 +296,24 @@ public class JPanelPM extends JPanel implements KeyListener {
 			// {
 			// FIXME:修改判定条件
 			// if (canMoveTo(-1, 0)) {
-			if (canMoveTo(-1, 0) && hasPower()) {
+			if (canMoveTo(-1, 0) && hasPower() && !isHidden()) {
 				// if (x[index]-1 >= 0) {
 				nowPower = nowPower - cost;
 				x[index] -= 1;
 				direction[index] = 2;
+				// if (isHidden()) {
+				// direction[index] = 6;
+				// }
+				repaint();
+			}
+			if (canMoveTo(-1, 0) && hasPower() && isHidden()) {
+				// if (x[index]-1 >= 0) {
+				nowPower = nowPower - cost;
+				x[index] -= 1;
+				direction[index] = 6;
+				// if (isHidden()) {
+				// direction[index] = 6;
+				// }
 				repaint();
 			}
 			break;
@@ -280,11 +324,24 @@ public class JPanelPM extends JPanel implements KeyListener {
 			// {
 			// FIXME:修改判定条件
 			// if (canMoveTo(1, 0)) {
-			if (canMoveTo(1, 0) && hasPower()) {
+			if (canMoveTo(1, 0) && hasPower() && !isHidden()) {
 				// if (x[index]+1 <=14) {
 				nowPower = nowPower - cost;
 				x[index] += 1;
 				direction[index] = 3;
+				// if (isHidden()) {
+				// direction[index] = 7;
+				// }
+				repaint();
+			}
+			if (canMoveTo(1, 0) && hasPower() && isHidden()) {
+				// if (x[index]+1 <=14) {
+				nowPower = nowPower - cost;
+				x[index] += 1;
+				direction[index] = 7;
+				// if (isHidden()) {
+				// direction[index] = 7;
+				// }
 				repaint();
 			}
 			break;
@@ -296,47 +353,47 @@ public class JPanelPM extends JPanel implements KeyListener {
 			 * B0 - A0 - A1 - B1 - B2 - A2 0 - 3 - 4 - 1 - 2 - 5 - 3 - 0 - 1 - 4
 			 * - 5 - 2
 			 */
-			if (round % 12 == 0) {
-				index = 0;
-			}
-			if (round % 12 == 1) {
-				index = 3;
-			}
-			if (round % 12 == 2) {
-				index = 4;
-			}
-			if (round % 12 == 3) {
-				index = 1;
-			}
-			if (round % 12 == 4) {
-				index = 2;
-			}
-			if (round % 12 == 5) {
-				index = 5;
-			}
-			if (round % 12 == 6) {
-				index = 3;
-			}
-			if (round % 12 == 7) {
-				index = 0;
-			}
-			if (round % 12 == 8) {
-				index = 1;
-			}
-			if (round % 12 == 9) {
-				index = 4;
-			}
-			if (round % 12 == 10) {
-				index = 5;
-			}
-			if (round % 12 == 11) {
-				index = 2;
-			}
-
+//			if (round % 12 == 0) {
+//				index = 0;
+//			}
+//			if (round % 12 == 1) {
+//				index = 3;
+//			}
+//			if (round % 12 == 2) {
+//				index = 4;
+//			}
+//			if (round % 12 == 3) {
+//				index = 1;
+//			}
+//			if (round % 12 == 4) {
+//				index = 2;
+//			}
+//			if (round % 12 == 5) {
+//				index = 5;
+//			}
+//			if (round % 12 == 6) {
+//				index = 3;
+//			}
+//			if (round % 12 == 7) {
+//				index = 0;
+//			}
+//			if (round % 12 == 8) {
+//				index = 1;
+//			}
+//			if (round % 12 == 9) {
+//				index = 4;
+//			}
+//			if (round % 12 == 10) {
+//				index = 5;
+//			}
+//			if (round % 12 == 11) {
+//				index = 2;
+//			}
+			calculateIndex();
 			nowPower = 7;
 			repaint();
-		default:
 			break;
+
 		// 隐身
 		case KeyEvent.VK_W:
 			cost = 1;
@@ -344,22 +401,100 @@ public class JPanelPM extends JPanel implements KeyListener {
 				nowPower = nowPower - cost;
 				direction[index] += 4;
 			}
-
+			repaint();
+			break;
+		// 现行
+		case KeyEvent.VK_E:
+			cost = 1;
+			if (canShow() && hasPower()) {
+				nowPower = nowPower - cost;
+				direction[index] -= 4;
+			}
+			repaint();
+			break;
+		default:
+			break;
 		}
 		// repaint();
 
 	}
+	
+	public void calculateIndex() {
+		if (round % 12 == 0) {
+			index = 0;
+		}
+		if (round % 12 == 1) {
+			index = 3;
+		}
+		if (round % 12 == 2) {
+			index = 4;
+		}
+		if (round % 12 == 3) {
+			index = 1;
+		}
+		if (round % 12 == 4) {
+			index = 2;
+		}
+		if (round % 12 == 5) {
+			index = 5;
+		}
+		if (round % 12 == 6) {
+			index = 3;
+		}
+		if (round % 12 == 7) {
+			index = 0;
+		}
+		if (round % 12 == 8) {
+			index = 1;
+		}
+		if (round % 12 == 9) {
+			index = 4;
+		}
+		if (round % 12 == 10) {
+			index = 5;
+		}
+		if (round % 12 == 11) {
+			index = 2;
+		}
 
+	}
+	
+	
 	/**
-	 * 是否能隐藏
-	 * TODO：可能还需要添加其他判定条件
+	 * 是否能先行 TODO：增加其他判定条件
+	 * 
 	 * @return
 	 */
-	private boolean canHide() {
+	private boolean canShow() {
+		if (!isHidden()) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * 是否能隐藏 TODO：可能还需要添加其他判定条件
+	 * 
+	 * @return
+	 */
+	public boolean canHide() {
 		if (direction[index] > 3) {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * 单位是否隐身
+	 * 
+	 * @return
+	 */
+	public boolean isHidden() {
+		calculateIndex();
+		if (direction[index] > 3) {
+			return true;
+		}
+		return false;
 	}
 
 	/**
