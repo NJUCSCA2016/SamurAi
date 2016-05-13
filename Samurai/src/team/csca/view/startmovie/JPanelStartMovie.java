@@ -224,7 +224,10 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// 空格skip
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			pic_Number = 163;
+			if (pic_Number < 163) {
+				pic_Number = 163;
+			}
+			
 //			System.out.println(222);
 		}
 	}

@@ -2,6 +2,7 @@ package team.csca.view.pm;
 
 import java.awt.event.MouseEvent;
 
+import team.csca.controller.media.Player;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.help.JPanelHelp;
 import team.csca.view.image.ImgButton;
@@ -28,6 +29,8 @@ public class JButtonBack extends DynamicButton {
 		this.frame.remove(this.fatherPanel);
 		this.frame.setContentPane(new JPanelStartGame());
 		this.frame.revalidate();
+		Player.stopMusic();
+		Player.playMusic("bgm1");
 
 	}
 }

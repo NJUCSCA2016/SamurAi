@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import team.csca.controller.media.Player;
 import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
 import team.csca.view.image.ImgBackground;
@@ -35,7 +36,7 @@ public class JPanelStartGame extends JPanel{
 		this.add(new JButtonProps(this));
 		this.add(new JButtonHelp(this));
 		this.add(new JButtonExit());
-		
+//		Player.playMusic("bgm1");
 	}
 	public void paintComponent(Graphics g){
 		for(int i = 0 ; i < this.layers.length ; i++){
