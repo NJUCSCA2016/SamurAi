@@ -71,22 +71,74 @@ public class ImgSamurai {
 
 	public static final Image B2_FLAG = new ImageIcon("Image/Gamepanel/flags/flag6.png").getImage();
 
+	public static final Image A0_HIDE = new ImageIcon("Image/AI/A0_HIDE.png").getImage();
+
+	public static final Image A0_HIDE_BACK = new ImageIcon("Image/AI/A0_HIDE_BACK.png").getImage();
+
+	public static final Image A0_HIDE_LEFT = new ImageIcon("Image/AI/A0_HIDE_LEFT.png").getImage();
+
+	public static final Image A0_HIDE_RIGHT = new ImageIcon("Image/AI/A0_HIDE_RIGHT.png").getImage();
+
+	public static final Image A1_HIDE = new ImageIcon("Image/AI/A1_HIDE.png").getImage();
+
+	public static final Image A1_HIDE_BACK = new ImageIcon("Image/AI/A1_HIDE_BACK.png").getImage();
+
+	public static final Image A1_HIDE_LEFT = new ImageIcon("Image/AI/A1_HIDE_LEFT.png").getImage();
+
+	public static final Image A1_HIDE_RIGHT = new ImageIcon("Image/AI/A1_HIDE_RIGHT.png").getImage();
+
+	public static final Image A2_HIDE = new ImageIcon("Image/AI/A2_HIDE.png").getImage();
+
+	public static final Image A2_HIDE_BACK = new ImageIcon("Image/AI/A2_HIDE_BACK.png").getImage();
+
+	public static final Image A2_HIDE_LEFT = new ImageIcon("Image/AI/A2_HIDE_LEFT.png").getImage();
+
+	public static final Image A2_HIDE_RIGHT = new ImageIcon("Image/AI/A2_HIDE_RIGHT.png").getImage();
+
+	public static final Image B0_HIDE = new ImageIcon("Image/AI/B0_HIDE.png").getImage();
+
+	public static final Image B0_HIDE_BACK = new ImageIcon("Image/AI/B0_HIDE_BACK.png").getImage();
+
+	public static final Image B0_HIDE_LEFT = new ImageIcon("Image/AI/B0_HIDE_LEFT.png").getImage();
+
+	public static final Image B0_HIDE_RIGHT = new ImageIcon("Image/AI/B0_HIDE_RIGHT.png").getImage();
+
+	public static final Image B1_HIDE = new ImageIcon("Image/AI/B1_HIDE.png").getImage();
+
+	public static final Image B1_HIDE_BACK = new ImageIcon("Image/AI/B1_HIDE_BACK.png").getImage();
+
+	public static final Image B1_HIDE_LEFT = new ImageIcon("Image/AI/B1_HIDE_LEFT.png").getImage();
+
+	public static final Image B1_HIDE_RIGHT = new ImageIcon("Image/AI/B1_HIDE_RIGHT.png").getImage();
+
+	public static final Image B2_HIDE = new ImageIcon("Image/AI/B2_HIDE.png").getImage();
+
+	public static final Image B2_HIDE_BACK = new ImageIcon("Image/AI/B2_HIDE_BACK.png").getImage();
+
+	public static final Image B2_HIDE_LEFT = new ImageIcon("Image/AI/B2_HIDE_LEFT.png").getImage();
+
+	public static final Image B2_HIDE_RIGHT = new ImageIcon("Image/AI/B2_HIDE_RIGHT.png").getImage();
+
 	/**
-	 * 以数组的形式来表示每一个AI的各方向图片，方便通过direction来索引
-	 * TODO:把阴影的照片给添加进去
-	 * direction
+	 * 以数组的形式来表示每一个AI的各方向图片，方便通过direction来索引 TODO:把阴影的照片给添加进去 direction
 	 */
-	public static final Image[] A0_PICTURE = { A0, A0_BACK, A0_LEFT, A0_RIGHT };
+	public static final Image[] A0_PICTURE = { A0, A0_BACK, A0_LEFT, A0_RIGHT,
+			A0_HIDE, A0_HIDE_BACK, A0_HIDE_LEFT, A0_HIDE_RIGHT };
 
-	public static final Image[] A1_PICTURE = { A1, A1_BACK, A1_LEFT, A1_RIGHT };
+	public static final Image[] A1_PICTURE = { A1, A1_BACK, A1_LEFT,
+			A1_RIGHT,A1_HIDE, A1_HIDE_BACK, A1_HIDE_LEFT, A1_HIDE_RIGHT  };
 
-	public static final Image[] A2_PICTURE = { A2, A2_BACK, A2_LEFT, A2_RIGHT };
+	public static final Image[] A2_PICTURE = { A2, A2_BACK, A2_LEFT, A2_RIGHT,
+			A2_HIDE, A2_HIDE_BACK, A2_HIDE_LEFT, A2_HIDE_RIGHT  };
 
-	public static final Image[] B0_PICTURE = { B0, B0_BACK, B0_LEFT, B0_RIGHT };
+	public static final Image[] B0_PICTURE = { B0, B0_BACK, B0_LEFT, B0_RIGHT ,
+			B0_HIDE, B0_HIDE_BACK, B0_HIDE_LEFT, B0_HIDE_RIGHT };
 
-	public static final Image[] B1_PICTURE = { B1, B1_BACK, B1_LEFT, B1_RIGHT };
+	public static final Image[] B1_PICTURE = { B1, B1_BACK, B1_LEFT, B1_RIGHT ,
+			B1_HIDE, B1_HIDE_BACK, B1_HIDE_LEFT, B1_HIDE_RIGHT };
 
-	public static final Image[] B2_PICTURE = { B2, B2_BACK, B2_LEFT, B2_RIGHT };
+	public static final Image[] B2_PICTURE = { B2, B2_BACK, B2_LEFT, B2_RIGHT ,
+			B2_HIDE, B2_HIDE_BACK, B2_HIDE_LEFT, B2_HIDE_RIGHT };
 
 	public static final Image A0_SHADOW = new ImageIcon("Image/Gamepanel/grids/gridA0.png").getImage();
 
