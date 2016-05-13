@@ -71,6 +71,11 @@ public class ImgSamurai {
 
 	public static final Image B2_FLAG = new ImageIcon("Image/Gamepanel/flags/flag6.png").getImage();
 
+	/**
+	 * 以数组的形式来表示每一个AI的各方向图片，方便通过direction来索引
+	 * TODO:把阴影的照片给添加进去
+	 * direction
+	 */
 	public static final Image[] A0_PICTURE = { A0, A0_BACK, A0_LEFT, A0_RIGHT };
 
 	public static final Image[] A1_PICTURE = { A1, A1_BACK, A1_LEFT, A1_RIGHT };
@@ -82,4 +87,23 @@ public class ImgSamurai {
 	public static final Image[] B1_PICTURE = { B1, B1_BACK, B1_LEFT, B1_RIGHT };
 
 	public static final Image[] B2_PICTURE = { B2, B2_BACK, B2_LEFT, B2_RIGHT };
+
+	public static final Image A0_SHADOW = new ImageIcon("Image/Gamepanel/grids/gridA0.png").getImage();
+
+	public static final Image A1_SHADOW = new ImageIcon("Image/Gamepanel/grids/gridA1.png").getImage();
+
+	public static final Image A2_SHADOW = new ImageIcon("Image/Gamepanel/grids/gridA2.png").getImage();
+
+	public static final Image B0_SHADOW = new ImageIcon("Image/Gamepanel/grids/gridB0.png").getImage();
+
+	public static final Image B1_SHADOW = new ImageIcon("Image/Gamepanel/grids/gridB1.png").getImage();
+
+	public static final Image B2_SHADOW = new ImageIcon("Image/Gamepanel/grids/gridB2.png").getImage();
+
+	/**
+	 * 以数组的形式来表示所有AI的阴影，方便通过index来索引
+	 * 
+	 * index
+	 */
+	public static final Image[] AI_SHADOW = { A0_SHADOW, A1_SHADOW, A2_SHADOW, B0_SHADOW, B1_SHADOW, B2_SHADOW };
 }

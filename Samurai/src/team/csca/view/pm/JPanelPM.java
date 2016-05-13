@@ -50,13 +50,18 @@ public class JPanelPM extends JPanel implements KeyListener {
 	/**
 	 * 方向
 	 */
-	int[] direction = {0, 0, 0, 0, 0, 0};
+	int[] direction = { 0, 0, 0, 0, 0, 0 };
 
 	PlayMovie p = new PlayMovie();
-
+	/**
+	 * x,y 代表现在的坐标
+	 */
 	int[] x = new int[6];
 	int[] y = new int[6];
-	
+
+	int[] homeX = new int[6];
+	int[] homeY = new int[6];
+
 	Font messageFont = new Font("宋体", Font.PLAIN, 40);
 
 	public JPanelPM() {
@@ -72,49 +77,44 @@ public class JPanelPM extends JPanel implements KeyListener {
 		this.addKeyListener(this);
 		this.add(new JButtonBack(this));
 		Random r = new Random();
-		
+
 		this.addMouseListener(new MouseListener() {
-			
+
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				// TODO Auto-generated method stub
 			}
-			
+
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// TODO Auto-generated method stub
 				requestFocus(true);
 			}
 		});
-		
-		
-		
-		
-		
 
 		// 从左到右是x,从上到下是y
 		// 关于x的系数为正，关于y的系数为负
 		x[0] = r.nextInt(7) + 1;
 		y[0] = 0;
-		x[1] = 0;
+		x[1] = 14;
 		y[1] = r.nextInt(5) + 1;
 		x[2] = 0;
 		y[2] = r.nextInt(9) + 5;
@@ -124,6 +124,10 @@ public class JPanelPM extends JPanel implements KeyListener {
 		y[4] = 14;
 		x[5] = r.nextInt(6) + 7;
 		y[5] = 14;
+		for (int i = 0; i < 6; i++) {
+			homeX[i] = x[i];
+			homeY[i] = y[i];
+		}
 		// x = x[i] * 40 + y[i] * 13 + 232
 		// y = y[i] * (-36) + 624
 		layers = new Layer[] { new LayerBackground(0, 0, 1250, 700, ImgBackground.PP_PANEL),
@@ -143,13 +147,24 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// new LayerBackground(234+52, 624-144, 30, 30, ImgSystem.logo),
 				// new LayerBackground(40*x[1] + 13*y[1] + 234, -36*y[1] + 624,
 				// 30, 30, ImgSystem.logo),
-				// TODO: 需要把武士的图片加进去
-				new LayerBackground(x[0] * 40 + y[0] * 13 + 234, y[0] * (-36) + 624, 30, 30, ImgSamurai.A0_FLAG),
-				new LayerBackground(x[1] * 40 + y[1] * 13 + 234, y[1] * (-36) + 624, 30, 30, ImgSamurai.A1_FLAG),
-				new LayerBackground(x[2] * 40 + y[2] * 13 + 234, y[2] * (-36) + 624, 30, 30, ImgSamurai.A2_FLAG),
-				new LayerBackground(x[3] * 40 + y[3] * 13 + 234, y[3] * (-36) + 624, 30, 30, ImgSamurai.B0_FLAG),
-				new LayerBackground(x[4] * 40 + y[4] * 13 + 234, y[4] * (-36) + 624, 30, 30, ImgSamurai.B1_FLAG),
-				new LayerBackground(x[5] * 40 + y[5] * 13 + 234, y[5] * (-36) + 624, 30, 30, ImgSamurai.B2_FLAG),
+				/**
+				 * 占领的地方都有这个标志
+				 */
+				new LayerBackground(x[0] * 40 + y[0] * 13 + 227, y[0] * (-36) + 622, 58, 36, ImgSamurai.A0_SHADOW),
+				new LayerBackground(x[1] * 40 + y[1] * 13 + 227, y[1] * (-36) + 622, 58, 36, ImgSamurai.A1_SHADOW),
+				new LayerBackground(x[2] * 40 + y[2] * 13 + 227, y[2] * (-36) + 622, 58, 36, ImgSamurai.A2_SHADOW),
+				new LayerBackground(x[3] * 40 + y[3] * 13 + 227, y[3] * (-36) + 622, 58, 36, ImgSamurai.B0_SHADOW),
+				new LayerBackground(x[4] * 40 + y[4] * 13 + 227, y[4] * (-36) + 622, 58, 36, ImgSamurai.B1_SHADOW),
+				new LayerBackground(x[5] * 40 + y[5] * 13 + 227, y[5] * (-36) + 622, 58, 36, ImgSamurai.B2_SHADOW),
+				/**
+				 * 大本营标志
+				 */
+				new LayerBackground(x[0] * 40 + y[0] * 13 + 252, y[0] * (-36) + 614, 30, 30, ImgSamurai.A0_FLAG),
+				new LayerBackground(x[1] * 40 + y[1] * 13 + 252, y[1] * (-36) + 614, 30, 30, ImgSamurai.A1_FLAG),
+				new LayerBackground(x[2] * 40 + y[2] * 13 + 252, y[2] * (-36) + 614, 30, 30, ImgSamurai.A2_FLAG),
+				new LayerBackground(x[3] * 40 + y[3] * 13 + 252, y[3] * (-36) + 614, 30, 30, ImgSamurai.B0_FLAG),
+				new LayerBackground(x[4] * 40 + y[4] * 13 + 252, y[4] * (-36) + 614, 30, 30, ImgSamurai.B1_FLAG),
+				new LayerBackground(x[5] * 40 + y[5] * 13 + 252, y[5] * (-36) + 614, 30, 30, ImgSamurai.B2_FLAG),
 
 		};
 
@@ -166,17 +181,17 @@ public class JPanelPM extends JPanel implements KeyListener {
 		}
 		// TODO：这里的g.drawImage是动画移动的关键，但是貌似移动写错了
 		// g.drawImage(arg0, arg1, arg2, arg3, arg4, arg5);
-		
-			g.drawImage(ImgSamurai.A0_PICTURE[direction[0]], x[0] * 40 + y[0] * 13 + 228, y[0] * (-36) + 600, 50, 50, this);
-			g.drawImage(ImgSamurai.A1_PICTURE[direction[1]], x[1] * 40 + y[1] * 13 + 228, y[1] * (-36) + 600, 50, 50, this);
-			g.drawImage(ImgSamurai.A2_PICTURE[direction[2]], x[2] * 40 + y[2] * 13 + 228, y[2] * (-36) + 600, 50, 50, this);
-			g.drawImage(ImgSamurai.B0_PICTURE[direction[3]], x[3] * 40 + y[3] * 13 + 228, y[3] * (-36) + 600, 50, 50, this);
-			g.drawImage(ImgSamurai.B1_PICTURE[direction[4]], x[4] * 40 + y[4] * 13 + 228, y[4] * (-36) + 600, 50, 50, this);
-			g.drawImage(ImgSamurai.B2_PICTURE[direction[5]], x[5] * 40 + y[5] * 13 + 228, y[5] * (-36) + 600, 50, 50, this);
-		
-	
+
+		g.drawImage(ImgSamurai.A0_PICTURE[direction[0]], x[0] * 40 + y[0] * 13 + 228, y[0] * (-36) + 600, 50, 50, this);
+		g.drawImage(ImgSamurai.A1_PICTURE[direction[1]], x[1] * 40 + y[1] * 13 + 228, y[1] * (-36) + 600, 50, 50, this);
+		g.drawImage(ImgSamurai.A2_PICTURE[direction[2]], x[2] * 40 + y[2] * 13 + 228, y[2] * (-36) + 600, 50, 50, this);
+		g.drawImage(ImgSamurai.B0_PICTURE[direction[3]], x[3] * 40 + y[3] * 13 + 228, y[3] * (-36) + 600, 50, 50, this);
+		g.drawImage(ImgSamurai.B1_PICTURE[direction[4]], x[4] * 40 + y[4] * 13 + 228, y[4] * (-36) + 600, 50, 50, this);
+		g.drawImage(ImgSamurai.B2_PICTURE[direction[5]], x[5] * 40 + y[5] * 13 + 228, y[5] * (-36) + 600, 50, 50, this);
+
 		g.setFont(messageFont);
-		g.drawString(Integer.toString(nowPower), 1100, 600);
+		g.drawString("Power: " + Integer.toString(nowPower), 900, 400);
+		g.drawString("Index: " + Integer.toString(index), 900, 450);
 		super.paintComponents(g);
 		if (index == 0) {
 			g.drawImage(ImgSamurai.A0, 1000, 600, 30, 30, this);
@@ -210,9 +225,15 @@ public class JPanelPM extends JPanel implements KeyListener {
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_UP:
 			// TODO:不知道AI是怎么表示出来的
+			// FIXME:删除测试代码
 			System.out.println(121);
 			cost = 2;
-			if (nowPower - cost >= 0 && y[index] + 1 <= 14) {
+			// if (nowPower - cost >= 0 && y[index] + 1 <= 14) {
+			// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], 0, 1))
+			// {
+			// FIXME:修改判定条件
+			// if (canMoveTo(0, 1)) {
+			if (canMoveTo(0, 1) && hasPower()) {
 				// if (y[index]+1 <=14) {
 				nowPower = nowPower - cost;
 				y[index] += 1;
@@ -224,7 +245,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 		// TODO:这里开始貌似写错了
 		case KeyEvent.VK_DOWN:
 			cost = 2;
-			if (nowPower - cost >= 0 && y[index] - 1 >= 0) {
+			// if (nowPower - cost >= 0 && y[index] - 1 >= 0) {
+			// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], 0, -1))
+			// {
+			// FIXME:修改判定条件
+			// if (canMoveTo(0, -1)) {
+			if (canMoveTo(0, -1) && hasPower()) {
 				// if (y[index]-1 >= 0) {
 				nowPower = nowPower - cost;
 				y[index] -= 1;
@@ -234,7 +260,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 			break;
 		case KeyEvent.VK_LEFT:
 			cost = 2;
-			if (nowPower - cost >= 0 && x[index] - 1 >= 0) {
+			// if (nowPower - cost >= 0 && x[index] - 1 >= 0) {
+			// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], -1, 0))
+			// {
+			// FIXME:修改判定条件
+			// if (canMoveTo(-1, 0)) {
+			if (canMoveTo(-1, 0) && hasPower()) {
 				// if (x[index]-1 >= 0) {
 				nowPower = nowPower - cost;
 				x[index] -= 1;
@@ -244,7 +275,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 			break;
 		case KeyEvent.VK_RIGHT:
 			cost = 2;
-			if (nowPower - cost >= 0 && x[index] + 1 <= 14) {
+			// if (nowPower - cost >= 0 && x[index] + 1 <= 14) {
+			// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], 1, 0))
+			// {
+			// FIXME:修改判定条件
+			// if (canMoveTo(1, 0)) {
+			if (canMoveTo(1, 0) && hasPower()) {
 				// if (x[index]+1 <=14) {
 				nowPower = nowPower - cost;
 				x[index] += 1;
@@ -252,17 +288,13 @@ public class JPanelPM extends JPanel implements KeyListener {
 				repaint();
 			}
 			break;
+		// 切换人物
 		case KeyEvent.VK_Q:
 			round++;
 			/**
-			 * 0:A0，
-			 * 1:A1，
-			 * 2:A2，
-			 * 3:B0，
-			 * 4:B1，
-			 * 5:B2
-			 * A0 - B0 - B1 - A1 - A2 - B2 - B0 - A0 - A1 - B1 - B2 - A2
-			 * 0 - 3 - 4 - 1 - 2 - 5 - 3 - 0 - 1 - 4 - 5 - 2 
+			 * 0:A0， 1:A1， 2:A2， 3:B0， 4:B1， 5:B2 A0 - B0 - B1 - A1 - A2 - B2 -
+			 * B0 - A0 - A1 - B1 - B2 - A2 0 - 3 - 4 - 1 - 2 - 5 - 3 - 0 - 1 - 4
+			 * - 5 - 2
 			 */
 			if (round % 12 == 0) {
 				index = 0;
@@ -305,9 +337,72 @@ public class JPanelPM extends JPanel implements KeyListener {
 			repaint();
 		default:
 			break;
+		// 隐身
+		case KeyEvent.VK_W:
+			cost = 1;
+			if (canHide() && hasPower()) {
+				nowPower = nowPower - cost;
+				direction[index] += 4;
+			}
+
 		}
 		// repaint();
 
+	}
+
+	/**
+	 * 是否能隐藏
+	 * TODO：可能还需要添加其他判定条件
+	 * @return
+	 */
+	private boolean canHide() {
+		if (direction[index] > 3) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * 
+	 * @param dx
+	 *            x方向的位移
+	 * @param dy
+	 *            y方向的位移
+	 * @param index
+	 *            AI的编号
+	 * @return 是否能够移动
+	 */
+	public boolean canMoveTo(int dx, int dy) {
+		if (x[index] + dx > 14) {
+			return false;
+		}
+		if (x[index] + dx < 0) {
+			return false;
+		}
+		if (y[index] + dy > 14) {
+			return false;
+		}
+		if (y[index] + dy < 0) {
+			return false;
+		}
+		for (int i = 0; i < 6; i++) {
+			if (x[index] + dx == x[i] && y[index] + dy == y[i]) {
+				return false;
+			}
+		}
+		for (int i = 0; i < 6; i++) {
+			if (x[index] + dx == homeX[i] && y[index] + dy == homeY[i] && index != i) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public boolean hasPower() {
+		if (nowPower - cost < 0) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
