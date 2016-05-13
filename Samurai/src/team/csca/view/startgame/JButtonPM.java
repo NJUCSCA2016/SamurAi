@@ -17,7 +17,7 @@ import team.csca.view.pm.JPanelPM;
 public class JButtonPM extends DynamicButton{
 	private JPanelStartGame fatherPanel;
 	private JFrameMain frameMain = JFrameMain.J_FRAME_MAIN;
-	
+	private JPanelPM jPanelPM = new JPanelPM();
 	public JButtonPM(JPanelStartGame fatherPanel){
 		super(472, 319, 150, 50, ImgButton.BUTTON_MACHINE_INIT, ImgButton.BUTTON_MACHINE_ENTER, ImgButton.BUTTON_MACHINE_CLICK);
 		
@@ -30,7 +30,8 @@ public class JButtonPM extends DynamicButton{
 		//TODO : 完成人机对战面板
 //		frameMain.setContentPane(null);
 		frameMain.remove(fatherPanel);
-		frameMain.setContentPane(new JPanelPM());
+		frameMain.setContentPane(jPanelPM);
+		jPanelPM.requestFocus();
 		Player.stopMusic();
 		if (Player.MUSiC_PLAYER.isBack_ON()) {
 			Player.playMusic("bgm2");

@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Random;
 
 import javax.swing.JPanel;
@@ -45,6 +47,10 @@ public class JPanelPM extends JPanel implements KeyListener {
 	 * 回合数
 	 */
 	int round = 0;
+	/**
+	 * 方向
+	 */
+	int[] direction = {0, 0, 0, 0, 0, 0};
 
 	PlayMovie p = new PlayMovie();
 
@@ -57,16 +63,56 @@ public class JPanelPM extends JPanel implements KeyListener {
 		// p.setPath("Image/Start");
 		// p.setNum(50);
 		// p.playMovie("Image/Start", 50);
+		this.setVisible(true);
 		this.setLayout(null);
 		this.setFocusable(true);
+		this.requestFocus(true);
+		this.setEnabled(true);
 		this.requestFocus();
 		this.addKeyListener(this);
 		this.add(new JButtonBack(this));
 		Random r = new Random();
+		
+		this.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				requestFocus(true);
+			}
+		});
+		
+		
+		
+		
+		
 
 		// 从左到右是x,从上到下是y
 		// 关于x的系数为正，关于y的系数为负
-		x[0] = r.nextInt(8);
+		x[0] = r.nextInt(7) + 1;
 		y[0] = 0;
 		x[1] = 0;
 		y[1] = r.nextInt(5) + 1;
@@ -121,12 +167,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 		// TODO：这里的g.drawImage是动画移动的关键，但是貌似移动写错了
 		// g.drawImage(arg0, arg1, arg2, arg3, arg4, arg5);
 		
-			g.drawImage(ImgSamurai.A0, x[0] * 40 + y[0] * 13 + 234, y[0] * (-36) + 624, 30, 30, this);
-			g.drawImage(ImgSamurai.A1, x[1] * 40 + y[1] * 13 + 234, y[1] * (-36) + 624, 30, 30, this);
-			g.drawImage(ImgSamurai.A2, x[2] * 40 + y[2] * 13 + 234, y[2] * (-36) + 624, 30, 30, this);
-			g.drawImage(ImgSamurai.B0, x[3] * 40 + y[3] * 13 + 234, y[3] * (-36) + 624, 30, 30, this);
-			g.drawImage(ImgSamurai.B1, x[4] * 40 + y[4] * 13 + 234, y[4] * (-36) + 624, 30, 30, this);
-			g.drawImage(ImgSamurai.B2, x[5] * 40 + y[5] * 13 + 234, y[5] * (-36) + 624, 30, 30, this);
+			g.drawImage(ImgSamurai.A0_PICTURE[direction[0]], x[0] * 40 + y[0] * 13 + 228, y[0] * (-36) + 600, 50, 50, this);
+			g.drawImage(ImgSamurai.A1_PICTURE[direction[1]], x[1] * 40 + y[1] * 13 + 228, y[1] * (-36) + 600, 50, 50, this);
+			g.drawImage(ImgSamurai.A2_PICTURE[direction[2]], x[2] * 40 + y[2] * 13 + 228, y[2] * (-36) + 600, 50, 50, this);
+			g.drawImage(ImgSamurai.B0_PICTURE[direction[3]], x[3] * 40 + y[3] * 13 + 228, y[3] * (-36) + 600, 50, 50, this);
+			g.drawImage(ImgSamurai.B1_PICTURE[direction[4]], x[4] * 40 + y[4] * 13 + 228, y[4] * (-36) + 600, 50, 50, this);
+			g.drawImage(ImgSamurai.B2_PICTURE[direction[5]], x[5] * 40 + y[5] * 13 + 228, y[5] * (-36) + 600, 50, 50, this);
 		
 	
 		g.setFont(messageFont);
@@ -170,6 +216,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// if (y[index]+1 <=14) {
 				nowPower = nowPower - cost;
 				y[index] += 1;
+				direction[index] = 1;
 				repaint();
 				System.out.println(x[0]);
 			}
@@ -181,6 +228,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// if (y[index]-1 >= 0) {
 				nowPower = nowPower - cost;
 				y[index] -= 1;
+				direction[index] = 0;
 				repaint();
 			}
 			break;
@@ -190,6 +238,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// if (x[index]-1 >= 0) {
 				nowPower = nowPower - cost;
 				x[index] -= 1;
+				direction[index] = 2;
 				repaint();
 			}
 			break;
@@ -199,6 +248,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// if (x[index]+1 <=14) {
 				nowPower = nowPower - cost;
 				x[index] += 1;
+				direction[index] = 3;
 				repaint();
 			}
 			break;
