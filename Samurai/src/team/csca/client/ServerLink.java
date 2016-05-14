@@ -5,24 +5,24 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-public class ClientRunner {
+public class ServerLink {
 	private RemoteHelper remoteHelper;
 	
-	public ClientRunner() {
+	public ServerLink() throws ServerNotFoundException{
 		linkToServer();
 	}
 	
-	private void linkToServer() {
+	private void linkToServer() throws ServerNotFoundException {
 		try {
 			remoteHelper = RemoteHelper.getInstance();
 			remoteHelper.setRemote(Naming.lookup("rmi://localhost:8888/LinkServer"));
 			System.out.println("linked");
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
+			throw new ServerNotFoundException();
 		} catch (RemoteException e) {
-			e.printStackTrace();
+			throw new ServerNotFoundException();
 		} catch (NotBoundException e) {
-			e.printStackTrace();
+			throw new ServerNotFoundException();
 		}
 	}
 	
