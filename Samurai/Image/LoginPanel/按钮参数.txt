@@ -4,3 +4,15 @@ button_loginfailed_return1/2:
 x:756 y:503 w:249 h:103
 button_loginwaiting_return:
 x:1112 y:0 w:203 h:150
+请输入密码：
+x:750 y:225 w:150 h:45
+请输入用户名：
+x:775 y:305 w:190 h:45
+button_login1:
+x:425 y:395 w:150 h:100
+button_register:
+x:575 y:395 w:150 h:100
+button_return1:
+x:725 y:395 w:150 h:100
+提示框:
+x:425 y:114 w:400 h:400
