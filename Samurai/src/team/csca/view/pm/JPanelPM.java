@@ -961,6 +961,145 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp + 15] = index;
 						occupation[temp + 16] = index;
 					}
+					// TODO:还有很多情况没有讨论
+					if (y[index] == 14) {
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+						occupation[temp + 15] = index;
+						occupation[temp + 14] = index;
+					}
+					if (y[index] == 0) {
+						// 这种情况并不会发生
+					}
+				}
+				if (x[index] == 0) {
+					if (y[index] >= 1 && y[index] <= 13) {
+						occupation[temp + 1] = index;
+						occupation[temp + 14] = index;
+						occupation[temp + 15] = index;
+						occupation[temp + 16] = index;
+					}
+					if (y[index] == 0) {
+						// 这种情况并不会发生
+					}
+					if (y[index] == 14) {
+						occupation[temp + 15] = index;
+						occupation[temp + 14] = index;
+					}
+				}
+				if (x[index] == 14) {
+					if (y[index] >= 1 && y[index] <= 13) {
+						occupation[temp + 1] = index;
+						occupation[temp - 14] = index;
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+					}
+					if (y[index] == 0) {
+						// 这种情况并不会发生
+					}
+					if (y[index] == 14) {
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+					}
+				}
+			}
+			// 向左
+			if (direction[index] == 2 || direction[index] == 6) {
+				int temp = 15 * x[index] + y[index];
+				if (x[index] >= 1 && x[index] <= 13) {
+					if (y[index] >= 1 && y[index] <= 13) {
+						occupation[temp - 14] = index;
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+						occupation[temp + 1] = index;
+						occupation[temp - 1] = index;
+						occupation[temp + 16] = index;
+						occupation[temp + 14] = index;
+					}
+					if (y[index] == 0) {
+						occupation[temp - 14] = index;
+						occupation[temp - 15] = index;
+						occupation[temp + 1] = index;
+						occupation[temp + 16] = index;
+					}
+					if (y[index] == 14) {
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+						occupation[temp - 1] = index;
+						occupation[temp + 14] = index;
+					}
+				}
+				if (x[index] == 0) {
+					if (y[index] >= 1 && y[index] <= 13) {
+						occupation[temp + 1] = index;
+						occupation[temp - 1] = index;
+						occupation[temp + 16] = index;
+						occupation[temp + 14] = index;
+					}
+					if (y[index] == 0) {
+						occupation[temp + 1] = index;
+						occupation[temp + 16] = index;
+					}
+					if (y[index] == 14) {
+						occupation[temp - 1] = index;
+						occupation[temp + 14] = index;
+					}
+				}
+				if (x[index] == 14) {
+					// 这种情况并不存在
+				}
+			}
+			// 向右
+			if (direction[index] == 3 || direction[index] == 7) {
+				int temp = 15 * x[index] + y[index];
+				if (x[index] >= 1 && x[index] <= 13) {
+					if (y[index] >= 1 && y[index] <= 13) {
+						occupation[temp - 14] = index;
+						occupation[temp - 16] = index;
+						occupation[temp + 1] = index;
+						occupation[temp - 1] = index;
+						occupation[temp + 16] = index;
+						occupation[temp + 15] = index;
+						occupation[temp + 14] = index;
+					}
+					if (y[index] == 0) {
+						occupation[temp - 14] = index;
+						occupation[temp + 1] = index;
+						occupation[temp + 16] = index;
+						occupation[temp + 15] = index;
+					}
+					if (y[index] == 14) {
+						occupation[temp - 16] = index;
+						occupation[temp - 1] = index;
+						occupation[temp + 15] = index;
+						occupation[temp + 14] = index;
+					}
+				}
+				if (x[index] == 0) {
+//					if (y[index] >= 1 && y[index] <= 13) {
+//						occupation[temp + 1] = index;
+//						occupation[temp - 1] = index;
+//						occupation[temp + 16] = index;
+//						occupation[temp + 15] = index;
+//						occupation[temp + 14] = index;
+//					}
+					// 这种情况不会发生
+				}
+				if (x[index] == 14) {
+					if (y[index] >= 1 && y[index] <= 13) {
+						occupation[temp - 14] = index;
+						occupation[temp - 16] = index;
+						occupation[temp + 1] = index;
+						occupation[temp - 1] = index;
+					}
+					if (y[index] == 0) {
+						occupation[temp - 14] = index;
+						occupation[temp + 1] = index;
+					}
+					if (y[index] == 14) {
+						occupation[temp - 16] = index;
+						occupation[temp + 1] = index;
+					}
 				}
 			}
 		}
