@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import team.csca.client.ServerLink;
 import team.csca.client.ServerNotFoundException;
 import team.csca.view.frame.JFrameMain;
+import team.csca.view.link.signIn.JPanelSignIn;
 
 /**
  * 
@@ -37,18 +38,25 @@ public class JPanelLinkLoading extends JPanel{
 	
 	private Timer timer = new Timer("ServerLink");
 	
+	private JButtonReturn loadingReturn = null;
+	
+	private JButtonRetry retry = null;
+	
+	private JButtonReturn panelReturn = null;
 	
 	public JPanelLinkLoading() {
 		
 		this.setLayout(null);
 		this.requestFocus();
+		this.add(new JButtonReturn(0,0,0,0,null , null , null ,this));
+		linkStart();
 		
-		
-		
+	}
+	
+	private void linkStart(){
 		timer.schedule(new ActionTaken(), 1000);
 		movieThread = new Thread(new LoadingMovie());
 		movieThread.start();
-		
 	}
 	
 	private class LoadingMovie implements Runnable{
@@ -59,8 +67,13 @@ public class JPanelLinkLoading extends JPanel{
 			/**
 			 * Forever Loop till server is found 
 			 */
-			while(! findServer && timeCount <= 59){
+			while(! findServer && timeCount <= 99){
 				for(int i = 0 ; i <= 19 ; i++){
+					try {
+						Thread.sleep(50);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 					synchronized (this) {
 						if(! findServer){
 							currentImg = getImage(i);
@@ -75,21 +88,26 @@ public class JPanelLinkLoading extends JPanel{
 			if(findServer){
 				main.remove(JPanelLinkLoading.this);
 				//TODO : create sign in panel
-				main.setContentPane(new JPanelLinkLoading());
+				main.setContentPane(new JPanelSignIn());
 				main.revalidate();
 			}else{
 				//TODO : show can't find
 				currentImg = new ImageIcon("Image/LoginPanel/failed.png").getImage();
 				//TWO BUTTONS
-				
-			}
 			
+				remove(loadingReturn);
+				retry = new JButtonRetry(JPanelLinkLoading.this);
+				panelReturn = new JButtonReturn(0 , 0 , 0 , 0 , null , null , null ,  JPanelLinkLoading.this);
+				add(retry);
+				add(panelReturn);
+				repaint();
+			}
 		}
 		
 	}
 	/**
 	 * 
-	 * 断线重连。 最多60次
+	 * 断线重连。 最多100次
 	 * @author With You
 	 *
 	 */
@@ -111,7 +129,7 @@ public class JPanelLinkLoading extends JPanel{
 				link = null;
 			} finally {
 				//The last time
-				if(timeCount == 59 || link != null){
+				if(timeCount == 99 || link != null){
 					findServer = true;
 					timer.cancel();
 				}
@@ -132,5 +150,21 @@ public class JPanelLinkLoading extends JPanel{
 		Image imageToGet = new ImageIcon("Image/LoginPanel/" + i + ".png").getImage();
 		return imageToGet;
 	}
+	
+	public void restart(){
+		this.remove(retry);
+		this.remove(panelReturn);
+		this.add(loadingReturn);
+		
+		repaint();
+		this.timer  = new Timer("ServerLinkRestart");
+		timeCount = 0;
+		
+		this.movieThread = new Thread(new LoadingMovie());
+		this.movieThread.start();
+		timer.schedule(new ActionTaken(), 1000);
+	}
+	
+	
 	
 }
