@@ -8,7 +8,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 
 import main.DynamicButton;
-import ui.panelgame.PanelGame;
 
 /**
  * @author Alone
@@ -26,9 +25,10 @@ public class ButtonPeopleGame extends DynamicButton{
 	
 	public void mouseClicked(MouseEvent e) {
 		super.mouseClicked(e);
-		this.frame.setContentPane(new PanelGame());
-		this.remove(this.fatherPanel);
-		this.revalidate();
+//		this.frame.setContentPane(new PanelGame());
+//		this.remove(this.fatherPanel);
+		
+//		this.revalidate();
 	}
 	
 }

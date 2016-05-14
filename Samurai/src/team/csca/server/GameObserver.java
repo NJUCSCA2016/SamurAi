@@ -2,9 +2,12 @@ package team.csca.server;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-
-public interface GameObsever extends Remote{
-	
+/**
+ * 游戏监控器接口
+ * @author With You
+ *
+ */
+public interface GameObserver extends Remote{
 	/**
 	 * 接受传统模式用户传来的动作
 	 * 
@@ -36,7 +39,5 @@ public interface GameObsever extends Remote{
 	 * @throws RemoteException
 	 */
 	public String feedBack() throws RemoteException;
-	
-	
 	
 }

@@ -3,7 +3,7 @@ package serviceImp;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import service.User;
+import team.csca.server.User;
 /**
  * 
  * User 代理实现类
@@ -29,6 +29,7 @@ public class UserImp implements User{
 	
 	@Override
 	public boolean signIn(String userName, String password) throws RemoteException {
+		System.out.println("UserName is : " + userName + "  Password is : " + password);
 		if(USERNAMES.contains(userName)){
 			return false;
 		}

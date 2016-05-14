@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import team.csca.controller.media.Player;
 import team.csca.view.extend.StaticButton;
 import team.csca.view.image.ImgOthers;
-import team.csca.view.image.ImgSystem;
 
 public class JButtonBackSoundZero extends StaticButton implements ActionListener{
 	

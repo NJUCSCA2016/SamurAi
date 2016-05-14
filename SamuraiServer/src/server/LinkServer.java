@@ -3,10 +3,10 @@ package server;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import service.GameObserver;
-import service.User;
 import serviceImp.GameManagerImp;
 import serviceImp.UserImp;
+import team.csca.server.GameObserver;
+import team.csca.server.User;
 /**
  * 
  * 接口实现类
@@ -14,13 +14,18 @@ import serviceImp.UserImp;
  *
  */
 
-public class GameServer extends UnicastRemoteObject implements User , GameObserver{
+public class LinkServer extends UnicastRemoteObject implements User , GameObserver{
 	
+	/**
+	 *   
+	 */
+	private static final long serialVersionUID = -16634514387895372L;
+
 	private GameObserver gameObserver;
 	
 	private User user;
 	
-	public GameServer() throws RemoteException{
+	public LinkServer() throws RemoteException{
 		super();
 		//初始化两个Remote
 		gameObserver = new GameManagerImp();

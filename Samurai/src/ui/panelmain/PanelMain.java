@@ -8,7 +8,6 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import main.Background;
-import team.csca.controller.media.Player;
 
 /**
  * @author Alone

@@ -37,5 +37,6 @@ public class JButtonPM extends DynamicButton{
 			Player.playMusic("bgm2");
 		}
 		frameMain.revalidate();
+		
 	}
 }

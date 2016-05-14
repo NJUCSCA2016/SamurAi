@@ -2,14 +2,14 @@ package team.csca.client;
 
 import java.rmi.Remote;
 
-import team.csca.server.GameObsever;
+import team.csca.server.GameObserver;
 import team.csca.server.User;
 
 public class RemoteHelper {
 	
-	public final static RemoteHelper REMOTE_HELPER = new RemoteHelper();
-	
-	private RemoteHelper(){
+	private static RemoteHelper remoteHelper = new RemoteHelper();
+	public static RemoteHelper getInstance(){
+		return remoteHelper;
 	}
 	
 	private Remote remote;
@@ -21,8 +21,8 @@ public class RemoteHelper {
 	 * @return 返回游戏监控器
 	 */
 	
-	public GameObsever getObserver(){
-		return (GameObsever) remote;
+	public GameObserver getObserver(){
+		return (GameObserver) remote;
 	}
 	/**
 	 * @return 返回用户登入登出权限。

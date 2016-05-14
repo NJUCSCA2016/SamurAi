@@ -1,13 +1,11 @@
 package team.csca.view.set;
 
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import team.csca.controller.media.Player;
 import team.csca.view.extend.StaticButton;
 import team.csca.view.image.ImgOthers;
-import team.csca.view.image.ImgSystem;
 
 public class JButtonGameSoundZero extends StaticButton implements ActionListener{
 	

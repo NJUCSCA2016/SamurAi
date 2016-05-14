@@ -2,7 +2,7 @@ package serviceImp;
 
 import java.rmi.RemoteException;
 
-import service.GameObserver;
+import team.csca.server.GameObserver;
 /**
  * 
  * GameObserver代理实现类

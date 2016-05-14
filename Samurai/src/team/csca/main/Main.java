@@ -9,7 +9,11 @@ import team.csca.view.frame.JFrameMain;
  */
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
+
+//			ClientRunner cr = new ClientRunner();
+//			cr.test();
+		
 		JFrameMain.J_FRAME_MAIN.init();
 	}
 

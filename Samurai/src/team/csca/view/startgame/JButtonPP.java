@@ -2,7 +2,6 @@ package team.csca.view.startgame;
 
 import java.awt.event.MouseEvent;
 
-import team.csca.controller.media.Player;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgButton;

@@ -1,4 +1,4 @@
-package service;
+package team.csca.server;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

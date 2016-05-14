@@ -1,9 +1,10 @@
 package server;
 
+import java.net.MalformedURLException;
 import java.rmi.AlreadyBoundException;
+import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 
 /**
  * 
@@ -16,28 +17,32 @@ import java.rmi.registry.Registry;
  */
 public class Server {
 	
-	private static Registry registry;
-	
+	public Server() {
+		initServer();
+	}
 	
 	public static void main(String[] args) {
 		
-		GameServer gameServer ;
+		new Server();
 		
+	}
+	
+	public void initServer(){
+		LinkServer linkServer;
 		try {
-			gameServer = new GameServer();
-			
-			registry = LocateRegistry.createRegistry(8808);
-			
-			registry.bind("GameServer", gameServer);
-			
+			linkServer = new LinkServer();
+			LocateRegistry.createRegistry(8888);
+			Naming.bind("rmi://localhost:8888/LinkServer",
+					linkServer);
+			System.out.println("Link to server");
 		} catch (RemoteException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (AlreadyBoundException e) {
 			e.printStackTrace();
 		}
 		
-		
 	}
-	
 	
 }
