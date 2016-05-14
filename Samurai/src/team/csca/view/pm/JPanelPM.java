@@ -25,48 +25,48 @@ import team.csca.view.image.ImgSamurai;
 public class JPanelPM extends JPanel implements KeyListener {
 	private Layer[] layers;
 
-	int m, n;
+//	int m, n;
 
 	/**
 	 * 武士编号 通过回合号对武士的编号进行索引
 	 */
-	int index = 0;
+	public int index = 0;
 	/**
 	 * 最大体力值
 	 */
-	int maxPower = 7;
+	public int maxPower = 7;
 	/**
 	 * 当前体力值
 	 */
-	int nowPower = 7;
+	public int nowPower = 7;
 	/**
 	 * 行动消耗的体力
 	 */
-	int cost;
+	public int cost;
 	/**
 	 * 回合数
 	 */
-	int round = 0;
+	public int round = 0;
 	/**
 	 * 方向
 	 */
-	int[] direction = { 0, 0, 0, 0, 0, 0 };
+	public int[] direction = { 0, 0, 0, 0, 0, 0 };
 
 	PlayMovie p = new PlayMovie();
 	/**
 	 * x,y 代表现在的坐标
 	 */
-	int[] x = new int[6];
-	int[] y = new int[6];
+	public int[] x = new int[6];
+	public int[] y = new int[6];
 	/**
 	 * 代表大本营的位置
 	 */
-	int[] homeX = new int[6];
-	int[] homeY = new int[6];
+	public int[] homeX = new int[6];
+	public int[] homeY = new int[6];
 	/**
 	 * 代表占领的位置
 	 */
-	int[] occupation = new int[225];
+	public int[] occupation = new int[225];
 
 
 	Font messageFont = new Font("宋体", Font.PLAIN, 40);
@@ -152,7 +152,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		// x = x[i] * 40 + y[i] * 13 + 232
 		// y = y[i] * (-36) + 624
 		layers = new Layer[] { 
-				new LayerBackground(0, 0, 1250, 700, ImgBackground.PP_PANEL),
+				new LayerBackground(0, 0, 1250, 700, ImgBackground.PM_PANEL),
 				// new LayerBackground(40*x[0] + 13*y[0] + 232, -36*y[0] + 624,
 				// 30, 30, ImgSystem.logo),
 				// new LayerBackground(234, 624, 30, 30, ImgSystem.logo),
@@ -172,12 +172,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 				/**
 				 * 占领的地方都有这个标志
 				 */
-				new LayerBackground(x[0] * 40 + y[0] * 13 + 227, y[0] * (-36) + 622, 58, 36, ImgSamurai.A0_SHADOW),
-				new LayerBackground(x[1] * 40 + y[1] * 13 + 227, y[1] * (-36) + 622, 58, 36, ImgSamurai.A1_SHADOW),
-				new LayerBackground(x[2] * 40 + y[2] * 13 + 227, y[2] * (-36) + 622, 58, 36, ImgSamurai.A2_SHADOW),
-				new LayerBackground(x[3] * 40 + y[3] * 13 + 227, y[3] * (-36) + 622, 58, 36, ImgSamurai.B0_SHADOW),
-				new LayerBackground(x[4] * 40 + y[4] * 13 + 227, y[4] * (-36) + 622, 58, 36, ImgSamurai.B1_SHADOW),
-				new LayerBackground(x[5] * 40 + y[5] * 13 + 227, y[5] * (-36) + 622, 58, 36, ImgSamurai.B2_SHADOW),
+				new LayerBackground(x[0] * 40 + y[0] * 13 + 227, y[0] * (-36) + 622, 57, 36, ImgSamurai.A0_SHADOW),
+				new LayerBackground(x[1] * 40 + y[1] * 13 + 227, y[1] * (-36) + 622, 57, 36, ImgSamurai.A1_SHADOW),
+				new LayerBackground(x[2] * 40 + y[2] * 13 + 227, y[2] * (-36) + 622, 57, 36, ImgSamurai.A2_SHADOW),
+				new LayerBackground(x[3] * 40 + y[3] * 13 + 227, y[3] * (-36) + 622, 57, 36, ImgSamurai.B0_SHADOW),
+				new LayerBackground(x[4] * 40 + y[4] * 13 + 227, y[4] * (-36) + 622, 57, 36, ImgSamurai.B1_SHADOW),
+				new LayerBackground(x[5] * 40 + y[5] * 13 + 227, y[5] * (-36) + 622, 57, 36, ImgSamurai.B2_SHADOW),
 				/**
 				 * 大本营标志，旗帜
 				 */
@@ -199,25 +199,34 @@ public class JPanelPM extends JPanel implements KeyListener {
 
 	public void paintComponent(Graphics g) {
 		calculateIndex();
-
+		/*
+		 * 添加各个组件
+		 * 地图
+		 * 每个武士老家的占领标志
+		 * 每个武士大本营的旗帜
+		 */
 		for (int i = 0; i < this.layers.length; i++) {
 			layers[i].createWindow(g);
 		}
 		/**
 		 * 防止大本营被占领
+		 * 此时把所有的大本营重新赋值一遍
+		 * TIP:赋值在统计占领地盘数量之前
 		 */
 		for (int i = 0; i < 6; i++) {
 			int temp = 15 * homeX[i] + homeY[i];
 			occupation[temp] = i;
 		}
-		
+		/*
+		 * 把所有占领的地盘进行绘制
+		 */
 		// 行
 		for (int i = 0; i < 15; i++) {
 			// 列
 			for (int j = 0; j < 15; j++) {
 				int temp = 15 * i + j;
 				if (occupation[temp] != -1) {
-					g.drawImage(ImgSamurai.AI_SHADOW[occupation[temp]], i * 40 + j * 13 + 227, j * (-36) + 622, 58, 36, this);
+					g.drawImage(ImgSamurai.AI_SHADOW[occupation[temp]], i * 40 + j * 13 + 227, j * (-36) + 622, 57, 36, this);
 				}
 			}
 		}
@@ -225,6 +234,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 //		for (int i = 1; i < 7; i++) {
 //			g.drawImage(ImgSamurai.FLAGS[i - 1], x[i - 1] * 40 + y[i - 1] * 13 + 252, y[i - 1] * (-36) + 614, 30, 30, this);
 //		}
+		/**
+		 * 绘制旗帜
+		 * 因为之前绘制了占领地盘
+		 * 占领地盘会覆盖旗帜
+		 * 所以需要重新绘制旗帜
+		 */
 		for (int i = 7; i < this.layers.length; i++) {
 			layers[i].createWindow(g);
 		}
@@ -658,18 +673,26 @@ public class JPanelPM extends JPanel implements KeyListener {
 					occupation[temp - 2] = index;
 					occupation[temp - 3] = index;
 					occupation[temp - 4] = index;
+					int[] location = {temp-1, temp-2, temp-3, temp-4};
+					beatOthers(location);
 				}
 				if (y[index] == 3) {
 					occupation[temp - 1] = index;
 					occupation[temp - 2] = index;
 					occupation[temp - 3] = index;
+					int[] location = {temp-1, temp-2, temp-3};
+					beatOthers(location);
 				}
 				if (y[index] == 2) {
 					occupation[temp - 1] = index;
 					occupation[temp - 2] = index;
+					int[] location = {temp-1, temp-2};
+					beatOthers(location);
 				}
 				if (y[index] == 1) {
 					occupation[temp - 1] = index;
+					int[] location = {temp-1};
+					beatOthers(location);
 				}
 			}
 			// 向上
@@ -681,18 +704,26 @@ public class JPanelPM extends JPanel implements KeyListener {
 					occupation[temp + 2] = index;
 					occupation[temp + 3] = index;
 					occupation[temp + 4] = index;
+					int[] location = {temp+1, temp+2, temp+3, temp+4};
+					beatOthers(location);
 				}
 				if (y[index] == 11) {
 					occupation[temp + 1] = index;
 					occupation[temp + 2] = index;
 					occupation[temp + 3] = index;
+					int[] location = {temp+1, temp+2, temp+3};
+					beatOthers(location);
 				}
 				if (y[index] == 12) {
 					occupation[temp + 1] = index;
 					occupation[temp + 2] = index;
+					int[] location = {temp+1, temp+2};
+					beatOthers(location);
 				}
 				if (y[index] == 13) {
 					occupation[temp + 1] = index;
+					int[] location = {temp+1};
+					beatOthers(location);
 				}
 				
 			}
@@ -705,18 +736,26 @@ public class JPanelPM extends JPanel implements KeyListener {
 					occupation[temp - 30] = index;
 					occupation[temp - 45] = index;
 					occupation[temp - 60] = index;
+					int[] location = {temp-15, temp-30, temp-45, temp-60};
+					beatOthers(location);
 				}
 				if (x[index] == 3) {
 					occupation[temp - 15] = index;
 					occupation[temp - 30] = index;
 					occupation[temp - 45] = index;
+					int[] location = {temp-15, temp-30, temp-45};
+					beatOthers(location);
 				}
 				if (x[index] == 2) {
 					occupation[temp - 15] = index;
 					occupation[temp - 30] = index;
+					int[] location = {temp-15, temp-30};
+					beatOthers(location);
 				}
 				if (x[index] == 1) {
 					occupation[temp - 15] = index;
+					int[] location = {temp-15};
+					beatOthers(location);
 				}
 				
 			}
@@ -729,18 +768,26 @@ public class JPanelPM extends JPanel implements KeyListener {
 					occupation[temp + 30] = index;
 					occupation[temp + 45] = index;
 					occupation[temp + 60] = index;
+					int[] location = {temp+15, temp+30, temp+45, temp+60};
+					beatOthers(location);
 				}
 				if (x[index] == 11) {
 					occupation[temp + 15] = index;
 					occupation[temp + 30] = index;
 					occupation[temp + 45] = index;
+					int[] location = {temp+15, temp+30, temp+45};
+					beatOthers(location);
 				}
 				if (x[index] == 12) {
 					occupation[temp + 15] = index;
 					occupation[temp + 30] = index;
+					int[] location = {temp+15, temp+30};
+					beatOthers(location);
 				}
 				if (x[index] == 13) {
 					occupation[temp + 15] = index;
+					int[] location = {temp+15};
+					beatOthers(location);
 				}
 				
 			}
@@ -758,37 +805,53 @@ public class JPanelPM extends JPanel implements KeyListener {
 					occupation[temp + 15] = index;
 					occupation[temp + 14] = index;
 					occupation[temp + 30] = index;
+					int[] location = {temp-1, temp-2, temp+15, temp+14, temp+30};
+					beatOthers(location);
 				}
 				if (y[index] == 1 && x[index] <= 12) {
 					occupation[temp - 1] = index;
 					occupation[temp + 15] = index;
 					occupation[temp + 14] = index;
 					occupation[temp + 30] = index;
+					int[] location = {temp-1, temp+15, temp+14, temp+30};
+					beatOthers(location);
 				}
 				if (y[index] == 0 && x[index] <= 12) {
 					occupation[temp + 15] = index;
 					occupation[temp + 30] = index;
+					int[] location = {temp+15, temp+30};
+					beatOthers(location);
 				}
 				if (y[index] >= 2 && x[index] == 13) {
 					occupation[temp - 1] = index;
 					occupation[temp - 2] = index;
 					occupation[temp + 15] = index;
 					occupation[temp + 14] = index;
+					int[] location = {temp-1, temp-2, temp+15, temp+14};
+					beatOthers(location);
 				}
 				if (y[index] == 1 && x[index] == 13) {
 					occupation[temp - 1] = index;
 					occupation[temp + 15] = index;
 					occupation[temp + 14] = index;
+					int[] location = {temp-1,temp+15, temp+14};
+					beatOthers(location);
 				}
 				if (y[index] == 0 && x[index] == 13) {
 					occupation[temp + 15] = index;
+					int[] location = {temp+15};
+					beatOthers(location);
 				}
 				if (y[index] >= 2 && x[index] == 14) {
 					occupation[temp - 1] = index;
 					occupation[temp - 2] = index;
+					int[] location = {temp-1, temp-2};
+					beatOthers(location);
 				}
 				if (y[index] == 1 && x[index] == 14) {
 					occupation[temp - 1] = index;
+					int[] location = {temp-1};
+					beatOthers(location);
 				}
 			}
 			// 向上
@@ -801,16 +864,22 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp - 30] = index;
 						occupation[temp + 1] = index;
 						occupation[temp + 2] = index;
+						int[] location = {temp-15, temp-14, temp-30, temp+1, temp+2};
+						beatOthers(location);
 					}
 					if (y[index] == 13) {
 						occupation[temp - 15] = index;
 						occupation[temp - 14] = index;
 						occupation[temp - 30] = index;
 						occupation[temp + 1] = index;
+						int[] location = {temp-15, temp-14, temp-30, temp+1};
+						beatOthers(location);
 					}
 					if (y[index] == 14) {
 						occupation[temp - 15] = index;
 						occupation[temp - 30] = index;
+						int[] location = {temp-15,temp-30};
+						beatOthers(location);
 					}
 				}
 				if (x[index] == 1) {
@@ -819,23 +888,33 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp - 14] = index;
 						occupation[temp + 1] = index;
 						occupation[temp + 2] = index;
+						int[] location = {temp-15, temp-14, temp+1, temp+2};
+						beatOthers(location);
 					}
 					if (y[index] == 13) {
 						occupation[temp - 15] = index;
 						occupation[temp - 14] = index;
 						occupation[temp + 1] = index;
+						int[] location = {temp-15, temp-14, temp+1};
+						beatOthers(location);
 					}
 					if (y[index] == 14) {
 						occupation[temp - 15] = index;
+						int[] location = {temp-15};
+						beatOthers(location);
 					}
 				}
 				if (x[index] == 0) {
 					if (y[index] <= 12) {
 						occupation[temp + 1] = index;
 						occupation[temp + 2] = index;
+						int[] location = {temp+1, temp+2};
+						beatOthers(location);
 					}
 					if (y[index] == 13) {
 						occupation[temp + 1] = index;
+						int[] location = {temp+1};
+						beatOthers(location);
 					}
 				}
 			}
@@ -849,16 +928,22 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp - 30] = index;
 						occupation[temp - 1] = index;
 						occupation[temp - 2] = index;
+						int[] location = {temp-15, temp-16, temp-30, temp-1, temp-2};
+						beatOthers(location);
 					}
 					if (y[index] == 1) {
 						occupation[temp - 15] = index;
 						occupation[temp - 16] = index;
 						occupation[temp - 30] = index;
 						occupation[temp - 1] = index;
+						int[] location = {temp-15, temp-16, temp-30, temp-1};
+						beatOthers(location);
 					}
 					if (y[index] == 0) {
 						occupation[temp - 15] = index;
 						occupation[temp - 30] = index;
+						int[] location = {temp-15,temp-30};
+						beatOthers(location);
 					}
 				}
 				if (x[index] == 1) {
@@ -867,23 +952,33 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp - 16] = index;
 						occupation[temp - 1] = index;
 						occupation[temp - 2] = index;
+						int[] location = {temp-15, temp-16, temp-1, temp-2};
+						beatOthers(location);
 					}
 					if (y[index] == 1) {
 						occupation[temp - 15] = index;
 						occupation[temp - 16] = index;
 						occupation[temp - 1] = index;
+						int[] location = {temp-15, temp-16, temp-1};
+						beatOthers(location);
 					}
 					if (y[index] == 0) {
 						occupation[temp - 15] = index;
+						int[] location = {temp-15};
+						beatOthers(location);
 					}
 				}
 				if (x[index] == 0) {
 					if (y[index] >= 2) {
 						occupation[temp - 1] = index;
 						occupation[temp - 2] = index;
+						int[] location = {temp-1, temp-2};
+						beatOthers(location);
 					}
 					if (y[index] == 1) {
 						occupation[temp - 1] = index;
+						int[] location = {temp-1};
+						beatOthers(location);
 					}
 				}
 			}
@@ -897,16 +992,22 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp + 15] = index;
 						occupation[temp + 16] = index;
 						occupation[temp + 30] = index;
+						int[] location = {temp+1, temp+2, temp+15, temp+16, temp+30};
+						beatOthers(location);
 					}
 					if (y[index] == 13) {
 						occupation[temp + 1] = index;
 						occupation[temp + 15] = index;
 						occupation[temp + 16] = index;
 						occupation[temp + 30] = index;
+						int[] location = {temp+1, temp+15, temp+16, temp+30};
+						beatOthers(location);
 					}
 					if (y[index] == 14) {
 						occupation[temp + 15] = index;
 						occupation[temp + 30] = index;
+						int[] location = {temp+15, temp+30};
+						beatOthers(location);
 					}
 				}
 				if (x[index] == 13) {
@@ -915,23 +1016,33 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp + 2] = index;
 						occupation[temp + 15] = index;
 						occupation[temp + 16] = index;
+						int[] location = {temp+1, temp+2, temp+15, temp+16};
+						beatOthers(location);
 					}
 					if (y[index] == 13) {
 						occupation[temp + 1] = index;
 						occupation[temp + 15] = index;
 						occupation[temp + 16] = index;
+						int[] location = {temp+1, temp+15, temp+16};
+						beatOthers(location);
 					}
 					if (y[index] == 14) {
 						occupation[temp + 15] = index;
+						int[] location = {temp+15};
+						beatOthers(location);
 					}
 				}
 				if (x[index] == 14) {
 					if (y[index] <= 12) {
 						occupation[temp + 1] = index;
 						occupation[temp + 2] = index;
+						int[] location = {temp+1, temp+2};
+						beatOthers(location);
 					}
 					if (y[index] == 13) {
 						occupation[temp + 1] = index;
+						int[] location = {temp+1};
+						beatOthers(location);
 					}
 				}
 			}
@@ -950,13 +1061,16 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp + 16] = index;
 						occupation[temp + 15] = index;
 						occupation[temp + 14] = index;
-						
+						int[] location = {temp-14, temp-15, temp-16, temp-1, temp+16, temp+15, temp+14};
+						beatOthers(location);
 					}
 					if (y[index] == 0) {
 						occupation[temp - 14] = index;
 						occupation[temp - 15] = index;
 						occupation[temp + 16] = index;
 						occupation[temp + 15] = index;
+						int[] location = {temp-14, temp-15, temp+16, temp+15};
+						beatOthers(location);
 					}
 					if (y[index] == 14) {
 						occupation[temp - 15] = index;
@@ -964,6 +1078,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp - 1] = index;
 						occupation[temp + 15] = index;
 						occupation[temp + 14] = index;
+						int[] location = {temp-15, temp-16, temp-1, temp+15,temp+14};
+						beatOthers(location);
 					}
 				}
 				if (x[index] == 0) {
@@ -972,10 +1088,14 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp + 16] = index;
 						occupation[temp + 15] = index;
 						occupation[temp + 14] = index;
+						int[] location = {temp-1, temp+16,temp+15,temp+14};
+						beatOthers(location);
 					}
 					if (y[index] == 0) {
 						occupation[temp + 16] = index;
 						occupation[temp + 15] = index;
+						int[] location = {temp+16,temp+15};
+						beatOthers(location);
 					}
 					if (y[index] == 14) {
 						// 这种情况并不会发生
@@ -987,10 +1107,14 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp - 15] = index;
 						occupation[temp - 16] = index;
 						occupation[temp - 1] = index;
+						int[] location = {temp-14, temp-15, temp-16, temp-1};
+						beatOthers(location);
 					}
 					if (y[index] == 0) {
 						occupation[temp - 14] = index;
 						occupation[temp - 15] = index;
+						int[] location = {temp-14, temp-15};
+						beatOthers(location);
 					}
 					if (y[index] == 14) {
 						// 这种情况并不会发生
@@ -1009,6 +1133,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp + 14] = index;
 						occupation[temp + 15] = index;
 						occupation[temp + 16] = index;
+						int[] location = {temp+1, temp-14, temp-15, temp-16, temp+14,temp+15,temp+16};
+						beatOthers(location);
 					}
 					// TODO:还有很多情况没有讨论
 					if (y[index] == 14) {
@@ -1016,6 +1142,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp - 16] = index;
 						occupation[temp + 15] = index;
 						occupation[temp + 14] = index;
+						int[] location = {temp-15, temp-16, temp+15,temp+14};
+						beatOthers(location);
 					}
 					if (y[index] == 0) {
 						// 这种情况并不会发生
@@ -1027,6 +1155,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp + 14] = index;
 						occupation[temp + 15] = index;
 						occupation[temp + 16] = index;
+						int[] location = {temp+1, temp+14, temp+15, temp+16};
+						beatOthers(location);
 					}
 					if (y[index] == 0) {
 						// 这种情况并不会发生
@@ -1034,6 +1164,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 					if (y[index] == 14) {
 						occupation[temp + 15] = index;
 						occupation[temp + 14] = index;
+						int[] location = {temp+14, temp+15};
+						beatOthers(location);
 					}
 				}
 				if (x[index] == 14) {
@@ -1042,6 +1174,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp - 14] = index;
 						occupation[temp - 15] = index;
 						occupation[temp - 16] = index;
+						int[] location = {temp+1, temp-14, temp-15, temp-16};
+						beatOthers(location);
 					}
 					if (y[index] == 0) {
 						// 这种情况并不会发生
@@ -1049,6 +1183,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 					if (y[index] == 14) {
 						occupation[temp - 15] = index;
 						occupation[temp - 16] = index;
+						int[] location = {temp-15, temp-16};
+						beatOthers(location);
 					}
 				}
 			}
@@ -1064,18 +1200,24 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp - 1] = index;
 						occupation[temp + 16] = index;
 						occupation[temp + 14] = index;
+						int[] location = {temp-14, temp-15, temp-16, temp+1, temp-1, temp+16, temp+14};
+						beatOthers(location);
 					}
 					if (y[index] == 0) {
 						occupation[temp - 14] = index;
 						occupation[temp - 15] = index;
 						occupation[temp + 1] = index;
 						occupation[temp + 16] = index;
+						int[] location = {temp-14, temp-15, temp+1, temp+16};
+						beatOthers(location);
 					}
 					if (y[index] == 14) {
 						occupation[temp - 15] = index;
 						occupation[temp - 16] = index;
 						occupation[temp - 1] = index;
 						occupation[temp + 14] = index;
+						int[] location = {temp-15, temp-16, temp-1, temp+14};
+						beatOthers(location);
 					}
 				}
 				if (x[index] == 0) {
@@ -1084,14 +1226,20 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp - 1] = index;
 						occupation[temp + 16] = index;
 						occupation[temp + 14] = index;
+						int[] location = {temp+1, temp-1, temp+16, temp+14};
+						beatOthers(location);
 					}
 					if (y[index] == 0) {
 						occupation[temp + 1] = index;
 						occupation[temp + 16] = index;
+						int[] location = {temp+1, temp+16};
+						beatOthers(location);
 					}
 					if (y[index] == 14) {
 						occupation[temp - 1] = index;
 						occupation[temp + 14] = index;
+						int[] location = {temp-1,temp+14};
+						beatOthers(location);
 					}
 				}
 				if (x[index] == 14) {
@@ -1110,18 +1258,24 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp + 16] = index;
 						occupation[temp + 15] = index;
 						occupation[temp + 14] = index;
+						int[] location = {temp-14, temp-16, temp+1, temp-1, temp+16, temp+15, temp+14};
+						beatOthers(location);
 					}
 					if (y[index] == 0) {
 						occupation[temp - 14] = index;
 						occupation[temp + 1] = index;
 						occupation[temp + 16] = index;
 						occupation[temp + 15] = index;
+						int[] location = {temp-14, temp+1, temp+16, temp+15};
+						beatOthers(location);
 					}
 					if (y[index] == 14) {
 						occupation[temp - 16] = index;
 						occupation[temp - 1] = index;
 						occupation[temp + 15] = index;
 						occupation[temp + 14] = index;
+						int[] location = {temp-16, temp-1, temp+15, temp+14};
+						beatOthers(location);
 					}
 				}
 				if (x[index] == 0) {
@@ -1140,20 +1294,38 @@ public class JPanelPM extends JPanel implements KeyListener {
 						occupation[temp - 16] = index;
 						occupation[temp + 1] = index;
 						occupation[temp - 1] = index;
+						int[] location = {temp-14, temp-16, temp+1, temp-1};
+						beatOthers(location);
 					}
 					if (y[index] == 0) {
 						occupation[temp - 14] = index;
 						occupation[temp + 1] = index;
+						int[] location = {temp-14, temp+1};
+						beatOthers(location);
 					}
 					if (y[index] == 14) {
 						occupation[temp - 16] = index;
 						occupation[temp + 1] = index;
+						int[] location = {temp-16, temp+1};
+						beatOthers(location);
 					}
 				}
 			}
 		}
+		
+		
 	}
 
-
+	public void beatOthers(int[] location){
+		for (int i = 0; i < location.length; i++) {
+			for (int j = 0; j < 6; j++) {
+				int temp = 15 * x[j] + y[j];
+				if (location[i] == temp && j != index) {
+					x[j] = homeX[j];
+					y[j] = homeY[j];
+				}
+			}
+		}
+	}
 
 }

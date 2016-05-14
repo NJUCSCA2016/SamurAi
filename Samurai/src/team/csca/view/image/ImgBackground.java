@@ -44,5 +44,5 @@ public class ImgBackground {
 	
 	public final static Image SETTING_PANEL_BACKGROUND = new ImageIcon("Image/SetPanel/back_set.png").getImage();
 	
-	public final static Image PP_PANEL = new ImageIcon("Image/Gamepanel/bg.png").getImage();
+	public final static Image PM_PANEL = new ImageIcon("Image/Gamepanel/bg.png").getImage();
 }
