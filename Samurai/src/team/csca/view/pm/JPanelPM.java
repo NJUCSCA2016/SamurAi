@@ -245,22 +245,22 @@ public class JPanelPM extends JPanel implements KeyListener {
 		 * 提示是哪一个武士在行动
 		 */
 		if (index == 0) {
-			g.drawImage(ImgSamurai.A0, 1000, 600, 30, 30, this);
+			g.drawImage(ImgSamurai.A0, 1000, 600, 50, 50, this);
 		}
 		if (index == 1) {
-			g.drawImage(ImgSamurai.A1, 1000, 600, 30, 30, this);
+			g.drawImage(ImgSamurai.A1, 1000, 600, 50, 50, this);
 		}
 		if (index == 2) {
-			g.drawImage(ImgSamurai.A2, 1000, 600, 30, 30, this);
+			g.drawImage(ImgSamurai.A2, 1000, 600, 50, 50, this);
 		}
 		if (index == 3) {
-			g.drawImage(ImgSamurai.B0, 1000, 600, 30, 30, this);
+			g.drawImage(ImgSamurai.B0, 1000, 600, 50, 50, this);
 		}
 		if (index == 4) {
-			g.drawImage(ImgSamurai.B1, 1000, 600, 30, 30, this);
+			g.drawImage(ImgSamurai.B1, 1000, 600, 50, 50, this);
 		}
 		if (index == 5) {
-			g.drawImage(ImgSamurai.B2, 1000, 600, 30, 30, this);
+			g.drawImage(ImgSamurai.B2, 1000, 600, 50, 50, this);
 		}
 	}
 
@@ -623,6 +623,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 					occupation[temp - 1] = index;
 				}
 			}
+			// 向上
 			if (direction[index] == 1 || direction[index] == 5) {
 				// TODO: 添加判断条件
 				int temp = 15 * x[index] + y[index];
@@ -646,6 +647,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				}
 				
 			}
+			// 向左
 			if (direction[index] == 2 || direction[index] == 6) {
 				// TODO: 添加判断条件
 				int temp = 15 * x[index] + y[index];
@@ -669,6 +671,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				}
 				
 			}
+			// 向右
 			if (direction[index] == 3 || direction[index] == 7) {
 				// TODO: 添加判断条件
 				int temp = 15 * x[index] + y[index];
@@ -697,11 +700,269 @@ public class JPanelPM extends JPanel implements KeyListener {
 		}
 		// 剑
 		if (index == 1 || index == 4) {
-
+			// 向下
+			if (direction[index] == 0 || direction[index] == 4) {
+				int temp = 15 * x[index] + y[index];
+				if (y[index] >= 2 && x[index] <= 12) {
+					occupation[temp - 1] = index;
+					occupation[temp - 2] = index;
+					occupation[temp + 15] = index;
+					occupation[temp + 14] = index;
+					occupation[temp + 30] = index;
+				}
+				if (y[index] == 1 && x[index] <= 12) {
+					occupation[temp - 1] = index;
+					occupation[temp + 15] = index;
+					occupation[temp + 14] = index;
+					occupation[temp + 30] = index;
+				}
+				if (y[index] == 0 && x[index] <= 12) {
+					occupation[temp + 15] = index;
+					occupation[temp + 30] = index;
+				}
+				if (y[index] >= 2 && x[index] == 13) {
+					occupation[temp - 1] = index;
+					occupation[temp - 2] = index;
+					occupation[temp + 15] = index;
+					occupation[temp + 14] = index;
+				}
+				if (y[index] == 1 && x[index] == 13) {
+					occupation[temp - 1] = index;
+					occupation[temp + 15] = index;
+					occupation[temp + 14] = index;
+				}
+				if (y[index] == 0 && x[index] == 13) {
+					occupation[temp + 15] = index;
+				}
+				if (y[index] >= 2 && x[index] == 14) {
+					occupation[temp - 1] = index;
+					occupation[temp - 2] = index;
+				}
+				if (y[index] == 1 && x[index] == 14) {
+					occupation[temp - 1] = index;
+				}
+			}
+			// 向上
+			if (direction[index] == 1 || direction[index] == 5) {
+				int temp = 15 * x[index] + y[index];
+				if (x[index] >= 2) {
+					if (y[index] <= 12) {
+						occupation[temp - 15] = index;
+						occupation[temp - 14] = index;
+						occupation[temp - 30] = index;
+						occupation[temp + 1] = index;
+						occupation[temp + 2] = index;
+					}
+					if (y[index] == 13) {
+						occupation[temp - 15] = index;
+						occupation[temp - 14] = index;
+						occupation[temp - 30] = index;
+						occupation[temp + 1] = index;
+					}
+					if (y[index] == 14) {
+						occupation[temp - 15] = index;
+						occupation[temp - 30] = index;
+					}
+				}
+				if (x[index] == 1) {
+					if (y[index] <= 12) {
+						occupation[temp - 15] = index;
+						occupation[temp - 14] = index;
+						occupation[temp + 1] = index;
+						occupation[temp + 2] = index;
+					}
+					if (y[index] == 13) {
+						occupation[temp - 15] = index;
+						occupation[temp - 14] = index;
+						occupation[temp + 1] = index;
+					}
+					if (y[index] == 14) {
+						occupation[temp - 15] = index;
+					}
+				}
+				if (x[index] == 0) {
+					if (y[index] <= 12) {
+						occupation[temp + 1] = index;
+						occupation[temp + 2] = index;
+					}
+					if (y[index] == 13) {
+						occupation[temp + 1] = index;
+					}
+				}
+			}
+			// 向左
+			if (direction[index] == 2 || direction[index] == 6) {
+				int temp = 15 * x[index] + y[index];
+				if (x[index] >= 2) {
+					if (y[index] >= 2) {
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+						occupation[temp - 30] = index;
+						occupation[temp - 1] = index;
+						occupation[temp - 2] = index;
+					}
+					if (y[index] == 1) {
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+						occupation[temp - 30] = index;
+						occupation[temp - 1] = index;
+					}
+					if (y[index] == 0) {
+						occupation[temp - 15] = index;
+						occupation[temp - 30] = index;
+					}
+				}
+				if (x[index] == 1) {
+					if (y[index] >= 2) {
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+						occupation[temp - 1] = index;
+						occupation[temp - 2] = index;
+					}
+					if (y[index] == 1) {
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+						occupation[temp - 1] = index;
+					}
+					if (y[index] == 0) {
+						occupation[temp - 15] = index;
+					}
+				}
+				if (x[index] == 0) {
+					if (y[index] >= 2) {
+						occupation[temp - 1] = index;
+						occupation[temp - 2] = index;
+					}
+					if (y[index] == 1) {
+						occupation[temp - 1] = index;
+					}
+				}
+			}
+			// 向右
+			if (direction[index] == 3 || direction[index] == 7) {
+				int temp = 15 * x[index] + y[index];
+				if (x[index] <= 12) {
+					if (y[index] <= 12) {
+						occupation[temp + 1] = index;
+						occupation[temp + 2] = index;
+						occupation[temp + 15] = index;
+						occupation[temp + 16] = index;
+						occupation[temp + 30] = index;
+					}
+					if (y[index] == 13) {
+						occupation[temp + 1] = index;
+						occupation[temp + 15] = index;
+						occupation[temp + 16] = index;
+						occupation[temp + 30] = index;
+					}
+					if (y[index] == 14) {
+						occupation[temp + 15] = index;
+						occupation[temp + 30] = index;
+					}
+				}
+				if (x[index] == 13) {
+					if (y[index] <= 12) {
+						occupation[temp + 1] = index;
+						occupation[temp + 2] = index;
+						occupation[temp + 15] = index;
+						occupation[temp + 16] = index;
+					}
+					if (y[index] == 13) {
+						occupation[temp + 1] = index;
+						occupation[temp + 15] = index;
+						occupation[temp + 16] = index;
+					}
+					if (y[index] == 14) {
+						occupation[temp + 15] = index;
+					}
+				}
+				if (x[index] == 14) {
+					if (y[index] <= 12) {
+						occupation[temp + 1] = index;
+						occupation[temp + 2] = index;
+					}
+					if (y[index] == 13) {
+						occupation[temp + 1] = index;
+					}
+				}
+			}
 		}
 		// 战斧
 		if (index == 2 || index == 5) {
-
+			// 向下
+			if (direction[index] == 0 || direction[index] == 4) {
+				int temp = 15 * x[index] + y[index];
+				if (x[index] >= 1 && x[index] <= 13) {
+					if (y[index] >= 1 && y[index] <= 13 ) {
+						occupation[temp - 14] = index;
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+						occupation[temp - 1] = index;
+						occupation[temp + 16] = index;
+						occupation[temp + 15] = index;
+						occupation[temp + 14] = index;
+						
+					}
+					if (y[index] == 0) {
+						occupation[temp - 14] = index;
+						occupation[temp - 15] = index;
+						occupation[temp + 16] = index;
+						occupation[temp + 15] = index;
+					}
+					if (y[index] == 14) {
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+						occupation[temp - 1] = index;
+						occupation[temp + 15] = index;
+						occupation[temp + 14] = index;
+					}
+				}
+				if (x[index] == 0) {
+					if (y[index] >= 1 && y[index] <= 13) {
+						occupation[temp - 1] = index;
+						occupation[temp + 16] = index;
+						occupation[temp + 15] = index;
+						occupation[temp + 14] = index;
+					}
+					if (y[index] == 0) {
+						occupation[temp + 16] = index;
+						occupation[temp + 15] = index;
+					}
+					if (y[index] == 14) {
+						// 这种情况并不会发生
+					}
+				}
+				if (x[index] == 14) {
+					if (y[index] >= 1 && y[index] <= 13) {
+						occupation[temp - 14] = index;
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+						occupation[temp - 1] = index;
+					}
+					if (y[index] == 0) {
+						occupation[temp - 14] = index;
+						occupation[temp - 15] = index;
+					}
+					if (y[index] == 14) {
+						// 这种情况并不会发生
+					}
+				}
+			}
+			// 向上
+			if (direction[index] == 1 || direction[index] == 5) {
+				int temp = 15 * x[index] + y[index];
+				if (x[index] >= 1 && x[index] <= 13) {
+					if (y[index] >= 1 && y[index] <= 13) {
+						occupation[temp + 1] = index;
+						occupation[temp - 14] = index;
+						occupation[temp - 15] = index;
+						occupation[temp - 16] = index;
+						occupation[temp + 14] = index;
+						occupation[temp + 15] = index;
+						occupation[temp + 16] = index;
+					}
+				}
+			}
 		}
 	}
 
