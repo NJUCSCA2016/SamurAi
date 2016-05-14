@@ -461,9 +461,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 			break;
 		case KeyEvent.VK_R:
 			cost = 4;
-			nowPower = nowPower - cost;
 			// TODO:增加判断条件
-			occupy();
+			if (hasPower()) {
+				nowPower = nowPower - cost;
+				occupy();
+			}
+			
 			repaint();
 			break;
 		default:
@@ -514,13 +517,20 @@ public class JPanelPM extends JPanel implements KeyListener {
 	}
 
 	/**
-	 * 是否能先行 TODO：增加其他判定条件
+	 * 是否能现身 TODO：增加其他判定条件
 	 * 
 	 * @return
 	 */
 	private boolean canShow() {
+		// 在不是隐身的情况下不可以现身
 		if (!isHidden()) {
 			return false;
+		}
+		// 这格子有现行的人的情况下不能现身
+		for (int i = 0; i < 6; i++) {
+			if (x[index] == x[i] && y[index] == y[i] && i != index && direction[i] <= 3) {
+				return false;
+			}
 		}
 		return true;
 	}
@@ -531,8 +541,25 @@ public class JPanelPM extends JPanel implements KeyListener {
 	 * @return
 	 */
 	public boolean canHide() {
+		/*
+		 * 如果已经处在隐身状态下，就不能隐身
+		 */
 		if (direction[index] > 3) {
 			return false;
+		}
+		/*
+		 * 只有在自己家的地盘上才能隐身
+		 */
+		int temp = 15 * x[index] + y[index];
+		if (index >= 0 && index <= 2) {
+			if (!(occupation[temp] >= 0 && occupation[temp] <= 2)) {
+				return false;
+			}
+		}
+		if (index >= 3 && index <= 5) {
+			if (!(occupation[temp] >= 3 && occupation[temp] <= 5)) {
+				return false;
+			}
 		}
 		return true;
 	}
@@ -561,6 +588,9 @@ public class JPanelPM extends JPanel implements KeyListener {
 	 * @return 是否能够移动
 	 */
 	public boolean canMoveTo(int dx, int dy) {
+		/*
+		 * 这一块是判断是否越界
+		 */
 		if (x[index] + dx > 14) {
 			return false;
 		}
@@ -573,13 +603,32 @@ public class JPanelPM extends JPanel implements KeyListener {
 		if (y[index] + dy < 0) {
 			return false;
 		}
+		/*
+		 * 如果有非隐身单位，那么无法移动过去
+		 */
 		for (int i = 0; i < 6; i++) {
-			if (x[index] + dx == x[i] && y[index] + dy == y[i]) {
+			if (x[index] + dx == x[i] && y[index] + dy == y[i] && !isHidden()) {
 				return false;
 			}
 		}
+		/*
+		 * 无法移动到别人的大本营
+		 */
 		for (int i = 0; i < 6; i++) {
 			if (x[index] + dx == homeX[i] && y[index] + dy == homeY[i] && index != i) {
+				return false;
+			}
+		}
+		
+		if (index < 3 && isHidden()) {
+			int temp = 15 * (x[index] + dx) + y[index] + dy;
+			if (!(occupation[temp] >= 0 && occupation[temp] <= 2)) {
+				return false;
+			}
+		}
+		if (index >= 3 && isHidden()) {
+			int temp = 15 * (x[index] + dx) + y[index] + dy;
+			if (!(occupation[temp] >= 3 && occupation[temp] <= 5)) {
 				return false;
 			}
 		}
@@ -601,7 +650,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		// 长矛
 		if (index == 0 || index == 3) {
 			// 向下
-			if (direction[index] == 0 || direction[index] == 4) {
+			if (direction[index] == 0) {
 				// TODO: 添加判断条件
 				int temp = 15 * x[index] + y[index];
 				if (y[index] >= 4) {
@@ -624,7 +673,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				}
 			}
 			// 向上
-			if (direction[index] == 1 || direction[index] == 5) {
+			if (direction[index] == 1) {
 				// TODO: 添加判断条件
 				int temp = 15 * x[index] + y[index];
 				if (y[index] <= 10) {
@@ -648,7 +697,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				
 			}
 			// 向左
-			if (direction[index] == 2 || direction[index] == 6) {
+			if (direction[index] == 2) {
 				// TODO: 添加判断条件
 				int temp = 15 * x[index] + y[index];
 				if (x[index] >= 4) {
@@ -672,7 +721,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				
 			}
 			// 向右
-			if (direction[index] == 3 || direction[index] == 7) {
+			if (direction[index] == 3) {
 				// TODO: 添加判断条件
 				int temp = 15 * x[index] + y[index];
 				if (x[index] <= 10) {
@@ -701,7 +750,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		// 剑
 		if (index == 1 || index == 4) {
 			// 向下
-			if (direction[index] == 0 || direction[index] == 4) {
+			if (direction[index] == 0) {
 				int temp = 15 * x[index] + y[index];
 				if (y[index] >= 2 && x[index] <= 12) {
 					occupation[temp - 1] = index;
@@ -743,7 +792,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				}
 			}
 			// 向上
-			if (direction[index] == 1 || direction[index] == 5) {
+			if (direction[index] == 1) {
 				int temp = 15 * x[index] + y[index];
 				if (x[index] >= 2) {
 					if (y[index] <= 12) {
@@ -791,7 +840,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				}
 			}
 			// 向左
-			if (direction[index] == 2 || direction[index] == 6) {
+			if (direction[index] == 2) {
 				int temp = 15 * x[index] + y[index];
 				if (x[index] >= 2) {
 					if (y[index] >= 2) {
@@ -839,7 +888,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				}
 			}
 			// 向右
-			if (direction[index] == 3 || direction[index] == 7) {
+			if (direction[index] == 3) {
 				int temp = 15 * x[index] + y[index];
 				if (x[index] <= 12) {
 					if (y[index] <= 12) {
@@ -890,7 +939,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		// 战斧
 		if (index == 2 || index == 5) {
 			// 向下
-			if (direction[index] == 0 || direction[index] == 4) {
+			if (direction[index] == 0) {
 				int temp = 15 * x[index] + y[index];
 				if (x[index] >= 1 && x[index] <= 13) {
 					if (y[index] >= 1 && y[index] <= 13 ) {
@@ -949,7 +998,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				}
 			}
 			// 向上
-			if (direction[index] == 1 || direction[index] == 5) {
+			if (direction[index] == 1) {
 				int temp = 15 * x[index] + y[index];
 				if (x[index] >= 1 && x[index] <= 13) {
 					if (y[index] >= 1 && y[index] <= 13) {
@@ -1004,7 +1053,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				}
 			}
 			// 向左
-			if (direction[index] == 2 || direction[index] == 6) {
+			if (direction[index] == 2) {
 				int temp = 15 * x[index] + y[index];
 				if (x[index] >= 1 && x[index] <= 13) {
 					if (y[index] >= 1 && y[index] <= 13) {
@@ -1050,7 +1099,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				}
 			}
 			// 向右
-			if (direction[index] == 3 || direction[index] == 7) {
+			if (direction[index] == 3) {
 				int temp = 15 * x[index] + y[index];
 				if (x[index] >= 1 && x[index] <= 13) {
 					if (y[index] >= 1 && y[index] <= 13) {
