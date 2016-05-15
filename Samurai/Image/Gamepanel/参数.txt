@@ -1,14 +1,14 @@
-info1:
+infoB0:
 x:5 y:0 w:190 h:240
-info2:
+infoB1:
 x:5 y:230 w:190 h:240
-info6:
+infoB2:
 x:5 y:460 w:190 h:240
-info4:
+infoA0:
 x:1040 y:0 w:190 h:240
-info5:
+infoA1:
 x:1040 y:230 w:190 h:240
-info3:
+infoA2:
 x:1040 y:460 w:190 h:240
 button1:
 x:200 y:10 w:100 h:100
@@ -26,7 +26,7 @@ repentbutton:
 x:872 y:465 w:140 h:50
 switchbutton:
 x:880 y:560 w:140 h:50
-quit:
-x:865 y:655 w:140 h:50
+back:
+x:865 y:635 w:140 h:50
 pausebutton:
 x:450 y:150 w:350 h:400

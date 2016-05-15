@@ -160,4 +160,16 @@ public class ImgSamurai {
 	 * index
 	 */
 	public static final Image[] AI_SHADOW = { A0_SHADOW, A1_SHADOW, A2_SHADOW, B0_SHADOW, B1_SHADOW, B2_SHADOW };
+	
+	public static final Image INFO_A0 = new ImageIcon("Image/Gamepanel/infos3/infoA0.png").getImage();
+	
+	public static final Image INFO_A1 = new ImageIcon("Image/Gamepanel/infos3/infoA1.png").getImage();
+	
+	public static final Image INFO_A2 = new ImageIcon("Image/Gamepanel/infos3/infoA2.png").getImage();
+	
+	public static final Image INFO_B0 = new ImageIcon("Image/Gamepanel/infos3/infoB0.png").getImage();
+	
+	public static final Image INFO_B1 = new ImageIcon("Image/Gamepanel/infos3/infoB1.png").getImage();
+	
+	public static final Image INFO_B2 = new ImageIcon("Image/Gamepanel/infos3/infoB2.png").getImage();
 }

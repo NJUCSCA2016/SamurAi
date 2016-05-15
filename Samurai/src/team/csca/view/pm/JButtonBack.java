@@ -18,7 +18,7 @@ public class JButtonBack extends DynamicButton {
 
 	public JButtonBack(JPanelPM fatherPanel){
 		// TODO:调整位置
-		super(1000, 500, 300, 300, ImgButton.BACK_INIT, ImgButton.BACK_ENTER, ImgButton.BACK_CLICKED);
+		super(865, 635, 140, 50, ImgButton.BACK_INIT, ImgButton.BACK_ENTER, ImgButton.BACK_CLICKED);
 		this.fatherPanel = fatherPanel;
 	}
 

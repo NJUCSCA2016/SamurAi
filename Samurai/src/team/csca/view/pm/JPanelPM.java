@@ -14,6 +14,7 @@ import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
 import team.csca.view.extend.PlayMovie;
 import team.csca.view.image.ImgBackground;
+import team.csca.view.image.ImgNumber;
 import team.csca.view.image.ImgSamurai;
 
 /**
@@ -187,7 +188,13 @@ public class JPanelPM extends JPanel implements KeyListener {
 				new LayerBackground(x[3] * 40 + y[3] * 13 + 252, y[3] * (-36) + 614, 30, 30, ImgSamurai.B0_FLAG),
 				new LayerBackground(x[4] * 40 + y[4] * 13 + 252, y[4] * (-36) + 614, 30, 30, ImgSamurai.B1_FLAG),
 				new LayerBackground(x[5] * 40 + y[5] * 13 + 252, y[5] * (-36) + 614, 30, 30, ImgSamurai.B2_FLAG),
-
+				
+				new LayerBackground(1040, 0, 190, 240, ImgSamurai.INFO_A0),
+				new LayerBackground(1040, 230, 190, 240, ImgSamurai.INFO_A1),
+				new LayerBackground(1040, 460, 190, 240, ImgSamurai.INFO_A2),
+				new LayerBackground(5, 0, 190, 240, ImgSamurai.INFO_B0),
+				new LayerBackground(5, 230, 190, 240, ImgSamurai.INFO_B1),
+				new LayerBackground(5, 460, 190, 240, ImgSamurai.INFO_B2),
 		};
 
 		// if (Player.MUSiC_PLAYER.isBack_ON()) {
@@ -251,10 +258,10 @@ public class JPanelPM extends JPanel implements KeyListener {
 		g.drawImage(ImgSamurai.B2_PICTURE[direction[5]], x[5] * 40 + y[5] * 13 + 228, y[5] * (-36) + 600, 50, 50, this);
 		// FIXME:测试用代码
 		g.setFont(messageFont);
-		g.drawString("Power: " + Integer.toString(nowPower), 900, 300);
-		g.drawString("Index: " + Integer.toString(index), 900, 350);
-		g.drawString("IsHidden: " + isHidden(), 900, 400);
-		g.drawString("Direction: " + Integer.toString(direction[index]), 900, 450);
+		g.drawString("Power: " + Integer.toString(nowPower), 460, 30);
+		g.drawString("Index: " + Integer.toString(index), 640, 30);
+		g.drawString("IsHidden: " + isHidden(), 330, 80);
+		g.drawString("Direction: " + Integer.toString(direction[index]), 660, 80);
 		super.paintComponents(g);
 		/**
 		 * 提示是哪一个武士在行动
@@ -277,6 +284,33 @@ public class JPanelPM extends JPanel implements KeyListener {
 		if (index == 5) {
 			g.drawImage(ImgSamurai.B2, 1000, 600, 50, 50, this);
 		}
+		
+		int count[] = new int[6];
+		for (int i = 0; i < count.length; i++) {
+			count[i] = 0;
+		}
+		for (int i = 0; i < occupation.length; i++) {
+			for (int j = 0; j < count.length; j++) {
+				if (occupation[i] == j) {
+					count[j] ++;
+				}
+			}
+		}
+		for (int i = 0; i < count.length; i++) {
+			System.out.println(i + " " + count[i]);
+		}
+		/*
+		 * A0的胜利点
+		 */
+		printNumber(count[0], g, 1157 , 85, 18, 25);
+		/*
+		 * A1的胜利点
+		 */
+		printNumber(count[1], g, 1157 , 315, 18, 25);
+		/*
+		 * A2的胜利点
+		 */
+		printNumber(count[2], g, 1157 , 545, 18, 25);
 	}
 
 	@Override
@@ -292,7 +326,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		case KeyEvent.VK_UP:
 			// TODO:不知道AI是怎么表示出来的
 			// FIXME:删除测试代码
-			System.out.println(121);
+//			System.out.println(121);
 			cost = 2;
 			// if (nowPower - cost >= 0 && y[index] + 1 <= 14) {
 			// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], 0, 1))
@@ -308,7 +342,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// direction[index] = 5;
 				// }
 				repaint();
-				System.out.println(x[0]);
+//				System.out.println(x[0]);
 			}
 			if (canMoveTo(0, 1) && hasPower() && isHidden()) {
 				// if (y[index]+1 <=14) {
@@ -1325,6 +1359,26 @@ public class JPanelPM extends JPanel implements KeyListener {
 					y[j] = homeY[j];
 				}
 			}
+		}
+	}
+	
+	public void printNumber(int num, Graphics g, int x, int y, int w, int h){
+		if (num < 10) {
+			g.drawImage(ImgNumber.NUMS[num], x, y, w, h, this);
+		}
+		if (10<= num && num <= 99) {
+			int tens = num / 10;
+			int unit = num % 10;
+			g.drawImage(ImgNumber.NUMS[tens], x - w, y, w, h, this);
+			g.drawImage(ImgNumber.NUMS[unit], x, y, w, h, this);
+		}
+		if (100<= num) {
+			int hundreds = 1;
+			int tens = (num - 100) / 10;
+			int unit = num % 10;
+			g.drawImage(ImgNumber.NUMS[hundreds], x - 2 * w, y, w, h, this);
+			g.drawImage(ImgNumber.NUMS[tens], x - w, y, w, h, this);
+			g.drawImage(ImgNumber.NUMS[unit], x, y, w, h, this);
 		}
 	}
 
