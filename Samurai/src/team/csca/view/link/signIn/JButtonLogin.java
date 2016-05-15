@@ -7,6 +7,8 @@ import java.rmi.RemoteException;
 import team.csca.client.RemoteHelper;
 import team.csca.controller.media.Player;
 import team.csca.view.extend.StaticButton;
+import team.csca.view.frame.JFrameMain;
+import team.csca.view.image.ImgLink;
 import team.csca.view.startgame.JPanelStartGame;
 
 /**
@@ -43,8 +45,13 @@ public class JButtonLogin extends StaticButton implements ActionListener{
 			 //Login success
 		 }else if(stateCode == 1){
 			 //No this user
+			 fatherPanel.cleanName();
+			 fatherPanel.cleanPass();
+			 new Dialog(JFrameMain.J_FRAME_MAIN, ImgLink.SIGNIN_NAME_NOT_FOUND);
 		 }else{
 			 //Password is wrong . 
+			 fatherPanel.cleanPass();
+			 new Dialog(JFrameMain.J_FRAME_MAIN, ImgLink.SIGNIN_WORD_WRONG);
 		 }
 		} catch (RemoteException e1) {
 			e1.printStackTrace();

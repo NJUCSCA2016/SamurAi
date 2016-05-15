@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import team.csca.client.ServerLink;
 import team.csca.client.ServerNotFoundException;
 import team.csca.view.frame.JFrameMain;
+import team.csca.view.image.ImgLink;
 import team.csca.view.link.signIn.JPanelSignIn;
 
 /**
@@ -21,6 +22,8 @@ import team.csca.view.link.signIn.JPanelSignIn;
  */
 
 public class JPanelLinkLoading extends JPanel{
+	
+	
 	
 	private JFrameMain main = JFrameMain.J_FRAME_MAIN;
 	
@@ -48,7 +51,13 @@ public class JPanelLinkLoading extends JPanel{
 		
 		this.setLayout(null);
 		this.requestFocus();
-		this.add(new JButtonReturn(0,0,0,0,null , null , null ,this));
+		
+		this.add(new JButtonReturn(1112,0,203,150,
+				ImgLink.LOGIN_WAITING_RETURN ,
+				ImgLink.LOGIN_WAITING_RETURN ,
+				ImgLink.LOGIN_WAITING_RETURN ,
+				this));
+		
 		linkStart();
 		
 	}
@@ -97,7 +106,13 @@ public class JPanelLinkLoading extends JPanel{
 			
 				remove(loadingReturn);
 				retry = new JButtonRetry(JPanelLinkLoading.this);
-				panelReturn = new JButtonReturn(0 , 0 , 0 , 0 , null , null , null ,  JPanelLinkLoading.this);
+				
+				panelReturn = new JButtonReturn(756 , 503 , 249 , 103 ,
+						ImgLink.LOGIN_FAILED_RETURN_INIT ,
+						ImgLink.LOGIN_FAILED_RETURN_ENTER ,
+						ImgLink.LOGIN_FAILED_RETURN_CLICK , 
+						JPanelLinkLoading.this);
+				
 				add(retry);
 				add(panelReturn);
 				repaint();

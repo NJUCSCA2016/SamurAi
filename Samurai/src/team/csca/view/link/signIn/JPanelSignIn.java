@@ -5,14 +5,15 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import team.csca.view.extend.LayerBackground;
+import team.csca.view.image.ImgLink;
 
 public class JPanelSignIn extends JPanel{
 	
-	private LayerBackground backgound = new LayerBackground(0, 0, 1250, 700, null);
+	private LayerBackground backgound = new LayerBackground(0, 0, 1250, 700, ImgLink.SIGNIN_BACK);
 	
-	private PlaintfField nameArea = new PlaintfField(0, 0, 0, 0);
+	private PlaintfField nameArea = new PlaintfField(775, 225, 190, 45);
 			
-	private PlainpswField passwordArea = new PlainpswField(0, 0, 0, 0);
+	private PlainpswField passwordArea = new PlainpswField(775, 305, 150, 45);
 	
 	public JPanelSignIn() {
 		
@@ -31,6 +32,15 @@ public class JPanelSignIn extends JPanel{
 	public void paintComponent(Graphics g){
 		backgound.createWindow(g);
 		super.paintComponent(g);
+	}
+	
+	
+	public void cleanName(){
+		this.nameArea.setText("");
+	}
+	
+	public void cleanPass(){
+		this.passwordArea.setText("");
 	}
 	
 	public String getName(){
