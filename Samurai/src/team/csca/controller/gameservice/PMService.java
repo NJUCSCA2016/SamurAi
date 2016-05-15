@@ -10,9 +10,6 @@ import team.csca.view.pm.JPanelPM;
  */
 public class PMService implements Service{
 	private JPanelPM pm;
-	private int[] homeX;
-	private int[] homeY;
-	private boolean hide = false;
 			
 	public PMService(JPanelPM pm) {
 		this.pm = pm;
@@ -33,13 +30,13 @@ public class PMService implements Service{
 	
 	public void hide(){
 		if(canHide()){
-			
+			//Hide
 		}
 	}
 	
 	public void show(){
 		if(canShow()){
-			hide = false;
+			//Show
 		}
 	}
 	
@@ -54,19 +51,25 @@ public class PMService implements Service{
 	}
 	
 	public boolean canHide(){
-	  	if (hide){
+	  	if (pm.isHidden()){
 			return false;
 		}
 //    	System.err.println(this.curX + " " + this.curY);
-		if (true){
-			return false;
-		}
-		return true;
+	  	int curIndex = pm.index;
+	  	
+	  	int op = pm.occupation[15 * pm.x[curIndex] + pm.y[curIndex]];
+	  	
+	  	if(curIndex/3 == 0){
+	  		return op < 3 ? true : false;
+	  	}else{
+	  		return op == -1 || (op > 2 && op < 6) ? true : false;
+	  	}
+	  	
 	}
 	
 	public boolean canShow(){
 		
-		return hide;
+		return pm.isHidden();
 	}
 	
 }

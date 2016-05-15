@@ -25,6 +25,10 @@ public class PPService implements Service{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void useProp(int propNum){
+		
+	}
 
 	@Override
 	public boolean canOccupy(int direction) {
@@ -49,5 +53,6 @@ public class PPService implements Service{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
 
 }
