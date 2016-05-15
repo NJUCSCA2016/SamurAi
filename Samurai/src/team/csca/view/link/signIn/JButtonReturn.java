@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import team.csca.controller.media.Player;
 import team.csca.view.extend.StaticButton;
+import team.csca.view.image.ImgLink;
 import team.csca.view.startgame.JPanelStartGame;
 
 public class JButtonReturn extends StaticButton implements ActionListener{
@@ -13,7 +14,7 @@ public class JButtonReturn extends StaticButton implements ActionListener{
 	
 	
 	public JButtonReturn( JPanelSignIn fatherPanel) {
-		super(0,0,0,0,null);
+		super(725,395,150,100,ImgLink.LOGIN_RETURN_INIT);
 		this.addActionListener(this);
 		this.fatherPanel = fatherPanel;
 	}

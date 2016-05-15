@@ -29,7 +29,7 @@ public class ServerLink {
 
 	public void test(){
 		try {
-			System.out.println(remoteHelper.getUser().login("admin", "123456a"));
+			System.out.println(remoteHelper.getUser().login("admin", "123456a" , RemoteHelper.getInstance().getUser()));
 //			System.out.println(remoteHelper.getIOService().writeFile("2", "admin", "testFile"));
 		} catch (RemoteException e) {
 			e.printStackTrace();

@@ -7,6 +7,8 @@ import java.rmi.RemoteException;
 import team.csca.client.RemoteHelper;
 import team.csca.controller.media.Player;
 import team.csca.view.extend.StaticButton;
+import team.csca.view.frame.JFrameMain;
+import team.csca.view.image.ImgLink;
 import team.csca.view.startgame.JPanelStartGame;
 
 /**
@@ -23,7 +25,7 @@ public class JButtonRegister extends StaticButton implements ActionListener{
 	private RemoteHelper helper = RemoteHelper.getInstance();
 	
 	public JButtonRegister( JPanelSignIn fatherPanel) {
-		super(0,0,0,0,null);
+		super(575,395,150,100,ImgLink.LOGIN_REGISTER_INIT);
 		this.addActionListener(this);
 		this.fatherPanel = fatherPanel;
 	}
@@ -35,8 +37,14 @@ public class JButtonRegister extends StaticButton implements ActionListener{
 			boolean canReg =  helper.getUser().signIn(fatherPanel.getName(), fatherPanel.getPassword());
 			if(! canReg){
 				//Been registered already
+				fatherPanel.cleanName();
+				fatherPanel.cleanPass();
+				JFrameMain.J_FRAME_MAIN.setEnabled(false);
+				new Dialog(ImgLink.SIGNIN_NAME_EXIST);
 			}else{
 				//succeed.
+				JFrameMain.J_FRAME_MAIN.setEnabled(false);
+				new Dialog( ImgLink.SIGNIN_SUCCEED);
 			}
 		} catch (RemoteException e1) {
 			e1.printStackTrace();

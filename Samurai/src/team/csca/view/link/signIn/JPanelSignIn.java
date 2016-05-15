@@ -9,16 +9,16 @@ import team.csca.view.image.ImgLink;
 
 public class JPanelSignIn extends JPanel{
 	
-	private LayerBackground backgound = new LayerBackground(0, 0, 1250, 700, ImgLink.SIGNIN_BACK);
+	private LayerBackground backgound ;
 	
-	private PlaintfField nameArea = new PlaintfField(775, 225, 190, 45);
+	private PlaintfField nameArea = new PlaintfField(640, 227, 160, 30);
 			
-	private PlainpswField passwordArea = new PlainpswField(775, 305, 150, 45);
+	private PlainpswField passwordArea = new PlainpswField(660, 290, 160, 30);
 	
 	public JPanelSignIn() {
 		
 		setLayout(null);
-		
+		backgound = new LayerBackground(0, 0, 1250, 700, ImgLink.SIGNIN_BACK);
 		this.add(nameArea);
 		this.add(passwordArea);
 		this.add(new JButtonLogin(this));
@@ -31,7 +31,7 @@ public class JPanelSignIn extends JPanel{
 	
 	public void paintComponent(Graphics g){
 		backgound.createWindow(g);
-		super.paintComponent(g);
+		super.paintComponents(g);
 	}
 	
 	

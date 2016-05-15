@@ -19,7 +19,7 @@ public class PlaintfField extends JTextField{
 		setBounds(locateX, locateY, width, height);
 		setOpaque(false);
 		init();
-		
+		setForeground(Color.BLACK);
 	}
 	
 	private void init(){

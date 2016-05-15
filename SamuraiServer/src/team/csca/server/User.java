@@ -25,7 +25,7 @@ public interface User extends Remote{
 	 * @return 成功登入
 	 * @throws RemoteException
 	 */
-	public int login(String userName , String password) throws RemoteException;
+	public int login(String userName , String password , User user) throws RemoteException;
 	/**
 	 * 用户注销登陆
 	 * @param userName 用户名
@@ -39,7 +39,7 @@ public interface User extends Remote{
 	 * @param moodleCode
 	 * @throws RemoteException
 	 */
-	public void chooseMoodle(int moodleCode) throws RemoteException;
+	public void chooseMoodle(int moodleCode , GameObserver observer) throws RemoteException;
 	
 	
 	

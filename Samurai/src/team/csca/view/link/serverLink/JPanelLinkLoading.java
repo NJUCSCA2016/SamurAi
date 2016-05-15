@@ -52,10 +52,10 @@ public class JPanelLinkLoading extends JPanel{
 		this.setLayout(null);
 		this.requestFocus();
 		
-		this.add(new JButtonReturn(1112,0,203,150,
-				ImgLink.LOGIN_WAITING_RETURN ,
-				ImgLink.LOGIN_WAITING_RETURN ,
-				ImgLink.LOGIN_WAITING_RETURN ,
+		this.add(new JButtonReturn(1150,20,50, 38,
+				ImgLink.LOGIN_WAITING_RETURN1 ,
+				ImgLink.LOGIN_WAITING_RETURN2 ,
+				ImgLink.LOGIN_WAITING_RETURN3 ,
 				this));
 		
 		linkStart();
@@ -63,9 +63,9 @@ public class JPanelLinkLoading extends JPanel{
 	}
 	
 	private void linkStart(){
-		timer.schedule(new ActionTaken(), 1000);
 		movieThread = new Thread(new LoadingMovie());
 		movieThread.start();
+		timer.schedule(new ActionTaken(), 1000);
 	}
 	
 	private class LoadingMovie implements Runnable{
@@ -76,10 +76,10 @@ public class JPanelLinkLoading extends JPanel{
 			/**
 			 * Forever Loop till server is found 
 			 */
-			while(! findServer && timeCount <= 99){
+			while(! findServer && timeCount <= 59){
 				for(int i = 0 ; i <= 19 ; i++){
 					try {
-						Thread.sleep(50);
+						Thread.sleep(100);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -144,7 +144,7 @@ public class JPanelLinkLoading extends JPanel{
 				link = null;
 			} finally {
 				//The last time
-				if(timeCount == 99 || link != null){
+				if(timeCount == 59 || link != null){
 					findServer = true;
 					timer.cancel();
 				}
@@ -154,7 +154,7 @@ public class JPanelLinkLoading extends JPanel{
 	}
 	
 	
-	public void paintComponents(Graphics g){
+	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(currentImg, 0, 0, null);
 	}
@@ -177,7 +177,7 @@ public class JPanelLinkLoading extends JPanel{
 		
 		this.movieThread = new Thread(new LoadingMovie());
 		this.movieThread.start();
-		timer.schedule(new ActionTaken(), 1000);
+		timer.schedule(new ActionTaken(), 100);
 	}
 	
 	

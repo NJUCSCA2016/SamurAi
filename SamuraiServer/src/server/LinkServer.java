@@ -58,8 +58,8 @@ public class LinkServer extends UnicastRemoteObject implements User , GameObserv
 	}
 
 	@Override
-	public int login(String userName, String password) throws RemoteException {
-		return user.login(userName, password);
+	public int login(String userName, String password , User user) throws RemoteException {
+		return user.login(userName, password , user);
 	}
 
 	@Override
@@ -68,8 +68,8 @@ public class LinkServer extends UnicastRemoteObject implements User , GameObserv
 	}
 
 	@Override
-	public void chooseMoodle(int moodleCode) throws RemoteException {
-		user.chooseMoodle(moodleCode);
+	public void chooseMoodle(int moodleCode , GameObserver observer) throws RemoteException {
+		user.chooseMoodle(moodleCode , observer);
 	}
 	
 	
