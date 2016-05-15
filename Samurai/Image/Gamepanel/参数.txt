@@ -1,0 +1,32 @@
+info1:
+x:5 y:0 w:190 h:240
+info2:
+x:5 y:230 w:190 h:240
+info6:
+x:5 y:460 w:190 h:240
+info4:
+x:1040 y:0 w:190 h:240
+info5:
+x:1040 y:230 w:190 h:240
+info3:
+x:1040 y:460 w:190 h:240
+button1:
+x:200 y:10 w:100 h:100
+button2:
+x:310 y:10 w:100 h:100 
+button3:
+x:420 y:10 w:100 h:100
+button5:
+x:530 y:10 w:100 h:100
+button6:
+x:640 y:10 w:100 h:100
+countdownbg:
+x:200 y:110 w:138 h:160
+repentbutton:
+x:872 y:465 w:140 h:50
+switchbutton:
+x:880 y:560 w:140 h:50
+quit:
+x:865 y:655 w:140 h:50
+pausebutton:
+x:450 y:150 w:350 h:400
