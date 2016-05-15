@@ -68,6 +68,18 @@ public class JPanelPM extends JPanel implements KeyListener {
 	 * 代表占领的位置
 	 */
 	public int[] occupation = new int[225];
+	
+	Random random = new Random();
+	/**
+	 * 最大恢复周期
+	 */
+	public int maxRecoverRound = 12 * (1 + random.nextInt(4));
+	/**
+	 * 每个武士的恢复周期
+	 */
+	public int[] recoverRound = {0, 0, 0, 0, 0, 0};
+	
+	public int maxRound = 12 * (2 + random.nextInt(18));
 
 
 	Font messageFont = new Font("宋体", Font.PLAIN, 40);
@@ -85,6 +97,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 		this.addKeyListener(this);
 		this.add(new JButtonBack(this));
 		Random r = new Random();
+
+
 
 		this.addMouseListener(new MouseListener() {
 
@@ -188,7 +202,9 @@ public class JPanelPM extends JPanel implements KeyListener {
 				new LayerBackground(x[3] * 40 + y[3] * 13 + 252, y[3] * (-36) + 614, 30, 30, ImgSamurai.B0_FLAG),
 				new LayerBackground(x[4] * 40 + y[4] * 13 + 252, y[4] * (-36) + 614, 30, 30, ImgSamurai.B1_FLAG),
 				new LayerBackground(x[5] * 40 + y[5] * 13 + 252, y[5] * (-36) + 614, 30, 30, ImgSamurai.B2_FLAG),
-				
+				/*
+				 * 信息栏
+				 */
 				new LayerBackground(1040, 0, 190, 240, ImgSamurai.INFO_A0),
 				new LayerBackground(1040, 230, 190, 240, ImgSamurai.INFO_A1),
 				new LayerBackground(1040, 460, 190, 240, ImgSamurai.INFO_A2),
@@ -258,6 +274,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 		g.drawImage(ImgSamurai.B2_PICTURE[direction[5]], x[5] * 40 + y[5] * 13 + 228, y[5] * (-36) + 600, 50, 50, this);
 		// FIXME:测试用代码
 		g.setFont(messageFont);
+		g.drawString(Integer.toString(maxRound), 200, 30);
+		g.drawString(Integer.toString(round), 300, 30);
 		g.drawString("Power: " + Integer.toString(nowPower), 460, 30);
 		g.drawString("Index: " + Integer.toString(index), 640, 30);
 		g.drawString("IsHidden: " + isHidden(), 330, 80);
@@ -341,7 +359,16 @@ public class JPanelPM extends JPanel implements KeyListener {
 		if (index == 5) {
 			printNumber(nowPower, g, 120 , 578, 18, 25);
 		}
+		for (int k = 0; k < 3; k++) {
+			printNumber(recoverRound[k], g, 1157, 151 + k * 230, 18, 25);
+		}
+		for (int i = 0; i < 3; i++) {
+			printNumber(recoverRound[i + 3], g, 120, 151 + i * 230, 18, 25);
+		}
 		
+		if (round == maxRound) {
+			g.drawString("游戏结束！", 600, 340);
+		}
 	}
 
 	@Override
@@ -352,208 +379,300 @@ public class JPanelPM extends JPanel implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		switch (e.getKeyCode()) {
-		case KeyEvent.VK_UP:
-			// TODO:不知道AI是怎么表示出来的
-			// FIXME:删除测试代码
-//			System.out.println(121);
-			cost = 2;
-			// if (nowPower - cost >= 0 && y[index] + 1 <= 14) {
-			// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], 0, 1))
-			// {
-			// FIXME:修改判定条件
-			// if (canMoveTo(0, 1)) {
-			if (canMoveTo(0, 1) && hasPower() && !isHidden()) {
-				// if (y[index]+1 <=14) {
-				nowPower = nowPower - cost;
-				y[index] += 1;
-				direction[index] = 1;
-				// if (isHidden()) {
-				// direction[index] = 5;
-				// }
-				repaint();
-//				System.out.println(x[0]);
+		if (index <= 2 && round < maxRound) {
+			switch (e.getKeyCode()) {
+			case KeyEvent.VK_UP:
+				moveUp();
+				break;
+			case KeyEvent.VK_DOWN:
+				moveDown();
+				break;
+			case KeyEvent.VK_LEFT:
+				moveLeft();
+				break;
+			case KeyEvent.VK_RIGHT:
+				moveRight();
+				break;
+			// 切换人物
+			case KeyEvent.VK_Q:
+				changeCharacter();
+				break;
+			// 隐身
+			case KeyEvent.VK_W:
+				hideMe();
+				break;
+			// 现行
+			case KeyEvent.VK_E:
+				showMe();
+				break;
+			case KeyEvent.VK_R:
+				attack();
+				break;
+			default:
+				break;
 			}
-			if (canMoveTo(0, 1) && hasPower() && isHidden()) {
-				// if (y[index]+1 <=14) {
-				nowPower = nowPower - cost;
-				y[index] += 1;
-				direction[index] = 5;
-				// if (isHidden()) {
-				// direction[index] = 5;
-				// }
-				repaint();
-				System.out.println(x[0]);
-			}
-			break;
-		// TODO:这里开始貌似写错了
-		case KeyEvent.VK_DOWN:
-			cost = 2;
-			// if (nowPower - cost >= 0 && y[index] - 1 >= 0) {
-			// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], 0, -1))
-			// {
-			// FIXME:修改判定条件
-			// if (canMoveTo(0, -1)) {
-			if (canMoveTo(0, -1) && hasPower() && !isHidden()) {
-				// if (y[index]-1 >= 0) {
-				nowPower = nowPower - cost;
-				y[index] -= 1;
-				direction[index] = 0;
-				// if (isHidden()) {
-				// direction[index] = 4;
-				// }
-				repaint();
-			}
-			if (canMoveTo(0, -1) && hasPower() && isHidden()) {
-				// if (y[index]-1 >= 0) {
-				nowPower = nowPower - cost;
-				y[index] -= 1;
-				direction[index] = 4;
-				// if (isHidden()) {
-				// direction[index] = 4;
-				// }
-				repaint();
-			}
-			break;
-		case KeyEvent.VK_LEFT:
-			cost = 2;
-			// if (nowPower - cost >= 0 && x[index] - 1 >= 0) {
-			// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], -1, 0))
-			// {
-			// FIXME:修改判定条件
-			// if (canMoveTo(-1, 0)) {
-			if (canMoveTo(-1, 0) && hasPower() && !isHidden()) {
-				// if (x[index]-1 >= 0) {
-				nowPower = nowPower - cost;
-				x[index] -= 1;
-				direction[index] = 2;
-				// if (isHidden()) {
-				// direction[index] = 6;
-				// }
-				repaint();
-			}
-			if (canMoveTo(-1, 0) && hasPower() && isHidden()) {
-				// if (x[index]-1 >= 0) {
-				nowPower = nowPower - cost;
-				x[index] -= 1;
-				direction[index] = 6;
-				// if (isHidden()) {
-				// direction[index] = 6;
-				// }
-				repaint();
-			}
-			break;
-		case KeyEvent.VK_RIGHT:
-			cost = 2;
-			// if (nowPower - cost >= 0 && x[index] + 1 <= 14) {
-			// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], 1, 0))
-			// {
-			// FIXME:修改判定条件
-			// if (canMoveTo(1, 0)) {
-			if (canMoveTo(1, 0) && hasPower() && !isHidden()) {
-				// if (x[index]+1 <=14) {
-				nowPower = nowPower - cost;
-				x[index] += 1;
-				direction[index] = 3;
-				// if (isHidden()) {
-				// direction[index] = 7;
-				// }
-				repaint();
-			}
-			if (canMoveTo(1, 0) && hasPower() && isHidden()) {
-				// if (x[index]+1 <=14) {
-				nowPower = nowPower - cost;
-				x[index] += 1;
-				direction[index] = 7;
-				// if (isHidden()) {
-				// direction[index] = 7;
-				// }
-				repaint();
-			}
-			break;
-		// 切换人物
-		case KeyEvent.VK_Q:
-			round++;
-			/**
-			 * 0:A0， 1:A1， 2:A2， 3:B0， 4:B1， 5:B2 A0 - B0 - B1 - A1 - A2 - B2 -
-			 * B0 - A0 - A1 - B1 - B2 - A2 0 - 3 - 4 - 1 - 2 - 5 - 3 - 0 - 1 - 4
-			 * - 5 - 2
-			 */
-			// if (round % 12 == 0) {
-			// index = 0;
-			// }
-			// if (round % 12 == 1) {
-			// index = 3;
-			// }
-			// if (round % 12 == 2) {
-			// index = 4;
-			// }
-			// if (round % 12 == 3) {
-			// index = 1;
-			// }
-			// if (round % 12 == 4) {
-			// index = 2;
-			// }
-			// if (round % 12 == 5) {
-			// index = 5;
-			// }
-			// if (round % 12 == 6) {
-			// index = 3;
-			// }
-			// if (round % 12 == 7) {
-			// index = 0;
-			// }
-			// if (round % 12 == 8) {
-			// index = 1;
-			// }
-			// if (round % 12 == 9) {
-			// index = 4;
-			// }
-			// if (round % 12 == 10) {
-			// index = 5;
-			// }
-			// if (round % 12 == 11) {
-			// index = 2;
-			// }
-			calculateIndex();
-			nowPower = 7;
-			repaint();
-			break;
-
-		// 隐身
-		case KeyEvent.VK_W:
-			cost = 1;
-			if (canHide() && hasPower()) {
-				nowPower = nowPower - cost;
-				direction[index] += 4;
-			}
-			repaint();
-			break;
-		// 现行
-		case KeyEvent.VK_E:
-			cost = 1;
-			if (canShow() && hasPower()) {
-				nowPower = nowPower - cost;
-				direction[index] -= 4;
-			}
-			repaint();
-			break;
-		case KeyEvent.VK_R:
-			cost = 4;
-			// TODO:增加判断条件
-			if (hasPower()) {
-				nowPower = nowPower - cost;
-				occupy();
-			}
-			
-			repaint();
-			break;
-		default:
-			break;
+			// repaint();
 		}
-		// repaint();
 
+
+	}
+
+	/**
+	 * 进攻
+	 */
+	public void attack() {
+		cost = 4;
+		// TODO:增加判断条件
+		if (hasPower()) {
+			nowPower = nowPower - cost;
+			occupy();
+		}
+		
+		repaint();
+		
+	}
+
+	/**
+	 * 现身
+	 */
+	public void showMe() {
+		cost = 1;
+		if (canShow() && hasPower()) {
+			nowPower = nowPower - cost;
+			direction[index] -= 4;
+		}
+		repaint();
+		
+	}
+
+	/**
+	 * 隐身
+	 */
+	public void hideMe() {
+		cost = 1;
+		if (canHide() && hasPower()) {
+			nowPower = nowPower - cost;
+			direction[index] += 4;
+		}
+		repaint();
+	}
+
+	/**
+	 * 切换武士
+	 */
+	public void changeCharacter() {
+		round++;
+		calculateIndex();
+		nowPower = 7;
+		calculateIndex();
+		if (index >= 3) {
+			aiTakeAction();
+		}
+		for (int i = 0; i < 6; i++) {
+			if (recoverRound[i] > 0) {
+				recoverRound[i] --;
+			}
+			if (recoverRound[index] > 0) {
+				nowPower = 0; 
+			}
+		}
+		repaint();
+	}
+
+	/**
+	 * 向右移动
+	 */
+	public void moveRight() {
+		cost = 2;
+		// if (nowPower - cost >= 0 && x[index] + 1 <= 14) {
+		// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], 1, 0))
+		// {
+		// FIXME:修改判定条件
+		// if (canMoveTo(1, 0)) {
+		if (canMoveTo(1, 0) && hasPower() && !isHidden()) {
+			// if (x[index]+1 <=14) {
+			nowPower = nowPower - cost;
+			x[index] += 1;
+			direction[index] = 3;
+			// if (isHidden()) {
+			// direction[index] = 7;
+			// }
+			repaint();
+		}
+		if (canMoveTo(1, 0) && hasPower() && isHidden()) {
+			// if (x[index]+1 <=14) {
+			nowPower = nowPower - cost;
+			x[index] += 1;
+			direction[index] = 7;
+			// if (isHidden()) {
+			// direction[index] = 7;
+			// }
+			repaint();
+		}
+		
+	}
+
+	/**
+	 * 向左移动
+	 */
+	public void moveLeft() {
+		cost = 2;
+		// if (nowPower - cost >= 0 && x[index] - 1 >= 0) {
+		// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], -1, 0))
+		// {
+		// FIXME:修改判定条件
+		// if (canMoveTo(-1, 0)) {
+		if (canMoveTo(-1, 0) && hasPower() && !isHidden()) {
+			// if (x[index]-1 >= 0) {
+			nowPower = nowPower - cost;
+			x[index] -= 1;
+			direction[index] = 2;
+			// if (isHidden()) {
+			// direction[index] = 6;
+			// }
+			repaint();
+		}
+		if (canMoveTo(-1, 0) && hasPower() && isHidden()) {
+			// if (x[index]-1 >= 0) {
+			nowPower = nowPower - cost;
+			x[index] -= 1;
+			direction[index] = 6;
+			// if (isHidden()) {
+			// direction[index] = 6;
+			// }
+			repaint();
+		}
+		
+	}
+
+	/**
+	 * 向下移动
+	 */
+	public void moveDown() {
+		cost = 2;
+		// if (nowPower - cost >= 0 && y[index] - 1 >= 0) {
+		// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], 0, -1))
+		// {
+		// FIXME:修改判定条件 
+		// if (canMoveTo(0, -1)) {
+		if (canMoveTo(0, -1) && hasPower() && !isHidden()) {
+			// if (y[index]-1 >= 0) {
+			nowPower = nowPower - cost;
+			y[index] -= 1;
+			direction[index] = 0;
+			// if (isHidden()) {
+			// direction[index] = 4;
+			// }
+			repaint();
+		}
+		if (canMoveTo(0, -1) && hasPower() && isHidden()) {
+			// if (y[index]-1 >= 0) {
+			nowPower = nowPower - cost;
+			y[index] -= 1;
+			direction[index] = 4;
+			// if (isHidden()) {
+			// direction[index] = 4;
+			// }
+			repaint();
+		}
+		
+	}
+
+	/**
+	 * 向上移动
+	 */
+	public void moveUp() {
+		// TODO:不知道AI是怎么表示出来的
+		// FIXME:删除测试代码
+//		System.out.println(121);
+		cost = 2;
+		// if (nowPower - cost >= 0 && y[index] + 1 <= 14) {
+		// if (nowPower - cost >= 0 && canMoveTo(x[index], y[index], 0, 1))
+		// {
+		// FIXME:修改判定条件
+		// if (canMoveTo(0, 1)) {
+		if (canMoveTo(0, 1) && hasPower() && !isHidden()) {
+			// if (y[index]+1 <=14) {
+			nowPower = nowPower - cost;
+			y[index] += 1;
+			direction[index] = 1;
+			// if (isHidden()) {
+			// direction[index] = 5;
+			// }
+			repaint();
+//			System.out.println(x[0]);
+		}
+		if (canMoveTo(0, 1) && hasPower() && isHidden()) {
+			// if (y[index]+1 <=14) {
+			nowPower = nowPower - cost;
+			y[index] += 1;
+			direction[index] = 5;
+			// if (isHidden()) {
+			// direction[index] = 5;
+			// }
+			repaint();
+//			System.out.println(x[0]);
+		}
+		
+	}
+
+	public void aiTakeAction() {
+		/**
+		 * 上，下，左，右
+		 * 切换人物
+		 * 隐身
+		 * 现身
+		 * 占领
+		 */
+		int action = random.nextInt(12);
+		int[] aiCost = {2, 2, 2, 2, 0, 1, 1, 4, 4, 4, 4, 4};
+		cost = aiCost[action];
+		if (hasPower()) {
+			switch (action) {
+			case 0:
+				moveUp();
+				break;
+			case 1:
+				moveDown();
+				break;
+			case 2:
+				moveLeft();
+				break;
+			case 3:
+				moveRight();
+				break;
+			case 4:
+				changeCharacter();
+				break;
+			case 5:
+				hideMe();
+				break;
+			case 6:
+				showMe();
+				break;
+			case 7:
+				attack();
+				break;
+			case 8:
+				attack();
+				break;
+			case 9:
+				attack();
+				break;
+			case 10:
+				attack();
+				break;
+			case 11:
+				attack();
+				break;
+			default:
+				break;
+			}
+		}
+		if (nowPower >= 0 && index >= 3) {
+			aiTakeAction();
+		}
+		
 	}
 
 	public void calculateIndex() {
@@ -601,7 +720,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 	 * 
 	 * @return
 	 */
-	private boolean canShow() {
+	public boolean canShow() {
 		// 在不是隐身的情况下不可以现身
 		if (!isHidden()) {
 			return false;
@@ -1381,14 +1500,21 @@ public class JPanelPM extends JPanel implements KeyListener {
 		
 	}
 
+	/**
+	 * 
+	 * @param location 占领的地盘
+	 */
 	public void beatOthers(int[] location){
 		for (int i = 0; i < location.length; i++) {
 			for (int j = 0; j < 6; j++) {
 				int temp = 15 * x[j] + y[j];
-				if (location[i] == temp && j != index) {
+				int temp2 = 15 * homeX[j] + homeY[j];
+				if (location[i] == temp && j != index && location[i] != temp2) {
 					x[j] = homeX[j];
 					y[j] = homeY[j];
+					recoverRound[j] = maxRecoverRound;
 				}
+
 			}
 		}
 	}
