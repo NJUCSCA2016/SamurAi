@@ -267,22 +267,22 @@ public class JPanelPM extends JPanel implements KeyListener {
 		 * 提示是哪一个武士在行动
 		 */
 		if (index == 0) {
-			g.drawImage(ImgSamurai.A0, 1000, 600, 50, 50, this);
+			g.drawImage(ImgSamurai.A0, 985, 580, 50, 50, this);
 		}
 		if (index == 1) {
-			g.drawImage(ImgSamurai.A1, 1000, 600, 50, 50, this);
+			g.drawImage(ImgSamurai.A1, 985, 580, 50, 50, this);
 		}
 		if (index == 2) {
-			g.drawImage(ImgSamurai.A2, 1000, 600, 50, 50, this);
+			g.drawImage(ImgSamurai.A2, 985, 580, 50, 50, this);
 		}
 		if (index == 3) {
-			g.drawImage(ImgSamurai.B0, 1000, 600, 50, 50, this);
+			g.drawImage(ImgSamurai.B0, 210, 90, 50, 50, this);
 		}
 		if (index == 4) {
-			g.drawImage(ImgSamurai.B1, 1000, 600, 50, 50, this);
+			g.drawImage(ImgSamurai.B1, 210, 90, 50, 50, this);
 		}
 		if (index == 5) {
-			g.drawImage(ImgSamurai.B2, 1000, 600, 50, 50, this);
+			g.drawImage(ImgSamurai.B2, 210, 90, 50, 50, this);
 		}
 		
 		int count[] = new int[6];
@@ -296,9 +296,9 @@ public class JPanelPM extends JPanel implements KeyListener {
 				}
 			}
 		}
-		for (int i = 0; i < count.length; i++) {
-			System.out.println(i + " " + count[i]);
-		}
+//		for (int i = 0; i < count.length; i++) {
+//			System.out.println(i + " " + count[i]);
+//		}
 		/*
 		 * A0的胜利点
 		 */
@@ -311,6 +311,37 @@ public class JPanelPM extends JPanel implements KeyListener {
 		 * A2的胜利点
 		 */
 		printNumber(count[2], g, 1157 , 545, 18, 25);
+		/*
+		 * B0的胜利点
+		 */
+		printNumber(count[3], g, 120 , 85, 18, 25);
+		/*
+		 * B1的胜利点
+		 */
+		printNumber(count[4], g, 120 , 315, 18, 25);
+		/*
+		 * B2的胜利点
+		 */
+		printNumber(count[5], g, 120 , 545, 18, 25);
+		if (index == 0) {
+			printNumber(nowPower, g, 1157 , 118, 18, 25);
+		}
+		if (index == 1) {
+			printNumber(nowPower, g, 1157 , 348, 18, 25);
+		}
+		if (index == 2) {
+			printNumber(nowPower, g, 1157 , 578, 18, 25);
+		}
+		if (index == 3) {
+			printNumber(nowPower, g, 120 , 118, 18, 25);
+		}
+		if (index == 4) {
+			printNumber(nowPower, g, 120 , 348, 18, 25);
+		}
+		if (index == 5) {
+			printNumber(nowPower, g, 120 , 578, 18, 25);
+		}
+		
 	}
 
 	@Override
