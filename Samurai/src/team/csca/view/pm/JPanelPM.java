@@ -1572,8 +1572,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (5 <= x[i] && x[i] <= 9 && y[i] == 4) {
+			} else if (5 <= x[i] && x[i] <= 9 && y[i] == 4) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -1645,8 +1644,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (5 <= x[i] && x[i] <= 9 && y[i] == 3) {
+			} else if (5 <= x[i] && x[i] <= 9 && y[i] == 3) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -1718,8 +1716,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (5 <= x[i] && x[i] <= 9 && y[i] == 2) {
+			} else if (5 <= x[i] && x[i] <= 9 && y[i] == 2) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -1791,8 +1788,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (5 <= x[i] && x[i] <= 9 && y[i] == 1) {
+			} else if (5 <= x[i] && x[i] <= 9 && y[i] == 1) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -1864,8 +1860,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (5 <= x[i] && x[i] <= 9 && y[i] == 0) {
+			} else if (5 <= x[i] && x[i] <= 9 && y[i] == 0) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -1937,8 +1932,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (5 <= x[i] && x[i] <= 9 && y[i] == 10) {
+			} else if (5 <= x[i] && x[i] <= 9 && y[i] == 10) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -2010,8 +2004,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (5 <= x[i] && x[i] <= 9 && 5 <= y[i] && y[i] == 11) {
+			} else if (5 <= x[i] && x[i] <= 9 && 5 <= y[i] && y[i] == 11) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -2083,8 +2076,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (5 <= x[i] && x[i] <= 9 && y[i] == 12) {
+			} else if (5 <= x[i] && x[i] <= 9 && y[i] == 12) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -2156,8 +2148,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (5 <= x[i] && x[i] <= 9 && y[i] == 13) {
+			} else if (5 <= x[i] && x[i] <= 9 && y[i] == 13) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -2229,8 +2220,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (5 <= x[i] && x[i] <= 9 && y[i] == 14) {
+			} else if (5 <= x[i] && x[i] <= 9 && y[i] == 14) {
 				outSight[x[i] - 4][y[i]] = false;
 				outSight[x[i] - 4][y[i] - 1] = false;
 				// outSight[x[i] - 4][y[i] + 1] = false;
@@ -2300,9 +2290,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			// TIP:x = 4,5 <= y <= 9
-			if (x[i] == 4 && 5 <= y[i] && y[i] <= 9) {
+			} else if (x[i] == 4 && 5 <= y[i] && y[i] <= 9) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -2374,9 +2362,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			// TIP:x = 3,5 <= y <= 9
-			if (x[i] == 3 && 5 <= y[i] && y[i] <= 9) {
+			} else if (x[i] == 3 && 5 <= y[i] && y[i] <= 9) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -2448,9 +2434,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			// TIP:x = 2,5 <= y <= 9
-			if (x[i] == 2 && 5 <= y[i] && y[i] <= 9) {
+			} else if (x[i] == 2 && 5 <= y[i] && y[i] <= 9) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -2522,8 +2506,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 1 && 5 <= y[i] && y[i] <= 9) {
+			} else if (x[i] == 1 && 5 <= y[i] && y[i] <= 9) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -2595,8 +2578,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 1 && y[i] == 10) {
+			} else if (x[i] == 1 && y[i] == 10) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -2668,8 +2650,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 1 && y[i] == 11) {
+			} else if (x[i] == 1 && y[i] == 11) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -2741,8 +2722,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 1 && y[i] == 12) {
+			} else if (x[i] == 1 && y[i] == 12) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -2814,8 +2794,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 1 && y[i] == 13) {
+			} else if (x[i] == 1 && y[i] == 13) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -2887,8 +2866,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 1 && y[i] == 14) {
+			} else if (x[i] == 1 && y[i] == 14) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -2960,8 +2938,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 1 && y[i] == 4) {
+			} else if (x[i] == 1 && y[i] == 4) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3033,8 +3010,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 1 && y[i] == 3) {
+			} else if (x[i] == 1 && y[i] == 3) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3106,8 +3082,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 1 && y[i] == 2) {
+			} else if (x[i] == 1 && y[i] == 2) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3179,8 +3154,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 1 && y[i] == 1) {
+			} else if (x[i] == 1 && y[i] == 1) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3252,8 +3226,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 1 && y[i] == 0) {
+			} else if (x[i] == 1 && y[i] == 0) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3325,8 +3298,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 0 && 5 <= y[i] && y[i] <= 9) {
+			} else if (x[i] == 0 && 5 <= y[i] && y[i] <= 9) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3398,8 +3370,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 0 && y[i] == 4) {
+			} else if (x[i] == 0 && y[i] == 4) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3471,8 +3442,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 0 && y[i] == 3) {
+			} else if (x[i] == 0 && y[i] == 3) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3544,8 +3514,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 0 && y[i] == 2) {
+			} else if (x[i] == 0 && y[i] == 2) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3617,8 +3586,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 0 && y[i] == 1) {
+			} else if (x[i] == 0 && y[i] == 1) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3690,8 +3658,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 0 && y[i] == 0) {
+			} else if (x[i] == 0 && y[i] == 0) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3763,8 +3730,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 0 && y[i] == 10) {
+			} else if (x[i] == 0 && y[i] == 10) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3836,8 +3802,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 0 && y[i] == 11) {
+			} else if (x[i] == 0 && y[i] == 11) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3909,8 +3874,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 0 && y[i] == 12) {
+			} else if (x[i] == 0 && y[i] == 12) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -3982,8 +3946,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 0 && y[i] == 13) {
+			} else if (x[i] == 0 && y[i] == 13) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -4055,8 +4018,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 0 && y[i] == 14) {
+			} else if (x[i] == 0 && y[i] == 14) {
 				// outSight[x[i] - 5][y[i]] = false;
 
 				// outSight[x[i] - 4][y[i]] = false;
@@ -4128,8 +4090,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 10 && 5 <= y[i] && y[i] <= 9) {
+			} else if (x[i] == 10 && 5 <= y[i] && y[i] <= 9) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -4201,8 +4162,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 10 && y[i] == 10) {
+			} else if (x[i] == 10 && y[i] == 10) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -4274,8 +4234,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 10 && y[i] == 11) {
+			} else if (x[i] == 10 && y[i] == 11) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -4347,8 +4306,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 10 && y[i] == 12) {
+			} else if (x[i] == 10 && y[i] == 12) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -4420,8 +4378,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 10 && y[i] == 13) {
+			} else if (x[i] == 10 && y[i] == 13) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -4493,8 +4450,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 10 && y[i] == 14) {
+			} else if (x[i] == 10 && y[i] == 14) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -4566,8 +4522,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 10 && y[i] == 4) {
+			} else if (x[i] == 10 && y[i] == 4) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -4639,8 +4594,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 10 && y[i] == 3) {
+			} else if (x[i] == 10 && y[i] == 3) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -4712,8 +4666,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 10 && y[i] == 2) {
+			} else if (x[i] == 10 && y[i] == 2) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -4785,8 +4738,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 10 && y[i] == 1) {
+			} else if (x[i] == 10 && y[i] == 1) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -4858,8 +4810,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 10 && y[i] == 0) {
+			} else if (x[i] == 10 && y[i] == 0) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -4931,8 +4882,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 11 && 5 <= y[i] && y[i] <= 9) {
+			} else if (x[i] == 11 && 5 <= y[i] && y[i] <= 9) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5004,8 +4954,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 11 && y[i] == 10) {
+			} else if (x[i] == 11 && y[i] == 10) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5077,8 +5026,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 11 && y[i] == 11) {
+			} else if (x[i] == 11 && y[i] == 11) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5150,8 +5098,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 11 && y[i] == 12) {
+			} else if (x[i] == 11 && y[i] == 12) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5223,8 +5170,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 11 && y[i] == 13) {
+			} else if (x[i] == 11 && y[i] == 13) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5296,8 +5242,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 11 && y[i] == 14) {
+			} else if (x[i] == 11 && y[i] == 14) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5369,8 +5314,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 11 && y[i] == 4) {
+			} else if (x[i] == 11 && y[i] == 4) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5442,8 +5386,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 11 && y[i] == 3) {
+			} else if (x[i] == 11 && y[i] == 3) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5515,8 +5458,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 11 && y[i] == 2) {
+			} else if (x[i] == 11 && y[i] == 2) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5588,8 +5530,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 11 && y[i] == 1) {
+			} else if (x[i] == 11 && y[i] == 1) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5661,8 +5602,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			if (x[i] == 11 && y[i] == 0) {
+			} else if (x[i] == 11 && y[i] == 0) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5734,9 +5674,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			// TIP:x = 12,5 <= y <= 9
-			if (x[i] == 12 && 5 <= y[i] && y[i] <= 9) {
+			} else if (x[i] == 12 && 5 <= y[i] && y[i] <= 9) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5808,9 +5746,295 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
-			}
-			// TIP:x = 13,5 <= y <= 9
-			if (x[i] == 13 && 5 <= y[i] && y[i] <= 9) {
+			} else if (x[i] == 12 && y[i] == 4) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 12 && y[i] == 3) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 12 && y[i] == 2) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 12 && y[i] == 1) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				// outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				// outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				// outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 13 && 5 <= y[i] && y[i] <= 9) {
 				outSight[x[i] - 5][y[i]] = false;
 
 				outSight[x[i] - 4][y[i]] = false;
@@ -5882,8 +6106,3338 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 4][y[i] + 1] = false;
 
 				// outSight[x[i] + 5][y[i]] = false;
+			} else {
+				getLimitedSight();
 			}
-			// TIP:x = 14,5 <= y <= 9
+
+		}
+		for (int i = 0; i < 6; i++) {
+			outSight[homeX[i]][homeY[i]] = false;
+		}
+
+	}
+
+	public void getLimitedSight() {
+		for (int i = 0; i < 3; i++) {
+			if (x[i] == 12 && y[i] == 0) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				// outSight[x[i] - 2][y[i] - 1] = false;
+				// outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				// outSight[x[i] - 1][y[i] - 1] = false;
+				// outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				// outSight[x[i]][y[i] - 1] = false;
+				// outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			if (x[i] == 12 && y[i] == 10) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			if (x[i] == 12 && y[i] == 11) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			if (x[i] == 12 && y[i] == 12) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			if (x[i] == 12 && y[i] == 13) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				// outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				// outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				// outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			if (x[i] == 12 && y[i] == 14) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				// outSight[x[i] - 2][y[i] + 1] = false;
+				// outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				// outSight[x[i] - 1][y[i] + 1] = false;
+				// outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				// outSight[x[i]][y[i] + 1] = false;
+				// outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 13 && y[i] == 4) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 13 && y[i] == 3) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 13 && y[i] == 2) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 13 && y[i] == 1) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				// outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				// outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				// outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 13 && y[i] == 0) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				// outSight[x[i] - 2][y[i] - 1] = false;
+				// outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				// outSight[x[i] - 1][y[i] - 1] = false;
+				// outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				// outSight[x[i]][y[i] - 1] = false;
+				// outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 13 && y[i] == 10) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 13 && y[i] == 11) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 13 && y[i] == 12) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 13 && y[i] == 13) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				// outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				// outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				// outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 13 && y[i] == 14) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				// outSight[x[i] - 2][y[i] + 1] = false;
+				// outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				// outSight[x[i] - 1][y[i] + 1] = false;
+				// outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				// outSight[x[i]][y[i] + 1] = false;
+				// outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				// outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 2 && y[i] == 4) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				// outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 2 && y[i] == 3) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				// outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 2 && y[i] == 2) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				// outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 2 && y[i] == 1) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				// outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				// outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				// outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				// outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 2 && y[i] == 0) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				// outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				// outSight[x[i] - 2][y[i] - 1] = false;
+				// outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				// outSight[x[i] - 1][y[i] - 1] = false;
+				// outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				// outSight[x[i]][y[i] - 1] = false;
+				// outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 2 && y[i] == 10) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				// outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 2 && y[i] == 11) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				// outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 2 && y[i] == 12) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				// outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 2 && y[i] == 13) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				// outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				// outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				// outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				// outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 2 && y[i] == 14) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				// outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				// outSight[x[i] - 2][y[i] + 1] = false;
+				// outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				// outSight[x[i] - 1][y[i] + 1] = false;
+				// outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				// outSight[x[i]][y[i] + 1] = false;
+				// outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 3 && y[i] == 4) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 3 && y[i] == 3) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 3 && y[i] == 2) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 3 && y[i] == 1) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				// outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				// outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				// outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 3 && y[i] == 0) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				// outSight[x[i] - 2][y[i] - 1] = false;
+				// outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				// outSight[x[i] - 1][y[i] - 1] = false;
+				// outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				// outSight[x[i]][y[i] - 1] = false;
+				// outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 3 && y[i] == 10) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 3 && y[i] == 11) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 3 && y[i] == 12) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 3 && y[i] == 13) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				// outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				// outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				// outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 3 && y[i] == 14) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				// outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				// outSight[x[i] - 2][y[i] + 1] = false;
+				// outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				// outSight[x[i] - 1][y[i] + 1] = false;
+				// outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				// outSight[x[i]][y[i] + 1] = false;
+				// outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 4 && y[i] == 4) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 4 && y[i] == 3) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 4 && y[i] == 2) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 4 && y[i] == 1) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				// outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				// outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				// outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 4 && y[i] == 0) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				// outSight[x[i] - 2][y[i] - 1] = false;
+				// outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				// outSight[x[i] - 1][y[i] - 1] = false;
+				// outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				// outSight[x[i]][y[i] - 1] = false;
+				// outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 4 && y[i] == 10) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 4 && y[i] == 11) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 4 && y[i] == 12) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 4 && y[i] == 13) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				// outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				// outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				// outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			} else if (x[i] == 4 && y[i] == 14) {
+				// outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				// outSight[x[i] - 2][y[i] + 1] = false;
+				// outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				// outSight[x[i] - 1][y[i] + 1] = false;
+				// outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				// outSight[x[i]][y[i] + 1] = false;
+				// outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				outSight[x[i] + 1][y[i]] = false;
+				outSight[x[i] + 1][y[i] - 1] = false;
+				outSight[x[i] + 1][y[i] - 2] = false;
+				outSight[x[i] + 1][y[i] - 3] = false;
+				outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+
+				outSight[x[i] + 2][y[i]] = false;
+				outSight[x[i] + 2][y[i] - 1] = false;
+				outSight[x[i] + 2][y[i] - 2] = false;
+				outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+
+				outSight[x[i] + 3][y[i]] = false;
+				outSight[x[i] + 3][y[i] - 1] = false;
+				outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+
+				outSight[x[i] + 4][y[i]] = false;
+				outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+
+				outSight[x[i] + 5][y[i]] = false;
+			}
+			// TIP:x = 14, 5 <= y <= 9
 			if (x[i] == 14 && 5 <= y[i] && y[i] <= 9) {
 				outSight[x[i] - 5][y[i]] = false;
 
@@ -5936,7 +9490,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 1][y[i] + 2] = false;
 				// outSight[x[i] + 1][y[i] + 3] = false;
 				// outSight[x[i] + 1][y[i] + 4] = false;
-
+				//
 				// outSight[x[i] + 2][y[i]] = false;
 				// outSight[x[i] + 2][y[i] - 1] = false;
 				// outSight[x[i] + 2][y[i] - 2] = false;
@@ -5944,24 +9498,760 @@ public class JPanelPM extends JPanel implements KeyListener {
 				// outSight[x[i] + 2][y[i] + 1] = false;
 				// outSight[x[i] + 2][y[i] + 2] = false;
 				// outSight[x[i] + 2][y[i] + 3] = false;
-
+				//
 				// outSight[x[i] + 3][y[i]] = false;
 				// outSight[x[i] + 3][y[i] - 1] = false;
 				// outSight[x[i] + 3][y[i] - 2] = false;
 				// outSight[x[i] + 3][y[i] + 1] = false;
 				// outSight[x[i] + 3][y[i] + 2] = false;
-
+				//
 				// outSight[x[i] + 4][y[i]] = false;
 				// outSight[x[i] + 4][y[i] - 1] = false;
 				// outSight[x[i] + 4][y[i] + 1] = false;
+				//
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			// TIP:x = 14, y = 10
+			if (x[i] == 14 && y[i] == 10) {
+				outSight[x[i] - 5][y[i]] = false;
 
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				// outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+				//
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+				//
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+				//
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+				//
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			// TIP:x = 14, y = 11
+			if (x[i] == 14 && y[i] == 11) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				// outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+				//
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+				//
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+				//
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+				//
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			// TIP:x = 14, y = 12
+			if (x[i] == 14 && y[i] == 12) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				// outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+				//
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+				//
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+				//
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+				//
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			// TIP:x = 14, y = 13
+			if (x[i] == 14 && y[i] == 13) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				// outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				// outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				// outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				// outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+				//
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+				//
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+				//
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+				//
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			// TIP:x = 14, y = 14
+			if (x[i] == 14 && y[i] == 14) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				// outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				// outSight[x[i] - 3][y[i] + 1] = false;
+				// outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				// outSight[x[i] - 2][y[i] + 1] = false;
+				// outSight[x[i] - 2][y[i] + 2] = false;
+				// outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				// outSight[x[i] - 1][y[i] + 1] = false;
+				// outSight[x[i] - 1][y[i] + 2] = false;
+				// outSight[x[i] - 1][y[i] + 3] = false;
+				// outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				outSight[x[i]][y[i] - 5] = false;
+				// outSight[x[i]][y[i] + 1] = false;
+				// outSight[x[i]][y[i] + 2] = false;
+				// outSight[x[i]][y[i] + 3] = false;
+				// outSight[x[i]][y[i] + 4] = false;
+				// outSight[x[i]][y[i] + 5] = false;
+
+				// outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+				//
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+				//
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+				//
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+				//
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			// TIP:x = 14, y = 4
+			if (x[i] == 14 && y[i] == 4) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				// outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+				//
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+				//
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+				//
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+				//
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			// TIP:x = 14, y = 3
+			if (x[i] == 14 && y[i] == 3) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				// outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+				//
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+				//
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+				//
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+				//
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			// TIP:x = 14, y = 2
+			if (x[i] == 14 && y[i] == 2) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				// outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+				//
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+				//
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+				//
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+				//
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			// TIP:x = 14, y = 1
+			if (x[i] == 14 && y[i] == 1) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				outSight[x[i] - 2][y[i] - 1] = false;
+				// outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				outSight[x[i] - 1][y[i] - 1] = false;
+				// outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				outSight[x[i]][y[i] - 1] = false;
+				// outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				// outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+				//
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+				//
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+				//
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+				//
+				// outSight[x[i] + 5][y[i]] = false;
+			}
+			// TIP:x = 14, y = 0
+			if (x[i] == 14 && y[i] == 0) {
+				outSight[x[i] - 5][y[i]] = false;
+
+				outSight[x[i] - 4][y[i]] = false;
+				// outSight[x[i] - 4][y[i] - 1] = false;
+				outSight[x[i] - 4][y[i] + 1] = false;
+
+				outSight[x[i] - 3][y[i]] = false;
+				// outSight[x[i] - 3][y[i] - 1] = false;
+				// outSight[x[i] - 3][y[i] - 2] = false;
+				outSight[x[i] - 3][y[i] + 1] = false;
+				outSight[x[i] - 3][y[i] + 2] = false;
+
+				outSight[x[i] - 2][y[i]] = false;
+				// outSight[x[i] - 2][y[i] - 1] = false;
+				// outSight[x[i] - 2][y[i] - 2] = false;
+				// outSight[x[i] - 2][y[i] - 3] = false;
+				outSight[x[i] - 2][y[i] + 1] = false;
+				outSight[x[i] - 2][y[i] + 2] = false;
+				outSight[x[i] - 2][y[i] + 3] = false;
+
+				outSight[x[i] - 1][y[i]] = false;
+				// outSight[x[i] - 1][y[i] - 1] = false;
+				// outSight[x[i] - 1][y[i] - 2] = false;
+				// outSight[x[i] - 1][y[i] - 3] = false;
+				// outSight[x[i] - 1][y[i] - 4] = false;
+				outSight[x[i] - 1][y[i] + 1] = false;
+				outSight[x[i] - 1][y[i] + 2] = false;
+				outSight[x[i] - 1][y[i] + 3] = false;
+				outSight[x[i] - 1][y[i] + 4] = false;
+
+				outSight[x[i]][y[i]] = false;
+				// outSight[x[i]][y[i] - 1] = false;
+				// outSight[x[i]][y[i] - 2] = false;
+				// outSight[x[i]][y[i] - 3] = false;
+				// outSight[x[i]][y[i] - 4] = false;
+				// outSight[x[i]][y[i] - 5] = false;
+				outSight[x[i]][y[i] + 1] = false;
+				outSight[x[i]][y[i] + 2] = false;
+				outSight[x[i]][y[i] + 3] = false;
+				outSight[x[i]][y[i] + 4] = false;
+				outSight[x[i]][y[i] + 5] = false;
+
+				// outSight[x[i] + 1][y[i]] = false;
+				// outSight[x[i] + 1][y[i] - 1] = false;
+				// outSight[x[i] + 1][y[i] - 2] = false;
+				// outSight[x[i] + 1][y[i] - 3] = false;
+				// outSight[x[i] + 1][y[i] - 4] = false;
+				// outSight[x[i] + 1][y[i] + 1] = false;
+				// outSight[x[i] + 1][y[i] + 2] = false;
+				// outSight[x[i] + 1][y[i] + 3] = false;
+				// outSight[x[i] + 1][y[i] + 4] = false;
+				//
+				// outSight[x[i] + 2][y[i]] = false;
+				// outSight[x[i] + 2][y[i] - 1] = false;
+				// outSight[x[i] + 2][y[i] - 2] = false;
+				// outSight[x[i] + 2][y[i] - 3] = false;
+				// outSight[x[i] + 2][y[i] + 1] = false;
+				// outSight[x[i] + 2][y[i] + 2] = false;
+				// outSight[x[i] + 2][y[i] + 3] = false;
+				//
+				// outSight[x[i] + 3][y[i]] = false;
+				// outSight[x[i] + 3][y[i] - 1] = false;
+				// outSight[x[i] + 3][y[i] - 2] = false;
+				// outSight[x[i] + 3][y[i] + 1] = false;
+				// outSight[x[i] + 3][y[i] + 2] = false;
+				//
+				// outSight[x[i] + 4][y[i]] = false;
+				// outSight[x[i] + 4][y[i] - 1] = false;
+				// outSight[x[i] + 4][y[i] + 1] = false;
+				//
 				// outSight[x[i] + 5][y[i]] = false;
 			}
 		}
-		for (int i = 0; i < 6; i++) {
-			outSight[homeX[i]][homeY[i]] = false;
-		}
-
 	}
 
 	/**
