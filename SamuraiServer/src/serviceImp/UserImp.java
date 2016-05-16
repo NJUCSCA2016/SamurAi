@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import gamedata.UserInfo;
 import team.csca.server.GameObserver;
 import team.csca.server.User;
+import user.UserInfo;
 /**
  * 
  * User 代理实现类

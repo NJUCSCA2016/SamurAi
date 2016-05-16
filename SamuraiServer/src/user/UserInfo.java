@@ -1,4 +1,4 @@
-package gamedata;
+package user;
 
 import team.csca.server.GameObserver;
 import team.csca.server.User;
@@ -13,6 +13,8 @@ public class UserInfo {
 	
 	private String password = null;
 
+	private int indexOfAI = -1;
+	
 	public UserInfo(String name, String password) {
 		this.name = name;
 		this.password = password;
@@ -47,6 +49,12 @@ public class UserInfo {
 		return password;
 	}
 	
+	public void chooseAI(int indexOfAI){
+		this.indexOfAI = indexOfAI;
+	}
 	
+	public int getIndexOfAI(){
+		return this.indexOfAI;
+	}
 
 }

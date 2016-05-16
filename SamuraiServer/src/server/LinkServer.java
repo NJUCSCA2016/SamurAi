@@ -33,12 +33,12 @@ public class LinkServer extends UnicastRemoteObject implements User , GameObserv
 	}
 
 	@Override
-	public void acceptActionTro(String action) throws RemoteException {
+	public void acceptActionTro(int action) throws RemoteException {
 		gameObserver.acceptActionTro(action);
 	}
 
 	@Override
-	public void acceptActionProp(String action) throws RemoteException {
+	public void acceptActionProp(int action) throws RemoteException {
 		gameObserver.acceptActionProp(action);
 	}
 
@@ -70,6 +70,11 @@ public class LinkServer extends UnicastRemoteObject implements User , GameObserv
 	@Override
 	public void chooseMoodle(int moodleCode , GameObserver observer) throws RemoteException {
 		user.chooseMoodle(moodleCode , observer);
+	}
+
+	@Override
+	public String[] playersInfoGet() throws RemoteException {
+		return gameObserver.playersInfoGet();
 	}
 	
 	

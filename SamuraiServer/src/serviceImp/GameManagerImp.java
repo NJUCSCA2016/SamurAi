@@ -15,13 +15,13 @@ public class GameManagerImp implements GameObserver{
 	/**
 	 * 请严格按照格式： Action1 + space + Action2 + space + Action3 ******
 	 */
-	public void acceptActionTro(String action) throws RemoteException {
+	public void acceptActionTro(int action) throws RemoteException {
 		
 		
 	}
 
 	@Override
-	public void acceptActionProp(String action) throws RemoteException {
+	public void acceptActionProp(int action) throws RemoteException {
 		// TODO Auto-generated method stub
 		
 	}
@@ -34,6 +34,12 @@ public class GameManagerImp implements GameObserver{
 
 	@Override
 	public String feedBack() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] playersInfoGet() throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

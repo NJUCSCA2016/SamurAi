@@ -51,12 +51,12 @@ public class JPanelLinkLoading extends JPanel{
 		
 		this.setLayout(null);
 		this.requestFocus();
-		
-		this.add(new JButtonReturn(1150,20,50, 38,
+		this.loadingReturn = new JButtonReturn(1150,20,50, 38,
 				ImgLink.LOGIN_WAITING_RETURN1 ,
 				ImgLink.LOGIN_WAITING_RETURN2 ,
 				ImgLink.LOGIN_WAITING_RETURN3 ,
-				this));
+				this);
+		this.add(loadingReturn);
 		
 		linkStart();
 		
@@ -65,7 +65,7 @@ public class JPanelLinkLoading extends JPanel{
 	private void linkStart(){
 		movieThread = new Thread(new LoadingMovie());
 		movieThread.start();
-		timer.schedule(new ActionTaken(), 1000);
+		timer.schedule(new ActionTaken(), 1000,1000);
 	}
 	
 	private class LoadingMovie implements Runnable{
@@ -76,7 +76,7 @@ public class JPanelLinkLoading extends JPanel{
 			/**
 			 * Forever Loop till server is found 
 			 */
-			while(! findServer && timeCount <= 59){
+			while((!findServer) && timeCount <= 59){
 				for(int i = 0 ; i <= 19 ; i++){
 					try {
 						Thread.sleep(100);
@@ -84,7 +84,8 @@ public class JPanelLinkLoading extends JPanel{
 						e.printStackTrace();
 					}
 					synchronized (this) {
-						if(! findServer){
+//						System.out.println(timeCount);
+						if(!findServer){
 							currentImg = getImage(i);
 							repaint();
 						}else{
@@ -102,9 +103,11 @@ public class JPanelLinkLoading extends JPanel{
 			}else{
 				//TODO : show can't find
 				currentImg = new ImageIcon("Image/LoginPanel/failed.png").getImage();
+				repaint();
 				//TWO BUTTONS
 			
 				remove(loadingReturn);
+				
 				retry = new JButtonRetry(JPanelLinkLoading.this);
 				
 				panelReturn = new JButtonReturn(756 , 503 , 249 , 103 ,
@@ -134,6 +137,7 @@ public class JPanelLinkLoading extends JPanel{
 		 */
 		@Override
 		public void run() {
+			System.out.println("Loop Count = " + timeCount);
 			try {
 				synchronized (this) {
 					timeCount ++ ;
@@ -144,8 +148,10 @@ public class JPanelLinkLoading extends JPanel{
 				link = null;
 			} finally {
 				//The last time
-				if(timeCount == 59 || link != null){
+				if(link != null){
 					findServer = true;
+					timer.cancel();
+				}else if(timeCount == 60){
 					timer.cancel();
 				}
 			}
@@ -155,7 +161,7 @@ public class JPanelLinkLoading extends JPanel{
 	
 	
 	public void paintComponent(Graphics g){
-		super.paintComponent(g);
+		super.paintComponents(g);
 		g.drawImage(currentImg, 0, 0, null);
 	}
 	
@@ -177,7 +183,7 @@ public class JPanelLinkLoading extends JPanel{
 		
 		this.movieThread = new Thread(new LoadingMovie());
 		this.movieThread.start();
-		timer.schedule(new ActionTaken(), 100);
+		timer.schedule(new ActionTaken(), 1000,1000);
 	}
 	
 	

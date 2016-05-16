@@ -11,9 +11,9 @@ public class JPanelSignIn extends JPanel{
 	
 	private LayerBackground backgound ;
 	
-	private PlaintfField nameArea = new PlaintfField(640, 227, 160, 30);
+	private PlaintfField nameArea = new PlaintfField(635, 232, 160, 30);
 			
-	private PlainpswField passwordArea = new PlainpswField(660, 290, 160, 30);
+	private PlainpswField passwordArea = new PlainpswField(660, 288, 160, 30);
 	
 	public JPanelSignIn() {
 		
