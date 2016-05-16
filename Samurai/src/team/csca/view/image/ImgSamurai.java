@@ -153,6 +153,8 @@ public class ImgSamurai {
 	public static final Image B1_SHADOW = new ImageIcon("Image/Gamepanel/grids/gridB1.png").getImage();
 
 	public static final Image B2_SHADOW = new ImageIcon("Image/Gamepanel/grids/gridB2.png").getImage();
+	
+	public static final Image OUTSIGHT_SHADOW = new ImageIcon("Image/Gamepanel/grids/grid_out.png").getImage();
 
 	/**
 	 * 以数组的形式来表示所有AI的阴影，方便通过index来索引
