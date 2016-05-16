@@ -24,22 +24,24 @@ import team.csca.view.image.ImgSamurai;
  *
  */
 public class JPanelPM extends JPanel implements KeyListener {
+	/**
+	 * 面板上的组件
+	 */
 	private Layer[] layers;
 
-//	int m, n;
 
 	/**
 	 * 武士编号 通过回合号对武士的编号进行索引
 	 */
-	public int index = 0;
+	public int index;
 	/**
 	 * 最大体力值
 	 */
-	public int maxPower = 7;
+	public int maxPower;
 	/**
 	 * 当前体力值
 	 */
-	public int nowPower = 7;
+	public int nowPower;
 	/**
 	 * 行动消耗的体力
 	 */
@@ -47,11 +49,11 @@ public class JPanelPM extends JPanel implements KeyListener {
 	/**
 	 * 回合数
 	 */
-	public int round = 0;
+	public int round;
 	/**
 	 * 方向
 	 */
-	public int[] direction = { 0, 0, 0, 0, 0, 0 };
+	public int[] direction = new int[6];
 
 	PlayMovie p = new PlayMovie();
 	/**
@@ -77,7 +79,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 	/**
 	 * 每个武士的恢复周期
 	 */
-	public int[] recoverRound = {0, 0, 0, 0, 0, 0};
+	public int[] recoverRound = new int[6];
 	
 	public int maxRound = 12 * (2 + random.nextInt(18));
 
@@ -85,9 +87,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 	Font messageFont = new Font("宋体", Font.PLAIN, 40);
 
 	public JPanelPM() {
-		// p.setPath("Image/Start");
-		// p.setNum(50);
-		// p.playMovie("Image/Start", 50);
+		initField();
 		this.setVisible(true);
 		this.setLayout(null);
 		this.setFocusable(true);
@@ -97,37 +97,22 @@ public class JPanelPM extends JPanel implements KeyListener {
 		this.addKeyListener(this);
 		this.add(new JButtonBack(this));
 		Random r = new Random();
-
-
-
 		this.addMouseListener(new MouseListener() {
 
 			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-			}
+			public void mouseReleased(MouseEvent arg0) {}
 
 			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
+			public void mousePressed(MouseEvent arg0) {}
 
 			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
+			public void mouseExited(MouseEvent arg0) {}
 
 			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
+			public void mouseEntered(MouseEvent arg0) {}
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				// TODO Auto-generated method stub
 				requestFocus(true);
 			}
 		});
@@ -168,22 +153,6 @@ public class JPanelPM extends JPanel implements KeyListener {
 		// y = y[i] * (-36) + 624
 		layers = new Layer[] { 
 				new LayerBackground(0, 0, 1250, 700, ImgBackground.PM_PANEL),
-				// new LayerBackground(40*x[0] + 13*y[0] + 232, -36*y[0] + 624,
-				// 30, 30, ImgSystem.logo),
-				// new LayerBackground(234, 624, 30, 30, ImgSystem.logo),
-				// new LayerBackground(234+41, 624, 30, 30, ImgSystem.logo),
-				// new LayerBackground(234+82, 624, 30, 30, ImgSystem.logo),
-				// new LayerBackground(234+123, 624, 30, 30, ImgSystem.logo),
-				// new LayerBackground(234+164, 624, 30, 30, ImgSystem.logo),
-				// new LayerBackground(234+205, 624, 30, 30, ImgSystem.logo),
-				// new LayerBackground(234+246, 624, 30, 30, ImgSystem.logo),
-				// new LayerBackground(234+287, 624, 30, 30, ImgSystem.logo),
-				// new LayerBackground(234+13, 624-36, 30, 30, ImgSystem.logo),
-				// new LayerBackground(234+26, 624-72, 30, 30, ImgSystem.logo),
-				// new LayerBackground(234+39, 624-108, 30, 30, ImgSystem.logo),
-				// new LayerBackground(234+52, 624-144, 30, 30, ImgSystem.logo),
-				// new LayerBackground(40*x[1] + 13*y[1] + 234, -36*y[1] + 624,
-				// 30, 30, ImgSystem.logo),
 				/**
 				 * 占领的地方都有这个标志
 				 */
@@ -212,21 +181,16 @@ public class JPanelPM extends JPanel implements KeyListener {
 				new LayerBackground(5, 230, 190, 240, ImgSamurai.INFO_B1),
 				new LayerBackground(5, 460, 190, 240, ImgSamurai.INFO_B2),
 		};
-
-		// if (Player.MUSiC_PLAYER.isBack_ON()) {
-		// Player.stopMusic();
-		// Player.playMusic("bgm2");
-		// }
-
 	}
 
 	public void paintComponent(Graphics g) {
+		// 计算index的值
 		calculateIndex();
 		/*
-		 * 添加各个组件
-		 * 地图
-		 * 每个武士老家的占领标志
-		 * 每个武士大本营的旗帜
+		 * 添加各个组件:
+		 * 1.地图
+		 * 2.每个武士老家的占领标志
+		 * 3.每个武士大本营的旗帜
 		 */
 		for (int i = 0; i < this.layers.length; i++) {
 			layers[i].createWindow(g);
@@ -625,7 +589,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		 * 占领
 		 */
 		int action = random.nextInt(12);
-		int[] aiCost = {2, 2, 2, 2, 0, 1, 1, 4, 4, 4, 4, 4};
+		int[] aiCost = {2, 2, 2, 2, 0, 1, 1, 4, 4, 4, 4, 4, 4, 4};
 		cost = aiCost[action];
 		if (hasPower()) {
 			switch (action) {
@@ -663,6 +627,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 				attack();
 				break;
 			case 11:
+				attack();
+				break;
+			case 12:
+				attack();
+				break;
+			case 13:
 				attack();
 				break;
 			default:
@@ -1538,5 +1508,31 @@ public class JPanelPM extends JPanel implements KeyListener {
 			g.drawImage(ImgNumber.NUMS[unit], x, y, w, h, this);
 		}
 	}
-
+	/**
+	 * 在视野范围内的才能看到
+	 */
+	public void getSight(){
+		if (index < 3) {
+			
+		}
+	}
+	/**
+	 * 初始化需要的参数
+	 */
+	public void initField(){
+		index = 0;
+		maxPower = 7;
+		nowPower = 7;
+		round = 0;
+		for (int i = 0; i < direction.length; i++) {
+			direction[i] = 0;
+		}
+		maxRecoverRound = 12 * (1 + random.nextInt(4));
+		for (int i = 0; i < recoverRound.length; i++) {
+			recoverRound[i] = 0;
+		}
+		
+		maxRound = 12 * (6 + random.nextInt(14));
+		
+	}
 }
