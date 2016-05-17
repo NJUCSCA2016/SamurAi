@@ -13,9 +13,12 @@ import javax.swing.JPanel;
 import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
 import team.csca.view.extend.PlayMovie;
+import team.csca.view.frame.JFrameMain;
+import team.csca.view.gameOver.JPanelRankingList;
 import team.csca.view.image.ImgBackground;
 import team.csca.view.image.ImgNumber;
 import team.csca.view.image.ImgSamurai;
+import team.csca.view.startgame.JPanelStartGame;
 
 /**
  * 人机对战
@@ -24,6 +27,12 @@ import team.csca.view.image.ImgSamurai;
  *
  */
 public class JPanelPM extends JPanel implements KeyListener {
+	
+	private JFrameMain frameMain = JFrameMain.J_FRAME_MAIN;
+	
+	private JPanelStartGame fatherPanel;
+	
+	private JPanelRankingList jPanelRankingList;
 	/**
 	 * 面板上的组件
 	 */
@@ -196,8 +205,13 @@ public class JPanelPM extends JPanel implements KeyListener {
 				}
 			}
 		}
-
+		/**
+		 * 获得视野
+		 */
 		getSight();
+		/**
+		 * 把不在视野内的地方画上阴影
+		 */
 		for (int i = 0; i < 15; i++) {
 			for (int j = 0; j < 15; j++) {
 				if (outSight[i][j]) {
@@ -329,15 +343,20 @@ public class JPanelPM extends JPanel implements KeyListener {
 		}
 
 		if (round == maxRound) {
-			g.drawString("游戏结束！", 600, 340);
+//			g.drawString("游戏结束！", 600, 340);
+//			fatherPanel = new JPanelStartGame();
+			jPanelRankingList = new JPanelRankingList();
+			frameMain.remove(this);
+			frameMain.setContentPane(jPanelRankingList);
+			jPanelRankingList.requestFocus();
+			frameMain.revalidate();
+			System.out.println(222);
+			
 		}
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void keyPressed(KeyEvent e) {}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
@@ -478,7 +497,9 @@ public class JPanelPM extends JPanel implements KeyListener {
 	 * 切换武士
 	 */
 	public void changeCharacter() {
-		round++;
+		if (round < maxRound) {
+			round++;
+		}
 		calculateIndex();
 		nowPower = 7;
 		calculateIndex();
