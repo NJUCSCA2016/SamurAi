@@ -17,6 +17,7 @@ import team.csca.view.frame.JFrameMain;
 import team.csca.view.gameOver.JPanelRankingList;
 import team.csca.view.image.ImgBackground;
 import team.csca.view.image.ImgNumber;
+import team.csca.view.image.ImgRound;
 import team.csca.view.image.ImgSamurai;
 import team.csca.view.startgame.JPanelStartGame;
 
@@ -247,15 +248,15 @@ public class JPanelPM extends JPanel implements KeyListener {
 		g.drawImage(ImgSamurai.A0_PICTURE[direction[0]], x[0] * 40 + y[0] * 13 + 228, y[0] * (-36) + 600, 50, 50, this);
 		g.drawImage(ImgSamurai.A1_PICTURE[direction[1]], x[1] * 40 + y[1] * 13 + 228, y[1] * (-36) + 600, 50, 50, this);
 		g.drawImage(ImgSamurai.A2_PICTURE[direction[2]], x[2] * 40 + y[2] * 13 + 228, y[2] * (-36) + 600, 50, 50, this);
-
-		// FIXME:测试用代码
-		g.setFont(messageFont);
-		g.drawString(Integer.toString(maxRound), 200, 30);
-		g.drawString(Integer.toString(round), 300, 30);
-		g.drawString("Power: " + Integer.toString(nowPower), 460, 30);
-		g.drawString("Index: " + Integer.toString(index), 640, 30);
-		g.drawString("IsHidden: " + isHidden(3), 330, 80);
-		g.drawString("Direction: " + Integer.toString(direction[index]), 660, 80);
+//
+//		// FIXME:测试用代码
+//		g.setFont(messageFont);
+//		g.drawString(Integer.toString(maxRound), 200, 30);
+//		g.drawString(Integer.toString(round), 300, 30);
+//		g.drawString("Power: " + Integer.toString(nowPower), 460, 30);
+//		g.drawString("Index: " + Integer.toString(index), 640, 30);
+//		g.drawString("IsHidden: " + isHidden(3), 330, 80);
+//		g.drawString("Direction: " + Integer.toString(direction[index]), 660, 80);
 		super.paintComponents(g);
 		/**
 		 * 提示是哪一个武士在行动
@@ -279,6 +280,9 @@ public class JPanelPM extends JPanel implements KeyListener {
 			g.drawImage(ImgSamurai.B2, 210, 90, 50, 50, this);
 		}
 
+		/**
+		 * 计算每个武士占领的格子
+		 */
 		int count[] = new int[6];
 		for (int i = 0; i < count.length; i++) {
 			count[i] = 0;
@@ -341,7 +345,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 		for (int i = 0; i < 3; i++) {
 			printNumber(recoverRound[i + 3], g, 120, 151 + i * 230, 18, 25);
 		}
-
+		
+		g.drawImage(ImgRound.NOW_ROUND, 195, 50, 100, 100, this);
+		printNumber(round, g, 256, 106, 23, 33);
+		
+		g.drawImage(ImgRound.REST_ROUND, 300, 46, 100, 100, this);
+		printNumber(maxRound - round, g, 361, 106, 23, 33);
 		if (round == maxRound) {
 //			g.drawString("游戏结束！", 600, 340);
 //			fatherPanel = new JPanelStartGame();
@@ -350,7 +359,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			frameMain.setContentPane(jPanelRankingList);
 			jPanelRankingList.requestFocus();
 			frameMain.revalidate();
-			System.out.println(222);
+//			System.out.println(222);
 			
 		}
 	}
@@ -1637,8 +1646,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 			g.drawImage(ImgNumber.NUMS[unit], x, y, w, h, this);
 		}
 		if (100 <= num) {
-			int hundreds = 1;
-			int tens = (num - 100) / 10;
+			int hundreds = num / 100;
+			int tens = (num - 100 * hundreds) / 10;
 			int unit = num % 10;
 			g.drawImage(ImgNumber.NUMS[hundreds], x - 2 * w, y, w, h, this);
 			g.drawImage(ImgNumber.NUMS[tens], x - w, y, w, h, this);
