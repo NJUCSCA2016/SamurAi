@@ -9,7 +9,9 @@ import team.csca.view.extend.LayerBackground;
 import team.csca.view.image.ImgGameOver;
 
 public class JPanelRankingList extends JPanel{
-	public Layer[] layers = {new LayerBackground(275, 125, 700, 700, ImgGameOver.RANKING_LIST)};
+	public Layer[] layers = {
+			new LayerBackground(275, 125, 700, 700, ImgGameOver.RANKING_LIST)
+			};
 	public JPanelRankingList(){
 		this.setLayout(null);
 		repaint();

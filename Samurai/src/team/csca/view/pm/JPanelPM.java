@@ -14,6 +14,9 @@ import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
 import team.csca.view.extend.PlayMovie;
 import team.csca.view.frame.JFrameMain;
+import team.csca.view.gameOver.JPanelGameDraw;
+import team.csca.view.gameOver.JPanelGameLose;
+import team.csca.view.gameOver.JPanelGameWin;
 import team.csca.view.gameOver.JPanelRankingList;
 import team.csca.view.image.ImgBackground;
 import team.csca.view.image.ImgNumber;
@@ -31,9 +34,15 @@ public class JPanelPM extends JPanel implements KeyListener {
 	
 	private JFrameMain frameMain = JFrameMain.J_FRAME_MAIN;
 	
-	private JPanelStartGame fatherPanel;
+//	private JPanelStartGame fatherPanel;
 	
-	private JPanelRankingList jPanelRankingList;
+	private JPanelGameWin gameWin;
+	
+	private JPanelGameLose gameLose;
+	
+	private JPanelGameDraw gameDraw;
+	
+//	private JPanelRankingList jPanelRankingList;
 	/**
 	 * 面板上的组件
 	 */
@@ -79,6 +88,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 	 * 代表占领的位置
 	 */
 	public int[] occupation = new int[225];
+	
+	public int count[] = new int[6];
 
 	Random random = new Random();
 	/**
@@ -283,7 +294,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		/**
 		 * 计算每个武士占领的格子
 		 */
-		int count[] = new int[6];
+
 		for (int i = 0; i < count.length; i++) {
 			count[i] = 0;
 		}
@@ -354,13 +365,33 @@ public class JPanelPM extends JPanel implements KeyListener {
 		if (round == maxRound) {
 //			g.drawString("游戏结束！", 600, 340);
 //			fatherPanel = new JPanelStartGame();
-			jPanelRankingList = new JPanelRankingList();
+//			jPanelRankingList = new JPanelRankingList();
 			frameMain.remove(this);
-			frameMain.setContentPane(jPanelRankingList);
-			jPanelRankingList.requestFocus();
-			frameMain.revalidate();
-//			System.out.println(222);
+//			frameMain.setContentPane(jPanelRankingList);
+//			jPanelRankingList.requestFocus();
 			
+//			System.out.println(222);
+			int score1 = count[0] + count[1] + count[2];
+			int score2 = count[3] + count[4] + count[5];
+			if (score1 > score2) {
+				System.out.println(">");
+				gameWin = new JPanelGameWin();
+				frameMain.setContentPane(gameWin);
+				gameWin.requestFocus();
+			}
+			if (score1 < score2) {
+				System.out.println("<");
+				gameLose = new JPanelGameLose();
+				frameMain.setContentPane(gameLose);
+				gameLose.requestFocus();
+			}
+			if (score1 == score2) {
+				System.out.println("=");
+				gameDraw = new JPanelGameDraw();
+				frameMain.setContentPane(gameDraw);
+				gameDraw.requestFocus();
+			}
+			frameMain.revalidate();
 		}
 	}
 

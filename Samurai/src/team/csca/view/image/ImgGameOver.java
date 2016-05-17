@@ -16,5 +16,11 @@ public class ImgGameOver {
 	/**
 	 * 失败
 	 */
-	public static Image YOU_LOSE = new ImageIcon("Image/Gamepanel/win.png").getImage();
+	public static Image YOU_LOSE = new ImageIcon("Image/Gamepanel/lose.png").getImage();
+	/**
+	 * 平局
+	 */
+	public static Image YOU_DRAW = new ImageIcon("Image/Gamepanel/draw.png").getImage();
+	
+	public static Image CROSS = new ImageIcon("Image/Gamepanel/button_exit.png").getImage();
 }

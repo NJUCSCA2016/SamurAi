@@ -8,15 +8,18 @@ import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
 import team.csca.view.image.ImgGameOver;
 
-public class JPanelGameLose extends JPanel{
+public class JPanelGameDraw extends JPanel{
+	
 	public Layer[] layers = {
-			new LayerBackground(0, 0, 1250, 700, ImgGameOver.YOU_LOSE)
+			new LayerBackground(0, 0, 1250, 700, ImgGameOver.YOU_DRAW)
 	};
-	public JPanelGameLose() {
+	
+	public JPanelGameDraw() {
 		this.setLayout(null);
 		repaint();
 		this.add(new JButtonGameBackToMain(this));
 	}
+	
 	public void paintComponent(Graphics g) {
 		for (int i = 0; i < layers.length; i++) {
 			layers[i].createWindow(g);
