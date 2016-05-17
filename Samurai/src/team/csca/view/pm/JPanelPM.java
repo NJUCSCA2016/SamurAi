@@ -359,15 +359,31 @@ public class JPanelPM extends JPanel implements KeyListener {
 				changeCharacter();
 				break;
 			// 隐身
-			case KeyEvent.VK_W:
+			case KeyEvent.VK_R:
 				hideMe();
 				break;
 			// 现行
 			case KeyEvent.VK_E:
 				showMe();
 				break;
-			case KeyEvent.VK_R:
-				attack();
+//			case KeyEvent.VK_R:
+//				attack();
+//				break;
+			case KeyEvent.VK_W:
+				// TODO:向上攻击
+				attackUp();
+				break;
+			case KeyEvent.VK_S:
+				// TODO：向下攻击
+				attackDown();
+				break;
+			case KeyEvent.VK_A:
+				// TODO:向左攻击
+				attackLeft();
+				break;
+			case KeyEvent.VK_D:
+				//TODO:向右攻击
+				attackRight();
 				break;
 			default:
 				break;
@@ -391,7 +407,45 @@ public class JPanelPM extends JPanel implements KeyListener {
 		repaint();
 
 	}
-
+	
+	public void attackUp() {
+		cost = 4;
+		direction[index] = 1;
+		if (hasPower() && recoverRound[index] == 0) {
+			nowPower = nowPower - cost;
+			occupy();
+		}
+		repaint();
+	}
+	
+	public void attackDown() {
+		cost = 4;
+		direction[index] = 0;
+		if (hasPower() && recoverRound[index] == 0) {
+			nowPower = nowPower - cost;
+			occupy();
+		}
+		repaint();
+	}
+	
+	public void attackLeft() {
+		cost = 4;
+		direction[index] = 2;
+		if (hasPower() && recoverRound[index] == 0) {
+			nowPower = nowPower - cost;
+			occupy();
+		}
+		repaint();
+	}
+	public void attackRight() {
+		cost = 4;
+		direction[index] = 3;
+		if (hasPower() && recoverRound[index] == 0) {
+			nowPower = nowPower - cost;
+			occupy();
+		}
+		repaint();
+	}
 	/**
 	 * 现身
 	 */
