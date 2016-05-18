@@ -25,7 +25,10 @@ public class JButtonRetry extends DynamicButton {
 		fatherPanel.restart();
 		repaint();
 		Player.stopMusic();
-		Player.playMusic("linkserver");
+		if (Player.MUSiC_PLAYER.isBack_ON()) {
+			Player.playMusic("linkserver");
+		}
+		
 	}
 	
 }

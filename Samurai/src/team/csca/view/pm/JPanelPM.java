@@ -10,6 +10,7 @@ import java.util.Random;
 
 import javax.swing.JPanel;
 
+import team.csca.controller.media.Player;
 import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
 import team.csca.view.extend.PlayMovie;
@@ -516,6 +517,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		if (canShow() && hasPower() && recoverRound[index] == 0) {
 			nowPower = nowPower - cost;
 			direction[index] -= 4;
+			Player.playSound("showMe");
 		}
 		repaint();
 
@@ -529,6 +531,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		if (canHide() && hasPower() && recoverRound[index] == 0) {
 			nowPower = nowPower - cost;
 			direction[index] += 4;
+			Player.playSound("3");
 		}
 		repaint();
 	}
@@ -575,6 +578,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			// if (isHidden()) {
 			// direction[index] = 7;
 			// }
+			Player.playSound("1");
 			repaint();
 		}
 		if (canMoveTo(1, 0) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
@@ -585,6 +589,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			// if (isHidden()) {
 			// direction[index] = 7;
 			// }
+			Player.playSound("2");
 			repaint();
 		}
 
@@ -608,6 +613,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			// if (isHidden()) {
 			// direction[index] = 6;
 			// }
+			Player.playSound("1");
 			repaint();
 		}
 		if (canMoveTo(-1, 0) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
@@ -618,6 +624,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			// if (isHidden()) {
 			// direction[index] = 6;
 			// }
+			Player.playSound("2");
 			repaint();
 		}
 
@@ -641,6 +648,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			// if (isHidden()) {
 			// direction[index] = 4;
 			// }
+			Player.playSound("1");
 			repaint();
 		}
 		if (canMoveTo(0, -1) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
@@ -651,6 +659,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			// if (isHidden()) {
 			// direction[index] = 4;
 			// }
+			Player.playSound("2");
 			repaint();
 		}
 
@@ -677,6 +686,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			// if (isHidden()) {
 			// direction[index] = 5;
 			// }
+			Player.playSound("1");
 			repaint();
 			// System.out.println(x[0]);
 		}
@@ -688,6 +698,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			// if (isHidden()) {
 			// direction[index] = 5;
 			// }
+			Player.playSound("2");
 			repaint();
 			// System.out.println(x[0]);
 		}
@@ -931,6 +942,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 	}
 
 	public void occupy() {
+		Player.playSound("occupy");
 		// 长矛
 		if (index == 0 || index == 3) {
 			// 向下
@@ -1660,6 +1672,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 					x[j] = homeX[j];
 					y[j] = homeY[j];
 					recoverRound[j] = maxRecoverRound;
+					Player.playSound("soundeffect0");
 				}
 
 			}

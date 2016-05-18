@@ -165,7 +165,7 @@ public class Player {
 		if (true) {
 			soundPlayer = new SimplePlayer();
 			try {
-				soundPlayer.open(new File("media/sound/" + name + ".mp3"));
+				soundPlayer.open(new File("media/" + name + ".mp3"));
 				soundPlayer.setLoop(false);
 			} catch (Exception e) {
 				System.err.println("Error!");

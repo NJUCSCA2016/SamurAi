@@ -29,7 +29,10 @@ public class JButtonBack extends DynamicButton {
 		this.frame.setContentPane(new JPanelStartGame());
 		this.frame.revalidate();
 		Player.stopMusic();
-		Player.playMusic("bgm1");
+		if (Player.MUSiC_PLAYER.isBack_ON()) {
+			Player.playMusic("bgm1");
+		}
+		
 
 	}
 }
