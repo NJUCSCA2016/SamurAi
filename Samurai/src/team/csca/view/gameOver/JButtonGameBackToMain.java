@@ -47,11 +47,13 @@ public class JButtonGameBackToMain extends DynamicButton{
 		}
 		if (this.gameLose != null) {
 			this.frame.remove(this.gameLose);
+			
 		}
 		
 		this.frame.setContentPane(new JPanelStartGame());
 		this.frame.revalidate();
 		Player.stopMusic();
+		Player.stopMidi();
 		if (Player.MUSiC_PLAYER.isBack_ON()) {
 			Player.playMusic("bgm1");
 		}

@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import team.csca.controller.media.Player;
 import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
 import team.csca.view.image.ImgGameOver;

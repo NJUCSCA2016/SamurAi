@@ -113,7 +113,7 @@ public class Player {
 			stopMusic();
 		
 		try {
-			midiPlayer.open(new File("media/midi/" + name + ".mid"));
+			midiPlayer.open(new File("media/" + name + ".mid"));
 			midiPlayer.setLoop(true);
 			midiPlayer.setLoopCount(1000);
 		} catch (Exception e) {
