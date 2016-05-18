@@ -16,24 +16,23 @@ import java.rmi.registry.LocateRegistry;
  *
  */
 public class Server {
-	
+
 	public Server() {
 		initServer();
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 		new Server();
-		
+
 	}
-	
-	public void initServer(){
+
+	public void initServer() {
 		LinkServer linkServer;
 		try {
 			linkServer = new LinkServer();
 			LocateRegistry.createRegistry(8888);
-			Naming.bind("rmi://localhost:8888/LinkServer",
-					linkServer);
+			Naming.bind("rmi://localhost:8888/LinkServer", linkServer);
 			System.out.println("Link to server");
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -42,7 +41,7 @@ public class Server {
 		} catch (AlreadyBoundException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 }
