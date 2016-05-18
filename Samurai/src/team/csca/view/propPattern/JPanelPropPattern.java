@@ -1,7 +1,7 @@
-package team.csca.view.pm;
+package team.csca.view.propPattern;
 
-import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -13,25 +13,21 @@ import javax.swing.JPanel;
 import team.csca.controller.media.Player;
 import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
-import team.csca.view.extend.PlayMovie;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.gameOver.JPanelGameDraw;
 import team.csca.view.gameOver.JPanelGameLose;
 import team.csca.view.gameOver.JPanelGameWin;
-import team.csca.view.gameOver.JPanelRankingList;
 import team.csca.view.image.ImgBackground;
 import team.csca.view.image.ImgNumber;
+import team.csca.view.image.ImgProps;
 import team.csca.view.image.ImgRound;
 import team.csca.view.image.ImgSamurai;
-import team.csca.view.startgame.JPanelStartGame;
-
 /**
- * 人机对战
- * 
+ * 道具模式
  * @author Water
  *
  */
-public class JPanelPM extends JPanel implements KeyListener {
+public class JPanelPropPattern extends JPanel implements KeyListener{
 	
 	private JFrameMain frameMain = JFrameMain.J_FRAME_MAIN;
 	
@@ -82,10 +78,28 @@ public class JPanelPM extends JPanel implements KeyListener {
 	public int[] homeX = new int[6];
 	public int[] homeY = new int[6];
 	/**
+	 * 道具坐标
+	 * TODO:可能需要修改数量
+	 */
+	public int[] propX = new int[7];
+	public int[] propY = new int[7];
+	/**
+	 * 道具图片
+	 */
+	public Image[] props = new Image[7];
+	/**
+	 * 道具数量
+	 * TODO:可能需要修改数量
+	 */
+	public int[] propNum = new int[7];
+	
+	/**
 	 * 代表占领的位置
 	 */
 	public int[] occupation = new int[225];
-	
+	/**
+	 * 每个武士占领的数量
+	 */
 	public int count[] = new int[6];
 
 	Random random = new Random();
@@ -97,12 +111,20 @@ public class JPanelPM extends JPanel implements KeyListener {
 	 * 每个武士的恢复周期
 	 */
 	public int[] recoverRound = new int[6];
-
+	/**
+	 * 每个武士的额外生命
+	 */
+	public int[] life = new int[6];
+	/**
+	 * 最大回合数
+	 */
 	public int maxRound;
-
+	/**
+	 * 是否在视野中
+	 */
 	public boolean[][] outSight = new boolean[15][15];
 
-	public JPanelPM() {
+	public JPanelPropPattern() {
 		initField();
 		this.setVisible(true);
 		this.setLayout(null);
@@ -178,6 +200,11 @@ public class JPanelPM extends JPanel implements KeyListener {
 	}
 
 	public void paintComponent(Graphics g) {
+		for (int i = 0; i < 6; i++) {
+			System.out.println(i + " " + life[i]);
+		}
+		
+		
 		// 计算index的值
 		calculateIndex();
 		/*
@@ -222,6 +249,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 				}
 			}
 		}
+		
 
 		/*
 		 * 绘制旗帜 
@@ -257,6 +285,14 @@ public class JPanelPM extends JPanel implements KeyListener {
 		g.drawImage(ImgSamurai.A0_PICTURE[direction[0]], x[0] * 40 + y[0] * 13 + 228, y[0] * (-36) + 600, 50, 50, this);
 		g.drawImage(ImgSamurai.A1_PICTURE[direction[1]], x[1] * 40 + y[1] * 13 + 228, y[1] * (-36) + 600, 50, 50, this);
 		g.drawImage(ImgSamurai.A2_PICTURE[direction[2]], x[2] * 40 + y[2] * 13 + 228, y[2] * (-36) + 600, 50, 50, this);
+		
+		/*
+		 * 绘制道具
+		 * TODO：未完
+		 */
+		if (!outSight[propX[0]][propY[0]] && propNum[0] > 0) {
+			g.drawImage(ImgProps.ANOTHER_LIFE, propX[0] * 40 + propY[0] * 13 + 228, propY[0] * (-36) + 600, 42, 48, this);
+		}
 		/*
 		 * 绘制箭头
 		 * 只在自己方行动的时候绘制
@@ -596,6 +632,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			if (Player.MUSiC_PLAYER.isGame_ON()) {
 				Player.playSound("1");
 			}
+			getProps();
 			repaint();
 		}
 		if (canMoveTo(1, 0) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
@@ -609,6 +646,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			if (Player.MUSiC_PLAYER.isGame_ON()) {
 				Player.playSound("2");
 			}
+			getProps();
 			repaint();
 		}
 
@@ -630,6 +668,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			if (Player.MUSiC_PLAYER.isGame_ON()) {
 				Player.playSound("1");
 			}
+			getProps();
 			repaint();
 		}
 		if (canMoveTo(-1, 0) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
@@ -643,6 +682,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			if (Player.MUSiC_PLAYER.isGame_ON()) {
 				Player.playSound("2");
 			}
+			getProps();
 			repaint();
 		}
 
@@ -665,6 +705,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			if (Player.MUSiC_PLAYER.isGame_ON()) {
 				Player.playSound("1");
 			}
+			getProps();
 			repaint();
 		}
 		if (canMoveTo(0, -1) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
@@ -678,6 +719,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			if (Player.MUSiC_PLAYER.isGame_ON()) {
 				Player.playSound("2");
 			}
+			getProps();
 			repaint();
 		}
 
@@ -699,6 +741,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			if (Player.MUSiC_PLAYER.isGame_ON()) {
 				Player.playSound("1");
 			}
+			getProps();
 			repaint();
 			// System.out.println(x[0]);
 		}
@@ -713,6 +756,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			if (Player.MUSiC_PLAYER.isGame_ON()) {
 				Player.playSound("2");
 			}
+			getProps();
 			repaint();
 			// System.out.println(x[0]);
 		}
@@ -1686,12 +1730,19 @@ public class JPanelPM extends JPanel implements KeyListener {
 				int temp = 15 * x[j] + y[j];
 				int temp2 = 15 * homeX[j] + homeY[j];
 				if (location[i] == temp && j != index && location[i] != temp2) {
-					x[j] = homeX[j];
-					y[j] = homeY[j];
-					recoverRound[j] = maxRecoverRound;
-					if (Player.MUSiC_PLAYER.isGame_ON()) {
-						Player.playSound("soundeffect0");
+					if (life[j] == 0) {
+						x[j] = homeX[j];
+						y[j] = homeY[j];
+						recoverRound[j] = maxRecoverRound;
+						if (Player.MUSiC_PLAYER.isGame_ON()) {
+							Player.playSound("soundeffect0");
+						}
 					}
+					if (life[j] != 0) {
+						life[j] -= 1;
+						// TODO:加音效
+					}
+					
 					
 				}
 
@@ -1721,7 +1772,6 @@ public class JPanelPM extends JPanel implements KeyListener {
 
 	/**
 	 * 在视野范围内的才能看到
-	 * TODO：在人机对战中需要修改
 	 */
 	public void getSight() {
 		for (int i = 0; i < 15; i++) {
@@ -1746,6 +1796,18 @@ public class JPanelPM extends JPanel implements KeyListener {
 		}
 
 	}
+	/**
+	 * 得到道具
+	 */
+	public void getProps() {
+		// 加一条命的道具
+		if (x[index] == propX[0] && y[index] == propY[0] && propNum[0] > 0) {
+			life[index] += 1;
+			propNum[0] -= 1;
+			props[0] = null;
+		}
+		
+	}
 
 	/**
 	 * 初始化需要的参数
@@ -1755,7 +1817,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		maxPower = 7;
 		nowPower = 7;
 		round = 0;
-		// 从左到右是x,从下到上是y
+		// 从左到右是x,从上到下是y
 		// 关于x的系数为正，关于y的系数为负
 		x[0] = random.nextInt(7) + 1;
 		y[0] = 0;
@@ -1769,6 +1831,15 @@ public class JPanelPM extends JPanel implements KeyListener {
 		y[4] = 14;
 		x[5] = random.nextInt(6) + 7;
 		y[5] = 14;
+		// TODO:加其他道具的坐标
+		propX[0] = random.nextInt(3) + 3;
+		propY[0] = random.nextInt(3) + 3;
+		
+		props[0] = ImgProps.ANOTHER_LIFE;
+		
+		for (int i = 0; i < propNum.length; i++) {
+			propNum[i] = 1;
+		}
 		for (int i = 0; i < 6; i++) {
 			homeX[i] = x[i];
 			homeY[i] = y[i];
@@ -1780,9 +1851,15 @@ public class JPanelPM extends JPanel implements KeyListener {
 		for (int i = 0; i < recoverRound.length; i++) {
 			recoverRound[i] = 0;
 		}
+		for (int i = 0; i < 6; i++) {
+			life[i] = 0;
+		}
 
 		maxRound = 12 * (6 + random.nextInt(14));
-		maxRecoverRound  = 12 * (1 + random.nextInt(4));
+		maxRecoverRound = 12 * (1 + random.nextInt(4));
+		for (int i = 0; i < 6; i++) {
+			life[i] = 0;
+		}
 		// x
 		for (int i = 0; i < 15; i++) {
 			// y

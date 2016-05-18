@@ -174,4 +174,6 @@ public class ImgSamurai {
 	public static final Image INFO_B1 = new ImageIcon("Image/Gamepanel/infos3/infoB1.png").getImage();
 	
 	public static final Image INFO_B2 = new ImageIcon("Image/Gamepanel/infos3/infoB2.png").getImage();
+	
+	public static final Image GUIDE_ARROW = new ImageIcon("Image/AI/guideArrow.gif").getImage();
 }

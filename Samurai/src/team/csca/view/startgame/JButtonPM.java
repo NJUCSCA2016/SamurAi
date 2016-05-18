@@ -27,8 +27,6 @@ public class JButtonPM extends DynamicButton{
 	public void mouseClicked(MouseEvent e){
 		super.mouseClicked(e);
 		this.setButtonImg(ImgButton.BUTTON_MACHINE_ENTER);
-		//TODO : 完成人机对战面板
-//		frameMain.setContentPane(null);
 		frameMain.remove(fatherPanel);
 		frameMain.setContentPane(jPanelPM);
 		jPanelPM.requestFocus();

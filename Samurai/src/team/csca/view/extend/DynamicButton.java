@@ -59,7 +59,7 @@ public abstract class DynamicButton extends StaticButton implements MouseListene
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
-		//TODO : 所有子类必须要重载此方法。
+		//TIP:所有子类必须要重载此方法。
 	}
 
 	@Override

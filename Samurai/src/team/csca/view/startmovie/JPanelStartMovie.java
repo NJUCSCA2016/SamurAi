@@ -74,7 +74,6 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 			 * 如下面的类
 			 */
 			if (Player.MUSiC_PLAYER.isBack_ON()) {
-				// TODO
 				Player.playMusic("bgm");
 			}
 			while (pic_Number <= 165) {
@@ -83,7 +82,6 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 				repaint();
 				
 				try{			
-					// TODO: 调慢一点
 					Thread.sleep(50);
 					
 				} catch (Exception e) {
@@ -122,8 +120,7 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 				pic_Number++;
 				repaint();
 				try{			
-					// TODO: 调慢一点
-					Thread.sleep(125);
+					Thread.sleep(80);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -172,7 +169,6 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 			 * 加载动画第一部分。动画结束后显示出ButtonPlay。然后点击ButtonPlay后播放第二部分动画
 			 */
 			while (pic_Number <= 90) {
-				// TODO : 还要加载 Loading和片尾图片
 				// 经测试，ImageIcon比ImageIo快很多
 				
 				repaint();
@@ -184,7 +180,6 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 				
 //				if (pic_Number<=90) {
 					try {			
-						// TODO: 调慢一点
 						Thread.sleep(50);
 						
 					} catch (Exception e) {

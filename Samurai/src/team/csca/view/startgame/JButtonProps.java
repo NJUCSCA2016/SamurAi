@@ -2,9 +2,11 @@ package team.csca.view.startgame;
 
 import java.awt.event.MouseEvent;
 
+import team.csca.controller.media.Player;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgButton;
+import team.csca.view.propPattern.JPanelPropPattern;
 
 /**
  * 
@@ -16,6 +18,7 @@ public class JButtonProps extends DynamicButton{
 	
 	private JPanelStartGame fatherPanel;
 	private JFrameMain frameMain = JFrameMain.J_FRAME_MAIN;
+	private JPanelPropPattern propPattern = new JPanelPropPattern();
 	
 	public JButtonProps(JPanelStartGame fatherPanel) {
 		super(675, 319, 150, 50, ImgButton.BUTTON_PROPS_INIT, ImgButton.BUTTON_PROPS_ENTER, ImgButton.BUTTON_PROPS_CLICK);
@@ -26,8 +29,14 @@ public class JButtonProps extends DynamicButton{
 		super.mouseClicked(e);
 		this.setButtonImg( ImgButton.BUTTON_PROPS_ENTER);
 		//TODO : 完成道具模式面板。
-//		frameMain.setContentPane(null);
+		
 		frameMain.remove(fatherPanel);
+		frameMain.setContentPane(propPattern);
+		propPattern.requestFocus();
+		Player.stopMusic();
+		if (Player.MUSiC_PLAYER.isBack_ON()) {
+			Player.playMusic("bgm2");
+		}
 		frameMain.revalidate();
 	}
 	

@@ -1,24 +1,24 @@
-package team.csca.view.pm;
+package team.csca.view.propPattern;
 
 import java.awt.event.MouseEvent;
 
 import team.csca.controller.media.Player;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.image.ImgButton;
-import team.csca.view.propPattern.JPanelPropPattern;
+import team.csca.view.pm.JPanelPM;
 import team.csca.view.startgame.JPanelStartGame;
 
 /**
- * 人机模式
+ * 道具模式 
  * 返回按钮
  * 
  * @author Water
  *
  */
 public class JButtonBack extends DynamicButton {
-	private JPanelPM fatherPanel;
+	private JPanelPropPattern fatherPanel;
 
-	public JButtonBack(JPanelPM fatherPanel){
+	public JButtonBack(JPanelPropPattern fatherPanel){
 		// TODO:调整位置
 		super(865, 635, 140, 50, ImgButton.BACK_INIT, ImgButton.BACK_ENTER, ImgButton.BACK_CLICKED);
 		this.fatherPanel = fatherPanel;
@@ -38,3 +38,4 @@ public class JButtonBack extends DynamicButton {
 
 	}
 }
+
