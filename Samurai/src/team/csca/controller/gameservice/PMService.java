@@ -51,10 +51,7 @@ public class PMService implements Service{
 	}
 	
 	public boolean canHide(){
-	  	if (pm.isHidden()){
-			return false;
-		}
-//    	System.err.println(this.curX + " " + this.curY);
+
 	  	int curIndex = pm.index;
 	  	
 	  	int op = pm.occupation[15 * pm.x[curIndex] + pm.y[curIndex]];
@@ -66,10 +63,11 @@ public class PMService implements Service{
 	  	}
 	  	
 	}
-	
-	public boolean canShow(){
-		
-		return pm.isHidden();
+
+	@Override
+	public boolean canShow() {
+		// TODO Auto-generated method stub
+		return false;
 	}
-	
+
 }

@@ -2,6 +2,12 @@ package team.csca.controller.gamecontrol;
 
 import team.csca.controller.gameservice.PMService;
 
+/**
+ * 
+ * Control of Service and GamePanel Update
+ * @author With You
+ *
+ */
 public class PMControl {
 	
 	private PMService service;

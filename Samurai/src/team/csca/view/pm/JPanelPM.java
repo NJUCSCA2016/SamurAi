@@ -1698,8 +1698,16 @@ public class JPanelPM extends JPanel implements KeyListener {
 			}
 		}
 	}
-
-	public void printNumber(int num, Graphics g, int x, int y, int w, int h) {
+	/**
+	 * Method for panel
+	 * @param num
+	 * @param g
+	 * @param x
+	 * @param y
+	 * @param w
+	 * @param h	
+	 */
+	private void printNumber(int num, Graphics g, int x, int y, int w, int h) {
 		if (num < 10) {
 			g.drawImage(ImgNumber.NUMS[num], x, y, w, h, this);
 		}
