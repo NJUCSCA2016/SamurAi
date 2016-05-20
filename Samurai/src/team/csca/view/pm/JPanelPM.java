@@ -1689,6 +1689,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 					x[j] = homeX[j];
 					y[j] = homeY[j];
 					recoverRound[j] = maxRecoverRound;
+					direction[j] = 0;
 					if (Player.MUSiC_PLAYER.isGame_ON()) {
 						Player.playSound("soundeffect0");
 					}
