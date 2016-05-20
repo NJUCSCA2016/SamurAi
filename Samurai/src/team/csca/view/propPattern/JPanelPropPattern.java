@@ -66,6 +66,8 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 	 * 方向
 	 */
 	public int[] direction = new int[6];
+	
+	public int[] sight = new int[6];
 
 	/**
 	 * x,y 代表现在的坐标
@@ -296,19 +298,33 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		if (!outSight[propX[1]][propY[1]] && propNum[1] > 0) {
 			g.drawImage(ImgProps.ADD_NOWPOWER, propX[1] * 40 + propY[1] * 13 + 228, propY[1] * (-36) + 600, 42, 48, this);
 		}
+		if (!outSight[propX[2]][propY[2]] && propNum[2] > 0) {
+			g.drawImage(ImgProps.ADD_SIGHT, propX[2] * 40 + propY[2] * 13 + 228, propY[2] * (-36) + 600, 42, 48, this);
+		}
 		/*
 		 * 状态栏
 		 * 只有长期持有的状态才会绘制到状态栏中
 		 */
+		// 生命
 		for (int i = 0; i < 3; i++) {
 			if (life[i] > 0) {
 				g.drawImage(ImgProps.ANOTHER_LIFE, 1045, 230 * i + 187, 42, 48, this);
 			}
 		}
-		
 		for (int i = 3; i < 6; i++) {
 			if (life[i] > 0) {
 				g.drawImage(ImgProps.ANOTHER_LIFE, 10, 230 * i + 187, 42, 48, this);
+			}
+		}
+		// 视野
+		for (int i = 0; i < 3; i++) {
+			if (sight[i] > 5) {
+				g.drawImage(ImgProps.ADD_SIGHT, 1089, 230 * i + 187, 42, 48, this);
+			}
+		}
+		for (int i = 3; i < 6; i++) {
+			if (sight[i] > 5) {
+				g.drawImage(ImgProps.ADD_SIGHT, 54, 230 * i + 187, 42, 48, this);
 			}
 		}
 		/*
@@ -1789,10 +1805,10 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		}
 		for (int i = 0; i < 3; i++) {
 			outSight[x[i]][y[i]] = false;
-			for (int m = -5; m <= 5; m++) {
-				for (int n = -5; n <= 5; n++) {
+			for (int m = -sight[i]; m <= sight[i]; m++) {
+				for (int n = -sight[i]; n <= sight[i]; n++) {
 					if (x[i] + m <= 14 && x[i] + m >= 0 && y[i] + n <= 14 && y[i] + n >= 0
-							&& (Math.abs(m) + Math.abs(n)) <= 5) {
+							&& (Math.abs(m) + Math.abs(n)) <= sight[i]) {
 						outSight[x[i] + m][y[i] + n] = false;
 					}
 				}
@@ -1812,6 +1828,8 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		getAnotherLife();
 		// 增加行动力的道具
 		getPower();
+		// 增加视野
+		addSight();
 		
 	}
 	/**
@@ -1839,6 +1857,16 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 			}
 		}
 	}
+	
+	public void addSight(){
+		if (x[index] == propX[2] && y[index] == propY[2] && propNum[2] > 0) {
+			sight[index] ++;
+			propNum[2] -= 1;
+			if (Player.MUSiC_PLAYER.isGame_ON()) {
+				Player.playSound("sight");
+			}
+		}
+	}
 
 	/**
 	 * 初始化需要的参数
@@ -1863,13 +1891,17 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		x[5] = random.nextInt(6) + 7;
 		y[5] = 14;
 		// TODO:加其他道具的坐标
-		propX[0] = random.nextInt(3) + 3;
-		propY[0] = random.nextInt(3) + 3;
-		propX[1] = random.nextInt(7) + 6;
-		propY[1] = random.nextInt(3) + 3;
+		propX[0] = random.nextInt(3) + 3; // 2 - 5
+		propY[0] = random.nextInt(3) + 3; // 2 - 5
+		propX[1] = random.nextInt(7) + 6; // 6 - 12
+		propY[1] = random.nextInt(3) + 3; // 2 - 5
+		propX[2] = random.nextInt(3) + 3; // 2 - 5
+		propY[2] = random.nextInt(4) + 6; // 6 - 9
+		
 		
 		props[0] = ImgProps.ANOTHER_LIFE;
 		props[1] = ImgProps.ADD_NOWPOWER;
+		props[2] = ImgProps.ADD_SIGHT;
 		
 		for (int i = 0; i < propNum.length; i++) {
 			propNum[i] = 1;
@@ -1904,6 +1936,9 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 
 		for (int i = 0; i < 6; i++) {
 			outSight[homeX[i]][homeY[i]] = false;
+		}
+		for (int i = 0; i < 6; i++) {
+			sight[i] = 5;
 		}
 	}
 }
