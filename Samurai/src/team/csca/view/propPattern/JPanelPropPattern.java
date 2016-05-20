@@ -200,15 +200,15 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 	}
 
 	public void paintComponent(Graphics g) {
-		for (int i = 0; i < 6; i++) {
-			System.out.println(i + " " + life[i]);
-		}
 		
 		
 		// 计算index的值
 		calculateIndex();
 		/*
-		 * 添加各个组件: 1.地图 2.每个武士老家的占领标志 3.每个武士大本营的旗帜
+		 * 添加各个组件: 
+		 * 1.地图 
+		 * 2.每个武士老家的占领标志 
+		 * 3.每个武士大本营的旗帜
 		 */
 		for (int i = 0; i < this.layers.length; i++) {
 			layers[i].createWindow(g);
@@ -293,6 +293,24 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		if (!outSight[propX[0]][propY[0]] && propNum[0] > 0) {
 			g.drawImage(ImgProps.ANOTHER_LIFE, propX[0] * 40 + propY[0] * 13 + 228, propY[0] * (-36) + 600, 42, 48, this);
 		}
+		if (!outSight[propX[1]][propY[1]] && propNum[1] > 0) {
+			g.drawImage(ImgProps.ADD_NOWPOWER, propX[1] * 40 + propY[1] * 13 + 228, propY[1] * (-36) + 600, 42, 48, this);
+		}
+		/*
+		 * 状态栏
+		 * 只有长期持有的状态才会绘制到状态栏中
+		 */
+		for (int i = 0; i < 3; i++) {
+			if (life[i] > 0) {
+				g.drawImage(ImgProps.ANOTHER_LIFE, 1045, 230 * i + 187, 42, 48, this);
+			}
+		}
+		
+		for (int i = 3; i < 6; i++) {
+			if (life[i] > 0) {
+				g.drawImage(ImgProps.ANOTHER_LIFE, 10, 230 * i + 187, 42, 48, this);
+			}
+		}
 		/*
 		 * 绘制箭头
 		 * 只在自己方行动的时候绘制
@@ -340,9 +358,6 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 				}
 			}
 		}
-		// for (int i = 0; i < count.length; i++) {
-		// System.out.println(i + " " + count[i]);
-		// }
 		/*
 		 * A0的胜利点
 		 */
@@ -388,6 +403,9 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		if (index == 5) {
 			printNumber(nowPower, g, 120, 578, 18, 25);
 		}
+		/*
+		 * 绘制所有武士的恢复回合
+		 */
 		for (int k = 0; k < 3; k++) {
 			printNumber(recoverRound[k], g, 1157, 151 + k * 230, 18, 25);
 		}
@@ -405,14 +423,7 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		g.drawImage(ImgRound.REST_ROUND, 300, 46, 100, 100, this);
 		printNumber(maxRound - round, g, 361, 106, 23, 33);
 		if (round == maxRound) {
-//			g.drawString("游戏结束！", 600, 340);
-//			fatherPanel = new JPanelStartGame();
-//			jPanelRankingList = new JPanelRankingList();
 			frameMain.remove(this);
-//			frameMain.setContentPane(jPanelRankingList);
-//			jPanelRankingList.requestFocus();
-			
-//			System.out.println(222);
 			int score1 = count[0] + count[1] + count[2];
 			int score2 = count[3] + count[4] + count[5];
 			if (score1 > score2) {
@@ -743,22 +754,17 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 			}
 			getProps();
 			repaint();
-			// System.out.println(x[0]);
 		}
 		if (canMoveTo(0, 1) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
 			// if (y[index]+1 <=14) {
 			nowPower = nowPower - cost;
 			y[index] += 1;
 			direction[index] = 5;
-			// if (isHidden()) {
-			// direction[index] = 5;
-			// }
 			if (Player.MUSiC_PLAYER.isGame_ON()) {
 				Player.playSound("2");
 			}
 			getProps();
 			repaint();
-			// System.out.println(x[0]);
 		}
 
 	}
@@ -1734,6 +1740,8 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 						x[j] = homeX[j];
 						y[j] = homeY[j];
 						recoverRound[j] = maxRecoverRound;
+						//TODO:人机对战此处需要修改
+						direction[j] = 0;
 						if (Player.MUSiC_PLAYER.isGame_ON()) {
 							Player.playSound("soundeffect0");
 						}
@@ -1801,12 +1809,35 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 	 */
 	public void getProps() {
 		// 加一条命的道具
+		getAnotherLife();
+		// 增加行动力的道具
+		getPower();
+		
+	}
+	/**
+	 * 加一条命
+	 */
+	public void getAnotherLife(){
 		if (x[index] == propX[0] && y[index] == propY[0] && propNum[0] > 0) {
 			life[index] += 1;
 			propNum[0] -= 1;
-			props[0] = null;
+			if (Player.MUSiC_PLAYER.isGame_ON()) {
+				Player.playSound("hp");
+			}
 		}
-		
+	}
+	/**
+	 * 增加体力
+	 * 当前回合体力增加5
+	 */
+	public void getPower(){
+		if (x[index] == propX[1] && y[index] == propY[1] && propNum[1] > 0) {
+			nowPower += 5;
+			propNum[1] -= 1;
+			if (Player.MUSiC_PLAYER.isGame_ON()) {
+				Player.playSound("nowpower");
+			}
+		}
 	}
 
 	/**
@@ -1834,8 +1865,11 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		// TODO:加其他道具的坐标
 		propX[0] = random.nextInt(3) + 3;
 		propY[0] = random.nextInt(3) + 3;
+		propX[1] = random.nextInt(7) + 6;
+		propY[1] = random.nextInt(3) + 3;
 		
 		props[0] = ImgProps.ANOTHER_LIFE;
+		props[1] = ImgProps.ADD_NOWPOWER;
 		
 		for (int i = 0; i < propNum.length; i++) {
 			propNum[i] = 1;
