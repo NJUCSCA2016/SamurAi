@@ -39,7 +39,7 @@ public interface User extends Remote{
 	 * @param moodleCode
 	 * @throws RemoteException
 	 */
-	public void chooseMoodle(int moodleCode , GameObserver observer) throws RemoteException;
+	public void chooseMoodle(int moodleCode , GameReceive observer) throws RemoteException;
 	
 	
 	

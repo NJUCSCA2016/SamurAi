@@ -3,9 +3,10 @@ package server;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import serviceImp.GameManagerImp;
+import serviceImp.GameObserverImp;
 import serviceImp.UserImp;
-import team.csca.server.GameObserver;
+import team.csca.server.GameNotic;
+import team.csca.server.GameReceive;
 import team.csca.server.User;
 /**
  * 
@@ -14,42 +15,45 @@ import team.csca.server.User;
  *
  */
 
-public class LinkServer extends UnicastRemoteObject implements User , GameObserver{
+public class LinkServer extends UnicastRemoteObject implements User , GameReceive , GameNotic{
 	
 	/**
 	 *   
 	 */
 	private static final long serialVersionUID = -16634514387895372L;
 
-	private GameObserver gameObserver;
+	private GameReceive receive;
 	
 	private User user;
+	
+	private GameNotic notic;
 	
 	public LinkServer() throws RemoteException{
 		super();
 		//初始化两个Remote
-		gameObserver = new GameManagerImp();
+		receive = GameObserverImp.getReceiveIns();
 		user = new UserImp();
+		notic = GameObserverImp.getNoticIns();
 	}
 
 	@Override
 	public void acceptActionTro(int action) throws RemoteException {
-		gameObserver.acceptActionTro(action);
+		receive.acceptActionTro(action);
 	}
 
 	@Override
 	public void acceptActionProp(int action) throws RemoteException {
-		gameObserver.acceptActionProp(action);
+		receive.acceptActionProp(action);
 	}
 
 	@Override
 	public String initGame() throws RemoteException {
-		return gameObserver.initGame();
+		return notic.initGame();
 	}
 
 	@Override
 	public String feedBack() throws RemoteException {
-		return gameObserver.feedBack();
+		return notic.feedBack();
 	}
 
 	@Override
@@ -68,13 +72,13 @@ public class LinkServer extends UnicastRemoteObject implements User , GameObserv
 	}
 
 	@Override
-	public void chooseMoodle(int moodleCode , GameObserver observer) throws RemoteException {
+	public void chooseMoodle(int moodleCode , GameReceive observer) throws RemoteException {
 		user.chooseMoodle(moodleCode , observer);
 	}
 
 	@Override
 	public String[] playersInfoGet() throws RemoteException {
-		return gameObserver.playersInfoGet();
+		return notic.playersInfoGet();
 	}
 	
 	

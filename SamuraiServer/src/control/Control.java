@@ -3,7 +3,7 @@ package control;
 import java.util.ArrayList;
 import java.util.List;
 
-import gameinfo.FieldInfo;
+import data.FieldInfo;
 import user.UserInfo;
 
 public abstract class Control {

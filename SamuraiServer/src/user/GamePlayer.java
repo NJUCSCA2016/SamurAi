@@ -1,6 +1,6 @@
 package user;
 
-import gameinfo.FieldInfo;
+import data.FieldInfo;
 
 public class GamePlayer {
 	
@@ -8,11 +8,13 @@ public class GamePlayer {
 	
 	private int curY ;
 	
-	private final int homeX;
+	private int homeX;
 	
-	private final int homeY;
+	private int homeY;
 	
 	private int max_power = 7;
+	
+	private int recover = 0;
 	
 	private boolean hide = false;
 	
@@ -26,8 +28,20 @@ public class GamePlayer {
 		
 	}
 	
+	public void initPlayer(int homeX , int homeY){
+		this.homeX =  homeX;
+		this.homeX = homeY;
+		this.curX = homeX;
+		this.curY = homeY;
+	}
 	
+	public int getXOfPlayer(){
+		return this.curX;
+	}
 	
+	public int getYOfPlayer(){
+		return this.curY;
+	}
 	
 	
 	

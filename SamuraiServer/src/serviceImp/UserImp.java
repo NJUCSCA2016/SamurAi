@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import team.csca.server.GameObserver;
+import team.csca.server.GameReceive;
 import team.csca.server.User;
 import user.UserInfo;
 /**
@@ -94,7 +94,7 @@ public class UserImp implements User{
 	
 
 	@Override
-	public void chooseMoodle(int moodleCode , GameObserver observer) throws RemoteException {
+	public void chooseMoodle(int moodleCode , GameReceive observer) throws RemoteException {
 		
 		
 		

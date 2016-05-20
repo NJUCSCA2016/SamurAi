@@ -1,13 +1,13 @@
 package user;
 
-import team.csca.server.GameObserver;
+import team.csca.server.GameReceive;
 import team.csca.server.User;
 
 public class UserInfo {	
 	
 	private User user;
 	
-	private GameObserver observer;
+	private GameReceive observer;
 	
 	private String name = null;
 	
@@ -24,7 +24,7 @@ public class UserInfo {
 		this.user = user;
 	}
 	
-	public void setManagerRemote(GameObserver observer){
+	public void setManagerRemote(GameReceive observer){
 		this.observer = observer;
 	}
 
@@ -32,7 +32,7 @@ public class UserInfo {
 		return user;
 	}
 
-	public GameObserver getObserver() {
+	public GameReceive getObserver() {
 		return observer;
 	}
 	

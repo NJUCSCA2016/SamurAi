@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
  * @author With You
  *
  */
-public interface GameObserver extends Remote{
+public interface GameReceive extends Remote{
 	/**
 	 * 每一步都会传入Action
 	 * 接受传统模式用户传来的动作
@@ -23,27 +23,6 @@ public interface GameObserver extends Remote{
 	 * @throws RemoteException
 	 */
 	public void acceptActionProp(int action) throws RemoteException;
-	/**
-	 * 初始化信息反馈给每个Player
-	 * 
-	 * @return
-	 * @throws RemoteException
-	 */
-	public String initGame() throws RemoteException;
-	/**
-	 * 将游戏信息反馈给指定的AI
-	 * 
-	 * @return 所返回的信息。
-	 * 
-	 * 反馈格式可参考AI中的GameInfo。
-	 * 
-	 * @throws RemoteException
-	 */
-	public String feedBack() throws RemoteException;
-	
-	
-	public String[] playersInfoGet() throws RemoteException;
-	
-	
+
 	
 }
