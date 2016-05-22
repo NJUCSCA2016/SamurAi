@@ -12,7 +12,7 @@ import user.UserInfo;
  * @author With You
  *
  */
-public class GameObserverImp implements GameReceive , GameNotic{
+public class GameObserverImp implements GameReceive {
 
 	private final static GameObserverImp imp = new GameObserverImp();
 	
@@ -40,22 +40,4 @@ public class GameObserverImp implements GameReceive , GameNotic{
 		
 	}
 
-	@Override
-	public String initGame() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String feedBack() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String[] playersInfoGet() throws RemoteException {
-		String[] names = new String[6];
-		return null;
-	}
-	
 }

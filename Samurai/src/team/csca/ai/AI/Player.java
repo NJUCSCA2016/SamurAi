@@ -1,13 +1,16 @@
 /**
  * Date : Mar 27, 2016 7:27:11 PM
  */
-package team.csca.ai.AXE;
+package team.csca.ai.AI;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import team.csca.ai.AIControl.CenterControl;
 import team.csca.ai.AIdata.GameInfo;
 import team.csca.ai.AIdata.SamuraiInfo;
+import team.csca.ai.swapOfAI.InstructionSwap;
+import team.csca.view.pm.JPanelPM;
 
 /**
  * 这个类用于规范Player 的一些基本操作。
@@ -28,6 +31,31 @@ import team.csca.ai.AIdata.SamuraiInfo;
  */
 public abstract class Player {
 	
+	
+	public ArrayList<int[]> enemyInOwnEyes = new ArrayList<int[]>(3);
+	public ArrayList<int[]> placeWaitingToOccupy = new ArrayList<int[]>();
+	protected ArrayList<int[]> enemiesCanKill = new ArrayList<int[]>(3);
+	public ArrayList<SamuraiInfo> otherEnemies = new ArrayList<SamuraiInfo>(3);
+	public ArrayList<Integer> weapons = new ArrayList<Integer>(3);
+	public int enemiesNum = 0;
+	
+	public boolean markFieldOnOwn = false;
+
+	/**
+	 * 12 / 16个方向。
+	 */
+	public int[] directions;
+	
+	public int[] indexOfMax;
+	
+	public Random random = new Random();
+		
+	public int curX =0;
+	
+	public int curY=0;
+	
+	
+	
 	/**
 	 * 战场分析功能
 	 */
@@ -39,23 +67,7 @@ public abstract class Player {
 	public final static int UP_SIDE = 2;
 	
 	public final static int DOWN_SIDE = 3;
-	
-//	public final static int LEFT_UP = 4;
-//	
-//	public final static int LEFT_DOWN = 5;
-//	
-//	public final static int RIGHT_UP = 6;
-//	
-//	public final static int RIGHT_DOWN = 7;
-//	
-//	public final static int UP_LEFT = 8;
-//	
-//	public final static int UP_RIGHT = 9;
-//	
-//	public final static int DOWN_LEFT = 10;
-//	
-//	public final static int DOWN_RIGHT = 11;
-	
+
 	public final static int DANGER =  12;
 	
 	
@@ -99,9 +111,20 @@ public abstract class Player {
 	 * 只能用于UI中。此处不适用
 	 */
 //	protected static ArrayList<int[]> enemy_Location = new ArrayList<int[]>(3);
+	private InstructionSwap swap;
 	
+	public Player() {
+		this.gameInfo = new GameInfo(this);
+	}
 	
+	public void initAIField(int[] basicInfo , int[] homeX , int[] homeY , JPanelPM panel){
+		swap = new InstructionSwap(this.gameInfo , panel);
+		swap.initAIField(basicInfo, homeX, homeY);
+	}
 	
+	public void sendInfo(int[] basicInfo , int[] curXes , int[] curYes , int[] hidden , int[] occupy){
+		swap.sendInfo(basicInfo, curXes, curYes, hidden, occupy);
+	}	
 	
 	/**
 	 * 
@@ -110,9 +133,8 @@ public abstract class Player {
 	 */
 	public abstract void play();
 	
-	public void initial(CenterControl centerControl , GameInfo gameInfo , SamuraiInfo samuraiInfo){
+	public void initial(CenterControl centerControl , SamuraiInfo samuraiInfo){
 		this.centerControl =centerControl;
-		this.gameInfo = gameInfo;
 		this.samuraiInfo = samuraiInfo;
 	}
 	
@@ -366,5 +388,164 @@ public abstract class Player {
 		}
 	}
 	
+	
+	public void justMove(){
+		if(canHide()){
+			hide();
+			current_Cost++;
+		}
+		
+		if(curX == this.samuraiInfo.width >> 1 && curY == this.samuraiInfo.height >> 1){
+			takeActionFirst(20 + random.nextInt(4));
+			/**
+			 * 20:左下 
+			 * 21:左上
+			 * 22:右下
+			 * 23:右上
+			 */
+		}else if(curX < this.samuraiInfo.width >> 1 && curY < this.samuraiInfo.height >> 1){
+			if(curX == 0 && (curY == 3|| curY == 4)){
+				moveThreeStep(6, 6, 5);
+			}else{
+				moveThreeStep(5, 5, 6);
+			}
+		}else if(curX < this.samuraiInfo.width >> 1 && curY > this.samuraiInfo.height >> 1){
+			moveThreeStep(6, 6, 7);
+		}else if(curX > this.samuraiInfo.width >> 1 && curY < this.samuraiInfo.height >> 1){
+			moveThreeStep(8, 8, 5);
+		}else if(curX > this.samuraiInfo.width >> 1 && curY > this.samuraiInfo.height >> 1){
+			if(curX == 14 && (curY == 10 || curY == 11)){
+				moveThreeStep(8, 8, 7);
+			}else{
+				moveThreeStep(7,7 , 8);
+			}
+		}else if(curX == this.samuraiInfo.width >> 1 && curY < this.samuraiInfo.height >> 1){
+			switch (random.nextInt(3)) {
+		case 0:
+			moveThreeStep(7, 7, 7);
+			break;
+		case 1:
+			moveThreeStep(7, 7, 8);
+			break;
+		case 2:
+			moveThreeStep(7, 7, 6);
+			break;
+		default:
+			break;
+		}
+			current_Cost += 6;
+		}else if(curX == this.samuraiInfo.width >> 1 && curY > this.samuraiInfo.height >> 1){
+			switch (random.nextInt(3)) {
+			case 0:
+				moveThreeStep(5, 5, 5);
+				break;
+			case 1:
+				moveThreeStep(5, 5, 8);
+				break;
+			case 2:
+				moveThreeStep(5, 5, 6);
+				break;
+			default:
+				break;
+			}
+			current_Cost += 6;
+			
+		}else if(curX > this.samuraiInfo.width >> 1 && curY == this.samuraiInfo.height >> 1){
+			switch (random.nextInt(3)) {
+			case 0:
+				moveThreeStep(8, 8, 8);
+				break;
+			case 1:
+				moveThreeStep(8, 8, 7);
+				break;
+			case 2:
+				moveThreeStep(8, 8, 5);
+				break;
+			default:
+				break;
+			}
+			current_Cost += 6;
+			
+		}else if(curX < this.samuraiInfo.width >> 1 && curY == this.samuraiInfo.height >> 1){
+			switch (random.nextInt(3)) {
+			case 0:
+				moveThreeStep(6, 6, 6);
+				break;
+			case 1:
+				moveThreeStep(6, 6, 7);
+				break;
+			case 2:
+				moveThreeStep(6, 6, 5);
+				break;
+			default:
+				break;
+			}
+			current_Cost += 6;
+			
+		}
+		
+	}
+	
+	
+	public void getMaxIndex(){
+		int max = directions[0];
+		int count = 1;
+		for(int i = 1 ; i < 20 ; i++){
+			if(max == directions[i]){
+				count ++;
+			}else if(max < directions[i]){
+				max = directions[i];
+				count = 1;
+			}
+		}
+		System.err.println("count =" + count);
+		this.indexOfMax = new int[count];
+		
+		count = 0;
+		for(int i = 0 ; i < 20 ; i++){
+			if(directions[i] == max){
+				indexOfMax[count] = i;
+				count++;
+			}
+		}
+		for(int i = 0 ; i < 20 ; i++){
+			System.err.println("Direction" + i + "   =   " + directions[i]);
+		}
+		for(int j = 0 ; j < indexOfMax.length ; j++){
+			System.err.println("IndexMax = " + indexOfMax[j]);
+		}
+	}
+	
+	/**
+	 * 
+	 * @param enemyX
+	 * @param enemyY
+	 * @param weapon
+	 * @return
+	 */
+	public int checkDirectionOFEnemy(int enemyX, int enemyY){
+		int offsetX = enemyX - curX;
+		int offsetY = enemyY - curY;
+		/**
+		 *@Warning ：  如果是碰到对面的剑士。Be careful
+		 */
+				return judgeDirection(offsetX, offsetY);
+	}
+	
+	public int judgeDirection(int offsetX , int offsetY){
+		if(offsetX == 0){
+			return offsetY > 0 ? Player.UP_SIDE  : Player.DOWN_SIDE;
+	 	}else if(offsetY == 0){
+	 		return offsetX > 0 ? Player.RIGHT_SIDE : Player.LEFT_SIDE;
+	 	}else if(offsetX > 0){
+	 		return offsetY > 0 ? (offsetY <= offsetX ? Player.RIGHT_SIDE: Player.UP_SIDE) : (offsetY > -offsetX ? Player.RIGHT_SIDE : Player.DOWN_SIDE);
+	 	}else{
+	 		return offsetY > 0 ? (offsetY > -offsetX ? Player.UP_SIDE : Player.LEFT_SIDE) : (offsetY > offsetX ? Player.LEFT_SIDE : Player.DOWN_SIDE);
+	 	}
+	}
+	// UP :  hit 1 move 5
+	// DOWN : hit 3 move 7
+	//RIGHT :  hit 2 move 6
+	//LEFT : hit 6 move 8
 	
 }

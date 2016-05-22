@@ -17,12 +17,6 @@ public final class ActionInfo {
 	
 													};
 	
-//下面这种写法无实际作用
-//如果是移动三步那就有4*4*4=64种情况，全部列出来不现实
-//	public final static int[][][][] MOVE_TWO_OFFSET ;
-	
-	
-	
 	/**
 	 *  占领区域
 	 */

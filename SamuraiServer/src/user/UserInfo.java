@@ -1,11 +1,11 @@
 package user;
 
+import team.csca.server.GameNotic;
 import team.csca.server.GameReceive;
-import team.csca.server.User;
 
 public class UserInfo {	
 	
-	private User user;
+	private GameNotic notic;
 	
 	private GameReceive observer;
 	
@@ -19,17 +19,14 @@ public class UserInfo {
 		this.name = name;
 		this.password = password;
 	}
-	
-	public void setUserRemote(User user){
-		this.user = user;
-	}
+
 	
 	public void setManagerRemote(GameReceive observer){
 		this.observer = observer;
 	}
 
-	public User getUser() {
-		return user;
+	public GameNotic getUser() {
+		return notic;
 	}
 
 	public GameReceive getObserver() {
@@ -37,7 +34,7 @@ public class UserInfo {
 	}
 	
 	public void removeUserClient(){
-		this.user = null;
+		this.notic = null;
 		this.observer =null;
 	}
 

@@ -4,6 +4,8 @@ import data.FieldInfo;
 
 public class GamePlayer {
 	
+	
+	
 	private int curX ;
 	
 	private int curY ;

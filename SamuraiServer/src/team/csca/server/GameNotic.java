@@ -19,14 +19,14 @@ public interface GameNotic {
 	 * 
 	 * @throws RemoteException
 	 */
-	public String feedBack() throws RemoteException;
+	public void feedBack() throws RemoteException;
 	
 	/**
 	 * 获取玩家的信息
 	 * @return
 	 * @throws RemoteException
 	 */
-	public String[] playersInfoGet() throws RemoteException;
+	public void playersInfoGet(String[] playersName , int yourIndex) throws RemoteException;
 	
 	
 }

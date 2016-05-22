@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import team.csca.server.GameNotic;
 import team.csca.server.GameReceive;
 import team.csca.server.User;
 import user.UserInfo;
@@ -63,7 +64,7 @@ public class UserImp implements User{
 	
 	
 	@Override
-	public int login(String userName, String password , User user) throws RemoteException {
+	public int login(String userName, String password) throws RemoteException {
 		
 		if(! NAMES.contains(userName)){
 			//用户名不存在
@@ -75,8 +76,7 @@ public class UserImp implements User{
 			return PASSWORD_ERROR;
 		}
 		UserInfo currentUser = this.getCurrentUser(userName, USERS);
-		currentUser.setUserRemote(user);
-		
+
 		USER_CACHE.add(currentUser);
 		//成功登陆。
 		return UserImp.SUCCEED;

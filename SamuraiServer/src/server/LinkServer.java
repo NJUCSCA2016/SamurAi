@@ -15,7 +15,7 @@ import team.csca.server.User;
  *
  */
 
-public class LinkServer extends UnicastRemoteObject implements User , GameReceive , GameNotic{
+public class LinkServer extends UnicastRemoteObject implements User , GameReceive{
 	
 	/**
 	 *   
@@ -25,15 +25,12 @@ public class LinkServer extends UnicastRemoteObject implements User , GameReceiv
 	private GameReceive receive;
 	
 	private User user;
-	
-	private GameNotic notic;
-	
+
 	public LinkServer() throws RemoteException{
 		super();
 		//初始化两个Remote
 		receive = GameObserverImp.getReceiveIns();
 		user = new UserImp();
-		notic = GameObserverImp.getNoticIns();
 	}
 
 	@Override
@@ -47,23 +44,13 @@ public class LinkServer extends UnicastRemoteObject implements User , GameReceiv
 	}
 
 	@Override
-	public String initGame() throws RemoteException {
-		return notic.initGame();
-	}
-
-	@Override
-	public String feedBack() throws RemoteException {
-		return notic.feedBack();
-	}
-
-	@Override
 	public boolean signIn(String userName, String password) throws RemoteException {
 		return user.signIn(userName, password);
 	}
 
 	@Override
-	public int login(String userName, String password , User user) throws RemoteException {
-		return user.login(userName, password , user);
+	public int login(String userName, String password) throws RemoteException {
+		return user.login(userName, password);
 	}
 
 	@Override
@@ -76,11 +63,6 @@ public class LinkServer extends UnicastRemoteObject implements User , GameReceiv
 		user.chooseMoodle(moodleCode , observer);
 	}
 
-	@Override
-	public String[] playersInfoGet() throws RemoteException {
-		return notic.playersInfoGet();
-	}
-	
 	
 
 }

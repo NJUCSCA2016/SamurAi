@@ -3,6 +3,8 @@
  */
 package team.csca.ai.AIdata;
 
+import team.csca.ai.swapOfAI.InstructionSwap;
+
 /**
  * 
  * @version version two . In the first version , there exits a class called service . while in this version. I delete it and move all its method to this class
@@ -39,7 +41,8 @@ public final class SamuraiInfo {
 		 * 游戏信息
 		 */
 		private GameInfo gameInfo;
-
+		
+		private InstructionSwap swap;
 		/**
 		 *  用于暂时存放每次检查是否可以移动时模拟后的X,Y;
 		 */
@@ -52,7 +55,7 @@ public final class SamuraiInfo {
 		private int[][][] attackField = ActionInfo.ATTACK_FIELD.BATTLEAX.attack_Field;
 		
 		
-		public SamuraiInfo(GameInfo gameInfo){
+		public SamuraiInfo(GameInfo gameInfo , InstructionSwap swap){
 		this.homeX = 0;
 		this.homeY = 0;
 		this.curX = 0;
@@ -61,6 +64,7 @@ public final class SamuraiInfo {
 		this.score = 0;
 		this.hidden = 0;
 		this.gameInfo = gameInfo;
+		this.swap = swap;
 	  }
 	
 	  /**
@@ -128,12 +132,12 @@ public final class SamuraiInfo {
 	    
 	    public void show(){
 	    	this.hidden = 0;
-	    	System.out.print(10 + " ");
+	    	this.swap.showSwap();
 	    }
 	    
 	    public void hide(){
 	    	this.hidden = 1;
-	    	System.out.print(9 + " ");
+	    	this.swap.hideSwap();
 	    }
 	    
 	    public void occupy(int direction){
@@ -153,7 +157,7 @@ public final class SamuraiInfo {
 	    				this.gameInfo.field[attackY][attackX] = weapon;
 	    			}
 	    	}
-	    	System.out.print(direction + " ");
+	    	this.swap.occupySwap(direction);
 //			不一定能Hide
 //	    	this.checkThenHide();
 	    	
@@ -267,7 +271,7 @@ public final class SamuraiInfo {
 			
 //			this.checkThenHide();
 			
-			System.out.print(direction + " ");
+			this.swap.moveSwap(direction);
 	    }
 	    }
 	
@@ -489,13 +493,6 @@ public final class SamuraiInfo {
 	     */
 	    public boolean checkOutOfField(int curX , int curY){
 			return curX < 0 || this.gameInfo.width <= curX || curY < 0 || this.gameInfo.height <= curY;
-	    }
-	    
-	    private void checkThenHide(){
-	    	if(this.canHide()){
-	    		this.hidden = 1 ;
-	    		System.out.print(9 + " ");
-	    	}
 	    }
 	    
 }
