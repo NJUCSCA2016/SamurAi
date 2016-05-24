@@ -1878,25 +1878,26 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		round = 0;
 		// 从左到右是x,从上到下是y
 		// 关于x的系数为正，关于y的系数为负
-		x[0] = random.nextInt(7) + 1;
-		y[0] = 0;
-		x[1] = 14;
-		y[1] = random.nextInt(5) + 1;
-		x[2] = 0;
-		y[2] = random.nextInt(9) + 5;
-		x[3] = random.nextInt(6) + 8;
-		y[3] = 0;
-		x[4] = random.nextInt(7) + 1;
-		y[4] = 14;
-		x[5] = random.nextInt(6) + 7;
-		y[5] = 14;
+		x[0] = random.nextInt(6) + 1; // 1 - 6
+		y[0] = 0;                     // 0 - 0
+		x[1] = 0;                     // 0 - 0
+		y[1] = random.nextInt(5) + 1; // 1 - 5
+		x[2] = 0;                     // 0 - 0
+		y[2] = random.nextInt(6) + 8; // 8 - 13
+		
+		x[3] = random.nextInt(6) + 8; // 8 - 13
+		y[3] = 14;                    // 0 - 0
+		x[4] = 14;                    // 14- 14
+		y[4] = random.nextInt(5) + 9; // 9 - 13
+		x[5] = 14;                    // 14- 14
+		y[5] = random.nextInt(6) + 1; // 14- 14
 		// TODO:加其他道具的坐标
-		propX[0] = random.nextInt(3) + 3; // 2 - 5
-		propY[0] = random.nextInt(3) + 3; // 2 - 5
-		propX[1] = random.nextInt(7) + 6; // 6 - 12
-		propY[1] = random.nextInt(3) + 3; // 2 - 5
-		propX[2] = random.nextInt(3) + 3; // 2 - 5
-		propY[2] = random.nextInt(4) + 6; // 6 - 9
+		propX[0] = random.nextInt(3) + 6; // 6 - 8
+		propY[0] = random.nextInt(3) + 6; // 6 - 8
+		propX[1] = random.nextInt(2) + 3; // 3 - 4
+		propY[1] = random.nextInt(2) + 11;// 11- 12
+		propX[2] = random.nextInt(2) + 10;// 10- 11
+		propY[2] = random.nextInt(2) + 2; // 6 - 9
 		
 		
 		props[0] = ImgProps.ANOTHER_LIFE;
