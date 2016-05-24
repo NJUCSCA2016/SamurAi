@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import control.Control;
 import control.GameNotFoundException;
 import control.PPGameControl;
 import control.TRAGameControl;
@@ -51,9 +52,30 @@ public class GameReceiveImp implements GameReceive {
 			}
 		}
 		if(control != null){
-			control.handleAction(action);
+			new Thread(new TraHandleRequest(action, control)).run();
 		}else{
 			throw new GameNotFoundException();
+		}
+		
+	}
+	/**
+	 * 
+	 * Create a new thread to handle the request
+	 * 
+	 * @author With You
+	 *
+	 */
+	private class TraHandleRequest implements Runnable{
+		private Control control;
+		private int actionToTake;
+		public TraHandleRequest(int action , Control control) {
+			this.control = control;
+			this.actionToTake = action;
+		}
+		
+		@Override
+		public void run() {
+			this.control.handleAction(actionToTake);
 		}
 		
 	}
