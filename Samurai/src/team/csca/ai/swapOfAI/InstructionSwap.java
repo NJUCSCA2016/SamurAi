@@ -1,6 +1,5 @@
 package team.csca.ai.swapOfAI;
 
-import team.csca.ai.AI.Player;
 import team.csca.ai.AIdata.GameInfo;
 import team.csca.view.pm.JPanelPM;
 
@@ -11,7 +10,7 @@ import team.csca.view.pm.JPanelPM;
  * This class is the swap of AI for all the AI programs we write . 
  * 
  * @author With You
- *
+ *	
  */
 public class InstructionSwap {
 	

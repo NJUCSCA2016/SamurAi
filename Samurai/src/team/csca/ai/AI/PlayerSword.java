@@ -6,7 +6,6 @@ import java.util.List;
 
 import team.csca.ai.AIdata.ActionInfo;
 import team.csca.ai.AIdata.SamuraiInfo;
-import team.csca.view.pm.JPanelPM;
 
 public class PlayerSword extends Player{
 

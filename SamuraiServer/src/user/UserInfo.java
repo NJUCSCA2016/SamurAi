@@ -1,19 +1,31 @@
 package user;
 
-import team.csca.server.GameNotic;
-import team.csca.server.GameReceive;
+import java.io.Serializable;
 
-public class UserInfo {	
+import team.csca.server.GameNotice;
+
+public class UserInfo implements Serializable{	
 	
-	private GameNotic notic;
+	private GameNotice notic;
 	
-	private GameReceive observer;
+//	private GameReceive observer;
+	
+//	private LinkServer server;
 	
 	private String name = null;
 	
 	private String password = null;
 
 	private int indexOfAI = -1;
+
+//	public GamePlayer(FieldInfo field , int homeX , int homeY) {
+//		
+//		this.field = field;
+//		
+//	}
+	
+	
+	
 	
 	public UserInfo(String name, String password) {
 		this.name = name;
@@ -21,21 +33,17 @@ public class UserInfo {
 	}
 
 	
-	public void setManagerRemote(GameReceive observer){
-		this.observer = observer;
-	}
+//	public void setManagerRemote(GameReceive observer){
+//		this.observer = observer;
+//	}
 
-	public GameNotic getUser() {
-		return notic;
-	}
 
-	public GameReceive getObserver() {
-		return observer;
-	}
+//	public GameReceive getObserver() {
+//		return observer;
+//	}
 	
 	public void removeUserClient(){
 		this.notic = null;
-		this.observer =null;
 	}
 
 	public String getName() {
@@ -53,5 +61,13 @@ public class UserInfo {
 	public int getIndexOfAI(){
 		return this.indexOfAI;
 	}
-
+	
+	public GameNotice getNotic(){
+		return this.notic;
+	}
+	
+	public void setNotic(GameNotice notice){
+		this.notic = notice;
+	}
+	
 }

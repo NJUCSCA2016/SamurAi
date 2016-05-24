@@ -4,9 +4,7 @@ import java.awt.event.MouseEvent;
 
 import team.csca.controller.media.Player;
 import team.csca.view.extend.DynamicButton;
-import team.csca.view.image.ImgButton;
 import team.csca.view.image.ImgGameOver;
-import team.csca.view.pm.JPanelPM;
 import team.csca.view.startgame.JPanelStartGame;
 
 public class JButtonGameBackToMain extends DynamicButton{

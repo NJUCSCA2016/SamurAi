@@ -1,12 +1,11 @@
 /**
  * Date : Mar 24, 2016 12:45:12 PM
  */
-package team.csca.view.link.signIn;
+package team.csca.link.signIn;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.border.LineBorder;
 /**

@@ -1,4 +1,4 @@
-package team.csca.view.link.serverLink;
+package team.csca.link.serverLink;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -10,9 +10,9 @@ import javax.swing.JPanel;
 
 import team.csca.client.ServerLink;
 import team.csca.client.ServerNotFoundException;
+import team.csca.link.signIn.JPanelSignIn;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgLink;
-import team.csca.view.link.signIn.JPanelSignIn;
 
 /**
  * 

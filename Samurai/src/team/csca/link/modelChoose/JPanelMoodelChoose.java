@@ -1,4 +1,4 @@
-package team.csca.view.link.modelChoose;
+package team.csca.link.modelChoose;
 
 import java.awt.Graphics;
 

@@ -5,7 +5,6 @@ import java.awt.event.MouseEvent;
 import team.csca.controller.media.Player;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.image.ImgButton;
-import team.csca.view.propPattern.JPanelPropPattern;
 import team.csca.view.startgame.JPanelStartGame;
 
 /**

@@ -1,9 +1,9 @@
-package team.csca.view.link.modelChoose;
+package team.csca.link.modelChoose;
 
 import java.awt.event.MouseEvent;
 
+import team.csca.link.signIn.JPanelSignIn;
 import team.csca.view.extend.DynamicButton;
-import team.csca.view.link.signIn.JPanelSignIn;
 
 public class JButtonReturn extends DynamicButton{
 	

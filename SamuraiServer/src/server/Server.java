@@ -8,7 +8,7 @@ import java.rmi.registry.LocateRegistry;
 
 /**
  * 
- * 一个支持多人同时在线的帅的一比的由严格写的超级辣鸡的服务器
+ * 一个基于C/S模式的支持多人同时在线的帅的一比的由严格写的超级辣鸡的服务器
  * 
  * 其实我想偷偷添加聊天室功能的但是怕队友又骂我偷偷添加了需求0.0 . 如果能写的话让我默默的写出来吧嘿嘿嘿===
  * 
@@ -22,8 +22,8 @@ public class Server {
 	}
 
 	public static void main(String[] args) {
-
-		new Server();
+		
+		new ServerWindow();
 
 	}
 

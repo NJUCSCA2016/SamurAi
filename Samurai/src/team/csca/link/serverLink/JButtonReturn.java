@@ -1,4 +1,4 @@
-package team.csca.view.link.serverLink;
+package team.csca.link.serverLink;
 
 import java.awt.Image;
 import java.awt.event.MouseEvent;

@@ -1,4 +1,4 @@
-package team.csca.view.link.signIn;
+package team.csca.link.signIn;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;

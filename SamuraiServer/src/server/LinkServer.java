@@ -3,9 +3,10 @@ package server;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import serviceImp.GameObserverImp;
+import control.GameNotFoundException;
+import serviceImp.GameReceiveImp;
 import serviceImp.UserImp;
-import team.csca.server.GameNotic;
+import team.csca.server.GameNotice;
 import team.csca.server.GameReceive;
 import team.csca.server.User;
 /**
@@ -29,18 +30,19 @@ public class LinkServer extends UnicastRemoteObject implements User , GameReceiv
 	public LinkServer() throws RemoteException{
 		super();
 		//初始化两个Remote
-		receive = GameObserverImp.getReceiveIns();
+		receive = GameReceiveImp.getReceiveIns();
 		user = new UserImp();
+		UserImp.dataLoadFromDatabase();
 	}
 
 	@Override
-	public void acceptActionTro(int action) throws RemoteException {
-		receive.acceptActionTro(action);
+	public void acceptActionTra(int action , int indexOfGame) throws RemoteException, GameNotFoundException {
+		receive.acceptActionTra(action , indexOfGame);
 	}
 
 	@Override
-	public void acceptActionProp(int action) throws RemoteException {
-		receive.acceptActionProp(action);
+	public void acceptActionProp(int action , int indexOfGame) throws RemoteException, GameNotFoundException {
+		receive.acceptActionProp(action , indexOfGame);
 	}
 
 	@Override
@@ -59,8 +61,8 @@ public class LinkServer extends UnicastRemoteObject implements User , GameReceiv
 	}
 
 	@Override
-	public void chooseMoodle(int moodleCode , GameReceive observer) throws RemoteException {
-		user.chooseMoodle(moodleCode , observer);
+	public void chooseModle(int moodleCode , GameNotice notice , String name) throws RemoteException {
+		user.chooseModle(moodleCode , notice , name);
 	}
 
 	
