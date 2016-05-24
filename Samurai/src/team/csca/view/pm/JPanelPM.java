@@ -1868,24 +1868,6 @@ public class JPanelPM extends JPanel implements KeyListener {
 		//Deep copy
 		System.arraycopy(this.x, 0, curX, 0, this.x.length);
 		System.arraycopy(this.y, 0, curY, 0, this.y.length);
-		//Hide the AI out of eyes
-		for(int i = 0 ; i < 3 ; i ++){
-			int XofAI = curX[i];
-			int YofAI = curY[i];
-			boolean out = true;
-			for(int j = 3 ; j < 6 ; j ++) {
-				int XofAlly = curX[j];
-				int YofAlly = curY[j];
-				if(Math.abs(YofAI - YofAlly) + Math.abs(XofAlly - XofAI) <= 5){
-					out = false;
-					break;
-				}
-			}
-			if(out){
-				curX[i] = -1;
-				curY[i] = -1;
-			}
-		}
 		//Hide information . Provide the limited info.
 		int[] hidden = new int[6];
 		for(int i = 0 ; i < direction.length ; i ++ ){
@@ -1898,7 +1880,32 @@ public class JPanelPM extends JPanel implements KeyListener {
 					hidden[i] = 0;
 				}
 			}
+		}		
+		//Hide the AI out of eyes
+		for(int i = 0 ; i < 3 ; i ++){
+			int XofAI = curX[i];
+			int YofAI = curY[i];
+			if(hidden[i] == -1){
+				curX[i] = -1;
+				curY[i] = -1;
+			}else{
+				boolean out = true;
+				for(int j = 3 ; j < 6 ; j ++) {
+					int XofAlly = curX[j];
+					int YofAlly = curY[j];
+					if(Math.abs(YofAI - YofAlly) + Math.abs(XofAlly - XofAI) <= 5){
+						out = false;
+						break;
+					}
+				}
+				if(out){
+					hidden[i] = -1;
+					curX[i] = -1;
+					curY[i] = -1;
+				}
+			}
 		}
+		
 		//Occupy info . Provide the info in sight
 		int[] occupy = new int[this.occupation.length];
 		System.arraycopy(occupation, 0, occupy, 0, occupation.length);

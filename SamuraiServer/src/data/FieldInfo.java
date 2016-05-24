@@ -1286,95 +1286,78 @@ public class FieldInfo{
 //	}
 //	
 //	
-	private void sendInfoToArmyOne(){
-		int[] basicInfo = new int[]{this.round , this.recoverRound[index]};
-		int[] curX = new int[this.x.length];
-		int[] curY = new int[this.y.length];
-		//Deep copy
-		System.arraycopy(this.x, 0, curX, 0, this.x.length);
-		System.arraycopy(this.y, 0, curY, 0, this.y.length);
-		//Hide the info of 
-	}
-	private void sendInfoToArmyTwo(){
-		int[] basicInfo = new int[]{this.round , this.recoverRound[index]};
-		int[] curX = new int[this.x.length];
-		int[] curY = new int[this.y.length];
-		//Deep copy
-		System.arraycopy(this.x, 0, curX, 0, this.x.length);
-		System.arraycopy(this.y, 0, curY, 0, this.y.length);
-	}
+
 	private void sendFieldInfo(int army){
-		int[] basicInfo = new int[]{this.round , this.recoverRound[index]};
+		int[] recover = new int[this.recoverRound.length];
+		System.arraycopy(recoverRound, 0, recover, 0, this.recoverRound.length);
 		int[] curX = new int[this.x.length];
 		int[] curY = new int[this.y.length];
 		//Deep copy
 		System.arraycopy(this.x, 0, curX, 0, this.x.length);
 		System.arraycopy(this.y, 0, curY, 0, this.y.length);
 		//Hide the enemies out of sight.
-		int starr
+		int startEne = army == 1 ? 0 : 3 ;
+		int endEne = startEne + 3 ; 
+		int startAlly = army == 1 ? 3 : 0 ;
+		int endAlly = startAlly + 3 ;
+		//Hide information . Provide the limited info.
+		int[] hidden = new int[6];
+		for(int i = 0 ; i < direction.length ; i ++ ){
+			if(curX[i] == -1){
+				hidden[i] = 1;
+			}else{
+				if(direction[i] > 3){
+					hidden[i] = -1;
+				}else{
+					hidden[i] = 0;
+				}
+			}
+		}
+		for(int i = startEne ; i < endEne ; i ++){
+			int XofEne = curX[i];
+			int YofEne = curY[i];
+			
+			if(hidden[i] == -1){
+				curX[i] = -1;
+				curY[i] = -1;
+			}else{
+				boolean out = true;
+				for(int j = startAlly ; j < endAlly ; j ++){
+					int XofAlly = curX[j];
+					int YofAlly = curY[j];
+					if(Math.abs(XofEne - XofAlly) + Math.abs(YofEne - YofAlly) <= 5){
+						out = false;
+						break;
+					}
+				}
+				if(out){
+					hidden[i] = -1;
+					curX[i] = -1;
+					curY[i] = -1;
+				}
+			}
+			
+		}
+		//Occupy info . Provide the info in sight
+		int[] occupy = new int[this.occupation.length];
+		System.arraycopy(occupation, 0, occupy, 0, occupation.length);
+		for(int i = 0 ; i < 15 ; i ++){
+			for(int j = 0 ; j < 15 ; j++){
+				boolean out = true;
+				for(int ai = startAlly ; ai < endAlly ; ai ++){
+					if(Math.abs(i - curX[ai]) + Math.abs(j - curY[ai]) <= 5){
+						out = false;
+						break;
+					}
+				}
+				if(out){
+					// 9 means out of sight.
+					occupy[15 * i + j] = 9;
+				}
+			}
+		}
+		this.control.feedBack(army , this.round, recover, curX, curY, hidden, occupy);
 	}
 	
-	/**
-	 * This method is to provide the info of current field.
-	 * @param player
-	 */
-//	private void sendFieldInfo(team.csca.ai.AI.Player player){
-//		
-//		int[] basicInfo = new int[]{this.round , this.recoverRound[index]};
-//		int[] curX = new int[this.x.length];
-//		int[] curY = new int[this.y.length];
-//		//Deep copy
-//		System.arraycopy(this.x, 0, curX, 0, this.x.length);
-//		System.arraycopy(this.y, 0, curY, 0, this.y.length);
-//		//Hide the AI out of eyes
-//		for(int i = 0 ; i < 3 ; i ++){
-//			int XofAI = curX[i];
-//			int YofAI = curY[i];
-//			boolean out = true;
-//			for(int j = 3 ; j < 6 ; j ++) {
-//				int XofAlly = curX[j];
-//				int YofAlly = curY[j];
-//				if(Math.abs(YofAI - YofAlly) + Math.abs(XofAlly - XofAI) <= 5){
-//					out = false;
-//					break;
-//				}
-//			}
-//			if(out){
-//				curX[i] = -1;
-//				curY[i] = -1;
-//			}
-//		}
-//		//Hide information . Provide the limited info.
-//		int[] hidden = new int[6];
-//		for(int i = 0 ; i < direction.length ; i ++ ){
-//			if(curX[i] == -1){
-//				hidden[i] = 1;
-//			}else{
-//				if(direction[i] > 3){
-//					hidden[i] = -1;
-//				}else{
-//					hidden[i] = 0;
-//				}
-//			}
-//		}
-//		//Occupy info . Provide the info in sight
-//		int[] occupy = new int[this.occupation.length];
-//		System.arraycopy(occupation, 0, occupy, 0, occupation.length);
-//		for(int i = 0 ; i < 15 ; i ++){
-//			for(int j = 0 ; j < 15 ; j++){
-//				boolean out = true;
-//				for(int ai = 3 ; ai < 6 ; ai ++){
-//					if(Math.abs(i - curX[ai]) + Math.abs(j - curY[ai]) <= 5){
-//						out = false;
-//						break;
-//					}
-//				}
-//				if(out){
-//					occupy[15 * i + j] = 9;
-//				}
-//			}
-//		}
-//		
-//		player.sendInfo(basicInfo, curX, curY, hidden, occupy);
-//	}
+
 }

@@ -1,5 +1,6 @@
 package control;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 import user.UserInfo;
@@ -52,6 +53,22 @@ public class PPGameControl extends Control{
 		}
 		//TODO : Fead back
 		
+	}
+	
+	public void feedBack(int army , int turn , int[] recoverRound , int[] curX , int[] curY , int[] direction , int[] occupation){
+		try{
+			if(army == 1){
+				for(int i = 0 ; i < sideOne.size() ; i ++){
+					sideOne.get(i).getNotic().feedBack(turn, recoverRound, curX, curY, direction, occupation);
+				}
+			}else{
+				for(int i = 0 ; i < sideTwo.size() ; i ++){
+					sideTwo.get(i).getNotic().feedBack(turn, recoverRound, curX, curY, direction, occupation);
+				}
+			}
+		}catch(RemoteException ex){
+			ex.printStackTrace();
+		}
 	}
 	
 }

@@ -27,6 +27,10 @@ public interface GameReceive extends Remote{
 	 * @throws GameNotFoundException 
 	 */
 	public void acceptActionProp(int action , int indexOfGame) throws RemoteException, GameNotFoundException;
-	
+	/**
+	 * User Finished Action Sign
+	 * @throws RemoteException
+	 */
+	public void acceptActionFinishedSign()throws RemoteException;
 	
 }
