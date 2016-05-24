@@ -93,10 +93,38 @@ public class GameReceiveImp implements GameReceive {
 			}
 		}
 		if(control != null){
-			control.handleAction(action);
+			new Thread(new PropHandleRequest(action, control)).run();
 		}else{
 			throw new GameNotFoundException();
 		}
+	}
+	/**
+	 * 
+	 * Action Handle Thread for Props pattern .
+	 * 
+	 * @author Away
+	 *
+	 */
+	private class PropHandleRequest implements Runnable{
+		
+		private Control control;
+		private int actionToTake;
+		/**
+		 * 
+		 */
+		public PropHandleRequest(int action , Control control) {
+			this.actionToTake = action;
+			this.control = control;
+		}
+		/* (non-Javadoc)
+		 * @see java.lang.Runnable#run()
+		 */
+		@Override
+		public void run() {
+			this.control.handleAction(actionToTake);
+		}
+		
+		
 	}
 	
 	

@@ -84,7 +84,7 @@ public class FieldInfo{
 
 
 
-		public void attackUp() {
+	public void attackUp() {
 		cost = 4;
 		direction[index] = 1;
 		if (hasPower() && recoverRound[index] == 0) {
@@ -1286,6 +1286,34 @@ public class FieldInfo{
 //	}
 //	
 //	
+	private void sendInfoToArmyOne(){
+		int[] basicInfo = new int[]{this.round , this.recoverRound[index]};
+		int[] curX = new int[this.x.length];
+		int[] curY = new int[this.y.length];
+		//Deep copy
+		System.arraycopy(this.x, 0, curX, 0, this.x.length);
+		System.arraycopy(this.y, 0, curY, 0, this.y.length);
+		//Hide the info of 
+	}
+	private void sendInfoToArmyTwo(){
+		int[] basicInfo = new int[]{this.round , this.recoverRound[index]};
+		int[] curX = new int[this.x.length];
+		int[] curY = new int[this.y.length];
+		//Deep copy
+		System.arraycopy(this.x, 0, curX, 0, this.x.length);
+		System.arraycopy(this.y, 0, curY, 0, this.y.length);
+	}
+	private void sendFieldInfo(int army){
+		int[] basicInfo = new int[]{this.round , this.recoverRound[index]};
+		int[] curX = new int[this.x.length];
+		int[] curY = new int[this.y.length];
+		//Deep copy
+		System.arraycopy(this.x, 0, curX, 0, this.x.length);
+		System.arraycopy(this.y, 0, curY, 0, this.y.length);
+		//Hide the enemies out of sight.
+		int starr
+	}
+	
 	/**
 	 * This method is to provide the info of current field.
 	 * @param player
