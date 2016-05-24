@@ -193,12 +193,12 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 				/*
 				 * 信息栏
 				 */
-				new LayerBackground(1040, 0, 190, 240, ImgSamurai.INFO_A0),
-				new LayerBackground(1040, 230, 190, 240, ImgSamurai.INFO_A1),
-				new LayerBackground(1040, 460, 190, 240, ImgSamurai.INFO_A2),
-				new LayerBackground(5, 0, 190, 240, ImgSamurai.INFO_B0),
-				new LayerBackground(5, 230, 190, 240, ImgSamurai.INFO_B1),
-				new LayerBackground(5, 460, 190, 240, ImgSamurai.INFO_B2), };
+				new LayerBackground(5, 0, 190, 240, ImgSamurai.INFO_A0),
+				new LayerBackground(5, 230, 190, 240, ImgSamurai.INFO_A1),
+				new LayerBackground(5, 460, 190, 240, ImgSamurai.INFO_A2),
+				new LayerBackground(1040, 0, 190, 240, ImgSamurai.INFO_B0),
+				new LayerBackground(1040, 230, 190, 240, ImgSamurai.INFO_B1),
+				new LayerBackground(1040, 460, 190, 240, ImgSamurai.INFO_B2), };
 	}
 
 	public void paintComponent(Graphics g) {
@@ -337,27 +337,27 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		}
 
 		super.paintComponents(g);
-		/**
-		 * 提示是哪一个武士在行动
-		 */
-		if (index == 0) {
-			g.drawImage(ImgSamurai.A0, 985, 580, 50, 50, this);
-		}
-		if (index == 1) {
-			g.drawImage(ImgSamurai.A1, 985, 580, 50, 50, this);
-		}
-		if (index == 2) {
-			g.drawImage(ImgSamurai.A2, 985, 580, 50, 50, this);
-		}
-		if (index == 3) {
-			g.drawImage(ImgSamurai.B0, 210, 90, 50, 50, this);
-		}
-		if (index == 4) {
-			g.drawImage(ImgSamurai.B1, 210, 90, 50, 50, this);
-		}
-		if (index == 5) {
-			g.drawImage(ImgSamurai.B2, 210, 90, 50, 50, this);
-		}
+//		/**
+//		 * 提示是哪一个武士在行动
+//		 */
+//		if (index == 0) {
+//			g.drawImage(ImgSamurai.A0, 985, 580, 50, 50, this);
+//		}
+//		if (index == 1) {
+//			g.drawImage(ImgSamurai.A1, 985, 580, 50, 50, this);
+//		}
+//		if (index == 2) {
+//			g.drawImage(ImgSamurai.A2, 985, 580, 50, 50, this);
+//		}
+//		if (index == 3) {
+//			g.drawImage(ImgSamurai.B0, 210, 90, 50, 50, this);
+//		}
+//		if (index == 4) {
+//			g.drawImage(ImgSamurai.B1, 210, 90, 50, 50, this);
+//		}
+//		if (index == 5) {
+//			g.drawImage(ImgSamurai.B2, 210, 90, 50, 50, this);
+//		}
 
 		/**
 		 * 计算每个武士占领的格子
@@ -377,56 +377,56 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		/*
 		 * A0的胜利点
 		 */
-		printNumber(count[0], g, 1157, 85, 18, 25);
+		printNumber(count[0], g, 120, 85, 18, 25);
 		/*
 		 * A1的胜利点
 		 */
-		printNumber(count[1], g, 1157, 315, 18, 25);
+		printNumber(count[1], g, 120, 315, 18, 25);
 		/*
 		 * A2的胜利点
 		 */
-		printNumber(count[2], g, 1157, 545, 18, 25);
+		printNumber(count[2], g, 120, 545, 18, 25);
 		/*
 		 * B0的胜利点
 		 */
-		printNumber(count[3], g, 120, 85, 18, 25);
+		printNumber(count[3], g, 1157, 85, 18, 25);
 		/*
 		 * B1的胜利点
 		 */
-		printNumber(count[4], g, 120, 315, 18, 25);
+		printNumber(count[4], g, 1157, 315, 18, 25);
 		/*
 		 * B2的胜利点
 		 */
-		printNumber(count[5], g, 120, 545, 18, 25);
+		printNumber(count[5], g, 1157, 545, 18, 25);
 		/*
 		 * 绘制当前行动的武士的体力值
 		 */
 		if (index == 0) {
-			printNumber(nowPower, g, 1157, 118, 18, 25);
-		}
-		if (index == 1) {
-			printNumber(nowPower, g, 1157, 348, 18, 25);
-		}
-		if (index == 2) {
-			printNumber(nowPower, g, 1157, 578, 18, 25);
-		}
-		if (index == 3) {
 			printNumber(nowPower, g, 120, 118, 18, 25);
 		}
-		if (index == 4) {
+		if (index == 1) {
 			printNumber(nowPower, g, 120, 348, 18, 25);
 		}
-		if (index == 5) {
+		if (index == 2) {
 			printNumber(nowPower, g, 120, 578, 18, 25);
+		}
+		if (index == 3) {
+			printNumber(nowPower, g, 1157, 118, 18, 25);
+		}
+		if (index == 4) {
+			printNumber(nowPower, g, 1157, 348, 18, 25);
+		}
+		if (index == 5) {
+			printNumber(nowPower, g, 1157, 578, 18, 25);
 		}
 		/*
 		 * 绘制所有武士的恢复回合
 		 */
 		for (int k = 0; k < 3; k++) {
-			printNumber(recoverRound[k], g, 1157, 151 + k * 230, 18, 25);
+			printNumber(recoverRound[k], g, 120, 151 + k * 230, 18, 25);
 		}
 		for (int i = 0; i < 3; i++) {
-			printNumber(recoverRound[i + 3], g, 120, 151 + i * 230, 18, 25);
+			printNumber(recoverRound[i + 3], g, 1157, 151 + i * 230, 18, 25);
 		}
 		/*
 		 * 绘制当前进行回合数的图案及数字
