@@ -66,7 +66,9 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 	 * 方向
 	 */
 	public int[] direction = new int[6];
-	
+	/**
+	 * 视野
+	 */
 	public int[] sight = new int[6];
 
 	/**
@@ -83,8 +85,8 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 	 * 道具坐标
 	 * TODO:可能需要修改数量
 	 */
-	public int[] propX = new int[7];
-	public int[] propY = new int[7];
+	public int[] propX = new int[3];
+	public int[] propY = new int[3];
 	/**
 	 * 道具图片
 	 */
@@ -93,7 +95,7 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 	 * 道具数量
 	 * TODO:可能需要修改数量
 	 */
-	public int[] propNum = new int[7];
+	public int[] propNum = new int[3];
 	
 	/**
 	 * 代表占领的位置
@@ -288,6 +290,7 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		g.drawImage(ImgSamurai.A1_PICTURE[direction[1]], x[1] * 40 + y[1] * 13 + 228, y[1] * (-36) + 600, 50, 50, this);
 		g.drawImage(ImgSamurai.A2_PICTURE[direction[2]], x[2] * 40 + y[2] * 13 + 228, y[2] * (-36) + 600, 50, 50, this);
 		
+		refreshProps();
 		/*
 		 * 绘制道具
 		 * TODO：未完
@@ -308,23 +311,23 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		// 生命
 		for (int i = 0; i < 3; i++) {
 			if (life[i] > 0) {
-				g.drawImage(ImgProps.ANOTHER_LIFE, 1045, 230 * i + 187, 42, 48, this);
+				g.drawImage(ImgProps.ANOTHER_LIFE, 10, 230 * i + 187, 42, 48, this);
 			}
 		}
 		for (int i = 3; i < 6; i++) {
 			if (life[i] > 0) {
-				g.drawImage(ImgProps.ANOTHER_LIFE, 10, 230 * i + 187, 42, 48, this);
+				g.drawImage(ImgProps.ANOTHER_LIFE, 1045, 230 * i + 187, 42, 48, this);
 			}
 		}
 		// 视野
 		for (int i = 0; i < 3; i++) {
 			if (sight[i] > 5) {
-				g.drawImage(ImgProps.ADD_SIGHT, 1089, 230 * i + 187, 42, 48, this);
+				g.drawImage(ImgProps.ADD_SIGHT, 54, 230 * i + 187, 42, 48, this);
 			}
 		}
 		for (int i = 3; i < 6; i++) {
 			if (sight[i] > 5) {
-				g.drawImage(ImgProps.ADD_SIGHT, 54, 230 * i + 187, 42, 48, this);
+				g.drawImage(ImgProps.ADD_SIGHT, 1089, 230 * i + 187, 42, 48, this);
 			}
 		}
 		/*
@@ -1941,5 +1944,90 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		for (int i = 0; i < 6; i++) {
 			sight[i] = 5;
 		}
+	}
+	/**
+	 * 刷新道具
+	 */
+	public void refreshProps(){
+		if (propNum[0] == 0 && propNum[1] == 0 && propNum[2] == 0) {
+			if (round == 36 || round == 72 || round == 108 || round == 144 || round == 180) {
+				randomProp0();
+				while(!canRefreshProp0()){
+					randomProp0();
+				}
+				propNum[0] ++;
+				
+				randomProp1();
+				while(!canRefreshProp1()){
+					randomProp1();
+				}
+				propNum[1] ++;
+				
+				randomProp2();
+				while(!canRefreshProp2()){
+					randomProp2();
+				}
+				propNum[2] ++;
+			}
+		}
+	}
+	/**
+	 * 是否可以刷新道具0
+	 * @return
+	 */
+	public boolean canRefreshProp0(){
+		for (int i = 0; i < 6; i++) {	
+			if (propX[0] == x[i] && propY[0] == y[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+	/**
+	 * 随机生成道具0的坐标
+	 */
+	public void randomProp0(){
+		propX[0] = random.nextInt(3) + 6;
+		propY[0] = random.nextInt(3) + 6;
+	}
+	
+	/**
+	 * 是否可以刷新道具1
+	 * @return
+	 */
+	public boolean canRefreshProp1(){
+		for (int i = 0; i < 6; i++) {	
+			if (propX[1] == x[i] && propY[1] == y[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+	/**
+	 * 随机生成道具1的坐标
+	 */
+	public void randomProp1(){
+		propX[1] = random.nextInt(2) + 3;
+		propY[1] = random.nextInt(2) + 11;
+	}
+	
+	/**
+	 * 是否可以刷新道具1
+	 * @return
+	 */
+	public boolean canRefreshProp2(){
+		for (int i = 0; i < 6; i++) {	
+			if (propX[2] == x[i] && propY[2] == y[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+	/**
+	 * 随机生成道具1的坐标
+	 */
+	public void randomProp2(){
+		propX[2] = random.nextInt(2) + 10;
+		propY[2] = random.nextInt(2) + 2;
 	}
 }
