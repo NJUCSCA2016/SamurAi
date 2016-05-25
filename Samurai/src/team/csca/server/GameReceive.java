@@ -2,8 +2,6 @@ package team.csca.server;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-
-import control.GameNotFoundException;
 /**
  * 游戏监控器接口
  * @author With You

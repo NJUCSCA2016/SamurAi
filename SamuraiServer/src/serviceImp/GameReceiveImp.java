@@ -126,7 +126,55 @@ public class GameReceiveImp implements GameReceive {
 		
 		
 	}
+
+	@Override
+	public void acceptTRAActionFinishedSign(int indexOfGame) throws RemoteException, GameNotFoundException {
+		Iterator<PPGameControl> iterator = PPGAME_ON.iterator();
+		PPGameControl control = null;
+		while(iterator.hasNext()){
+			PPGameControl each = iterator.next();
+			if(each.GAME_ID == indexOfGame){
+				control = each;
+				break;
+			}
+		}
+		if(control != null){
+			new Thread(new ActionSign(control)).run();;
+		}else{
+			throw new GameNotFoundException();
+		}
+	}
 	
 	
 
+	@Override
+	public void acceptPPActionFinishedSign(int indexOfGame) throws RemoteException, GameNotFoundException {
+		Iterator<PPGameControl> iterator = PPGAME_ON.iterator();
+		PPGameControl control = null;
+		while(iterator.hasNext()){
+			PPGameControl each = iterator.next();
+			if(each.GAME_ID == indexOfGame){
+				control = each;
+				break;
+			}
+		}
+		if(control != null){
+			new Thread(new ActionSign(control)).run();
+		}else{
+			throw new GameNotFoundException();
+		}
+	}
+	
+	private class ActionSign implements Runnable{
+		private Control control;
+		public ActionSign(Control control) {
+			this.control = control;
+		}
+		
+		@Override
+		public void run() {
+			this.control.changeCharacter();
+		}
+	}
+	
 }

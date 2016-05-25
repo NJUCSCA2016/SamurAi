@@ -65,6 +65,16 @@ public class LinkServer extends UnicastRemoteObject implements User , GameReceiv
 		user.chooseModle(moodleCode , notice , name);
 	}
 
+	@Override
+	public void acceptTRAActionFinishedSign(int indexOfGame) throws RemoteException, GameNotFoundException {
+		receive.acceptTRAActionFinishedSign(indexOfGame);
+	}
+
+	@Override
+	public void acceptPPActionFinishedSign(int indexOfGame) throws RemoteException, GameNotFoundException {
+		receive.acceptTRAActionFinishedSign(indexOfGame);
+	}
+
 	
 
 }

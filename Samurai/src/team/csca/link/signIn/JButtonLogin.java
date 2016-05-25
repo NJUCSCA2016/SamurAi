@@ -38,9 +38,10 @@ public class JButtonLogin extends StaticButton implements ActionListener{
 //		Player.playMusic("bgm1");
 		//进入游戏模式选择界面。
 		try {
-		 int stateCode = helper.getUser().login(fatherPanel.getName(), fatherPanel.getPassword(),RemoteHelper.getInstance().getUser());
+		 int stateCode = helper.getUser().login(fatherPanel.getName(), fatherPanel.getPassword());
 		 if(stateCode == 0){
 			 //Login success
+			 
 		 }else if(stateCode == 1){
 			 //No this user
 			 fatherPanel.cleanName();

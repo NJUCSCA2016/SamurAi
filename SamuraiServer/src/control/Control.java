@@ -82,17 +82,39 @@ public abstract class Control {
 				e.printStackTrace();
 			}
 		}
-		noticAction(this.field.index);
+		//Notice the first one
+		noticeAction(this.field.index);
 	}
 	
 	public abstract void handleAction(int actionCode);
 	
-	public void noticAction(int curIndex){
+	public void noticeAction(int curIndex){
 		try{
 			if(curIndex >= 3){
 				this.sideTwo.get(curIndex - 3).getNotic().actionSign();
 			}else{
 				this.sideOne.get(curIndex).getNotic().actionSign();
+			}
+		}catch(RemoteException ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public void changeCharacter(){
+		if(this.field.changeCharacter() == 1){
+			noticeAction(this.field.index);
+			this.field.sendFieldInfo(1);
+			this.field.sendFieldInfo(2);
+		}else{
+			this.field.infoForGameOver();
+		}
+	}
+	
+	public void noticGameOver(int[] overInfo){
+		try{
+			for(int i = 0 ; i < 3 ; i ++){
+				sideOne.get(i).getNotic().gameOverSign(overInfo);
+				sideTwo.get(i).getNotic().gameOverSign(overInfo);
 			}
 		}catch(RemoteException ex){
 			ex.printStackTrace();

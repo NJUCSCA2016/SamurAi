@@ -128,6 +128,8 @@ public class FieldInfo{
 		if (canShow() && hasPower() && recoverRound[index] == 0) {
 			nowPower = nowPower - cost;
 			direction[index] -= 4;
+			this.sendFieldInfo(1);
+			this.sendFieldInfo(2);
 			
 		}
 	}
@@ -140,37 +142,38 @@ public class FieldInfo{
 		if (canHide() && hasPower() && recoverRound[index] == 0) {
 			nowPower = nowPower - cost;
 			direction[index] += 4;	
+			this.sendFieldInfo(1);
+			this.sendFieldInfo(2);
 		}
 	}
 
 	/**
 	 * 切换武士
 	 */
-	public void changeCharacter() {
+	public int changeCharacter() {
 		if (round < maxRound) {
 			round++;
-		}
-		calculateIndex();
-		nowPower = 7;
-		calculateIndex();
-		if (index >= 3) {
-			
-			if(recoverRound[index] == 0){
-
+			calculateIndex();
+			nowPower = 7;
+			calculateIndex();
+			for (int i = 0; i < 6; i++) {
+				if (recoverRound[i] > 0) {
+					recoverRound[i]--;
+				}
+				if (recoverRound[index] > 0) {
+					nowPower = 0;
+				}
 			}
-			
+			return 0;
+		}else{
+			return 1;
 		}
-		for (int i = 0; i < 6; i++) {
-			if (recoverRound[i] > 0) {
-				recoverRound[i]--;
-			}
-			if (recoverRound[index] > 0) {
-				nowPower = 0;
-			}
-		}
-		if(index >= 3){
-			changeCharacter();
-		}
+		
+		
+	}
+	
+	public void infoForGameOver(){
+		this.control.noticGameOver(this.occupation);
 	}
 	
 	/**
@@ -182,14 +185,19 @@ public class FieldInfo{
 			// if (x[index]+1 <=14) {
 			nowPower = nowPower - cost;
 			x[index] += 1;
-			direction[index] = 3;
+			if(isHidden(index)){
+				direction[index] = 7;
+			}else{
+				direction[index] = 3;
+			}
+			this.sendFieldInfo(1);
+			this.sendFieldInfo(2);
 		}
-		if (canMoveTo(1, 0) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
-			nowPower = nowPower - cost;
-			x[index] += 1;
-			direction[index] = 7;
-		}
-
+//		if (canMoveTo(1, 0) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
+//			nowPower = nowPower - cost;
+//			x[index] += 1;
+//			direction[index] = 7;
+//		}
 	}
 
 	/**
@@ -198,23 +206,29 @@ public class FieldInfo{
 	public void moveLeft() {
 		cost = 2;
 		if (canMoveTo(-1, 0) && hasPower() && !isHidden(index) && recoverRound[index] == 0) {
-			// if (x[index]-1 >= 0) {
 			nowPower = nowPower - cost;
 			x[index] -= 1;
-			direction[index] = 2;
+			if(isHidden(index)){
+			// if (x[index]-1 >= 0) {
+				direction[index] = 6;
+			}else{
+				direction[index] = 2;
+			}
+			this.sendFieldInfo(1);
+			this.sendFieldInfo(2);
 			// if (isHidden()) {
 			// direction[index] = 6;
 			// }
 		}
-		if (canMoveTo(-1, 0) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
-			// if (x[index]-1 >= 0) {
-			nowPower = nowPower - cost;
-			x[index] -= 1;
-			direction[index] = 6;
-			// if (isHidden()) {
-			// direction[index] = 6;
-			// }
-		}
+//		if (canMoveTo(-1, 0) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
+//			// if (x[index]-1 >= 0) {
+//			nowPower = nowPower - cost;
+//			x[index] -= 1;
+//			direction[index] = 6;
+//			// if (isHidden()) {
+//			// direction[index] = 6;
+//			// }
+//		}
 
 	}
 
@@ -227,16 +241,22 @@ public class FieldInfo{
 			// if (y[index]-1 >= 0) {
 			nowPower = nowPower - cost;
 			y[index] -= 1;
-			direction[index] = 0;
+			if(isHidden(index)){
+				direction[index] = 4;
+			}else{
+				direction[index] = 0;
+			}
+			this.sendFieldInfo(1);
+			this.sendFieldInfo(2);
 			// if (isHidden()) {
 			// direction[index] = 4;
 			// 
 		}
-		if (canMoveTo(0, -1) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
-			nowPower = nowPower - cost;
-			y[index] -= 1;
-			direction[index] = 4;
-		}
+//		if (canMoveTo(0, -1) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
+//			nowPower = nowPower - cost;
+//			y[index] -= 1;
+//			direction[index] = 4;
+//		}
 
 	}
 
@@ -248,13 +268,19 @@ public class FieldInfo{
 		if (canMoveTo(0, 1) && hasPower() && !isHidden(index) && recoverRound[index] == 0) {
 			nowPower = nowPower - cost;
 			y[index] += 1;
-			direction[index] = 1;
+			if(isHidden(index)){
+				direction[index] = 5;
+			}else{
+				direction[index] = 1;
+			}
+			this.sendFieldInfo(1);
+			this.sendFieldInfo(2);
 		}
-		if (canMoveTo(0, 1) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
-			nowPower = nowPower - cost;
-			y[index] += 1;
-			direction[index] = 5;
-		}
+//		if (canMoveTo(0, 1) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
+//			nowPower = nowPower - cost;
+//			y[index] += 1;
+//			direction[index] = 5;
+//		}
 
 	}
 
@@ -1138,6 +1164,9 @@ public class FieldInfo{
 				}
 			}
 		}
+		
+		this.sendFieldInfo(1);
+		this.sendFieldInfo(2);
 
 	}
 
@@ -1287,7 +1316,7 @@ public class FieldInfo{
 //	
 //	
 
-	private void sendFieldInfo(int army){
+	public void sendFieldInfo(int army){
 		int[] recover = new int[this.recoverRound.length];
 		System.arraycopy(recoverRound, 0, recover, 0, this.recoverRound.length);
 		int[] curX = new int[this.x.length];
@@ -1298,7 +1327,7 @@ public class FieldInfo{
 		//Hide the enemies out of sight.
 		int startEne = army == 1 ? 0 : 3 ;
 		int endEne = startEne + 3 ; 
-		int startAlly = army == 1 ? 3 : 0 ;
+		int startAlly = army == 2 ? 0 : 3 ;
 		int endAlly = startAlly + 3 ;
 		//Hide information . Provide the limited info.
 		int[] hidden = new int[6];
