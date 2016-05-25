@@ -333,7 +333,6 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		/*
 		 * 绘制箭头
 		 * 只在自己方行动的时候绘制
-		 * TODO：人机对战的时候需要修改
 		 */
 		if (index < 3) {
 			g.drawImage(ImgSamurai.GUIDE_ARROW, x[index] * 40 + y[index] * 13 + 234, y[index] * (-36) + 550, 40, 51, this);

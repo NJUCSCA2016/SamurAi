@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import team.csca.controller.media.Player;
 import team.csca.view.frame.JFrameMain;
+import team.csca.view.image.ImgSystem;
 import team.csca.view.startgame.JPanelStartGame;
 
 /**
@@ -118,6 +119,7 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 			while(pic_Number <= 209){
 				
 				pic_Number++;
+				
 				repaint();
 				try{			
 					Thread.sleep(80);
@@ -149,6 +151,11 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 	
 	public void paintComponent(Graphics g) {
 		g.drawImage(getImage(pic_Number), 0, 0, null);
+		// FIXME:修改这里！
+		if (pic_Number != 165) {
+			g.drawImage(ImgSystem.LOADING, 800, 500, null);
+		}
+		
 	}
 
 	private Image getImage(int i2) {
