@@ -1803,18 +1803,19 @@ public class JPanelPM extends JPanel implements KeyListener {
 		round = 0;
 		// 从左到右是x,从下到上是y
 		// 关于x的系数为正，关于y的系数为负
-		x[0] = random.nextInt(7) + 1;
-		y[0] = 0;
-		x[1] = 14;
-		y[1] = random.nextInt(5) + 1;
-		x[2] = 0;
-		y[2] = random.nextInt(9) + 5;
-		x[3] = random.nextInt(6) + 8;
-		y[3] = 0;
-		x[4] = random.nextInt(7) + 1;
-		y[4] = 14;
-		x[5] = random.nextInt(6) + 7;
-		y[5] = 14;
+		x[0] = random.nextInt(6) + 1; // 1 - 6
+		y[0] = 0;                     // 0 - 0
+		x[1] = 0;                     // 0 - 0
+		y[1] = random.nextInt(5) + 1; // 1 - 5
+		x[2] = 0;                     // 0 - 0
+		y[2] = random.nextInt(6) + 8; // 8 - 13
+		
+		x[3] = random.nextInt(6) + 8; // 8 - 13
+		y[3] = 14;                    // 0 - 0
+		x[4] = 14;                    // 14- 14
+		y[4] = random.nextInt(5) + 9; // 9 - 13
+		x[5] = 14;                    // 14- 14
+		y[5] = random.nextInt(6) + 1; // 14- 14
 		for (int i = 0; i < 6; i++) {
 			homeX[i] = x[i];
 			homeY[i] = y[i];
