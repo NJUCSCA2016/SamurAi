@@ -186,7 +186,10 @@ public class JPanelPM extends JPanel implements KeyListener {
 		// 计算index的值
 		calculateIndex();
 		/*
-		 * 添加各个组件: 1.地图 2.每个武士老家的占领标志 3.每个武士大本营的旗帜
+		 * 添加各个组件: 
+		 * 1.地图 
+		 * 2.每个武士老家的占领标志 
+		 * 3.每个武士大本营的旗帜
 		 */
 		for (int i = 0; i < this.layers.length; i++) {
 			layers[i].createWindow(g);
@@ -371,8 +374,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 		/*
 		 * 绘制已经进行回合数的图案及数字
 		 */
-		g.drawImage(ImgRound.REST_ROUND, 300, 46, 100, 100, this);
-		printNumber(maxRound - round, g, 361, 106, 23, 33);
+		g.drawImage(ImgRound.REST_ROUND, 195, 150, 100, 100, this);
+		printNumber(maxRound - round, g, 256, 208, 23, 33);
 		if (round == maxRound) {
 //			g.drawString("游戏结束！", 600, 340);
 //			fatherPanel = new JPanelStartGame();

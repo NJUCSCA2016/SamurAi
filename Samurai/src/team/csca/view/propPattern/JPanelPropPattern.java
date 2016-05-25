@@ -439,8 +439,8 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		/*
 		 * 绘制已经进行回合数的图案及数字
 		 */
-		g.drawImage(ImgRound.REST_ROUND, 300, 46, 100, 100, this);
-		printNumber(maxRound - round, g, 361, 106, 23, 33);
+		g.drawImage(ImgRound.REST_ROUND, 195, 150, 100, 100, this);
+		printNumber(maxRound - round, g, 256, 208, 23, 33);
 		if (round == maxRound) {
 			frameMain.remove(this);
 			int score1 = count[0] + count[1] + count[2];
