@@ -1,0 +1,4 @@
+button_return:
+x:1127 y:697 w:123 h:93
+button_retry/button_next:
+x:740 y:312 w:245 h:98
