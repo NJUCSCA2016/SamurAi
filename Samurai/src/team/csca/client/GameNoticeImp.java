@@ -45,8 +45,8 @@ public class GameNoticeImp implements GameNotice{
 	}
 
 	@Override
-	public void gameOverSign(int[] occupy) throws RemoteException {
-		this.control.gameOver(occupy);
+	public void gameOverSign(int[] count) throws RemoteException {
+		this.control.gameOver(count);
 	}
 	
 	public boolean unNotice(){

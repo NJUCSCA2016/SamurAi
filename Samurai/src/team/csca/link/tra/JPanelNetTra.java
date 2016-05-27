@@ -203,24 +203,22 @@ public class JPanelNetTra extends JPanel{
 		for (int i = 7; i < this.layers.length; i++) {
 			layers[i].createWindow(g);
 		}
-		/*
-		 * 绘制对方的武士
-		 * TODO:人机对战的时候这部分需要修改
-		 */
-		if (index < 3) {
-			if (!(isHidden(3) || outSight[x[3]][y[3]])) {
-				g.drawImage(ImgSamurai.B0_PICTURE[direction[3]], x[3] * 40 + y[3] * 13 + 228, y[3] * (-36) + 600, 50,
-						50, this);
-			}
-			if (!(isHidden(4) || outSight[x[4]][y[4]])) {
-				g.drawImage(ImgSamurai.B1_PICTURE[direction[4]], x[4] * 40 + y[4] * 13 + 228, y[4] * (-36) + 600, 50,
-						50, this);
-			}
-			if (!(isHidden(5) || outSight[x[5]][y[5]])) {
-				g.drawImage(ImgSamurai.B2_PICTURE[direction[5]], x[5] * 40 + y[5] * 13 + 228, y[5] * (-36) + 600, 50,
-						50, this);
-			}
+
+		
+		
+		if (!(isHidden(3) || outSight[x[3]][y[3]])) {
+			g.drawImage(ImgSamurai.B0_PICTURE[direction[3]], x[3] * 40 + y[3] * 13 + 228, y[3] * (-36) + 600, 50,
+					50, this);
 		}
+		if (!(isHidden(4) || outSight[x[4]][y[4]])) {
+			g.drawImage(ImgSamurai.B1_PICTURE[direction[4]], x[4] * 40 + y[4] * 13 + 228, y[4] * (-36) + 600, 50,
+					50, this);
+		}
+		if (!(isHidden(5) || outSight[x[5]][y[5]])) {
+			g.drawImage(ImgSamurai.B2_PICTURE[direction[5]], x[5] * 40 + y[5] * 13 + 228, y[5] * (-36) + 600, 50,
+					50, this);
+		}
+		
 		/*
 		 * 绘制自己方武士的图片
 		 * TODO:人机对战的时候需要修改
@@ -254,20 +252,12 @@ public class JPanelNetTra extends JPanel{
 				}
 			}
 		}
-		// for (int i = 0; i < count.length; i++) {
-		// System.out.println(i + " " + count[i]);
-		// }
-		/*
-		 * A0的胜利点
-		 */
+		
+		
 		printNumber(count[0], g, 120, 85, 18, 25);
-		/*
-		 * A1的胜利点
-		 */
+		
 		printNumber(count[1], g, 120, 315, 18, 25);
-		/*
-		 * A2的胜利点
-		 */
+		
 		printNumber(count[2], g, 120, 545, 18, 25);
 		/*
 		 * B0的胜利点
@@ -286,22 +276,23 @@ public class JPanelNetTra extends JPanel{
 		 */
 		if (index == 0) {
 			printNumber(nowPower, g, 120, 118, 18, 25);
-		}
+		}else
 		if (index == 1) {
 			printNumber(nowPower, g, 120, 348, 18, 25);
-		}
+		}else
 		if (index == 2) {
 			printNumber(nowPower, g, 120, 578, 18, 25);
-		}
+		}else
 		if (index == 3) {
 			printNumber(nowPower, g, 1157, 118, 18, 25);
-		}
+		}else
 		if (index == 4) {
 			printNumber(nowPower, g, 1157, 348, 18, 25);
-		}
+		}else
 		if (index == 5) {
 			printNumber(nowPower, g, 1157, 578, 18, 25);
 		}
+		
 		for (int k = 0; k < 3; k++) {
 			printNumber(recoverRound[k], g, 120, 151 + k * 230, 18, 25);
 		}
@@ -318,46 +309,7 @@ public class JPanelNetTra extends JPanel{
 		 */
 		g.drawImage(ImgRound.REST_ROUND, 300, 46, 100, 100, this);
 		printNumber(maxRound - round, g, 361, 106, 23, 33);
-		if (round == maxRound) {
-//			g.drawString("游戏结束！", 600, 340);
-//			fatherPanel = new JPanelStartGame();
-//			jPanelRankingList = new JPanelRankingList();
-			frameMain.remove(this);
-//			frameMain.setContentPane(jPanelRankingList);
-//			jPanelRankingList.requestFocus();
-			
-//			System.out.println(222);
-			int score1 = count[0] + count[1] + count[2];
-			int score2 = count[3] + count[4] + count[5];
-			if (score1 > score2) {
-				gameWin = new JPanelGameWin();
-				frameMain.setContentPane(gameWin);
-				gameWin.requestFocus();
-				Player.stopMusic();
-				if (Player.MUSiC_PLAYER.isBack_ON()) {
-					Player.playMusic("win");
-				}
-			}
-			if (score1 < score2) {
-				gameLose = new JPanelGameLose();
-				frameMain.setContentPane(gameLose);
-				gameLose.requestFocus();
-				Player.stopMusic();
-				if (Player.MUSiC_PLAYER.isBack_ON()) {
-					Player.playMusic("lose");
-				}
-			}
-			if (score1 == score2) {
-				gameDraw = new JPanelGameDraw();
-				frameMain.setContentPane(gameDraw);
-				gameDraw.requestFocus();
-				Player.stopMusic();
-				if (Player.MUSiC_PLAYER.isBack_ON()) {
-					Player.playMusic("draw");
-				}
-			}
-			frameMain.revalidate();
-		}
+		
 	}
 
 
@@ -420,7 +372,7 @@ public class JPanelNetTra extends JPanel{
 	/**
 	 * 现身
 	 */
-	public void showMe() {
+	public boolean showMe() {
 		cost = 1;
 		if (canShow() && hasPower() && recoverRound[index] == 0) {
 			nowPower = nowPower - cost;
@@ -429,15 +381,17 @@ public class JPanelNetTra extends JPanel{
 			if (Player.MUSiC_PLAYER.isGame_ON()) {
 				Player.playSound("showMe");
 			}
+		repaint();
+		return true;
 		}
 		repaint();
-
+		return false;	
 	}
 
 	/**
 	 * 隐身
 	 */
-	public void hideMe() {
+	public boolean hideMe() {
 		cost = 1;
 		if (canHide() && hasPower() && recoverRound[index] == 0) {
 			nowPower = nowPower - cost;
@@ -445,31 +399,21 @@ public class JPanelNetTra extends JPanel{
 			if (Player.MUSiC_PLAYER.isGame_ON()) {
 				Player.playSound("3");
 			}
-			
+			repaint();
+			return true;
 		}
 		repaint();
+		return false;
 	}
 
 	/**
 	 * 切换武士
 	 */
 	public void changeCharacter() {
-		if (round < maxRound) {
-			round++;
-		}
-		nowPower = 7;
-		for (int i = 0; i < 6; i++) {
-			if (recoverRound[i] > 0) {
-				recoverRound[i]--;
-			}
-			if (recoverRound[index] > 0) {
-				nowPower = 0;
-			}
-		}
-		repaint();
-		if(index >= 3){
-			changeCharacter();
-		}
+		
+		round++;
+		this.control.changeCharacter();
+		
 	}
 	
 	/**
@@ -1537,8 +1481,48 @@ public class JPanelNetTra extends JPanel{
 		this.index = curIndex;
 	}
 
-	public void gameOver(int[] occupy) {
-		this.occupation = occupy;
+	public void gameOver(int[] count) {
+		this.count = count;
+		if (round == maxRound) {
+//			g.drawString("游戏结束！", 600, 340);
+//			fatherPanel = new JPanelStartGame();
+//			jPanelRankingList = new JPanelRankingList();
+			frameMain.remove(this);
+//			frameMain.setContentPane(jPanelRankingList);
+//			jPanelRankingList.requestFocus();
+			
+//			System.out.println(222);
+			int score1 = count[0] + count[1] + count[2];
+			int score2 = count[3] + count[4] + count[5];
+			if (score1 > score2) {
+				gameWin = new JPanelGameWin();
+				frameMain.setContentPane(gameWin);
+				gameWin.requestFocus();
+				Player.stopMusic();
+				if (Player.MUSiC_PLAYER.isBack_ON()) {
+					Player.playMusic("win");
+				}
+			}
+			if (score1 < score2) {
+				gameLose = new JPanelGameLose();
+				frameMain.setContentPane(gameLose);
+				gameLose.requestFocus();
+				Player.stopMusic();
+				if (Player.MUSiC_PLAYER.isBack_ON()) {
+					Player.playMusic("lose");
+				}
+			}
+			if (score1 == score2) {
+				gameDraw = new JPanelGameDraw();
+				frameMain.setContentPane(gameDraw);
+				gameDraw.requestFocus();
+				Player.stopMusic();
+				if (Player.MUSiC_PLAYER.isBack_ON()) {
+					Player.playMusic("draw");
+				}
+			}
+			frameMain.revalidate();
+		}
 	}
 
 	private boolean actionAvaliable() {
@@ -1561,28 +1545,24 @@ public class JPanelNetTra extends JPanel{
 				this.attackRight();
 				break;
 			case 5 :
-				this.moveUp();
-				break;
+				return this.moveUp();
 			case 6 :
-				this.moveDown();
-				break;
+				return this.moveDown();
 			case 7 :
-				this.attackLeft();
-				break;
+				return this.moveLeft();
 			case 8 :
-				this.attackRight();
-				break;
+				return this.moveRight();
 			case 9 :
-				return this.canHide();
+				return this.hideMe();
 			case 10:
-				this.showMe();
-				break;
+				return this.showMe();
 			case 0 :
 				this.changeCharacter();
 				break;
 			default:
 				break;
 			}
+			return true;
 		}
 		return false;
 	}

@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 
 import team.csca.client.RemoteHelper;
+import team.csca.link.gameWaiting.JPanelGameLoading;
+import team.csca.link.modelChoose.JPanelMoodelChoose;
 import team.csca.view.extend.StaticButton;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgLink;
@@ -41,7 +43,10 @@ public class JButtonLogin extends StaticButton implements ActionListener{
 		 int stateCode = helper.getUser().login(fatherPanel.getName(), fatherPanel.getPassword());
 		 if(stateCode == 0){
 			 //Login success
-			 
+			 System.out.println("Success");
+			 RemoteHelper.getInstance().setName(fatherPanel.getName());
+			 frame.setContentPane(new JPanelMoodelChoose());
+			 frame.remove(this.fatherPanel);
 		 }else if(stateCode == 1){
 			 //No this user
 			 fatherPanel.cleanName();

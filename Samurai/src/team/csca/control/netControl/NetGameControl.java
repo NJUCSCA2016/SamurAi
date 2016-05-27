@@ -71,8 +71,8 @@ public class NetGameControl {
 		this.panel.changeCurIndex(curIndex);
 	}
 
-	public void gameOver(int[] occupy) {
-		this.panel.gameOver(occupy);
+	public void gameOver(int[] count) {
+		this.panel.gameOver(count);
 	}
 
 
@@ -93,6 +93,18 @@ public class NetGameControl {
 
 	public KeyListener getListener() {
 		return this.player.getListener();
+	}
+
+	public void changeCharacter() {
+		try {
+			this.receive.acceptTRAActionFinishedSign(indexOfGame);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (GameNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }

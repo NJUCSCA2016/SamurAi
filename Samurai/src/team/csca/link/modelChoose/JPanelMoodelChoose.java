@@ -8,7 +8,7 @@ import team.csca.view.extend.LayerBackground;
 
 public class JPanelMoodelChoose extends JPanel{
 	
-	private LayerBackground background = new LayerBackground(0, 0, 1250, 700, null);
+	private LayerBackground background = new LayerBackground(0, 0, 1250, 700, );
 	
 	public JPanelMoodelChoose() {
 		setLayout(null);

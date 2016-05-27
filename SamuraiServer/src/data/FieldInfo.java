@@ -171,7 +171,7 @@ public class FieldInfo{
 	}
 	
 	public void infoForGameOver(){
-		this.control.noticGameOver(this.occupation);
+		this.control.noticGameOver(this.count);
 	}
 	
 	/**

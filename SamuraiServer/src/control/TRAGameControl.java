@@ -34,10 +34,10 @@ public class TRAGameControl extends Control{
 			this.field.moveDown();
 			break;
 		case 7 :
-			this.field.attackLeft();
+			this.field.moveLeft();
 			break;
 		case 8 :
-			this.field.attackRight();
+			this.field.moveRight();
 			break;
 		case 9 :
 			this.field.hideMe();

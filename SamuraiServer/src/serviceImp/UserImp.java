@@ -49,9 +49,9 @@ public class UserImp implements User{
 	 * Current user
 	 */
 	private final static List<UserInfo> USER_CACHE = new ArrayList<UserInfo>();
-	private final static List<String> NAMES = new ArrayList<String>();
-	private final static List<String> PASSWORDS = new ArrayList<String>();
- 	
+//	private final static List<String> NAMES = new ArrayList<String>();
+//	private final static List<String> PASSWORDS = new ArrayList<String>();
+// 	
 	
 	
 	private final static int SUCCEED = 0;
@@ -82,7 +82,8 @@ public class UserImp implements User{
 		}
 		// 注册成功
 		UserImp.USERS.add(new UserInfo(userName, password));
-		
+//		NAMES.add(userName);
+//		PASSWORDS.add(password);
 		return true;
 	}
 	
@@ -91,22 +92,30 @@ public class UserImp implements User{
 	
 	@Override
 	public int login(String userName, String password) throws RemoteException {
-		
-		if(! NAMES.contains(userName)){
-			//用户名不存在
-			return NAME_INVALID;
-		}
-		int indexOfName = NAMES.indexOf(userName);
-		if(! PASSWORDS.get(indexOfName) .equals(password)){
-			//密码错误
-			return PASSWORD_ERROR;
-		}
-		UserInfo currentUser = this.getCurrentUser(userName, USERS);
+		System.out.println("UserName is : " + userName + "  Password is : " + password);
 
-		USER_CACHE.add(currentUser);
-		//成功登陆。
-		return UserImp.SUCCEED;
-//	
+		int index = -1;
+		for(int i = 0 ; i < USERS.size() ; i ++){
+			if(USERS.get(i).getName().equals(userName)){
+				index = i;
+				break;
+			}
+		}
+		if(index != -1){
+			
+			if(!USERS.get(index).getPassword().equals(password)){
+				//密码错误
+				return PASSWORD_ERROR;
+			}
+			UserInfo currentUser = this.getCurrentUser(userName, USERS);
+
+			USER_CACHE.add(currentUser);
+			
+			//成功登陆。
+			return UserImp.SUCCEED;
+		}
+		return NAME_INVALID;
+		
 	}
 
 	@Override	
@@ -189,10 +198,13 @@ public class UserImp implements User{
 		try{
 			FileInputStream inputStream = new FileInputStream(INFO_FILE);
 			stream = new ObjectInputStream(inputStream);
-			while(stream.readBoolean()){
+			while(stream.available() != 0){
 				UserInfo info = (UserInfo)stream.readObject();
 				USERS.add(info);
 			}
+			System.out.println("Go Here");
+			stream.close();
+			
 		}catch(FileNotFoundException ex){
 			ex.printStackTrace();
 		} catch (IOException e) {
@@ -201,12 +213,6 @@ public class UserImp implements User{
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			try {
-				stream.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 	

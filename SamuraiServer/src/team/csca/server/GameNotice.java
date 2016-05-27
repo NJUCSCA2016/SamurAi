@@ -47,6 +47,6 @@ public interface GameNotice {
 	 * @param occupy
 	 * @throws RemoteException
 	 */
-	public void gameOverSign(int[] occupy) throws RemoteException;
+	public void gameOverSign(int[] count) throws RemoteException;
 	
 }
