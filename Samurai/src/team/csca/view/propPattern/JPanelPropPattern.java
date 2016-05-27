@@ -29,13 +29,13 @@ import team.csca.view.image.ImgSamurai;
  */
 public class JPanelPropPattern extends JPanel implements KeyListener{
 	
-	private JFrameMain frameMain = JFrameMain.J_FRAME_MAIN;
+	protected JFrameMain frameMain = JFrameMain.J_FRAME_MAIN;
 	
-	private JPanelGameWin gameWin;
+	protected JPanelGameWin gameWin;
 	
-	private JPanelGameLose gameLose;
+	protected JPanelGameLose gameLose;
 	
-	private JPanelGameDraw gameDraw;
+	protected JPanelGameDraw gameDraw;
 	
 	/**
 	 * 面板上的组件
@@ -442,37 +442,42 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		printNumber(maxRound - round, g, 256, 208, 23, 33);
 		if (round == maxRound) {
 			frameMain.remove(this);
-			int score1 = count[0] + count[1] + count[2];
-			int score2 = count[3] + count[4] + count[5];
-			if (score1 > score2) {
-				gameWin = new JPanelGameWin();
-				frameMain.setContentPane(gameWin);
-				gameWin.requestFocus();
-				Player.stopMusic();
-				if (Player.MUSiC_PLAYER.isBack_ON()) {
-					Player.playMusic("win");
-				}
-			}
-			if (score1 < score2) {
-				gameLose = new JPanelGameLose();
-				frameMain.setContentPane(gameLose);
-				gameLose.requestFocus();
-				Player.stopMusic();
-				if (Player.MUSiC_PLAYER.isBack_ON()) {
-					Player.playMusic("lose");
-				}
-			}
-			if (score1 == score2) {
-				gameDraw = new JPanelGameDraw();
-				frameMain.setContentPane(gameDraw);
-				gameDraw.requestFocus();
-				Player.stopMusic();
-				if (Player.MUSiC_PLAYER.isBack_ON()) {
-					Player.playMusic("draw");
-				}
-			}
-			frameMain.revalidate();
+			judgeContest();
 		}
+	}
+	
+	public void judgeContest(){
+		int score1 = count[0] + count[1] + count[2];
+		int score2 = count[3] + count[4] + count[5];
+
+		if (score1 > score2) {
+			gameWin = new JPanelGameWin();
+			frameMain.setContentPane(gameWin);
+			gameWin.requestFocus();
+			Player.stopMusic();
+			if (Player.MUSiC_PLAYER.isBack_ON()) {
+				Player.playMusic("win");
+			}
+		}
+		if (score1 < score2) {
+			gameLose = new JPanelGameLose();
+			frameMain.setContentPane(gameLose);
+			gameLose.requestFocus();
+			Player.stopMusic();
+			if (Player.MUSiC_PLAYER.isBack_ON()) {
+				Player.playMusic("lose");
+			}
+		}
+		if (score1 == score2) {
+			gameDraw = new JPanelGameDraw();
+			frameMain.setContentPane(gameDraw);
+			gameDraw.requestFocus();
+			Player.stopMusic();
+			if (Player.MUSiC_PLAYER.isBack_ON()) {
+				Player.playMusic("draw");
+			}
+		}
+		frameMain.revalidate();
 	}
 
 	@Override
@@ -1917,9 +1922,8 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 			direction[i] = 0;
 		}
 		maxRecoverRound = 12 * (1 + random.nextInt(4));
-		for (int i = 0; i < recoverRound.length; i++) {
-			recoverRound[i] = 0;
-		}
+		initRecoverRound();
+		
 		for (int i = 0; i < 6; i++) {
 			life[i] = 0;
 		}
@@ -1944,6 +1948,12 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 			sight[i] = 5;
 		}
 	}
+	protected void initRecoverRound() {
+		for (int i = 0; i < recoverRound.length; i++) {
+			recoverRound[i] = 0;
+		}
+	}
+
 	/**
 	 * 刷新道具
 	 */

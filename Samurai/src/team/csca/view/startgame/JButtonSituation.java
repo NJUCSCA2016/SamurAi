@@ -3,7 +3,7 @@ package team.csca.view.startgame;
 import java.awt.event.MouseEvent;
 
 import team.csca.view.extend.DynamicButton;
-import team.csca.view.filmProp.JPanelFilmProp;
+import team.csca.view.filmProp.JPanelFilmProp1;
 import team.csca.view.filmProp.JPanelSituation;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgButton;
@@ -11,7 +11,7 @@ import team.csca.view.image.ImgButton;
 public class JButtonSituation extends DynamicButton{
 	private JPanelStartGame fatherPanel;
 	private JFrameMain frameMain = JFrameMain.J_FRAME_MAIN;
-	private JPanelFilmProp filmProp;
+	private JPanelFilmProp1 filmProp;
 	private JPanelSituation situation;
 	
 	public JButtonSituation(JPanelStartGame fatherPanel){
