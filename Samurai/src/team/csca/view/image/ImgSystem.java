@@ -16,4 +16,6 @@ public class ImgSystem {
 	public final static Image TICK = new ImageIcon("Image/Others/tick.png").getImage();
 	
 	public final static Image LOADING = new ImageIcon("Image/Others/loading.gif").getImage();
+	
+	public final static Image FINISH = new ImageIcon("Image/Others/finish.png").getImage();
 }

@@ -39,6 +39,11 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 	 * Play按钮
 	 */
 	private JButtonPlay btnPlay;
+	/**
+	 * 计数，看pic_number是否第二次为145
+	 * 即是否在加载完成
+	 */
+	private int tempCount = 0;
 	
 //	/**
 //	 * 背景音乐
@@ -90,8 +95,12 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 				}	
 
 				pic_Number++;
+				if (pic_Number == 146) {
+					tempCount ++;
+				}
 			}
 			pic_Number = 145;
+			repaint();
 			//显现Play
 			add(btnPlay);
 
@@ -152,8 +161,11 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 	public void paintComponent(Graphics g) {
 		g.drawImage(getImage(pic_Number), 0, 0, null);
 		// FIXME:修改这里！
-		if (pic_Number != 165) {
+		if (pic_Number != 165 || pic_Number != 145) {
 			g.drawImage(ImgSystem.LOADING, 800, 500, null);
+		}
+		if (pic_Number == 145 && tempCount > 0) {
+			g.drawImage(ImgSystem.FINISH, 800, 500, 885, 585 , 0, 0 , 220, 220, null);
 		}
 		
 	}
@@ -230,6 +242,7 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			if (pic_Number < 163) {
 				pic_Number = 163;
+				tempCount ++;
 			}
 			
 //			System.out.println(222);
