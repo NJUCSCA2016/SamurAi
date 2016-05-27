@@ -30,7 +30,10 @@ public class JButtonBackSoundLine extends StaticButton implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 	
 		fatherPanel.setBackVol(ImgOthers.SOUNDS_VOLUME[this.sound_SeriesNumber]);
+		
 		Player.MUSiC_PLAYER.setBackVol(sound_SeriesNumber);
+		Player.MUSiC_PLAYER.pauseBack();
+		Player.MUSiC_PLAYER.rePlay();
 		//如果之前的是0的话需要Tick
 		if(! Player.MUSiC_PLAYER.isBack_ON()){
 			this.backSound.setButtonImg(ImgSystem.TICK);

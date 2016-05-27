@@ -152,6 +152,7 @@ public class JPanelLinkLoading extends JPanel{
 					findServer = true;
 					timer.cancel();
 				}else if(timeCount == 60){
+					//Repeat time is done and not find the server .
 					timer.cancel();
 				}
 			}

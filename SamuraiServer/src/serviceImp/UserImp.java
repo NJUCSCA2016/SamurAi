@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import control.PPGameControl;
 import control.TRAGameControl;
+import control.PPGameControl;
 import team.csca.server.GameNotice;
 import team.csca.server.User;
 import user.UserInfo;
@@ -122,7 +122,7 @@ public class UserImp implements User{
 	 * Separate the characters by the fore and back the user choose model
 	 */
 	@Override
-	synchronized public void chooseModle(int moodleCode , GameNotice notice , String name ) throws RemoteException {
+	synchronized public void chooseModel(int moodleCode , GameNotice notice , String name ) throws RemoteException {
 		UserInfo linkGame = getCurrentUser(name, USER_CACHE);
 		linkGame.setNotic(notice);
 		if(moodleCode == 1){			
@@ -141,6 +141,18 @@ public class UserImp implements User{
 			}
 		}
 	}
+	
+
+	@Override
+	public void exitChoose(int moodle , String name) throws RemoteException {
+		UserInfo linkGame = getCurrentUser(name, USER_CACHE);
+		if(moodle == 1){
+			TRAGameSeparate.remove(linkGame);
+		}else{
+			PPGameSeparate.remove(linkGame);
+		}
+	}
+	
 	
 	private void seperatePP(int ID){
 		List<UserInfo> pp = new ArrayList<UserInfo>();
@@ -219,9 +231,6 @@ public class UserImp implements User{
 			}
 		}
 	}
-	
-	
-
 	
 	
 }

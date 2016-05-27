@@ -14,7 +14,7 @@ public class JPanelMoodelChoose extends JPanel{
 		setLayout(null);
 		
 		this.add(new JButtonPP(this));
-		this.add(new JButtonPTro(this));
+		this.add(new JButtonPTra(this));
 		this.add(new JButtonReturn(this));
 	}
 	

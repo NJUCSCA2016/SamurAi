@@ -7,8 +7,8 @@ import java.util.List;
 
 import control.Control;
 import control.GameNotFoundException;
-import control.PPGameControl;
 import control.TRAGameControl;
+import control.PPGameControl;
 import team.csca.server.GameReceive;
 /**
  * 
@@ -129,10 +129,10 @@ public class GameReceiveImp implements GameReceive {
 
 	@Override
 	public void acceptTRAActionFinishedSign(int indexOfGame) throws RemoteException, GameNotFoundException {
-		Iterator<PPGameControl> iterator = PPGAME_ON.iterator();
-		PPGameControl control = null;
+		Iterator<TRAGameControl> iterator = TRAGAME_ON.iterator();
+		TRAGameControl control = null;
 		while(iterator.hasNext()){
-			PPGameControl each = iterator.next();
+			TRAGameControl each = iterator.next();
 			if(each.GAME_ID == indexOfGame){
 				control = each;
 				break;

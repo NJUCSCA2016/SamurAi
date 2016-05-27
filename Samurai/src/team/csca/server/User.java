@@ -41,6 +41,6 @@ public interface User extends Remote{
 	 */
 	public void chooseModle(int moodleCode , GameNotice notice , String name) throws RemoteException;
 	
-	
+	public void exitChoose(int moodle , String name) throws RemoteException;
 	
 }

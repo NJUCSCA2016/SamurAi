@@ -47,6 +47,12 @@ public class Player {
 		this.game_ON = false;
 	}
 	
+	public void pauseBack(){
+		Player.midiPlayer.pause();
+	}
+	public void rePlay(){
+		Player.midiPlayer.play();
+	}
 	
 	// TODO: 目前并不清楚我们需要用到哪些类型的音频，所以先按照学长的来写。
 	/**

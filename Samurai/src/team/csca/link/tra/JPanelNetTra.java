@@ -1,9 +1,24 @@
-package data;
+package team.csca.link.tra;
 
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.util.Arrays;
 import java.util.Random;
 
-import control.Control;
-import control.TRAGameControl;
+import javax.swing.JPanel;
+
+import team.csca.control.netControl.NetGameControl;
+import team.csca.controller.media.Player;
+import team.csca.view.extend.Layer;
+import team.csca.view.extend.LayerBackground;
+import team.csca.view.frame.JFrameMain;
+import team.csca.view.gameOver.JPanelGameDraw;
+import team.csca.view.gameOver.JPanelGameLose;
+import team.csca.view.gameOver.JPanelGameWin;
+import team.csca.view.image.ImgBackground;
+import team.csca.view.image.ImgNumber;
+import team.csca.view.image.ImgRound;
+import team.csca.view.image.ImgSamurai;
 
 /**
  * 人机对战
@@ -11,7 +26,22 @@ import control.TRAGameControl;
  * @author Water
  *
  */
-public class FieldInfo{
+public class JPanelNetTra extends JPanel{
+	
+	private String[] names;
+	
+	private JFrameMain frameMain = JFrameMain.J_FRAME_MAIN;
+	
+	private JPanelGameWin gameWin;
+	
+	private JPanelGameLose gameLose;
+	
+	private JPanelGameDraw gameDraw;
+	
+	/**
+	 * 面板上的组件
+	 */
+	private Layer[] layers;
 
 	/**
 	 * 武士编号 通过回合号对武士的编号进行索引
@@ -69,18 +99,283 @@ public class FieldInfo{
 
 	public boolean[][] outSight = new boolean[15][15];
 	
-	private TRAGameControl control;
-	
-//	private PlayerAxe axe;
-//	private PlayerSword sword;
-//	private PlayerSpear spear;
+	private NetGameControl control;
 
-	public FieldInfo(Control control) {
-		this.control = (TRAGameControl)control;
-		initField();
+	public JPanelNetTra(NetGameControl control) {
+		
+		this.control = control;
+		
+		this.setVisible(true);
+		this.setLayout(null);
+		this.setFocusable(true);
+		this.requestFocus(true);
+		this.setEnabled(true);
+		this.requestFocus();
+		this.addKeyListener(this.control.getListener());
+
+		setLayer();
+		
+		
+	}
+	
+	private void setLayer(){
+		layers = new Layer[] { new LayerBackground(0, 0, 1250, 700, ImgBackground.PM_PANEL),
+				/**
+				 * 占领的地方都有这个标志
+				 */
+				new LayerBackground(x[0] * 40 + y[0] * 13 + 227, y[0] * (-36) + 622, 57, 36, ImgSamurai.A0_SHADOW),
+				new LayerBackground(x[1] * 40 + y[1] * 13 + 227, y[1] * (-36) + 622, 57, 36, ImgSamurai.A1_SHADOW),
+				new LayerBackground(x[2] * 40 + y[2] * 13 + 227, y[2] * (-36) + 622, 57, 36, ImgSamurai.A2_SHADOW),
+				new LayerBackground(x[3] * 40 + y[3] * 13 + 227, y[3] * (-36) + 622, 57, 36, ImgSamurai.B0_SHADOW),
+				new LayerBackground(x[4] * 40 + y[4] * 13 + 227, y[4] * (-36) + 622, 57, 36, ImgSamurai.B1_SHADOW),
+				new LayerBackground(x[5] * 40 + y[5] * 13 + 227, y[5] * (-36) + 622, 57, 36, ImgSamurai.B2_SHADOW),
+				/**
+				 * 大本营标志，旗帜
+				 */
+				new LayerBackground(x[0] * 40 + y[0] * 13 + 252, y[0] * (-36) + 614, 30, 30, ImgSamurai.A0_FLAG),
+				new LayerBackground(x[1] * 40 + y[1] * 13 + 252, y[1] * (-36) + 614, 30, 30, ImgSamurai.A1_FLAG),
+				new LayerBackground(x[2] * 40 + y[2] * 13 + 252, y[2] * (-36) + 614, 30, 30, ImgSamurai.A2_FLAG),
+				new LayerBackground(x[3] * 40 + y[3] * 13 + 252, y[3] * (-36) + 614, 30, 30, ImgSamurai.B0_FLAG),
+				new LayerBackground(x[4] * 40 + y[4] * 13 + 252, y[4] * (-36) + 614, 30, 30, ImgSamurai.B1_FLAG),
+				new LayerBackground(x[5] * 40 + y[5] * 13 + 252, y[5] * (-36) + 614, 30, 30, ImgSamurai.B2_FLAG),
+				/*
+				 * 信息栏
+				 */
+				new LayerBackground(5, 0, 190, 240, ImgSamurai.INFO_A0),
+				new LayerBackground(5, 230, 190, 240, ImgSamurai.INFO_A1),
+				new LayerBackground(5, 460, 190, 240, ImgSamurai.INFO_A2),
+				new LayerBackground(1040, 0, 190, 240, ImgSamurai.INFO_B0),
+				new LayerBackground(1040, 230, 190, 240, ImgSamurai.INFO_B1),
+				new LayerBackground(1040, 460, 190, 240, ImgSamurai.INFO_B2), };
+	}
+
+	public void paintComponent(Graphics g) {
+
+		/*
+		 * 添加各个组件: 1.地图 2.每个武士老家的占领标志 3.每个武士大本营的旗帜
+		 */
+		for (int i = 0; i < this.layers.length; i++) {
+			layers[i].createWindow(g);
+		}
+		/**
+		 * 防止大本营被占领 此时把所有的大本营重新赋值一遍
+		 *  TIP:赋值在统计占领地盘数量之前
+		 */
+		for (int i = 0; i < 6; i++) {
+			int temp = 15 * homeX[i] + homeY[i];
+			occupation[temp] = i;
+		}
+		/*
+		 * 把所有占领的地盘进行绘制
+		 */
+		// 行
+		for (int i = 0; i < 15; i++) {
+			// 列
+			for (int j = 0; j < 15; j++) {
+				int temp = 15 * i + j;
+				if (occupation[temp] != -1) {
+					g.drawImage(ImgSamurai.AI_SHADOW[occupation[temp]], i * 40 + j * 13 + 227, j * (-36) + 622, 57, 36,
+							this);
+				}
+			}
+		}
+		/**
+		 * 获得视野
+		 */
+		getSight();
+		/**
+		 * 把不在视野内的地方画上阴影
+		 */
+		for (int i = 0; i < 15; i++) {
+			for (int j = 0; j < 15; j++) {
+				if (outSight[i][j]) {
+					g.drawImage(ImgSamurai.OUTSIGHT_SHADOW, i * 40 + j * 13 + 227, j * (-36) + 622, 57, 36, this);
+				}
+			}
+		}
+
+		/*
+		 * 绘制旗帜 
+		 * 因为之前绘制了占领地盘 
+		 * 占领地盘会覆盖旗帜 
+		 * 所以需要重新绘制旗帜
+		 */
+		for (int i = 7; i < this.layers.length; i++) {
+			layers[i].createWindow(g);
+		}
+		/*
+		 * 绘制对方的武士
+		 * TODO:人机对战的时候这部分需要修改
+		 */
+		if (index < 3) {
+			if (!(isHidden(3) || outSight[x[3]][y[3]])) {
+				g.drawImage(ImgSamurai.B0_PICTURE[direction[3]], x[3] * 40 + y[3] * 13 + 228, y[3] * (-36) + 600, 50,
+						50, this);
+			}
+			if (!(isHidden(4) || outSight[x[4]][y[4]])) {
+				g.drawImage(ImgSamurai.B1_PICTURE[direction[4]], x[4] * 40 + y[4] * 13 + 228, y[4] * (-36) + 600, 50,
+						50, this);
+			}
+			if (!(isHidden(5) || outSight[x[5]][y[5]])) {
+				g.drawImage(ImgSamurai.B2_PICTURE[direction[5]], x[5] * 40 + y[5] * 13 + 228, y[5] * (-36) + 600, 50,
+						50, this);
+			}
+		}
+		/*
+		 * 绘制自己方武士的图片
+		 * TODO:人机对战的时候需要修改
+		 */
+		g.drawImage(ImgSamurai.A0_PICTURE[direction[0]], x[0] * 40 + y[0] * 13 + 228, y[0] * (-36) + 600, 50, 50, this);
+		g.drawImage(ImgSamurai.A1_PICTURE[direction[1]], x[1] * 40 + y[1] * 13 + 228, y[1] * (-36) + 600, 50, 50, this);
+		g.drawImage(ImgSamurai.A2_PICTURE[direction[2]], x[2] * 40 + y[2] * 13 + 228, y[2] * (-36) + 600, 50, 50, this);
+		/*
+		 * 绘制箭头
+		 * 只在自己方行动的时候绘制
+		 * TODO：人机对战的时候需要修改
+		 */
+		if (index < 3) {
+			g.drawImage(ImgSamurai.GUIDE_ARROW, x[index] * 40 + y[index] * 13 + 234, y[index] * (-36) + 550, 40, 51, this);
+		}
+
+		super.paintComponents(g);
+
+		/**
+		 * 计算每个武士占领的格子
+		 * TIP:统计占领地盘数量在赋值之后
+		 */
+
+		for (int i = 0; i < count.length; i++) {
+			count[i] = 0;
+		}
+		for (int i = 0; i < occupation.length; i++) {
+			for (int j = 0; j < count.length; j++) {
+				if (occupation[i] == j) {
+					count[j]++;
+				}
+			}
+		}
+		// for (int i = 0; i < count.length; i++) {
+		// System.out.println(i + " " + count[i]);
+		// }
+		/*
+		 * A0的胜利点
+		 */
+		printNumber(count[0], g, 120, 85, 18, 25);
+		/*
+		 * A1的胜利点
+		 */
+		printNumber(count[1], g, 120, 315, 18, 25);
+		/*
+		 * A2的胜利点
+		 */
+		printNumber(count[2], g, 120, 545, 18, 25);
+		/*
+		 * B0的胜利点
+		 */
+		printNumber(count[3], g, 1157, 85, 18, 25);
+		/*
+		 * B1的胜利点
+		 */
+		printNumber(count[4], g, 1157, 315, 18, 25);
+		/*
+		 * B2的胜利点
+		 */
+		printNumber(count[5], g, 1157, 545, 18, 25);
+		/*
+		 * 绘制当前行动的武士的体力值
+		 */
+		if (index == 0) {
+			printNumber(nowPower, g, 120, 118, 18, 25);
+		}
+		if (index == 1) {
+			printNumber(nowPower, g, 120, 348, 18, 25);
+		}
+		if (index == 2) {
+			printNumber(nowPower, g, 120, 578, 18, 25);
+		}
+		if (index == 3) {
+			printNumber(nowPower, g, 1157, 118, 18, 25);
+		}
+		if (index == 4) {
+			printNumber(nowPower, g, 1157, 348, 18, 25);
+		}
+		if (index == 5) {
+			printNumber(nowPower, g, 1157, 578, 18, 25);
+		}
+		for (int k = 0; k < 3; k++) {
+			printNumber(recoverRound[k], g, 120, 151 + k * 230, 18, 25);
+		}
+		for (int i = 0; i < 3; i++) {
+			printNumber(recoverRound[i + 3], g, 1157, 151 + i * 230, 18, 25);
+		}
+		/*
+		 * 绘制当前进行回合数的图案及数字
+		 */
+		g.drawImage(ImgRound.NOW_ROUND, 195, 50, 100, 100, this);
+		printNumber(round, g, 256, 106, 23, 33);
+		/*
+		 * 绘制已经进行回合数的图案及数字
+		 */
+		g.drawImage(ImgRound.REST_ROUND, 300, 46, 100, 100, this);
+		printNumber(maxRound - round, g, 361, 106, 23, 33);
+		if (round == maxRound) {
+//			g.drawString("游戏结束！", 600, 340);
+//			fatherPanel = new JPanelStartGame();
+//			jPanelRankingList = new JPanelRankingList();
+			frameMain.remove(this);
+//			frameMain.setContentPane(jPanelRankingList);
+//			jPanelRankingList.requestFocus();
+			
+//			System.out.println(222);
+			int score1 = count[0] + count[1] + count[2];
+			int score2 = count[3] + count[4] + count[5];
+			if (score1 > score2) {
+				gameWin = new JPanelGameWin();
+				frameMain.setContentPane(gameWin);
+				gameWin.requestFocus();
+				Player.stopMusic();
+				if (Player.MUSiC_PLAYER.isBack_ON()) {
+					Player.playMusic("win");
+				}
+			}
+			if (score1 < score2) {
+				gameLose = new JPanelGameLose();
+				frameMain.setContentPane(gameLose);
+				gameLose.requestFocus();
+				Player.stopMusic();
+				if (Player.MUSiC_PLAYER.isBack_ON()) {
+					Player.playMusic("lose");
+				}
+			}
+			if (score1 == score2) {
+				gameDraw = new JPanelGameDraw();
+				frameMain.setContentPane(gameDraw);
+				gameDraw.requestFocus();
+				Player.stopMusic();
+				if (Player.MUSiC_PLAYER.isBack_ON()) {
+					Player.playMusic("draw");
+				}
+			}
+			frameMain.revalidate();
+		}
 	}
 
 
+
+	/**
+	 * 进攻
+	 */
+	public void attack() {
+		cost = 4;
+		// TODO:增加判断条件
+		if (hasPower() && recoverRound[index] == 0) {
+			nowPower = nowPower - cost;
+			occupy();
+		}
+
+		repaint();
+
+	}
 
 	public void attackUp() {
 		cost = 4;
@@ -89,6 +384,7 @@ public class FieldInfo{
 			nowPower = nowPower - cost;
 			occupy();
 		}
+		repaint();
 	}
 
 	public void attackDown() {
@@ -98,6 +394,7 @@ public class FieldInfo{
 			nowPower = nowPower - cost;
 			occupy();
 		}
+		repaint();
 	}
 
 	public void attackLeft() {
@@ -107,6 +404,7 @@ public class FieldInfo{
 			nowPower = nowPower - cost;
 			occupy();
 		}
+		repaint();
 	}
 
 	public void attackRight() {
@@ -116,6 +414,7 @@ public class FieldInfo{
 			nowPower = nowPower - cost;
 			occupy();
 		}
+		repaint();
 	}
 
 	/**
@@ -126,10 +425,13 @@ public class FieldInfo{
 		if (canShow() && hasPower() && recoverRound[index] == 0) {
 			nowPower = nowPower - cost;
 			direction[index] -= 4;
-			this.sendFieldInfo(1);
-			this.sendFieldInfo(2);
 			
+			if (Player.MUSiC_PLAYER.isGame_ON()) {
+				Player.playSound("showMe");
+			}
 		}
+		repaint();
+
 	}
 
 	/**
@@ -139,45 +441,41 @@ public class FieldInfo{
 		cost = 1;
 		if (canHide() && hasPower() && recoverRound[index] == 0) {
 			nowPower = nowPower - cost;
-			direction[index] += 4;	
-			this.sendFieldInfo(1);
-			this.sendFieldInfo(2);
+			direction[index] += 4;
+			if (Player.MUSiC_PLAYER.isGame_ON()) {
+				Player.playSound("3");
+			}
+			
 		}
+		repaint();
 	}
 
 	/**
 	 * 切换武士
 	 */
-	public int changeCharacter() {
+	public void changeCharacter() {
 		if (round < maxRound) {
 			round++;
-			calculateIndex();
-			nowPower = 7;
-			calculateIndex();
-			for (int i = 0; i < 6; i++) {
-				if (recoverRound[i] > 0) {
-					recoverRound[i]--;
-				}
-				if (recoverRound[index] > 0) {
-					nowPower = 0;
-				}
-			}
-			return 0;
-		}else{
-			return 1;
 		}
-		
-		
-	}
-	
-	public void infoForGameOver(){
-		this.control.noticGameOver(this.occupation);
+		nowPower = 7;
+		for (int i = 0; i < 6; i++) {
+			if (recoverRound[i] > 0) {
+				recoverRound[i]--;
+			}
+			if (recoverRound[index] > 0) {
+				nowPower = 0;
+			}
+		}
+		repaint();
+		if(index >= 3){
+			changeCharacter();
+		}
 	}
 	
 	/**
 	 * 向右移动
 	 */
-	public void moveRight() {
+	public boolean moveRight() {
 		cost = 2;
 		if (canMoveTo(1, 0) && hasPower() && !isHidden(index) && recoverRound[index] == 0) {
 			// if (x[index]+1 <=14) {
@@ -185,141 +483,98 @@ public class FieldInfo{
 			x[index] += 1;
 			if(isHidden(index)){
 				direction[index] = 7;
+				if (Player.MUSiC_PLAYER.isGame_ON()) {
+					Player.playSound("2");
+				}
 			}else{
 				direction[index] = 3;
+				if (Player.MUSiC_PLAYER.isGame_ON()) {
+					Player.playSound("1");
+				}
 			}
-			this.sendFieldInfo(1);
-			this.sendFieldInfo(2);
+			repaint();
+			return true;
 		}
-//		if (canMoveTo(1, 0) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
-//			nowPower = nowPower - cost;
-//			x[index] += 1;
-//			direction[index] = 7;
-//		}
+		return false;
+
 	}
 
 	/**
 	 * 向左移动
 	 */
-	public void moveLeft() {
+	public boolean moveLeft() {
 		cost = 2;
 		if (canMoveTo(-1, 0) && hasPower() && !isHidden(index) && recoverRound[index] == 0) {
+			// if (x[index]-1 >= 0) {
 			nowPower = nowPower - cost;
 			x[index] -= 1;
-			if(isHidden(index)){
-			// if (x[index]-1 >= 0) {
-				direction[index] = 6;
-			}else{
-				direction[index] = 2;
-			}
-			this.sendFieldInfo(1);
-			this.sendFieldInfo(2);
-			// if (isHidden()) {
-			// direction[index] = 6;
-			// }
+			 if (isHidden(index)) {
+				 direction[index] = 6;
+				 if (Player.MUSiC_PLAYER.isGame_ON()) {
+						Player.playSound("2");
+					}
+			 }else{
+				 direction[index] = 2;
+				 if (Player.MUSiC_PLAYER.isGame_ON()) {
+						Player.playSound("1");
+					}
+			 }
+			repaint();
+			return true;
 		}
-//		if (canMoveTo(-1, 0) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
-//			// if (x[index]-1 >= 0) {
-//			nowPower = nowPower - cost;
-//			x[index] -= 1;
-//			direction[index] = 6;
-//			// if (isHidden()) {
-//			// direction[index] = 6;
-//			// }
-//		}
-
+		return false;
 	}
 
 	/**
 	 * 向下移动
 	 */
-	public void moveDown() {
+	public boolean moveDown() {
 		cost = 2;
 		if (canMoveTo(0, -1) && hasPower() && !isHidden(index) && recoverRound[index] == 0) {
 			// if (y[index]-1 >= 0) {
 			nowPower = nowPower - cost;
 			y[index] -= 1;
-			if(isHidden(index)){
+			 if (isHidden(index)) {
 				direction[index] = 4;
-			}else{
+				if (Player.MUSiC_PLAYER.isGame_ON()) {
+					Player.playSound("2");
+				}
+			 }else {
 				direction[index] = 0;
+				if (Player.MUSiC_PLAYER.isGame_ON()) {
+					Player.playSound("1");
+				}
 			}
-			this.sendFieldInfo(1);
-			this.sendFieldInfo(2);
-			// if (isHidden()) {
-			// direction[index] = 4;
-			// 
+			repaint();
+			return true;
 		}
-//		if (canMoveTo(0, -1) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
-//			nowPower = nowPower - cost;
-//			y[index] -= 1;
-//			direction[index] = 4;
-//		}
-
+		return false;
 	}
 
 	/**
 	 * 向上移动
 	 */
-	public void moveUp() {
+	public boolean moveUp() {
 		cost = 2;
 		if (canMoveTo(0, 1) && hasPower() && !isHidden(index) && recoverRound[index] == 0) {
 			nowPower = nowPower - cost;
 			y[index] += 1;
+			
 			if(isHidden(index)){
+				if (Player.MUSiC_PLAYER.isGame_ON()) {
+					Player.playSound("2");
+				}
 				direction[index] = 5;
 			}else{
+				if (Player.MUSiC_PLAYER.isGame_ON()) {
+					Player.playSound("1");
+				}
 				direction[index] = 1;
 			}
-			this.sendFieldInfo(1);
-			this.sendFieldInfo(2);
+			repaint();
+			return true;
 		}
-//		if (canMoveTo(0, 1) && hasPower() && isHidden(index) && recoverRound[index] == 0) {
-//			nowPower = nowPower - cost;
-//			y[index] += 1;
-//			direction[index] = 5;
-//		}
-
-	}
-
-	public void calculateIndex() {
-		if (round % 12 == 0) {
-			index = 0;
-		}
-		if (round % 12 == 1) {
-			index = 3;
-		}
-		if (round % 12 == 2) {
-			index = 4;
-		}
-		if (round % 12 == 3) {
-			index = 1;
-		}
-		if (round % 12 == 4) {
-			index = 2;
-		}
-		if (round % 12 == 5) {
-			index = 5;
-		}
-		if (round % 12 == 6) {
-			index = 3;
-		}
-		if (round % 12 == 7) {
-			index = 0;
-		}
-		if (round % 12 == 8) {
-			index = 1;
-		}
-		if (round % 12 == 9) {
-			index = 4;
-		}
-		if (round % 12 == 10) {
-			index = 5;
-		}
-		if (round % 12 == 11) {
-			index = 2;
-		}
-
+		return false;
 	}
 
 	/**
@@ -376,7 +631,6 @@ public class FieldInfo{
 	 * @return
 	 */
 	public boolean isHidden(int x) {
-		calculateIndex();
 		if (direction[x] > 3) {
 			return true;
 		}
@@ -448,8 +702,11 @@ public class FieldInfo{
 		return true;
 	}
 
-
 	public void occupy() {
+		if (Player.MUSiC_PLAYER.isGame_ON()) {
+			Player.playSound("occupy");
+		}
+		
 		// 长矛
 		if (index == 0 || index == 3) {
 			// 向下
@@ -1162,9 +1419,6 @@ public class FieldInfo{
 				}
 			}
 		}
-		
-		this.sendFieldInfo(1);
-		this.sendFieldInfo(2);
 
 	}
 
@@ -1183,12 +1437,43 @@ public class FieldInfo{
 					y[j] = homeY[j];
 					recoverRound[j] = maxRecoverRound;
 					direction[j] = 0;
+					if (Player.MUSiC_PLAYER.isGame_ON()) {
+						Player.playSound("soundeffect0");
+					}
+					
 				}
 
 			}
 		}
 	}
-
+	/**
+	 * Method for panel
+	 * @param num
+	 * @param g
+	 * @param x
+	 * @param y
+	 * @param w
+	 * @param h	
+	 */
+	private void printNumber(int num, Graphics g, int x, int y, int w, int h) {
+		if (num < 10) {
+			g.drawImage(ImgNumber.NUMS[num], x, y, w, h, this);
+		}
+		if (10 <= num && num <= 99) {
+			int tens = num / 10;
+			int unit = num % 10;
+			g.drawImage(ImgNumber.NUMS[tens], x - w, y, w, h, this);
+			g.drawImage(ImgNumber.NUMS[unit], x, y, w, h, this);
+		}
+		if (100 <= num) {
+			int hundreds = num / 100;
+			int tens = (num - 100 * hundreds) / 10;
+			int unit = num % 10;
+			g.drawImage(ImgNumber.NUMS[hundreds], x - 2 * w, y, w, h, this);
+			g.drawImage(ImgNumber.NUMS[tens], x - w, y, w, h, this);
+			g.drawImage(ImgNumber.NUMS[unit], x, y, w, h, this);
+		}
+	}
 
 	/**
 	 * 在视野范围内的才能看到
@@ -1218,189 +1503,87 @@ public class FieldInfo{
 
 	}
 
-	/**
-	 * 初始化需要的参数
-	 */
-	public void initField() {
-		index = 0;
-		maxPower = 7;
-		nowPower = 7;
-		round = 0;
-		// 从左到右是x,从下到上是y
-		// 关于x的系数为正，关于y的系数为负
-		x[0] = random.nextInt(7) + 1;
-		y[0] = 0;
-		x[1] = 14;
-		y[1] = random.nextInt(5) + 1;
-		x[2] = 0;
-		y[2] = random.nextInt(9) + 5;
-		x[3] = random.nextInt(6) + 8;
-		y[3] = 0;
-		x[4] = random.nextInt(7) + 1;
-		y[4] = 14;
-		x[5] = random.nextInt(6) + 7;
-		y[5] = 14;
-		for (int i = 0; i < 6; i++) {
-			homeX[i] = x[i];
-			homeY[i] = y[i];
-		}
-		for (int i = 0; i < direction.length; i++) {
-			direction[i] = 0;
-		}
-		maxRecoverRound = 12 * (1 + random.nextInt(4));
-		for (int i = 0; i < recoverRound.length; i++) {
-			recoverRound[i] = 0;
-		}
 
-		maxRound = 12 * (6 + random.nextInt(14));
-		maxRecoverRound  = 12 * (1 + random.nextInt(4));
-		// x
-		for (int i = 0; i < 15; i++) {
-			// y
-			for (int j = 0; j < 15; j++) {
-				outSight[i][j] = true;
-			}
-		}
-
-		for (int i = 0; i < 6; i++) {
-			outSight[homeX[i]][homeY[i]] = false;
-		}
-		
-		/**
-		 * 初始化occupation
-		 */
-		for (int i = 0; i < occupation.length; i++) {
-			occupation[i] = -1;
-		}
-		/**
-		 * 把所有大本营初始化
-		 */
-		for (int i = 0; i < 6; i++) {
-			int temp = 15 * homeX[i] + homeY[i];
-			occupation[temp] = i;
-		}
-		/**
-		 * 初始化occupation
-		 */
-		for (int i = 0; i < occupation.length; i++) {
-			occupation[i] = -1;
-		}
-		/**
-		 * 把所有大本营初始化
-		 */
-		for (int i = 0; i < 6; i++) {
-			int temp = 15 * homeX[i] + homeY[i];
-			occupation[temp] = i;
-		}
-		
-		int[] occupation = new int[this.occupation.length];
-		System.arraycopy(this.occupation, 0, occupation, 0, this.occupation.length);
-		
-		int[] basicInfo = new int[]{this.maxRound , this.maxRecoverRound};
-		
-		this.control.initClientGame(basicInfo , homeX , homeY , this.direction , occupation);
-		
+	public void initGame(int[] basicInfo, int[] homeX, int[] homeY, int[] directions, int index , int[] occupation) {
+		Arrays.fill(count, 0);
+		this.homeX = homeX ;
+		this.homeY = homeY;
+		this.direction = directions;
+		this.index = index;
+		this.maxRound = basicInfo[0];
+		this.maxRecoverRound = basicInfo[1];
+		this.occupation = occupation;
+		repaint();
 	}
-	
-//	private void initAIField(){
-//		this.spear = new PlayerSpear();
-//		this.sword = new PlayerSword();
-//		this.axe = new PlayerAxe();
-//		int[] homeX = new int[this.homeX.length];
-//		int[] homeY = new int[this.homeY.length];
-//		System.arraycopy(this.homeX, 0, homeX, 0, this.homeX.length);
-//		System.arraycopy(this.homeY, 0, homeY, 0, this.homeY.length);
-//		spear.initAIField(new int[]{maxRound, 3, maxRecoverRound}, homeX, homeY, this);
-//		sword.initAIField(new int[]{maxRound, 4, maxRecoverRound}, homeX, homeY, this);
-//		axe.initAIField(new int[]{maxRound, 5, maxRecoverRound}, homeX, homeY, this);
-//	}
-//	
-//	
 
-	public void sendFieldInfo(int army){
-		int[] recover = new int[this.recoverRound.length];
-		System.arraycopy(recoverRound, 0, recover, 0, this.recoverRound.length);
-		int[] curX = new int[this.x.length];
-		int[] curY = new int[this.y.length];
-		//Deep copy
-		System.arraycopy(this.x, 0, curX, 0, this.x.length);
-		System.arraycopy(this.y, 0, curY, 0, this.y.length);
-		//Hide the enemies out of sight.
-		int startEne = army == 1 ? 0 : 3 ;
-		int endEne = startEne + 3 ; 
-		int startAlly = army == 2 ? 0 : 3 ;
-		int endAlly = startAlly + 3 ;
-		//Hide information . Provide the limited info.
-		int[] hidden = new int[6];
-		for(int i = 0 ; i < direction.length ; i ++ ){
-			if(curX[i] == -1){
-				hidden[i] = 1;
-			}else{
-				if(direction[i] > 3){
-					hidden[i] = -1;
-				}else{
-					hidden[i] = 0;
-				}
-			}
-		}
-		for(int i = startEne ; i < endEne ; i ++){
-			int XofEne = curX[i];
-			int YofEne = curY[i];
-			
-			if(hidden[i] == -1){
-				curX[i] = -1;
-				curY[i] = -1;
-			}else{
-				boolean out = true;
-				for(int j = startAlly ; j < endAlly ; j ++){
-					int XofAlly = curX[j];
-					int YofAlly = curY[j];
-					if(Math.abs(XofEne - XofAlly) + Math.abs(YofEne - YofAlly) <= 5){
-						out = false;
-						break;
-					}
-				}
-				if(out){
-					hidden[i] = -1;
-					curX[i] = -1;
-					curY[i] = -1;
-				}
-			}
-			
-		}
-		//Occupy info . Provide the info in sight
-		int[] occupy = new int[this.occupation.length];
-		System.arraycopy(occupation, 0, occupy, 0, occupation.length);
-		for(int i = 0 ; i < 15 ; i ++){
-			for(int j = 0 ; j < 15 ; j++){
-				boolean out = true;
-				for(int ai = startAlly ; ai < endAlly ; ai ++){
-					if(Math.abs(i - curX[ai]) + Math.abs(j - curY[ai]) <= 5){
-						out = false;
-						break;
-					}
-				}
-				if(out){
-					// 9 means out of sight.
-					occupy[15 * i + j] = 9;
-				}
-			}
-		}
-		// Count the occupy
-		for (int i = 0; i < count.length; i++) {
-			count[i] = 0;
-		}
-		for (int i = 0; i < occupation.length; i++) {
-			for (int j = 0; j < count.length; j++) {
-				if (occupation[i] == j) {
-					count[j]++;
-				}
-			}
-		}
-		int[] direction = new int[this.direction.length];
-		System.arraycopy(this.direction, 0, direction, 0, this.direction.length);
-		this.control.feedBack(army , new int[]{this.round , this.nowPower}, recover, curX, curY, direction , occupy , count);
-	}	
-	
+	public void refresh(int[] basicInfo, int[] recoverRound, int[] curX, int[] curY, int[] direction,
+			int[] occupation , int[] count) {
+		this.round = basicInfo[0];
+		this.nowPower = basicInfo[1];
+		this.recoverRound = recoverRound;
+		this.x = curX;
+		this.y = curY;
+		this.direction = direction;
+		this.occupation = occupation;
+		this.count = count;
+		repaint();
+	}
 
+	public void setPlayersName(String[] names) {
+		this.names = names;
+	}
+
+	public void changeCurIndex(int curIndex) {
+		this.index = curIndex;
+	}
+
+	public void gameOver(int[] occupy) {
+		this.occupation = occupy;
+	}
+
+	private boolean actionAvaliable() {
+		return index == control.getIndexOfMyself() && round < maxRound;
+	}
+
+	public boolean canTakeAction(int actionCode) {
+		if(actionAvaliable()){
+			switch (actionCode) {
+			case  1 :
+				this.attackUp();
+				break;
+			case 2 :
+				this.attackDown();
+				break;
+			case 3 :
+				this.attackLeft();
+				break;
+			case 4 :
+				this.attackRight();
+				break;
+			case 5 :
+				this.moveUp();
+				break;
+			case 6 :
+				this.moveDown();
+				break;
+			case 7 :
+				this.attackLeft();
+				break;
+			case 8 :
+				this.attackRight();
+				break;
+			case 9 :
+				return this.canHide();
+			case 10:
+				this.showMe();
+				break;
+			case 0 :
+				this.changeCharacter();
+				break;
+			default:
+				break;
+			}
+		}
+		return false;
+	}
 }

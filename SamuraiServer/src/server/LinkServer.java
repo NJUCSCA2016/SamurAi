@@ -61,8 +61,8 @@ public class LinkServer extends UnicastRemoteObject implements User , GameReceiv
 	}
 
 	@Override
-	public void chooseModle(int moodleCode , GameNotice notice , String name) throws RemoteException {
-		user.chooseModle(moodleCode , notice , name);
+	public void chooseModel(int moodleCode , GameNotice notice , String name) throws RemoteException {
+		user.chooseModel(moodleCode , notice , name);
 	}
 
 	@Override
@@ -73,6 +73,11 @@ public class LinkServer extends UnicastRemoteObject implements User , GameReceiv
 	@Override
 	public void acceptPPActionFinishedSign(int indexOfGame) throws RemoteException, GameNotFoundException {
 		receive.acceptTRAActionFinishedSign(indexOfGame);
+	}
+
+	@Override
+	public void exitChoose(int moodle, String name) throws RemoteException {
+		user.exitChoose(moodle, name);		
 	}
 
 	

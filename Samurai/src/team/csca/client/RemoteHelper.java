@@ -2,15 +2,23 @@ package team.csca.client;
 
 import java.rmi.Remote;
 
+import team.csca.server.GameNotice;
 import team.csca.server.GameReceive;
 import team.csca.server.User;
 
 public class RemoteHelper {
 	
 	private static RemoteHelper remoteHelper = new RemoteHelper();
+	private GameNoticeImp gameNoticeImp = new GameNoticeImp();
+	
+	private String userName = null;
+	private int moodle = 0;
+	
 	public static RemoteHelper getInstance(){
 		return remoteHelper;
 	}
+	
+	private RemoteHelper(){}
 	
 	private Remote remote;
 
@@ -29,6 +37,26 @@ public class RemoteHelper {
 	 */
 	public User getUser(){
 		return (User) remote;
+	}
+	
+	public GameNoticeImp getNotic(){
+		return gameNoticeImp;
+	}
+	
+	public void setName(String name){
+		this.userName = name;
+	}
+	
+	public String getName(){
+		return this.userName;
+	}
+	
+	public void setMoodle(int moodle){
+		this.moodle = moodle;
+	}
+	
+	public int getMoodle(){
+		return this.moodle;
 	}
 	
 }

@@ -9,7 +9,7 @@ public interface GameNotice {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public void initGame(int[] basicInfo , int[] homeX , int[] homeY , int[] directions , int index) throws RemoteException;
+	public void initGame(int[] basicInfo , int[] homeX , int[] homeY , int[] directions , int index , int[] occupation) throws RemoteException;
 	/**
 	 * 将游戏信息反馈给指定的AI
 	 * 
@@ -19,7 +19,7 @@ public interface GameNotice {
 	 * 
 	 * @throws RemoteException
 	 */
-	public void feedBack(int turn , int[] recoverRound , int[] curX , int[] curY , int[] direction , int[] occupation) throws RemoteException;
+	public void feedBack(int[] basicInfo , int[] recoverRound , int[] curX , int[] curY , int[] direction , int[] occupation , int[] count) throws RemoteException;
 	
 	/**
 	 * 获取玩家的信息
@@ -41,7 +41,7 @@ public interface GameNotice {
 	 * @throws RemoteException
 	 * 
 	 */
-	public void actionSign() throws RemoteException;
+	public void actionSign(int curIndex) throws RemoteException;
 	/**
 	 * Tell the game player the game is over and send the field for game statistics
 	 * @param occupy

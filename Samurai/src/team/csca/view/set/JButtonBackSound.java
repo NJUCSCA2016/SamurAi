@@ -37,6 +37,8 @@ public class JButtonBackSound extends StaticButton implements ActionListener{
 			Player.MUSiC_PLAYER.setBackVol(Player.MUSiC_PLAYER.getVolBack());
 			Player.playMusic("bgm1");
 			Player.MUSiC_PLAYER.setBackVol(Player.MUSiC_PLAYER.getVolBack());
+			Player.MUSiC_PLAYER.pauseBack();
+			Player.MUSiC_PLAYER.rePlay();
 		}
 		
 		repaint();

@@ -29,6 +29,10 @@ public abstract class Control {
 	protected final FieldInfo field;
 	
 	public Control(List<UserInfo> sixplayers , int gameId) {
+		String[] names = new String[6];
+		for(int i = 0 ; i < sixplayers.size() ; i ++){
+			names[i] = sixplayers.get(i).getName();
+		}
 		
 		this.GAME_ID = gameId;
 		//Separate the player into two sides
@@ -37,14 +41,27 @@ public abstract class Control {
 		for(int i = 0 ; i < 3 ; i ++ ){
 			UserInfo one = sixplayers.get(i);
 			one.chooseAI(i);
+			try {
+				one.getNotic().playersInfoGet(names, i);
+			} catch (RemoteException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
 			UserInfo two = sixplayers.get(i + 3);
 			two.chooseAI(i + 3);
+			try {
+				two.getNotic().playersInfoGet(names, i + 3);
+			} catch (RemoteException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			sideOne.add(one);
 			sideTwo.add(two);
 			// This step is to inform the client the id of the game .
 			try {
 				one.getNotic().notic(gameId);
 				two.getNotic().notic(gameId);
+				
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			}
@@ -62,7 +79,7 @@ public abstract class Control {
 	 * @param homeY
 	 */
 	
-	public void initClientGame(int[] basicInfo , int[] homeX , int[] homeY , int[] directions){
+	public void initClientGame(int[] basicInfo , int[] homeX , int[] homeY , int[] directions , int[] occupation){
 		for(int i = 0 ; i < 3 ; i++){
 			UserInfo playerOne = this.sideOne.get(i);
 			UserInfo playerTwo = this.sideTwo.get(i);
@@ -73,10 +90,8 @@ public abstract class Control {
 			System.arraycopy(basicInfo, 0, newBasicInfoOne, 0, basicInfo.length);
 			System.arraycopy(basicInfo, 0, newBasicInfoTwo, 0, basicInfo.length);
 			try {
-				newBasicInfoOne[1] = i;
-				newBasicInfoTwo[1] = i + 3;
-				sideOne.initGame(newBasicInfoOne, homeX, homeY ,  directions , i );
-				sideTwo.initGame(newBasicInfoTwo, homeX, homeY , directions , i + 3);
+				sideOne.initGame(newBasicInfoOne, homeX, homeY ,  directions , i , occupation);
+				sideTwo.initGame(newBasicInfoTwo, homeX, homeY , directions , i + 3 , occupation);
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -90,10 +105,9 @@ public abstract class Control {
 	
 	public void noticeAction(int curIndex){
 		try{
-			if(curIndex >= 3){
-				this.sideTwo.get(curIndex - 3).getNotic().actionSign();
-			}else{
-				this.sideOne.get(curIndex).getNotic().actionSign();
+			for(int i = 0 ; i < 3 ; i ++){
+				sideOne.get(i).getNotic().actionSign(curIndex);
+				sideTwo.get(i).getNotic().actionSign(curIndex);
 			}
 		}catch(RemoteException ex){
 			ex.printStackTrace();
