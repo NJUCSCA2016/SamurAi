@@ -18,6 +18,7 @@ public class JPanelGameLose extends JPanel{
 		this.setLayout(null);
 		repaint();
 		this.add(new JButtonGameBackToMain(this));
+		this.add(new JButtonRankingList());
 
 	}
 	public void paintComponent(Graphics g) {

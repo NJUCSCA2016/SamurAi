@@ -226,10 +226,14 @@ public class ImgButton {
 		// E:\大一下\SamurAi\Samurai\Image\Gamepanel\buttons
 		BACK_INIT = new ImageIcon("Image/Gamepanel/buttons/back.png").getImage();
 		// TODO:换图
-		BACK_ENTER = new ImageIcon("Image/Gamepanel/buttons/back.png").getImage();
+		BACK_ENTER = new ImageIcon("Image/Gamepanel/buttons/back1.png").getImage();
 		// TODO:换图
-		BACK_CLICKED = new ImageIcon("Image/Gamepanel/buttons/back.png").getImage();
+		BACK_CLICKED = new ImageIcon("Image/Gamepanel/buttons/back2.png").getImage();
 	}
 	
+	public static final Image WATCH_RANKING_LIST_1 = new ImageIcon("Image/Gamepanel/buttons/button_look.png").getImage();
 	
+	public static final Image WATCH_RANKING_LIST_2 = new ImageIcon("Image/Gamepanel/buttons/button_look1.png").getImage();
+	
+	public static final Image WATCH_RANKING_LIST_3 = new ImageIcon("Image/Gamepanel/buttons/button_look2.png").getImage();
 }
