@@ -85,6 +85,8 @@ public class ImgButton {
 		
 	}
 	
+	public static final Image EXIT = new ImageIcon("Image/Gamepanel/buttons/button5.png").getImage();
+	
 	/**
 	 * 情景模式
 	 */

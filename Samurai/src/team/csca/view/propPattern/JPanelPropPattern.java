@@ -138,6 +138,7 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		this.requestFocus();
 		this.addKeyListener(this);
 		this.add(new JButtonBack(this));
+		this.add(new JButtonExit(this));
 		this.addMouseListener(new MouseListener() {
 
 			@Override
