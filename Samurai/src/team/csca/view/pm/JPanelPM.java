@@ -398,7 +398,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 		int score1 = count[0] + count[1] + count[2];
 		int score2 = count[3] + count[4] + count[5];
 		if (score1 > score2) {
+<<<<<<< HEAD
+			gameWin = new JPanelGameWin();
+			frameMain.remove(this);
+=======
 			gameWin = new JPanelGameWin(new JButtonGameBackToMain());
+>>>>>>> 32dce892a269f1c229b7797a1f41d886e8e7ae61
 			frameMain.setContentPane(gameWin);
 			gameWin.requestFocus();
 			Player.stopMusic();
@@ -407,7 +412,12 @@ public class JPanelPM extends JPanel implements KeyListener {
 			}
 		}
 		if (score1 < score2) {
+<<<<<<< HEAD
+			gameLose = new JPanelGameLose();
+			frameMain.remove(this);
+=======
 			gameLose = new JPanelGameLose(new JButtonGameBackToMain());
+>>>>>>> 32dce892a269f1c229b7797a1f41d886e8e7ae61
 			frameMain.setContentPane(gameLose);
 			gameLose.requestFocus();
 			Player.stopMusic();
@@ -417,6 +427,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		}
 		if (score1 == score2) {
 			gameDraw = new JPanelGameDraw();
+			frameMain.remove(this);
 			frameMain.setContentPane(gameDraw);
 			gameDraw.requestFocus();
 			Player.stopMusic();
