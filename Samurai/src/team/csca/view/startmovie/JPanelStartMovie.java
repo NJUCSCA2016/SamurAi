@@ -165,7 +165,7 @@ public class JPanelStartMovie extends JPanel implements KeyListener {
 			g.drawImage(ImgSystem.LOADING, 800, 500, null);
 		}
 		if (pic_Number == 145 && tempCount > 0) {
-			g.drawImage(ImgSystem.FINISH, 800, 500, 885, 585 , 0, 0 , 220, 220, null);
+			g.drawImage(ImgSystem.FINISH, 793, 487, 893, 587 , 0, 0 , 220, 220, null);
 		}
 		
 	}
