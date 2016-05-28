@@ -6,7 +6,6 @@ import javax.swing.JPanel;
 
 import team.csca.view.extend.LayerBackground;
 import team.csca.view.image.ImgBackground;
-import team.csca.view.propPattern.JButtonExitSet;
 import team.csca.view.set.JButtonBackSound;
 import team.csca.view.set.JButtonGameSound;
 

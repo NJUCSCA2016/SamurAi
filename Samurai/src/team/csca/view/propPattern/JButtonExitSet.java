@@ -4,7 +4,6 @@ import java.awt.event.MouseEvent;
 
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.image.ImgButton;
-import team.csca.view.propPattern.JPanelSetting;
 
 public class JButtonExitSet extends DynamicButton {
 	private JPanelSetting fatherPanel;

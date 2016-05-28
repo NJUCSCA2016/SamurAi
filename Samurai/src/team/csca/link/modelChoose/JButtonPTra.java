@@ -6,7 +6,6 @@ import java.rmi.RemoteException;
 import team.csca.client.RemoteHelper;
 import team.csca.control.netControl.NetGameControl;
 import team.csca.link.gameWaiting.JPanelGameLoading;
-import team.csca.link.tra.JPanelNetTra;
 import team.csca.view.extend.DynamicButton;
 
 public class JButtonPTra extends DynamicButton{

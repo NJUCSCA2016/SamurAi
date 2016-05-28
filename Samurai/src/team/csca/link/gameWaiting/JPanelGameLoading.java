@@ -5,10 +5,10 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
 import team.csca.client.RemoteHelper;
 import team.csca.control.netControl.NetGameControl;
 import team.csca.controller.media.Player;
-import team.csca.link.tra.JPanelNetTra;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgLink;
 

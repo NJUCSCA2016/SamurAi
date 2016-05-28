@@ -2,7 +2,6 @@ package team.csca.client;
 
 import java.rmi.Remote;
 
-import team.csca.server.GameNotice;
 import team.csca.server.GameReceive;
 import team.csca.server.User;
 

@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 
 import team.csca.client.RemoteHelper;
-import team.csca.link.gameWaiting.JPanelGameLoading;
 import team.csca.link.modelChoose.JPanelMoodelChoose;
 import team.csca.view.extend.StaticButton;
 import team.csca.view.frame.JFrameMain;

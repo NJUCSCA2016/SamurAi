@@ -5,7 +5,6 @@ import java.awt.event.MouseEvent;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgButton;
-import team.csca.view.pm.JPanelSetting;
 
 public class JButtonSetting extends DynamicButton{
 	

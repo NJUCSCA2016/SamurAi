@@ -15,7 +15,6 @@ import team.csca.ai.AI.PlayerSword;
 import team.csca.controller.media.Player;
 import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
-import team.csca.view.filmProp.JButtonBackToMain;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.gameOver.JButtonGameBackToMain;
 import team.csca.view.gameOver.JPanelGameDraw;
@@ -25,7 +24,6 @@ import team.csca.view.image.ImgBackground;
 import team.csca.view.image.ImgNumber;
 import team.csca.view.image.ImgRound;
 import team.csca.view.image.ImgSamurai;
-import team.csca.view.pm.JButtonSetting;
 
 /**
  * 人机对战
