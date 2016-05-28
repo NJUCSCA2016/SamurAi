@@ -85,7 +85,25 @@ public class ImgButton {
 		
 	}
 	
-	public static final Image EXIT = new ImageIcon("Image/Gamepanel/buttons/button5.png").getImage();
+//	public static final Image EXIT = new ImageIcon("Image/Gamepanel/buttons/button5.png").getImage();
+	
+	
+	/**
+	 * 结束
+	 */
+	public static final Image EXIT_1 = new ImageIcon("Image/Gamepanel/buttons/button5_1.png").getImage();
+	
+	public static final Image EXIT_2 = new ImageIcon("Image/Gamepanel/buttons/button5_2.png").getImage();
+	
+	public static final Image EXIT_3 = new ImageIcon("Image/Gamepanel/buttons/button5_3.png").getImage();
+	
+	/**
+	 * 设置
+	 */
+	public static final Image SETTING_1 = new ImageIcon("Image/Gamepanel/buttons/button1_1.png").getImage();
+	
+	public static final Image SETTING_2 = new ImageIcon("Image/Gamepanel/buttons/button1_2.png").getImage();
+	public static final Image SETTING_3 = new ImageIcon("Image/Gamepanel/buttons/button1_3.png").getImage();
 	
 	/**
 	 * 情景模式
