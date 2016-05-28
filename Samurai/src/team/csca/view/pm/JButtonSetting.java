@@ -9,11 +9,11 @@ import team.csca.view.pm.JPanelSetting;
 
 public class JButtonSetting extends DynamicButton{
 	
-	private JPanelPM fatherPanel = new JPanelPM();
+	private JPanelPM fatherPanel;
 	private JFrameMain frameMain = JFrameMain.J_FRAME_MAIN;
 	
 	public JButtonSetting(JPanelPM fatherPanel){
-		super(410, 10, 100, 100, ImgButton.SETTING_1, ImgButton.SETTING_2, ImgButton.SETTING_3);
+		super(801, 217, 150, 50, ImgButton.BUTTON_SET_INIT, ImgButton.BUTTON_SET_ENTER, ImgButton.BUTTON_SET_CLICK);
 		
 		this.fatherPanel = fatherPanel;
 	}

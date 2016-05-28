@@ -19,7 +19,7 @@ public class JButtonExitSet extends DynamicButton {
 		super.mouseClicked(e);
 
 		this.frame.remove(this.fatherPanel);
-		this.frame.setContentPane(new JPanelPM());
+		this.frame.setContentPane(new JPanelStartGame());
 		this.frame.revalidate();
 
 	}

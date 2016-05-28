@@ -9,7 +9,7 @@ import team.csca.view.pm.JPanelPM;
 public class JButtonExit extends DynamicButton  {
 	private JPanelPropPattern fatherPanel;
 	public JButtonExit(JPanelPropPattern fatherPanel){
-		super(300, 10, 100, 100, ImgButton.EXIT_1, ImgButton.EXIT_2, ImgButton.EXIT_3);
+		super(300, 10, 100, 100, ImgButton.EXIT, ImgButton.EXIT, ImgButton.EXIT);
 		this.fatherPanel = fatherPanel;
 	}
 	
