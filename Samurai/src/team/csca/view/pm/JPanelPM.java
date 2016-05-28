@@ -41,6 +41,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 	
 	private JPanelGameDraw gameDraw;
 	
+	
 	/**
 	 * 面板上的组件
 	 */
@@ -49,58 +50,58 @@ public class JPanelPM extends JPanel implements KeyListener {
 	/**
 	 * 武士编号 通过回合号对武士的编号进行索引
 	 */
-	public int index;
+	public static int index;
 	/**
 	 * 最大体力值
 	 */
-	public int maxPower;
+	public static int maxPower;
 	/**
 	 * 当前体力值
 	 */
-	public int nowPower;
+	public static int nowPower;
 	/**
 	 * 行动消耗的体力
 	 */
-	public int cost;
+	public static int cost;
 	/**
 	 * 回合数
 	 */
-	public int round;
+	public static int round;
 	/**
 	 * 方向
 	 */
-	public int[] direction = new int[6];
+	public static int[] direction = new int[6];
 
 	/**
 	 * x,y 代表现在的坐标
 	 */
-	public int[] x = new int[6];
-	public int[] y = new int[6];
+	public static int[] x = new int[6];
+	public static int[] y = new int[6];
 	/**
 	 * 代表大本营的位置
 	 */
-	public int[] homeX = new int[6];
-	public int[] homeY = new int[6];
+	public static int[] homeX = new int[6];
+	public static int[] homeY = new int[6];
 	/**
 	 * 代表占领的位置
 	 */
-	public int[] occupation = new int[225];
+	public static int[] occupation = new int[225];
 	
-	public int count[] = new int[6];
+	public static int count[] = new int[6];
 
-	Random random = new Random();
+	static Random random = new Random();
 	/**
 	 * 最大恢复周期
 	 */
-	public int maxRecoverRound;
+	public static int maxRecoverRound;
 	/**
 	 * 每个武士的恢复周期
 	 */
-	public int[] recoverRound = new int[6];
+	public static int[] recoverRound = new int[6];
 
-	public int maxRound;
+	public static int maxRound;
 
-	public boolean[][] outSight = new boolean[15][15];
+	public static boolean[][] outSight = new boolean[15][15];
 	
 	private PlayerAxe axe;
 	private PlayerSword sword;
@@ -1809,7 +1810,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 	/**
 	 * 初始化需要的参数
 	 */
-	public void initField() {
+	public static void initField() {
 		index = 0;
 		maxPower = 7;
 		nowPower = 7;
