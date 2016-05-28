@@ -9,6 +9,8 @@ import team.csca.view.extend.LayerBackground;
 import team.csca.view.image.ImgGameOver;
 
 public class JPanelGameLose extends JPanel{
+	
+
 	public Layer[] layers = {
 			new LayerBackground(0, 0, 1250, 700, ImgGameOver.YOU_LOSE)
 	};
@@ -21,6 +23,6 @@ public class JPanelGameLose extends JPanel{
 	public void paintComponent(Graphics g) {
 		for (int i = 0; i < layers.length; i++) {
 			layers[i].createWindow(g);
-		}
+		}	
 	}
 }
