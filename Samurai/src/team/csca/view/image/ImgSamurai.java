@@ -3,7 +3,7 @@ package team.csca.view.image;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-
+ 
 /**
  * 武士的图片
  * 

@@ -1,5 +1,5 @@
 package team.csca.server;
-
+ 
 public class GameNotFoundException extends Exception{
 
 	/**

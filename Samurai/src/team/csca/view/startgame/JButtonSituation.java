@@ -4,7 +4,7 @@ import java.awt.event.MouseEvent;
 
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.filmProp.JPanelFilmProp1;
-import team.csca.view.filmProp.JPanelSituation;
+import team.csca.view.filmProp.JPanelStory;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgButton;
 
@@ -12,7 +12,7 @@ public class JButtonSituation extends DynamicButton{
 	private JPanelStartGame fatherPanel;
 	private JFrameMain frameMain = JFrameMain.J_FRAME_MAIN;
 	private JPanelFilmProp1 filmProp;
-	private JPanelSituation situation;
+	private JPanelStory situation;
 	
 	public JButtonSituation(JPanelStartGame fatherPanel){
 		super(591, 217, 150, 50, ImgButton.BUTTON_SITUATION_INIT, ImgButton.BUTTON_SITUATION_ENTER, ImgButton.BUTTON_SITUATION_CLICK);
@@ -27,7 +27,7 @@ public class JButtonSituation extends DynamicButton{
 //		frameMain.setContentPane(null);
 //		filmProp = new JFrameFilmProp();
 //		frameMain.setContentPane(filmProp);
-		situation = new JPanelSituation();
+		situation = new JPanelStory(0);
 		frameMain.setContentPane(situation);
 		frameMain.remove(fatherPanel);
 		frameMain.revalidate();

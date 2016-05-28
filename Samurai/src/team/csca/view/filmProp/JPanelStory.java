@@ -6,21 +6,25 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import team.csca.view.extend.DynamicButton;
 import team.csca.view.extend.LayerBackground;
 
-public class JPanelSituation extends JPanel {
+public class JPanelStory extends JPanel {
 
-	public static int numOfPic = 0;
+	public int numOfPic = 0;
+	
+	public final static int maxPic = 5;
+	
+	public final static int FINAL_PIC = 11;
 
 	private Image image;
 
 	private LayerBackground background;
 
-	public JPanelSituation() {
+	public JPanelStory(int numOfPic) {
+		this.numOfPic = numOfPic;
 		this.setLayout(null);
-		background = new LayerBackground(0, 0, 1250, 700, getImage(0));
-		JButtonNextPic buttonNext = new JButtonNextPic(this);
-		this.add(buttonNext);
+		background = new LayerBackground(0, 0, 1250, 700, getImage(numOfPic));
 	}
 
 	private Image getImage(int i) {
@@ -41,6 +45,10 @@ public class JPanelSituation extends JPanel {
 		repaint();
 	}
 	
+	public void setButton(DynamicButton button){
+		this.add(button);
+		repaint();
+	}
 
 
 }

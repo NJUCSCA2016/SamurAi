@@ -4,7 +4,7 @@ import team.csca.view.frame.JFrameMain;
 
 /**
  * 整个游戏的入口
- * @author Water
+ * @author Water 
  *
  */
 public class Main {

@@ -1,11 +1,14 @@
 package team.csca.view.filmProp;
 
 import team.csca.controller.media.Player;
-import team.csca.view.gameOver.JPanelGameDraw;
 import team.csca.view.gameOver.JPanelGameLose;
 import team.csca.view.gameOver.JPanelGameWin;
 
 public class JPanelFilmProp3 extends JPanelFilmProp1 {
+	public JPanelFilmProp3(JPanelHurdle hurdle) {
+		super(hurdle);
+	}
+
 	int death = 0;
 	@Override
 	public void beatOthers(int[] location){
@@ -40,7 +43,7 @@ public class JPanelFilmProp3 extends JPanelFilmProp1 {
 	@Override
 	public void judgeContest(){
 		if (death >= 5) {
-			gameWin = new JPanelGameWin();
+			gameWin = new JPanelGameWin(new JButtonGameBack(this));
 			frameMain.setContentPane(gameWin);
 			gameWin.requestFocus();
 			Player.stopMusic();
@@ -49,7 +52,7 @@ public class JPanelFilmProp3 extends JPanelFilmProp1 {
 			}
 		}
 		if (death < 5) {
-			gameLose = new JPanelGameLose();
+			gameLose = new JPanelGameLose(new JButtonGameBack(this));
 			frameMain.setContentPane(gameLose);
 			gameLose.requestFocus();
 			Player.stopMusic();

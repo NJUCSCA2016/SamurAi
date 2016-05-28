@@ -15,7 +15,9 @@ import team.csca.ai.AI.PlayerSword;
 import team.csca.controller.media.Player;
 import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
+import team.csca.view.filmProp.JButtonBackToMain;
 import team.csca.view.frame.JFrameMain;
+import team.csca.view.gameOver.JButtonGameBackToMain;
 import team.csca.view.gameOver.JPanelGameDraw;
 import team.csca.view.gameOver.JPanelGameLose;
 import team.csca.view.gameOver.JPanelGameWin;
@@ -398,7 +400,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		int score1 = count[0] + count[1] + count[2];
 		int score2 = count[3] + count[4] + count[5];
 		if (score1 > score2) {
-			gameWin = new JPanelGameWin();
+			gameWin = new JPanelGameWin(new JButtonGameBackToMain());
 			frameMain.setContentPane(gameWin);
 			gameWin.requestFocus();
 			Player.stopMusic();
@@ -407,7 +409,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 			}
 		}
 		if (score1 < score2) {
-			gameLose = new JPanelGameLose();
+			gameLose = new JPanelGameLose(new JButtonGameBackToMain());
 			frameMain.setContentPane(gameLose);
 			gameLose.requestFocus();
 			Player.stopMusic();

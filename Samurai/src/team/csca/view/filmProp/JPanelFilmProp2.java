@@ -8,6 +8,10 @@ package team.csca.view.filmProp;
  */
 public class JPanelFilmProp2 extends JPanelFilmProp1{
 
+	public JPanelFilmProp2(JPanelHurdle hurdle) {
+		super(hurdle);
+	}
+
 	@Override
 	public void initRecoverRound(){
 		recoverRound[0] = maxRecoverRound;

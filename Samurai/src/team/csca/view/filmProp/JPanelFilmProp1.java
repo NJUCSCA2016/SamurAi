@@ -1,10 +1,6 @@
 package team.csca.view.filmProp;
 
-import team.csca.controller.media.Player;
-import team.csca.view.gameOver.JPanelGameDraw;
-import team.csca.view.gameOver.JPanelGameLose;
-import team.csca.view.gameOver.JPanelGameWin;
-import team.csca.view.propPattern.JPanelPropPattern;
+//import team.csca.view.propPattern.JPanelPropPattern;
 
 /**
  * 第一关
@@ -13,5 +9,9 @@ import team.csca.view.propPattern.JPanelPropPattern;
  *
  */
 public class JPanelFilmProp1 extends JPanelPropPattern{
+
+	public JPanelFilmProp1(JPanelHurdle hurdle) {
+		super(hurdle);
+	}
 
 }
