@@ -16,9 +16,9 @@ public class ImgHurdle {
 		HURDLES_ENTER = new Image[5];
 		HURDLES_CLICKED = new Image[5];
 		for(int i = 0 ; i < 5 ; i ++){
-			HURDLES_INIT[i] = new ImageIcon("").getImage();
-			HURDLES_ENTER[i] = new ImageIcon("").getImage();
-			HURDLES_CLICKED[i] = new ImageIcon("").getImage(); 
+			HURDLES_INIT[i] = new ImageIcon("Image/GamePanel/situation/map_button"+ i +"_1.png").getImage();
+			HURDLES_ENTER[i] = new ImageIcon("Image/GamePanel/situation/map_button"+ i +"_2.png").getImage();
+			HURDLES_CLICKED[i] = new ImageIcon("Image/GamePanel/situation/map_button"+ i +"_3.png").getImage(); 
 		}
 		
 	}

@@ -9,11 +9,11 @@ import team.csca.view.image.ImgHurdle;
 
 public class JButtonForHurdleChoose extends DynamicButton{
 
-	private final static int[] XOfHurdle = new int[]{50, 50 , 450 , 670 , 850};
-	private final static int[] YOfHurdle = new int[]{530 , 350 , 200 , 110 , 20};
+	private final static int[] XOfHurdle = new int[]{75, 50 , 424 , 676 , 872};
+	private final static int[] YOfHurdle = new int[]{509 , 337 , 179 , 119 , 0};
 	
-	private final static int[] WidthOfHurdle = new int[]{250 , 280 , 220 , 210 , 180};
-	private final static int[] HeightOfHurdle = new int[]{170 , 175 , 245 , 185 , 125};
+	private final static int[] WidthOfHurdle = new int[]{206 , 276 , 274 , 208 , 126};
+	private final static int[] HeightOfHurdle = new int[]{190 , 215 , 295 , 186 , 112};
 	
 	private int hurdle;
 	
@@ -43,48 +43,38 @@ public class JButtonForHurdleChoose extends DynamicButton{
 //			
 //		}
 		super.mouseClicked(e);
-		try {
-			Class<?> film = Class.forName("JPanelFilmProp" + hurdle);
-			Constructor<?> propCons = film.getConstructor(JPanelHurdle.class);
-			JPanelPropPattern prop = (JPanelPropPattern) propCons.newInstance(this.fatherPanel);
-			frame.setContentPane(prop);
-			frame.remove(fatherPanel);
-			frame.revalidate();
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (InstantiationException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IllegalAccessException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IllegalArgumentException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (InvocationTargetException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (NoSuchMethodException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (SecurityException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		System.out.println(hurdle);
+		JPanelPropPattern panel = null ;
+		if(hurdle == 0){
+			panel = new JPanelFilmProp1(fatherPanel);
+		}else if(hurdle == 1){
+			panel = new JPanelFilmProp2(fatherPanel);
+		}else if (hurdle == 2) {
+			panel = new JPanelFilmProp3(fatherPanel);
+		}else if(hurdle == 3){
+			panel = new JPanelFilmProp4(fatherPanel);
+		}else if(hurdle == 4){
+			panel = new JPanelFilmProp5(fatherPanel);
 		}
-		
+		frame.setContentPane(panel);
+		frame.remove(fatherPanel);
+		frame.revalidate();
 	}
 	@Override
 	public void mouseEntered(MouseEvent e){
 		super.mouseEntered(e);
-		this.fatherPanel.mouseIn();
+		repaint();
+//		this.fatherPanel.mouseIn();
 		this.fatherPanel.playScroll();
+		repaint();
 	}
 	
 	public void mouseExited(MouseEvent e){
 		super.mouseExited(e);
-		this.fatherPanel.mouseOut();
+		repaint();
+//		this.fatherPanel.mouseOut();
 		this.fatherPanel.closeScroll();
+		repaint();
 	}
 	
 }

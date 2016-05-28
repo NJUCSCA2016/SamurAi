@@ -135,8 +135,9 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		initField();
 		this.setVisible(true);
 		this.setLayout(null);
-		this.setFocusable(true);
-		this.requestFocus(true);
+//		this.setFocusable(true);
+//		this.requestFocus(true);
+		this.requestFocusInWindow();
 		this.setEnabled(true);
 		this.requestFocus();
 		this.addKeyListener(this);
@@ -455,6 +456,7 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 
 		if (score1 > score2) {
 			gameWin = new JPanelGameWin(new JButtonGameBack(this));
+			this.hurdle.passHurdle();
 			frameMain.setContentPane(gameWin);
 			gameWin.requestFocus();
 			Player.stopMusic();

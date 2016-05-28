@@ -12,7 +12,7 @@ public class JPanelFilmProp5 extends JPanelFilmProp1{
 	@Override
 	public void judgeContest(){
 		if (score >= 158) {
-			gameWin = new JPanelGameWin(new JButtonGameBack(this));
+			gameWin = new JPanelGameWin(new JButtonGamePass(this));
 			frameMain.setContentPane(gameWin);
 			gameWin.requestFocus();
 			Player.stopMusic();
