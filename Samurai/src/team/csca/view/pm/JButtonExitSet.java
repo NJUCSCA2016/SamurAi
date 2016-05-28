@@ -9,6 +9,8 @@ import team.csca.view.startgame.JPanelStartGame;
 
 public class JButtonExitSet extends DynamicButton {
 	private JPanelSetting fatherPanel;
+	
+	private JPanelPM jPanelPM;
 
 	public JButtonExitSet(JPanelSetting fatherPanel) {
 		super(834, 148, 60, 60, ImgButton.RETURN_FROM_INIT, ImgButton.RETURN_FROM_ENTER, ImgButton.RETURN_FROM_CLICKED);
@@ -19,7 +21,9 @@ public class JButtonExitSet extends DynamicButton {
 		super.mouseClicked(e);
 
 		this.frame.remove(this.fatherPanel);
-		this.frame.setContentPane(new JPanelPM());
+		jPanelPM = new JPanelPM();
+		this.frame.setContentPane(jPanelPM);
+		jPanelPM.requestFocus();
 		this.frame.revalidate();
 
 	}
