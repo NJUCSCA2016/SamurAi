@@ -7,9 +7,9 @@ import team.csca.view.image.ImgButton;
 
 public class JButtonExit extends DynamicButton  {
 	private JPanelPM fatherPanel;
-	public JButtonExit(JPanelPM fatherPanel){
+	public JButtonExit(JPanelPM jPanelSetting){
 		super(300, 10, 100, 100, ImgButton.EXIT, ImgButton.EXIT, ImgButton.EXIT);
-		this.fatherPanel = fatherPanel;
+		this.fatherPanel = jPanelSetting;
 	}
 	
 	public void mouseClicked(MouseEvent e) {

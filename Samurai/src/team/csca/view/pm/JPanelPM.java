@@ -23,6 +23,7 @@ import team.csca.view.image.ImgBackground;
 import team.csca.view.image.ImgNumber;
 import team.csca.view.image.ImgRound;
 import team.csca.view.image.ImgSamurai;
+import team.csca.view.pm.JButtonSetting;
 
 /**
  * 人机对战
@@ -116,8 +117,8 @@ public class JPanelPM extends JPanel implements KeyListener {
 		this.requestFocus();
 		this.addKeyListener(this);
 		this.add(new JButtonBack(this));
+		this.add(new JButtonSetting(this));
 		this.add(new JButtonExit(this));
-
 		this.addMouseListener(new MouseListener() {
 
 			@Override

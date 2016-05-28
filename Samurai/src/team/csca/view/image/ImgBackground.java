@@ -47,4 +47,6 @@ public class ImgBackground {
 	public final static Image PM_PANEL = new ImageIcon("Image/Gamepanel/bg.png").getImage();
 
 	public final static Image MODEL_CHOOSE = new ImageIcon("Image/ModelChoose/13.png").getImage();
+	
+	public final static Image PM_SETTING = new ImageIcon("Image/SetPanel/game_back_set.png").getImage();
 }

@@ -16,12 +16,13 @@ public class JPanelSetting extends JPanel{
 	public JPanelSetting() {
 		
 		this.setLayout(null);
-		this.background = new LayerBackground(0, 0, 1250, 700, ImgBackground.MAIN_SETTING_PANEL_BACKGROUND);
+		this.background = new LayerBackground(0, 0, 1250, 700, ImgBackground.PM_SETTING);
 		
 		JButtonBackSound jButtonBackSound = new JButtonBackSound();
 		JButtonGameSound jButtonGameSound = new JButtonGameSound();
 		this.add(jButtonBackSound);
 		this.add(jButtonGameSound);
+		this.add(new JButtonExitSet(this));
 
 		}
 		
