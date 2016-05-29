@@ -5,12 +5,13 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import team.csca.view.extend.LayerBackground;
+import team.csca.view.image.ImgModel;
 
-public class JPanelMoodelChoose extends JPanel{
+public class JPanelModelChoose extends JPanel{
 	
-	private LayerBackground background = new LayerBackground(0, 0, 1250, 700, );
+	private LayerBackground background = new LayerBackground(0, 0, 1250, 700, ImgModel.CHOOSE_MOVIE[15]);
 	
-	public JPanelMoodelChoose() {
+	public JPanelModelChoose() {
 		setLayout(null);
 		
 		this.add(new JButtonPP(this));

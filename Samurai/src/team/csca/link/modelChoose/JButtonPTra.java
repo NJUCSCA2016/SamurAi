@@ -7,14 +7,15 @@ import team.csca.client.RemoteHelper;
 import team.csca.control.netControl.NetGameControl;
 import team.csca.link.gameWaiting.JPanelGameLoading;
 import team.csca.view.extend.DynamicButton;
+import team.csca.view.image.ImgModel;
 
 public class JButtonPTra extends DynamicButton{
 	
-	private JPanelMoodelChoose fatherPanel ;
+	private JPanelModelChoose fatherPanel ;
 	private RemoteHelper helper = RemoteHelper.getInstance();
 	
-	public JButtonPTra(JPanelMoodelChoose fatherPanel) {
-		super(0,0,0,0,null,null,null);
+	public JButtonPTra(JPanelModelChoose fatherPanel) {
+		super(464,129,313,107,ImgModel.TRA_INIT,ImgModel.TRA_ENTER,ImgModel.TRA_CLICK);
 		this.fatherPanel = fatherPanel;
 	}
 	

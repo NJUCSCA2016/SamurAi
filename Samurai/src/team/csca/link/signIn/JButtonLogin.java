@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 
 import team.csca.client.RemoteHelper;
-import team.csca.link.modelChoose.JPanelMoodelChoose;
+import team.csca.link.modelChoose.JPanelChooseList;
 import team.csca.view.extend.StaticButton;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgLink;
@@ -44,8 +44,9 @@ public class JButtonLogin extends StaticButton implements ActionListener{
 			 //Login success
 			 System.out.println("Success");
 			 RemoteHelper.getInstance().setName(fatherPanel.getName());
-			 frame.setContentPane(new JPanelMoodelChoose());
+			 frame.setContentPane(new JPanelChooseList());
 			 frame.remove(this.fatherPanel);
+			 frame.revalidate();
 		 }else if(stateCode == 1){
 			 //No this user
 			 fatherPanel.cleanName();

@@ -13,15 +13,13 @@ import team.csca.view.extend.LayerBackground;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgLink;
 
-public class Dialog extends JFrame{
+public class Dialog extends JPanel{
 
 	
 	public Dialog( Image back) {
 		super();
 		setLayout(null);
 		setBounds(595, 263, 170, 175);
-		this.setContentPane(new DiaPanel(back));
-		setUndecorated(true);
 		setVisible(true);
 		
 	}
