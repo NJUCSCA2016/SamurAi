@@ -8,12 +8,12 @@ import javax.swing.JPanel;
 
 import team.csca.control.netControl.NetGameControl;
 import team.csca.controller.media.Player;
-import team.csca.link.over.JPanelGameDraw;
-import team.csca.link.over.JPanelGameLose;
-import team.csca.link.over.JPanelGameWin;
 import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
 import team.csca.view.frame.JFrameMain;
+import team.csca.view.gameOver.JPanelGameDraw;
+import team.csca.view.gameOver.JPanelGameLose;
+import team.csca.view.gameOver.JPanelGameWin;
 import team.csca.view.image.ImgBackground;
 import team.csca.view.image.ImgNumber;
 import team.csca.view.image.ImgRound;
@@ -309,6 +309,58 @@ public class JPanelNetTra extends JPanel{
 		g.drawImage(ImgRound.REST_ROUND, 300, 46, 100, 100, this);
 		printNumber(maxRound - round, g, 361, 106, 23, 33);
 		
+		if (round == maxRound) {
+
+			frameMain.remove(this);
+
+			judgeContest();
+			
+		}
+		
+	}
+	public void judgeContest() {
+		int score1 = count[0] + count[1] + count[2];
+		int score2 = count[3] + count[4] + count[5];
+		if (score1 > score2) {
+
+			gameWin = new JPanelGameWin(new JButtonBackToChoose());
+			frameMain.remove(this);
+
+			gameWin = new JPanelGameWin(new JButtonBackToChoose());
+
+			frameMain.setContentPane(gameWin);
+			gameWin.requestFocus();
+			Player.stopMusic();
+			if (Player.MUSiC_PLAYER.isBack_ON()) {
+				Player.playMusic("win");
+			}
+		}
+		if (score1 < score2) {
+
+			gameLose = new JPanelGameLose(new JButtonBackToChoose());
+			frameMain.remove(this);
+
+			gameLose = new JPanelGameLose(new JButtonBackToChoose());
+
+			frameMain.setContentPane(gameLose);
+			gameLose.requestFocus();
+			Player.stopMusic();
+			if (Player.MUSiC_PLAYER.isBack_ON()) {
+				Player.playMusic("lose");
+			}
+		}
+		if (score1 == score2) {
+			gameDraw = new JPanelGameDraw();
+			frameMain.remove(this);
+			frameMain.setContentPane(gameDraw);
+			gameDraw.requestFocus();
+			Player.stopMusic();
+			if (Player.MUSiC_PLAYER.isBack_ON()) {
+				Player.playMusic("draw");
+			}
+		}
+		frameMain.revalidate();
+		
 	}
 
 
@@ -331,7 +383,7 @@ public class JPanelNetTra extends JPanel{
 	public void attackUp() {
 		cost = 4;
 		direction[index] = 1;
-		if (hasPower() && recoverRound[index] == 0) {
+		if (hasPower() && recoverRound[index] == 0 && (!isHidden(index))) {
 			nowPower = nowPower - cost;
 			occupy();
 		}
@@ -341,7 +393,7 @@ public class JPanelNetTra extends JPanel{
 	public void attackDown() {
 		cost = 4;
 		direction[index] = 0;
-		if (hasPower() && recoverRound[index] == 0) {
+		if (hasPower() && recoverRound[index] == 0&& (!isHidden(index))) {
 			nowPower = nowPower - cost;
 			occupy();
 		}
@@ -351,7 +403,7 @@ public class JPanelNetTra extends JPanel{
 	public void attackLeft() {
 		cost = 4;
 		direction[index] = 2;
-		if (hasPower() && recoverRound[index] == 0) {
+		if (hasPower() && recoverRound[index] == 0&& (!isHidden(index))) {
 			nowPower = nowPower - cost;
 			occupy();
 		}
@@ -361,7 +413,7 @@ public class JPanelNetTra extends JPanel{
 	public void attackRight() {
 		cost = 4;
 		direction[index] = 3;
-		if (hasPower() && recoverRound[index] == 0) {
+		if (hasPower() && recoverRound[index] == 0&& (!isHidden(index))) {
 			nowPower = nowPower - cost;
 			occupy();
 		}
@@ -1494,7 +1546,7 @@ public class JPanelNetTra extends JPanel{
 			int score1 = count[0] + count[1] + count[2];
 			int score2 = count[3] + count[4] + count[5];
 			if (score1 > score2) {
-				gameWin = new JPanelGameWin();
+				gameWin = new JPanelGameWin(new JButtonBackToChoose());
 				frameMain.setContentPane(gameWin);
 				gameWin.requestFocus();
 				Player.stopMusic();
@@ -1503,7 +1555,7 @@ public class JPanelNetTra extends JPanel{
 				}
 			}
 			if (score1 < score2) {
-				gameLose = new JPanelGameLose();
+				gameLose = new JPanelGameLose(new JButtonBackToChoose());
 				frameMain.setContentPane(gameLose);
 				gameLose.requestFocus();
 				Player.stopMusic();

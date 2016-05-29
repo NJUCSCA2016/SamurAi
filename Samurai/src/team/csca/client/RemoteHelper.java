@@ -21,6 +21,7 @@ public class RemoteHelper {
 	private RemoteHelper(){
 		try {
 			gameNoticeImp = new GameNoticeImp();
+			
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

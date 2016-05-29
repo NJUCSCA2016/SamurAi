@@ -6,8 +6,6 @@ import java.rmi.RemoteException;
 import team.csca.client.RemoteHelper;
 import team.csca.control.netControl.NetGameControl;
 import team.csca.link.gameWaiting.JPanelGameLoading;
-import team.csca.link.serverLink.JPanelLinkLoading;
-import team.csca.server.User;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.image.ImgModel;
 

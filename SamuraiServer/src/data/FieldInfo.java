@@ -85,7 +85,7 @@ public class FieldInfo{
 	public void attackUp() {
 		cost = 4;
 		direction[index] = 1;
-		if (hasPower() && recoverRound[index] == 0) {
+		if (hasPower() && recoverRound[index] == 0&& (!isHidden(index))) {
 			nowPower = nowPower - cost;
 			occupy();
 		}
@@ -94,7 +94,7 @@ public class FieldInfo{
 	public void attackDown() {
 		cost = 4;
 		direction[index] = 0;
-		if (hasPower() && recoverRound[index] == 0) {
+		if (hasPower() && recoverRound[index] == 0&& (!isHidden(index))) {
 			nowPower = nowPower - cost;
 			occupy();
 		}
@@ -103,7 +103,7 @@ public class FieldInfo{
 	public void attackLeft() {
 		cost = 4;
 		direction[index] = 2;
-		if (hasPower() && recoverRound[index] == 0) {
+		if (hasPower() && recoverRound[index] == 0&& (!isHidden(index))) {
 			nowPower = nowPower - cost;
 			occupy();
 		}
@@ -112,7 +112,7 @@ public class FieldInfo{
 	public void attackRight() {
 		cost = 4;
 		direction[index] = 3;
-		if (hasPower() && recoverRound[index] == 0) {
+		if (hasPower() && recoverRound[index] == 0&& (!isHidden(index))) {
 			nowPower = nowPower - cost;
 			occupy();
 		}
