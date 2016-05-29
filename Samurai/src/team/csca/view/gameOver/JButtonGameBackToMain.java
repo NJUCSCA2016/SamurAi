@@ -15,6 +15,7 @@ public class JButtonGameBackToMain extends DynamicButton{
 	public JButtonGameBackToMain(JPanel panel) {
 		super(1150, 0, 71, 71, ImgGameOver.CROSS, ImgGameOver.CROSS, ImgGameOver.CROSS);
 		this.panel = panel;
+		
 	}
 	   
 	

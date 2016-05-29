@@ -18,9 +18,10 @@ public class JPanelGameWin extends JPanel{
 	@Override
 	protected void paintComponent(Graphics g) {
 		background.createWindow(g);
-		super.paintComponent(g);
+		super.paintComponents(g);
 	}
 	public void addReturnButton(JButton button){
 		this.add(button);
+		repaint();
 	}
 }
