@@ -80,6 +80,7 @@ public final class SamuraiInfo {
 	     * @return
 	     */
 	    public boolean canHide(){
+	    	if(!checkOutOfField(curX, curY)){
 	    	if (this.hidden == 1){
 				return false;
 			}
@@ -87,6 +88,8 @@ public final class SamuraiInfo {
 			if (this.gameInfo.field[this.curY][this.curX] >= 3){
 				return false;
 			}
+			}
+	    	
 			return true;
 	    }
 	    /**

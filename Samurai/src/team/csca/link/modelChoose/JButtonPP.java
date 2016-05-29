@@ -3,9 +3,11 @@ package team.csca.link.modelChoose;
 import java.awt.event.MouseEvent;
 import java.rmi.RemoteException;
 
+import team.csca.client.GameNoticeImp;
 import team.csca.client.RemoteHelper;
 import team.csca.control.netControl.NetGameControl;
 import team.csca.link.gameWaiting.JPanelGameLoading;
+import team.csca.server.GameNotice;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.image.ImgModel;
 
@@ -22,15 +24,17 @@ public class JButtonPP extends DynamicButton{
 	public void mouseClicked(MouseEvent e){
 		super.mouseClicked(e);
 		try {
+			GameNoticeImp notice = new GameNoticeImp();
+			RemoteHelper.getInstance().setNotic(notice);
 			NetGameControl control = NetGameControl.getInstance();
-			helper.getNotic().setControl(control);
+			notice.setControl(control);
 			this.frame.remove(this.fatherPanel);
 			this.frame.setContentPane(new JPanelGameLoading());
 //			this.frame.setContentPane(new JPanelLinkLoading());
 			
 			frame.revalidate();
 			helper.setMoodle(2);
-			helper.getUser().chooseModel(2, helper.getNotic(), helper.getName());
+			helper.getUser().chooseModel(2, (GameNotice)notice, helper.getName());
 		} catch (RemoteException e1) {
 			e1.printStackTrace();
 		}

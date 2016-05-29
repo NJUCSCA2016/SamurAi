@@ -1,6 +1,7 @@
 package team.csca.ai.swapOfAI;
 
 import team.csca.ai.AIdata.GameInfo;
+import team.csca.view.extend.JPanelGame;
 import team.csca.view.pm.JPanelPM;
 
 
@@ -15,9 +16,9 @@ import team.csca.view.pm.JPanelPM;
 public class InstructionSwap {
 	
  	private GameInfo info;
- 	private JPanelPM panel;
+ 	private JPanelGame panel;
 	
- 	public InstructionSwap(GameInfo info , JPanelPM panel) {
+ 	public InstructionSwap(GameInfo info , JPanelGame panel) {
 		this.panel = panel;
 		this.info = info;
 	}

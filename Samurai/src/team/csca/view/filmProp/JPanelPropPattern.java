@@ -455,9 +455,11 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		int score2 = count[3] + count[4] + count[5];
 
 		if (score1 > score2) {
-			gameWin = new JPanelGameWin(new JButtonGameBack(this));
+			gameWin = new JPanelGameWin();
+			gameWin.addReturnButton(new JButtonGameBack(gameWin));
 			this.hurdle.passHurdle();
 			frameMain.setContentPane(gameWin);
+			frameMain.remove(this);
 			gameWin.requestFocus();
 			Player.stopMusic();
 			if (Player.MUSiC_PLAYER.isBack_ON()) {
@@ -465,7 +467,9 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 			}
 		}
 		if (score1 < score2) {
-			gameLose = new JPanelGameLose(new JButtonGameBack(this));
+			gameLose = new JPanelGameLose();
+			gameLose.addReturnButton(new JButtonGameBack(this));
+			frameMain.remove(this);
 			frameMain.setContentPane(gameLose);
 			gameLose.requestFocus();
 			Player.stopMusic();

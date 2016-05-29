@@ -10,6 +10,7 @@ import team.csca.ai.AIControl.CenterControl;
 import team.csca.ai.AIdata.GameInfo;
 import team.csca.ai.AIdata.SamuraiInfo;
 import team.csca.ai.swapOfAI.InstructionSwap;
+import team.csca.view.extend.JPanelGame;
 import team.csca.view.pm.JPanelPM;
 
 /**
@@ -117,7 +118,7 @@ public abstract class Player {
 		this.gameInfo = new GameInfo(this);
 	}
 	
-	public void initAIField(int[] basicInfo , int[] homeX , int[] homeY , JPanelPM panel){
+	public void initAIField(int[] basicInfo , int[] homeX , int[] homeY , JPanelGame panel){
 		swap = new InstructionSwap(this.gameInfo , panel);
 		swap.initAIField(basicInfo, homeX, homeY);
 	}

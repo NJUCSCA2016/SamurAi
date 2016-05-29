@@ -10,20 +10,20 @@ import team.csca.view.image.ImgGameOver;
 import team.csca.view.startgame.JPanelStartGame;
 
 public class JButtonGameBackToMain extends DynamicButton{
+	private JPanel panel;
 	
 	public JButtonGameBackToMain(JPanel panel) {
 		super(1150, 0, 71, 71, ImgGameOver.CROSS, ImgGameOver.CROSS, ImgGameOver.CROSS);
+		this.panel = panel;
 	}
 	   
-	public JButtonGameBackToMain() {
-		super(1150, 0, 71, 71, ImgGameOver.CROSS, ImgGameOver.CROSS, ImgGameOver.CROSS);
-	}
+	
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		super.mouseClicked(e);
-		frame.removeAll();
-		
+		frame.remove(panel);
+		System.out.println("Do");
 		this.frame.setContentPane(new JPanelStartGame());
 		this.frame.revalidate();
 		Player.stopMusic();

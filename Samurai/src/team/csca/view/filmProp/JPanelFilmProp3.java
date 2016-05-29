@@ -43,8 +43,10 @@ public class JPanelFilmProp3 extends JPanelFilmProp1 {
 	@Override
 	public void judgeContest(){
 		if (death >= 5) {
-			gameWin = new JPanelGameWin(new JButtonGameBack(this));
+			gameWin = new JPanelGameWin();
+			gameWin.addReturnButton(new JButtonGameBack(this));
 			frameMain.setContentPane(gameWin);
+			frameMain.remove(this);
 			gameWin.requestFocus();
 			Player.stopMusic();
 			if (Player.MUSiC_PLAYER.isBack_ON()) {
@@ -52,8 +54,10 @@ public class JPanelFilmProp3 extends JPanelFilmProp1 {
 			}
 		}
 		if (death < 5) {
-			gameLose = new JPanelGameLose(new JButtonGameBack(this));
+			gameLose = new JPanelGameLose();
+			gameLose.addReturnButton(new JButtonGameBack(this));
 			frameMain.setContentPane(gameLose);
+			frameMain.remove(this);
 			gameLose.requestFocus();
 			Player.stopMusic();
 			if (Player.MUSiC_PLAYER.isBack_ON()) {

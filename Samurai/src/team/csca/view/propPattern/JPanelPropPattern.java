@@ -10,7 +10,11 @@ import java.util.Random;
 
 import javax.swing.JPanel;
 
+import team.csca.ai.AI.PlayerAxe;
+import team.csca.ai.AI.PlayerSpear;
+import team.csca.ai.AI.PlayerSword;
 import team.csca.controller.media.Player;
+import team.csca.view.extend.JPanelGame;
 import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
 import team.csca.view.frame.JFrameMain;
@@ -28,60 +32,14 @@ import team.csca.view.image.ImgSamurai;
  * @author Water
  *
  */
-public class JPanelPropPattern extends JPanel implements KeyListener{
+public class JPanelPropPattern extends JPanelGame implements KeyListener{
 	
-	protected JFrameMain frameMain = JFrameMain.J_FRAME_MAIN;
 	
-	protected JPanelGameWin gameWin;
-	
-	protected JPanelGameLose gameLose;
-	
-	protected JPanelGameDraw gameDraw;
-	
-	/**
-	 * 面板上的组件
-	 */
-	private Layer[] layers;
-
-	/**
-	 * 武士编号 通过回合号对武士的编号进行索引
-	 */
-	public int index;
-	/**
-	 * 最大体力值
-	 */
-	public int maxPower;
-	/**
-	 * 当前体力值
-	 */
-	public int nowPower;
-	/**
-	 * 行动消耗的体力
-	 */
-	public int cost;
-	/**
-	 * 回合数
-	 */
-	public int round;
-	/**
-	 * 方向
-	 */
-	public int[] direction = new int[6];
 	/**
 	 * 视野
 	 */
 	public int[] sight = new int[6];
 
-	/**
-	 * x,y 代表现在的坐标
-	 */
-	public int[] x = new int[6];
-	public int[] y = new int[6];
-	/**
-	 * 代表大本营的位置
-	 */
-	public int[] homeX = new int[6];
-	public int[] homeY = new int[6];
 	/**
 	 * 道具坐标
 	 * TODO:可能需要修改数量
@@ -99,44 +57,22 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 	public int[] propNum = new int[3];
 	
 	/**
-	 * 代表占领的位置
-	 */
-	public int[] occupation = new int[225];
-	/**
-	 * 每个武士占领的数量
-	 */
-	public int count[] = new int[6];
-
-	Random random = new Random();
-	/**
-	 * 最大恢复周期
-	 */
-	public int maxRecoverRound;
-	/**
-	 * 每个武士的恢复周期
-	 */
-	public int[] recoverRound = new int[6];
-	/**
 	 * 每个武士的额外生命
 	 */
 	public int[] life = new int[6];
 	/**
 	 * 最大回合数
 	 */
-	public int maxRound;
-	/**
-	 * 是否在视野中
-	 */
-	public boolean[][] outSight = new boolean[15][15];
+
+
+	private PlayerAxe axe;
+	private PlayerSword sword;
+	private PlayerSpear spear;
 
 	public JPanelPropPattern() {
+		super();
 		initField();
-		this.setVisible(true);
-		this.setLayout(null);
-		this.setFocusable(true);
-		this.requestFocus(true);
-		this.setEnabled(true);
-		this.requestFocus();
+		initAIField();
 		this.addKeyListener(this);
 		this.add(new JButtonBack(this));
 		this.add(new JButtonExit(this));
@@ -454,7 +390,8 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		int score2 = count[3] + count[4] + count[5];
 
 		if (score1 > score2) {
-			gameWin = new JPanelGameWin(new JButtonGameBackToMain());
+			gameWin = new JPanelGameWin();
+			gameWin.addReturnButton(new JButtonGameBackToMain(gameWin));
 			frameMain.setContentPane(gameWin);
 			gameWin.requestFocus();
 			Player.stopMusic();
@@ -463,7 +400,8 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 			}
 		}
 		if (score1 < score2) {
-			gameLose = new JPanelGameLose(new JButtonGameBackToMain());
+			gameLose = new JPanelGameLose();
+			gameLose.addReturnButton(new JButtonGameBackToMain(gameLose));
 			frameMain.setContentPane(gameLose);
 			gameLose.requestFocus();
 			Player.stopMusic();
@@ -556,79 +494,6 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 
 	}
 
-	public void attackUp() {
-		cost = 4;
-		direction[index] = 1;
-		if (hasPower() && recoverRound[index] == 0) {
-			nowPower = nowPower - cost;
-			occupy();
-		}
-		repaint();
-	}
-
-	public void attackDown() {
-		cost = 4;
-		direction[index] = 0;
-		if (hasPower() && recoverRound[index] == 0) {
-			nowPower = nowPower - cost;
-			occupy();
-		}
-		repaint();
-	}
-
-	public void attackLeft() {
-		cost = 4;
-		direction[index] = 2;
-		if (hasPower() && recoverRound[index] == 0) {
-			nowPower = nowPower - cost;
-			occupy();
-		}
-		repaint();
-	}
-
-	public void attackRight() {
-		cost = 4;
-		direction[index] = 3;
-		if (hasPower() && recoverRound[index] == 0) {
-			nowPower = nowPower - cost;
-			occupy();
-		}
-		repaint();
-	}
-
-	/**
-	 * 现身
-	 */
-	public void showMe() {
-		cost = 1;
-		if (canShow() && hasPower() && recoverRound[index] == 0) {
-			nowPower = nowPower - cost;
-			direction[index] -= 4;
-			
-			if (Player.MUSiC_PLAYER.isGame_ON()) {
-				Player.playSound("showMe");
-			}
-		}
-		repaint();
-
-	}
-
-	/**
-	 * 隐身
-	 */
-	public void hideMe() {
-		cost = 1;
-		if (canHide() && hasPower() && recoverRound[index] == 0) {
-			nowPower = nowPower - cost;
-			direction[index] += 4;
-			if (Player.MUSiC_PLAYER.isGame_ON()) {
-				Player.playSound("3");
-			}
-			
-		}
-		repaint();
-	}
-
 	/**
 	 * 切换武士
 	 */
@@ -640,7 +505,26 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 		nowPower = 7;
 		calculateIndex();
 		if (index >= 3) {
-			aiTakeAction();
+			
+			if(recoverRound[index] == 0){
+				switch (index) {
+				case 3:
+					sendFieldInfo(spear);
+					this.spear.play();
+					break;
+				case 4:
+					sendFieldInfo(sword);
+					this.sword.play();
+					break;
+				case 5:
+					sendFieldInfo(axe);
+					this.axe.play();
+					break;
+				default:
+					break;
+				}
+			}
+			
 		}
 		for (int i = 0; i < 6; i++) {
 			if (recoverRound[i] > 0) {
@@ -649,6 +533,10 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 			if (recoverRound[index] > 0) {
 				nowPower = 0;
 			}
+		}
+		repaint();
+		if(index >= 3){
+			changeCharacter();
 		}
 		repaint();
 	}
@@ -861,975 +749,6 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 
 	}
 
-	public void calculateIndex() {
-		if (round % 12 == 0) {
-			index = 0;
-		}
-		if (round % 12 == 1) {
-			index = 3;
-		}
-		if (round % 12 == 2) {
-			index = 4;
-		}
-		if (round % 12 == 3) {
-			index = 1;
-		}
-		if (round % 12 == 4) {
-			index = 2;
-		}
-		if (round % 12 == 5) {
-			index = 5;
-		}
-		if (round % 12 == 6) {
-			index = 3;
-		}
-		if (round % 12 == 7) {
-			index = 0;
-		}
-		if (round % 12 == 8) {
-			index = 1;
-		}
-		if (round % 12 == 9) {
-			index = 4;
-		}
-		if (round % 12 == 10) {
-			index = 5;
-		}
-		if (round % 12 == 11) {
-			index = 2;
-		}
-
-	}
-
-	/**
-	 * 是否能现身 TODO：增加其他判定条件
-	 * 
-	 * @return
-	 */
-	public boolean canShow() {
-		// 在不是隐身的情况下不可以现身
-		if (!isHidden(index)) {
-			return false;
-		}
-		// 这格子有现行的人的情况下不能现身
-		for (int i = 0; i < 6; i++) {
-			if (x[index] == x[i] && y[index] == y[i] && i != index && direction[i] <= 3) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	/**
-	 * 是否能隐藏 TODO：可能还需要添加其他判定条件
-	 * 
-	 * @return
-	 */
-	public boolean canHide() {
-		/*
-		 * 如果已经处在隐身状态下，就不能隐身
-		 */
-		if (direction[index] > 3) {
-			return false;
-		}
-		/*
-		 * 只有在自己家的地盘上才能隐身
-		 */
-		int temp = 15 * x[index] + y[index];
-		if (index >= 0 && index <= 2) {
-			if (!(occupation[temp] >= 0 && occupation[temp] <= 2)) {
-				return false;
-			}
-		}
-		if (index >= 3 && index <= 5) {
-			if (!(occupation[temp] >= 3 && occupation[temp] <= 5)) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	/**
-	 * 单位是否隐身
-	 * 
-	 * @return
-	 */
-	public boolean isHidden(int x) {
-		calculateIndex();
-		if (direction[x] > 3) {
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * 
-	 * @param dx
-	 *            x方向的位移
-	 * @param dy
-	 *            y方向的位移
-	 * @param index
-	 *            AI的编号
-	 * @return 是否能够移动
-	 */
-	public boolean canMoveTo(int dx, int dy) {
-		/*
-		 * 这一块是判断是否越界
-		 */
-		if (x[index] + dx > 14) {
-			return false;
-		}
-		if (x[index] + dx < 0) {
-			return false;
-		}
-		if (y[index] + dy > 14) {
-			return false;
-		}
-		if (y[index] + dy < 0) {
-			return false;
-		}
-		/*
-		 * 如果有非隐身单位，那么无法移动过去
-		 */
-		for (int i = 0; i < 6; i++) {
-			if (x[index] + dx == x[i] && y[index] + dy == y[i] && !isHidden(index)) {
-				return false;
-			}
-		}
-		/*
-		 * 无法移动到别人的大本营
-		 */
-		for (int i = 0; i < 6; i++) {
-			if (x[index] + dx == homeX[i] && y[index] + dy == homeY[i] && index != i) {
-				return false;
-			}
-		}
-
-		if (index < 3 && isHidden(index)) {
-			int temp = 15 * (x[index] + dx) + y[index] + dy;
-			if (!(occupation[temp] >= 0 && occupation[temp] <= 2)) {
-				return false;
-			}
-		}
-		if (index >= 3 && isHidden(index)) {
-			int temp = 15 * (x[index] + dx) + y[index] + dy;
-			if (!(occupation[temp] >= 3 && occupation[temp] <= 5)) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	public boolean hasPower() {
-		if (nowPower - cost < 0) {
-			return false;
-		}
-		return true;
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-	}
-
-	public void occupy() {
-		if (Player.MUSiC_PLAYER.isGame_ON()) {
-			Player.playSound("occupy");
-		}
-		
-		// 长矛
-		if (index == 0 || index == 3) {
-			// 向下
-			if (direction[index] == 0) {
-				// TODO: 添加判断条件
-				int temp = 15 * x[index] + y[index];
-				if (y[index] >= 4) {
-					occupation[temp - 1] = index;
-					occupation[temp - 2] = index;
-					occupation[temp - 3] = index;
-					occupation[temp - 4] = index;
-					int[] location = { temp - 1, temp - 2, temp - 3, temp - 4 };
-					beatOthers(location);
-				}
-				if (y[index] == 3) {
-					occupation[temp - 1] = index;
-					occupation[temp - 2] = index;
-					occupation[temp - 3] = index;
-					int[] location = { temp - 1, temp - 2, temp - 3 };
-					beatOthers(location);
-				}
-				if (y[index] == 2) {
-					occupation[temp - 1] = index;
-					occupation[temp - 2] = index;
-					int[] location = { temp - 1, temp - 2 };
-					beatOthers(location);
-				}
-				if (y[index] == 1) {
-					occupation[temp - 1] = index;
-					int[] location = { temp - 1 };
-					beatOthers(location);
-				}
-			}
-			// 向上
-			if (direction[index] == 1) {
-				// TODO: 添加判断条件
-				int temp = 15 * x[index] + y[index];
-				if (y[index] <= 10) {
-					occupation[temp + 1] = index;
-					occupation[temp + 2] = index;
-					occupation[temp + 3] = index;
-					occupation[temp + 4] = index;
-					int[] location = { temp + 1, temp + 2, temp + 3, temp + 4 };
-					beatOthers(location);
-				}
-				if (y[index] == 11) {
-					occupation[temp + 1] = index;
-					occupation[temp + 2] = index;
-					occupation[temp + 3] = index;
-					int[] location = { temp + 1, temp + 2, temp + 3 };
-					beatOthers(location);
-				}
-				if (y[index] == 12) {
-					occupation[temp + 1] = index;
-					occupation[temp + 2] = index;
-					int[] location = { temp + 1, temp + 2 };
-					beatOthers(location);
-				}
-				if (y[index] == 13) {
-					occupation[temp + 1] = index;
-					int[] location = { temp + 1 };
-					beatOthers(location);
-				}
-
-			}
-			// 向左
-			if (direction[index] == 2) {
-				// TODO: 添加判断条件
-				int temp = 15 * x[index] + y[index];
-				if (x[index] >= 4) {
-					occupation[temp - 15] = index;
-					occupation[temp - 30] = index;
-					occupation[temp - 45] = index;
-					occupation[temp - 60] = index;
-					int[] location = { temp - 15, temp - 30, temp - 45, temp - 60 };
-					beatOthers(location);
-				}
-				if (x[index] == 3) {
-					occupation[temp - 15] = index;
-					occupation[temp - 30] = index;
-					occupation[temp - 45] = index;
-					int[] location = { temp - 15, temp - 30, temp - 45 };
-					beatOthers(location);
-				}
-				if (x[index] == 2) {
-					occupation[temp - 15] = index;
-					occupation[temp - 30] = index;
-					int[] location = { temp - 15, temp - 30 };
-					beatOthers(location);
-				}
-				if (x[index] == 1) {
-					occupation[temp - 15] = index;
-					int[] location = { temp - 15 };
-					beatOthers(location);
-				}
-
-			}
-			// 向右
-			if (direction[index] == 3) {
-				// TODO: 添加判断条件
-				int temp = 15 * x[index] + y[index];
-				if (x[index] <= 10) {
-					occupation[temp + 15] = index;
-					occupation[temp + 30] = index;
-					occupation[temp + 45] = index;
-					occupation[temp + 60] = index;
-					int[] location = { temp + 15, temp + 30, temp + 45, temp + 60 };
-					beatOthers(location);
-				}
-				if (x[index] == 11) {
-					occupation[temp + 15] = index;
-					occupation[temp + 30] = index;
-					occupation[temp + 45] = index;
-					int[] location = { temp + 15, temp + 30, temp + 45 };
-					beatOthers(location);
-				}
-				if (x[index] == 12) {
-					occupation[temp + 15] = index;
-					occupation[temp + 30] = index;
-					int[] location = { temp + 15, temp + 30 };
-					beatOthers(location);
-				}
-				if (x[index] == 13) {
-					occupation[temp + 15] = index;
-					int[] location = { temp + 15 };
-					beatOthers(location);
-				}
-
-			}
-
-		}
-		// 剑
-		if (index == 1 || index == 4) {
-			// 向下
-			if (direction[index] == 0) {
-				int temp = 15 * x[index] + y[index];
-				if (y[index] >= 2 && x[index] <= 12) {
-					occupation[temp - 1] = index;
-					occupation[temp - 2] = index;
-					occupation[temp + 15] = index;
-					occupation[temp + 14] = index;
-					occupation[temp + 30] = index;
-					int[] location = { temp - 1, temp - 2, temp + 15, temp + 14, temp + 30 };
-					beatOthers(location);
-				}
-				if (y[index] == 1 && x[index] <= 12) {
-					occupation[temp - 1] = index;
-					occupation[temp + 15] = index;
-					occupation[temp + 14] = index;
-					occupation[temp + 30] = index;
-					int[] location = { temp - 1, temp + 15, temp + 14, temp + 30 };
-					beatOthers(location);
-				}
-				if (y[index] == 0 && x[index] <= 12) {
-					occupation[temp + 15] = index;
-					occupation[temp + 30] = index;
-					int[] location = { temp + 15, temp + 30 };
-					beatOthers(location);
-				}
-				if (y[index] >= 2 && x[index] == 13) {
-					occupation[temp - 1] = index;
-					occupation[temp - 2] = index;
-					occupation[temp + 15] = index;
-					occupation[temp + 14] = index;
-					int[] location = { temp - 1, temp - 2, temp + 15, temp + 14 };
-					beatOthers(location);
-				}
-				if (y[index] == 1 && x[index] == 13) {
-					occupation[temp - 1] = index;
-					occupation[temp + 15] = index;
-					occupation[temp + 14] = index;
-					int[] location = { temp - 1, temp + 15, temp + 14 };
-					beatOthers(location);
-				}
-				if (y[index] == 0 && x[index] == 13) {
-					occupation[temp + 15] = index;
-					int[] location = { temp + 15 };
-					beatOthers(location);
-				}
-				if (y[index] >= 2 && x[index] == 14) {
-					occupation[temp - 1] = index;
-					occupation[temp - 2] = index;
-					int[] location = { temp - 1, temp - 2 };
-					beatOthers(location);
-				}
-				if (y[index] == 1 && x[index] == 14) {
-					occupation[temp - 1] = index;
-					int[] location = { temp - 1 };
-					beatOthers(location);
-				}
-			}
-			// 向上
-			if (direction[index] == 1) {
-				int temp = 15 * x[index] + y[index];
-				if (x[index] >= 2) {
-					if (y[index] <= 12) {
-						occupation[temp - 15] = index;
-						occupation[temp - 14] = index;
-						occupation[temp - 30] = index;
-						occupation[temp + 1] = index;
-						occupation[temp + 2] = index;
-						int[] location = { temp - 15, temp - 14, temp - 30, temp + 1, temp + 2 };
-						beatOthers(location);
-					}
-					if (y[index] == 13) {
-						occupation[temp - 15] = index;
-						occupation[temp - 14] = index;
-						occupation[temp - 30] = index;
-						occupation[temp + 1] = index;
-						int[] location = { temp - 15, temp - 14, temp - 30, temp + 1 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						occupation[temp - 15] = index;
-						occupation[temp - 30] = index;
-						int[] location = { temp - 15, temp - 30 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 1) {
-					if (y[index] <= 12) {
-						occupation[temp - 15] = index;
-						occupation[temp - 14] = index;
-						occupation[temp + 1] = index;
-						occupation[temp + 2] = index;
-						int[] location = { temp - 15, temp - 14, temp + 1, temp + 2 };
-						beatOthers(location);
-					}
-					if (y[index] == 13) {
-						occupation[temp - 15] = index;
-						occupation[temp - 14] = index;
-						occupation[temp + 1] = index;
-						int[] location = { temp - 15, temp - 14, temp + 1 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						occupation[temp - 15] = index;
-						int[] location = { temp - 15 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 0) {
-					if (y[index] <= 12) {
-						occupation[temp + 1] = index;
-						occupation[temp + 2] = index;
-						int[] location = { temp + 1, temp + 2 };
-						beatOthers(location);
-					}
-					if (y[index] == 13) {
-						occupation[temp + 1] = index;
-						int[] location = { temp + 1 };
-						beatOthers(location);
-					}
-				}
-			}
-			// 向左
-			if (direction[index] == 2) {
-				int temp = 15 * x[index] + y[index];
-				if (x[index] >= 2) {
-					if (y[index] >= 2) {
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						occupation[temp - 30] = index;
-						occupation[temp - 1] = index;
-						occupation[temp - 2] = index;
-						int[] location = { temp - 15, temp - 16, temp - 30, temp - 1, temp - 2 };
-						beatOthers(location);
-					}
-					if (y[index] == 1) {
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						occupation[temp - 30] = index;
-						occupation[temp - 1] = index;
-						int[] location = { temp - 15, temp - 16, temp - 30, temp - 1 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp - 15] = index;
-						occupation[temp - 30] = index;
-						int[] location = { temp - 15, temp - 30 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 1) {
-					if (y[index] >= 2) {
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						occupation[temp - 1] = index;
-						occupation[temp - 2] = index;
-						int[] location = { temp - 15, temp - 16, temp - 1, temp - 2 };
-						beatOthers(location);
-					}
-					if (y[index] == 1) {
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						occupation[temp - 1] = index;
-						int[] location = { temp - 15, temp - 16, temp - 1 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp - 15] = index;
-						int[] location = { temp - 15 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 0) {
-					if (y[index] >= 2) {
-						occupation[temp - 1] = index;
-						occupation[temp - 2] = index;
-						int[] location = { temp - 1, temp - 2 };
-						beatOthers(location);
-					}
-					if (y[index] == 1) {
-						occupation[temp - 1] = index;
-						int[] location = { temp - 1 };
-						beatOthers(location);
-					}
-				}
-			}
-			// 向右
-			if (direction[index] == 3) {
-				int temp = 15 * x[index] + y[index];
-				if (x[index] <= 12) {
-					if (y[index] <= 12) {
-						occupation[temp + 1] = index;
-						occupation[temp + 2] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 16] = index;
-						occupation[temp + 30] = index;
-						int[] location = { temp + 1, temp + 2, temp + 15, temp + 16, temp + 30 };
-						beatOthers(location);
-					}
-					if (y[index] == 13) {
-						occupation[temp + 1] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 16] = index;
-						occupation[temp + 30] = index;
-						int[] location = { temp + 1, temp + 15, temp + 16, temp + 30 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						occupation[temp + 15] = index;
-						occupation[temp + 30] = index;
-						int[] location = { temp + 15, temp + 30 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 13) {
-					if (y[index] <= 12) {
-						occupation[temp + 1] = index;
-						occupation[temp + 2] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 16] = index;
-						int[] location = { temp + 1, temp + 2, temp + 15, temp + 16 };
-						beatOthers(location);
-					}
-					if (y[index] == 13) {
-						occupation[temp + 1] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 16] = index;
-						int[] location = { temp + 1, temp + 15, temp + 16 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						occupation[temp + 15] = index;
-						int[] location = { temp + 15 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 14) {
-					if (y[index] <= 12) {
-						occupation[temp + 1] = index;
-						occupation[temp + 2] = index;
-						int[] location = { temp + 1, temp + 2 };
-						beatOthers(location);
-					}
-					if (y[index] == 13) {
-						occupation[temp + 1] = index;
-						int[] location = { temp + 1 };
-						beatOthers(location);
-					}
-				}
-			}
-		}
-		// 战斧
-		if (index == 2 || index == 5) {
-			// 向下
-			if (direction[index] == 0) {
-				int temp = 15 * x[index] + y[index];
-				if (x[index] >= 1 && x[index] <= 13) {
-					if (y[index] >= 1 && y[index] <= 13) {
-						occupation[temp - 14] = index;
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						occupation[temp - 1] = index;
-						occupation[temp + 16] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp - 14, temp - 15, temp - 16, temp - 1, temp + 16, temp + 15, temp + 14 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp - 14] = index;
-						occupation[temp - 15] = index;
-						occupation[temp + 16] = index;
-						occupation[temp + 15] = index;
-						int[] location = { temp - 14, temp - 15, temp + 16, temp + 15 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						occupation[temp - 1] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp - 15, temp - 16, temp - 1, temp + 15, temp + 14 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 0) {
-					if (y[index] >= 1 && y[index] <= 13) {
-						occupation[temp - 1] = index;
-						occupation[temp + 16] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp - 1, temp + 16, temp + 15, temp + 14 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp + 16] = index;
-						occupation[temp + 15] = index;
-						int[] location = { temp + 16, temp + 15 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						occupation[temp - 1] = index;
-						occupation[temp + 14] = index;
-						occupation[temp + 15] = index;
-						int[] location = { temp - 1, temp + 14, temp + 15 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 14) {
-					if (y[index] >= 1 && y[index] <= 13) {
-						occupation[temp - 14] = index;
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						occupation[temp - 1] = index;
-						int[] location = { temp - 14, temp - 15, temp - 16, temp - 1 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp - 14] = index;
-						occupation[temp - 15] = index;
-						int[] location = { temp - 14, temp - 15 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						// 这种情况并不会发生
-					}
-				}
-			}
-			// 向上
-			if (direction[index] == 1) {
-				int temp = 15 * x[index] + y[index];
-				if (x[index] >= 1 && x[index] <= 13) {
-					if (y[index] >= 1 && y[index] <= 13) {
-						occupation[temp + 1] = index;
-						occupation[temp - 14] = index;
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						occupation[temp + 14] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 16] = index;
-						int[] location = { temp + 1, temp - 14, temp - 15, temp - 16, temp + 14, temp + 15, temp + 16 };
-						beatOthers(location);
-					}
-					// TODO:还有很多情况没有讨论
-					if (y[index] == 14) {
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp - 15, temp - 16, temp + 15, temp + 14 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp + 1] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 16] = index;
-						occupation[temp - 15] = index;
-						occupation[temp - 14] = index;
-						int[] location = { temp + 1, temp + 15, temp + 16, temp - 15, temp - 14 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 0) {
-					if (y[index] >= 1 && y[index] <= 13) {
-						occupation[temp + 1] = index;
-						occupation[temp + 14] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 16] = index;
-						int[] location = { temp + 1, temp + 14, temp + 15, temp + 16 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp + 1] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 16] = index;
-						int[] location = { temp + 1, temp + 15, temp + 16 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						occupation[temp + 15] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp + 14, temp + 15 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 14) {
-					if (y[index] >= 1 && y[index] <= 13) {
-						occupation[temp + 1] = index;
-						occupation[temp - 14] = index;
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						int[] location = { temp + 1, temp - 14, temp - 15, temp - 16 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp - 15] = index;
-						occupation[temp - 14] = index;
-						occupation[temp + 1] = index;
-						int[] location = { temp + 1, temp - 14, temp - 15 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						int[] location = { temp - 15, temp - 16 };
-						beatOthers(location);
-					}
-				}
-			}
-			// 向左
-			if (direction[index] == 2) {
-				int temp = 15 * x[index] + y[index];
-				if (x[index] >= 1 && x[index] <= 13) {
-					if (y[index] >= 1 && y[index] <= 13) {
-						occupation[temp - 14] = index;
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						occupation[temp + 1] = index;
-						occupation[temp - 1] = index;
-						occupation[temp + 16] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp - 14, temp - 15, temp - 16, temp + 1, temp - 1, temp + 16, temp + 14 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp - 14] = index;
-						occupation[temp - 15] = index;
-						occupation[temp + 1] = index;
-						occupation[temp + 16] = index;
-						int[] location = { temp - 14, temp - 15, temp + 1, temp + 16 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						occupation[temp - 1] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp - 15, temp - 16, temp - 1, temp + 14 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 0) {
-					if (y[index] >= 1 && y[index] <= 13) {
-						occupation[temp + 1] = index;
-						occupation[temp - 1] = index;
-						occupation[temp + 16] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp + 1, temp - 1, temp + 16, temp + 14 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp + 1] = index;
-						occupation[temp + 16] = index;
-						int[] location = { temp + 1, temp + 16 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						occupation[temp - 1] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp - 1, temp + 14 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 14) {
-					if (y[index] >= 1 && y[index] <= 13) {
-						occupation[temp - 14] = index;
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						occupation[temp + 1] = index;
-						occupation[temp - 1] = index;
-						int[] location = { temp - 14, temp - 15, temp - 16, temp + 1, temp - 1 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp - 14] = index;
-						occupation[temp - 15] = index;
-						// occupation[temp - 16] = index;
-						occupation[temp + 1] = index;
-						// occupation[temp - 1] = index;
-						int[] location = { temp - 14, temp - 15, temp + 1 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						// occupation[temp - 14] = index;
-						occupation[temp - 15] = index;
-						occupation[temp - 16] = index;
-						// occupation[temp + 1] = index;
-						occupation[temp - 1] = index;
-						int[] location = { temp - 15, temp - 16, temp - 1 };
-						beatOthers(location);
-					}
-				}
-			}
-			// 向右
-			if (direction[index] == 3) {
-				int temp = 15 * x[index] + y[index];
-				if (x[index] >= 1 && x[index] <= 13) {
-					if (y[index] >= 1 && y[index] <= 13) {
-						occupation[temp - 14] = index;
-						occupation[temp - 16] = index;
-						occupation[temp + 1] = index;
-						occupation[temp - 1] = index;
-						occupation[temp + 16] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp - 14, temp - 16, temp + 1, temp - 1, temp + 16, temp + 15, temp + 14 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp - 14] = index;
-						occupation[temp + 1] = index;
-						occupation[temp + 16] = index;
-						occupation[temp + 15] = index;
-						int[] location = { temp - 14, temp + 1, temp + 16, temp + 15 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						occupation[temp - 16] = index;
-						occupation[temp - 1] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp - 16, temp - 1, temp + 15, temp + 14 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 0) {
-					if (y[index] >= 1 && y[index] <= 13) {
-						occupation[temp + 1] = index;
-						occupation[temp - 1] = index;
-						occupation[temp + 16] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp + 1, temp - 1, temp + 16, temp + 15, temp + 14 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp + 1] = index;
-//						occupation[temp - 1] = index;
-						occupation[temp + 16] = index;
-						occupation[temp + 15] = index;
-//						occupation[temp + 14] = index;
-						int[] location = { temp + 1, temp + 16, temp + 15};
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-//						occupation[temp + 1] = index;
-						occupation[temp - 1] = index;
-//						occupation[temp + 16] = index;
-						occupation[temp + 15] = index;
-						occupation[temp + 14] = index;
-						int[] location = { temp - 1, temp + 15, temp + 14 };
-						beatOthers(location);
-					}
-				}
-				if (x[index] == 14) {
-					if (y[index] >= 1 && y[index] <= 13) {
-						occupation[temp - 14] = index;
-						occupation[temp - 16] = index;
-						occupation[temp + 1] = index;
-						occupation[temp - 1] = index;
-						int[] location = { temp - 14, temp - 16, temp + 1, temp - 1 };
-						beatOthers(location);
-					}
-					if (y[index] == 0) {
-						occupation[temp - 14] = index;
-						occupation[temp + 1] = index;
-						int[] location = { temp - 14, temp + 1 };
-						beatOthers(location);
-					}
-					if (y[index] == 14) {
-						occupation[temp - 16] = index;
-						occupation[temp + 1] = index;
-						int[] location = { temp - 16, temp + 1 };
-						beatOthers(location);
-					}
-				}
-			}
-		}
-
-	}
-
-	/**
-	 * 
-	 * @param location
-	 *            占领的地盘
-	 */
-	public void beatOthers(int[] location) {
-		for (int i = 0; i < location.length; i++) {
-			for (int j = 0; j < 6; j++) {
-				int temp = 15 * x[j] + y[j];
-				int temp2 = 15 * homeX[j] + homeY[j];
-				if (location[i] == temp && j != index && location[i] != temp2) {
-					if (life[j] == 0) {
-						x[j] = homeX[j];
-						y[j] = homeY[j];
-						recoverRound[j] = maxRecoverRound;
-						//TODO:人机对战此处需要修改
-						direction[j] = 0;
-						if (Player.MUSiC_PLAYER.isGame_ON()) {
-							Player.playSound("soundeffect0");
-						}
-					}
-					if (life[j] != 0) {
-						life[j] -= 1;
-						// TODO:加音效
-					}
-					
-					
-				}
-
-			}
-		}
-	}
-
-	public void printNumber(int num, Graphics g, int x, int y, int w, int h) {
-		if (num < 10) {
-			g.drawImage(ImgNumber.NUMS[num], x, y, w, h, this);
-		}
-		if (10 <= num && num <= 99) {
-			int tens = num / 10;
-			int unit = num % 10;
-			g.drawImage(ImgNumber.NUMS[tens], x - w, y, w, h, this);
-			g.drawImage(ImgNumber.NUMS[unit], x, y, w, h, this);
-		}
-		if (100 <= num) {
-			int hundreds = num / 100;
-			int tens = (num - 100 * hundreds) / 10;
-			int unit = num % 10;
-			g.drawImage(ImgNumber.NUMS[hundreds], x - 2 * w, y, w, h, this);
-			g.drawImage(ImgNumber.NUMS[tens], x - w, y, w, h, this);
-			g.drawImage(ImgNumber.NUMS[unit], x, y, w, h, this);
-		}
-	}
-
-	/**
-	 * 在视野范围内的才能看到
-	 */
-	public void getSight() {
-		for (int i = 0; i < 15; i++) {
-			for (int j = 0; j < 15; j++) {
-				outSight[i][j] = true;
-			}
-		}
-		for (int i = 0; i < 3; i++) {
-			outSight[x[i]][y[i]] = false;
-			for (int m = -sight[i]; m <= sight[i]; m++) {
-				for (int n = -sight[i]; n <= sight[i]; n++) {
-					if (x[i] + m <= 14 && x[i] + m >= 0 && y[i] + n <= 14 && y[i] + n >= 0
-							&& (Math.abs(m) + Math.abs(n)) <= sight[i]) {
-						outSight[x[i] + m][y[i] + n] = false;
-					}
-				}
-			}
-
-		}
-		for (int i = 0; i < 6; i++) {
-			outSight[homeX[i]][homeY[i]] = false;
-		}
-
-	}
 	/**
 	 * 得到道具
 	 */
@@ -2041,5 +960,94 @@ public class JPanelPropPattern extends JPanel implements KeyListener{
 	public void randomProp2(){
 		propX[2] = random.nextInt(2) + 10;
 		propY[2] = random.nextInt(2) + 2;
+	}
+	
+	/**
+	 * This method is to provide the info of current field.
+	 * @param player
+	 */
+	private void sendFieldInfo(team.csca.ai.AI.Player player){
+		
+		int[] basicInfo = new int[]{this.round , this.recoverRound[index]};
+		int[] curX = new int[this.x.length];
+		int[] curY = new int[this.y.length];
+		//Deep copy
+		System.arraycopy(this.x, 0, curX, 0, this.x.length);
+		System.arraycopy(this.y, 0, curY, 0, this.y.length);
+		//Hide information . Provide the limited info.
+		int[] hidden = new int[6];
+		for(int i = 0 ; i < direction.length ; i ++ ){
+			if(curX[i] == -1){
+				hidden[i] = 1;
+			}else{
+				if(direction[i] > 3){
+					hidden[i] = -1;
+				}else{
+					hidden[i] = 0;
+				}
+			}
+		}		
+		//Hide the AI out of eyes
+		for(int i = 0 ; i < 3 ; i ++){
+			int XofAI = curX[i];
+			int YofAI = curY[i];
+			if(hidden[i] == -1){
+				curX[i] = -1;
+				curY[i] = -1;
+			}else{
+				boolean out = true;
+				for(int j = 3 ; j < 6 ; j ++) {
+					int XofAlly = curX[j];
+					int YofAlly = curY[j];
+					if(Math.abs(YofAI - YofAlly) + Math.abs(XofAlly - XofAI) <= 5){
+						out = false;
+						break;
+					}
+				}
+				if(out){
+					hidden[i] = -1;
+					curX[i] = -1;
+					curY[i] = -1;
+				}
+			}
+		}
+		
+		//Occupy info . Provide the info in sight
+		int[] occupy = new int[this.occupation.length];
+		System.arraycopy(occupation, 0, occupy, 0, occupation.length);
+		for(int i = 0 ; i < 15 ; i ++){
+			for(int j = 0 ; j < 15 ; j++){
+				boolean out = true;
+				for(int ai = 3 ; ai < 6 ; ai ++){
+					if(Math.abs(i - curX[ai]) + Math.abs(j - curY[ai]) <= 5){
+						out = false;
+						break;
+					}
+				}
+				if(out){
+					occupy[15 * i + j] = 9;
+				}
+			}
+		}
+		
+		player.sendInfo(basicInfo, curX, curY, hidden, occupy);
+	}
+	
+	private void initAIField(){
+		this.spear = new PlayerSpear();
+		this.sword = new PlayerSword();
+		this.axe = new PlayerAxe();
+		int[] homeX = new int[JPanelGame.homeX.length];
+		int[] homeY = new int[this.homeY.length];
+		System.arraycopy(this.homeX, 0, homeX, 0, this.homeX.length);
+		System.arraycopy(this.homeY, 0, homeY, 0, this.homeY.length);
+		spear.initAIField(new int[]{maxRound, 3, maxRecoverRound}, homeX, homeY, this);
+		sword.initAIField(new int[]{maxRound, 4, maxRecoverRound}, homeX, homeY, this);
+		axe.initAIField(new int[]{maxRound, 5, maxRecoverRound}, homeX, homeY, this);
+	}
+	
+
+	@Override
+	public void keyTyped(KeyEvent e) {
 	}
 }

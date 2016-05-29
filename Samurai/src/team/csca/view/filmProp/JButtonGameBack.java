@@ -2,6 +2,8 @@ package team.csca.view.filmProp;
 
 import java.awt.event.MouseEvent;
 
+import javax.swing.JPanel;
+
 import team.csca.controller.media.Player;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.image.ImgButton;
@@ -14,9 +16,9 @@ import team.csca.view.image.ImgButton;
  *
  */
 public class JButtonGameBack extends DynamicButton {
-	private JPanelPropPattern fatherPanel;
+	private JPanel fatherPanel;
 
-	public JButtonGameBack(JPanelPropPattern fatherPanel){
+	public JButtonGameBack(JPanel fatherPanel){
 		// TODO:调整位置
 		super(865, 635, 140, 50, ImgButton.BACK_INIT, ImgButton.BACK_ENTER, ImgButton.BACK_CLICKED);
 		this.fatherPanel = fatherPanel;

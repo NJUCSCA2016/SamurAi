@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 
 import team.csca.client.RemoteHelper;
 import team.csca.link.modelChoose.JPanelChooseList;
+import team.csca.server.GameNotice;
 import team.csca.view.extend.StaticButton;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgLink;
