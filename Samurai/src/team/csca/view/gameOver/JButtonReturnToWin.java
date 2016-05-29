@@ -14,7 +14,7 @@ public class JButtonReturnToWin  extends DynamicButton{
 	}
 	
 	public void mouseClicked(MouseEvent e){
-		frameMain.setContentPane(new JPanelGameWin());
+		frameMain.setContentPane(new JPanelGameWin(new JButtonGameBackToMain()));
 		frameMain.revalidate();
 	}
 }

@@ -399,7 +399,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		int score2 = count[3] + count[4] + count[5];
 		if (score1 > score2) {
 
-			gameWin = new JPanelGameWin();
+			gameWin = new JPanelGameWin(new JButtonGameBackToMain());
 			frameMain.remove(this);
 
 			gameWin = new JPanelGameWin(new JButtonGameBackToMain());
@@ -413,7 +413,7 @@ public class JPanelPM extends JPanel implements KeyListener {
 		}
 		if (score1 < score2) {
 
-			gameLose = new JPanelGameLose();
+			gameLose = new JPanelGameLose(new JButtonGameBackToMain());
 			frameMain.remove(this);
 
 			gameLose = new JPanelGameLose(new JButtonGameBackToMain());
