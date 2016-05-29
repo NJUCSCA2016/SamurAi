@@ -1082,8 +1082,9 @@ public class JPanelGame extends JPanel{
 
 	public void attackUp() {
 		cost = 4;
-		direction[index] = 1;
-		if (hasPower() && recoverRound[index] == 0) {
+		
+		if (hasPower() && recoverRound[index] == 0 && !isHidden(index)) {
+			direction[index] = 1;
 			nowPower = nowPower - cost;
 			occupy();
 		}
@@ -1092,8 +1093,9 @@ public class JPanelGame extends JPanel{
 
 	public void attackDown() {
 		cost = 4;
-		direction[index] = 0;
-		if (hasPower() && recoverRound[index] == 0) {
+		
+		if (hasPower() && recoverRound[index] == 0 && !isHidden(index)) {
+			direction[index] = 0;
 			nowPower = nowPower - cost;
 			occupy();
 		}
@@ -1102,8 +1104,9 @@ public class JPanelGame extends JPanel{
 
 	public void attackLeft() {
 		cost = 4;
-		direction[index] = 2;
-		if (hasPower() && recoverRound[index] == 0) {
+	
+		if (hasPower() && recoverRound[index] == 0 && !isHidden(index)) {
+			direction[index] = 2;
 			nowPower = nowPower - cost;
 			occupy();
 		}
@@ -1112,8 +1115,9 @@ public class JPanelGame extends JPanel{
 
 	public void attackRight() {
 		cost = 4;
-		direction[index] = 3;
-		if (hasPower() && recoverRound[index] == 0) {
+		
+		if (hasPower() && recoverRound[index] == 0 && !isHidden(index)) {
+			direction[index] = 3;
 			nowPower = nowPower - cost;
 			occupy();
 		}
