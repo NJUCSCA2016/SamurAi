@@ -1,6 +1,7 @@
 package team.csca.client;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 import team.csca.server.GameReceive;
 import team.csca.server.User;
@@ -8,7 +9,7 @@ import team.csca.server.User;
 public class RemoteHelper {
 	
 	private static RemoteHelper remoteHelper = new RemoteHelper();
-	private GameNoticeImp gameNoticeImp = new GameNoticeImp();
+	private GameNoticeImp gameNoticeImp;
 	
 	private String userName = null;
 	private int moodle = 0;
@@ -17,7 +18,14 @@ public class RemoteHelper {
 		return remoteHelper;
 	}
 	
-	private RemoteHelper(){}
+	private RemoteHelper(){
+		try {
+			gameNoticeImp = new GameNoticeImp();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	private Remote remote;
 

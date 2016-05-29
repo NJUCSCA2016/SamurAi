@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 import team.csca.client.RemoteHelper;
 import team.csca.control.netControl.NetGameControl;
 import team.csca.link.gameWaiting.JPanelGameLoading;
+import team.csca.link.serverLink.JPanelLinkLoading;
 import team.csca.server.User;
 import team.csca.view.extend.DynamicButton;
 import team.csca.view.image.ImgModel;
@@ -25,12 +26,13 @@ public class JButtonPP extends DynamicButton{
 		try {
 			NetGameControl control = NetGameControl.getInstance();
 			helper.getNotic().setControl(control);
-			
-			this.frame.setContentPane(new JPanelGameLoading());
 			this.frame.remove(this.fatherPanel);
+			this.frame.setContentPane(new JPanelGameLoading());
+//			this.frame.setContentPane(new JPanelLinkLoading());
+			
 			frame.revalidate();
 			helper.setMoodle(2);
-			helper.getUser().chooseModle(2, helper.getNotic(), helper.getName());
+			helper.getUser().chooseModel(2, helper.getNotic(), helper.getName());
 		} catch (RemoteException e1) {
 			e1.printStackTrace();
 		}

@@ -33,7 +33,7 @@ public class JPanelGameLoading extends JPanel{
 				ImgLink.LOGIN_WAITING_RETURN3 ,
 				this);
 		this.add(loadingReturn);
-		new Thread(new LoadingBefore()).run();
+		new Thread(new LoadingBefore()).start();
 			
 	}
 	
@@ -50,7 +50,7 @@ public class JPanelGameLoading extends JPanel{
 						e.printStackTrace();
 					}
 					synchronized (this) {
-//						System.out.println(timeCount);
+						System.out.println(i);
 						if(RemoteHelper.getInstance().getNotic().unNotice()){
 							currentImg = getImage(i);
 							repaint();

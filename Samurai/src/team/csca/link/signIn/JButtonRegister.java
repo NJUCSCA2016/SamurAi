@@ -37,12 +37,14 @@ public class JButtonRegister extends StaticButton implements ActionListener{
 				//Been registered already
 				fatherPanel.cleanName();
 				fatherPanel.cleanPass();
-				JFrameMain.J_FRAME_MAIN.setEnabled(false);
-				new Dialog(ImgLink.SIGNIN_NAME_EXIST);
+				frame.remove(fatherPanel);
+				frame.setContentPane(new Dialog(ImgLink.SIGNIN_NAME_EXIST , fatherPanel));
+				frame.revalidate();
 			}else{
 				//succeed.
-				JFrameMain.J_FRAME_MAIN.setEnabled(false);
-				new Dialog( ImgLink.SIGNIN_SUCCEED);
+				frame.remove(fatherPanel);
+				frame.setContentPane(new Dialog( ImgLink.SIGNIN_SUCCEED , fatherPanel));
+				frame.revalidate();
 			}
 		} catch (RemoteException e1) {
 			e1.printStackTrace();

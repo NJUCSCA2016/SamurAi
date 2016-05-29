@@ -19,7 +19,7 @@ public interface GameNotice {
 	 * 
 	 * @throws RemoteException
 	 */
-	public void feedBack(int[] basicInfo , int[] recoverRound , int[] curX , int[] curY , int[] direction , int[] occupation , int[] count) throws RemoteException;
+	public void feedBack(int[] basicInfo , int[] recoverRound , int[] curX , int[] curY ,  int[] direction , int[] occupation , int[] count) throws RemoteException;
 	
 	/**
 	 * 获取玩家的信息

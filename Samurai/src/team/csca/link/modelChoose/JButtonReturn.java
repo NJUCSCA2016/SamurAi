@@ -28,7 +28,7 @@ public class JButtonReturn extends DynamicButton{
 		}
 		this.frame.remove(this.fatherPanel);
 		this.frame.setContentPane(new JPanelSignIn());
-		
+		frame.revalidate();
 	}
 	
 }

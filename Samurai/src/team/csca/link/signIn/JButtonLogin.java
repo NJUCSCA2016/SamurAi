@@ -51,14 +51,15 @@ public class JButtonLogin extends StaticButton implements ActionListener{
 			 //No this user
 			 fatherPanel.cleanName();
 			 fatherPanel.cleanPass();
-			 JFrameMain.J_FRAME_MAIN.setEnabled(false);
-			 new Dialog(ImgLink.SIGNIN_NAME_NOT_FOUND);
+			 frame.remove(fatherPanel);
+			 frame.setContentPane(new Dialog(ImgLink.SIGNIN_NAME_NOT_FOUND , fatherPanel));
+			 frame.revalidate();
 		 }else{
 			 //Password is wrong . 
 			 fatherPanel.cleanPass();
-			 JFrameMain.J_FRAME_MAIN.setEnabled(false);
-			 new Dialog( ImgLink.SIGNIN_WORD_WRONG);
-			 
+			 frame.remove(fatherPanel);
+			 frame.setContentPane(new Dialog( ImgLink.SIGNIN_WORD_WRONG , fatherPanel));
+			 frame.revalidate();			 
 		 }
 		} catch (RemoteException e1) {
 			e1.printStackTrace();

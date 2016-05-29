@@ -21,7 +21,7 @@ public class JPanelModelChoose extends JPanel{
 	
 	public void paint(Graphics g){
 		background.createWindow(g);
-		super.paintComponent(g);
+		super.paintComponents(g);
 	}
 	
 	

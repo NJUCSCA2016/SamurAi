@@ -132,6 +132,7 @@ public class UserImp implements User{
 	 */
 	@Override
 	synchronized public void chooseModel(int moodleCode , GameNotice notice , String name ) throws RemoteException {
+		System.out.println("Choose" + name);
 		UserInfo linkGame = getCurrentUser(name, USER_CACHE);
 		linkGame.setNotic(notice);
 		if(moodleCode == 1){			

@@ -1,11 +1,16 @@
 package team.csca.client;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import team.csca.control.netControl.NetGameControl;
 import team.csca.server.GameNotice;
 
-public class GameNoticeImp implements GameNotice{
+public class GameNoticeImp extends UnicastRemoteObject implements GameNotice{
+	protected GameNoticeImp() throws RemoteException {
+		super();
+	}
+
 	private NetGameControl control;
 	
 	private boolean unNotice = true;
