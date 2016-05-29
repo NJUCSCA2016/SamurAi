@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import team.csca.view.extend.Layer;
 import team.csca.view.extend.LayerBackground;
+import team.csca.view.gameOver.JButtonGameBackToMain;
 import team.csca.view.frame.JFrameMain;
 import team.csca.view.image.ImgGameOver;
 import team.csca.view.image.ImgNumber;
@@ -28,7 +29,7 @@ public class JPanelRankingListLose extends JPanel{
 		this.setLayout(null);
 		repaint();
 		this.add(new JButtonReturnToLose());
-		
+		this.add(new JButtonGameBackToMain());
 	}
 	
 	public void paintComponent(Graphics g) {

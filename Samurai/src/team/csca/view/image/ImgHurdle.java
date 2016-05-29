@@ -23,10 +23,10 @@ public class ImgHurdle {
 		
 	}
 	
-	public final static Image BUTTON_RETURN_INIT = new ImageIcon("Image/GamePanel/situation/button_return_unclicked.png").getImage();
+	public final static Image BUTTON_RETURN_INIT = new ImageIcon("Image/Gamepanel/situation/button_return_unclicked.png").getImage();
 	
-	public final static Image BUTTON_RETURN_ENTER = new ImageIcon("Image/GamePanel/situation/button_return_enter.png").getImage();
+	public final static Image BUTTON_RETURN_ENTER = new ImageIcon("Image/Gamepanel/situation/button_return_enter.png").getImage();
 	
-	public final static Image BUTTON_RETURN_CLICKED = new ImageIcon("Image/GamePanel/situation/button_return_clicked.png").getImage();
+	public final static Image BUTTON_RETURN_CLICKED = new ImageIcon("Image/Gamepanel/situation/button_return_clicked.png").getImage();
 	
 }

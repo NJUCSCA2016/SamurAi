@@ -19,6 +19,7 @@ public class JButtonGameBackToMain extends DynamicButton{
 		super(1150, 0, 71, 71, ImgGameOver.CROSS, ImgGameOver.CROSS, ImgGameOver.CROSS);
 	}
 
+	@Override
 	public void mouseClicked(MouseEvent e) {
 		super.mouseClicked(e);
 		frame.removeAll();
