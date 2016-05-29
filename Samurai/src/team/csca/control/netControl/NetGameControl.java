@@ -85,7 +85,7 @@ public class NetGameControl {
 		if(this.panel.canTakeAction(actionCode)){
 			try {
 				this.receive.acceptActionTra(actionCode, indexOfGame);
-			} catch (RemoteException | GameNotFoundException e) {
+			} catch (RemoteException e) {
 				e.printStackTrace();
 			}
 		}
@@ -99,9 +99,6 @@ public class NetGameControl {
 		try {
 			this.receive.acceptTRAActionFinishedSign(indexOfGame);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (GameNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

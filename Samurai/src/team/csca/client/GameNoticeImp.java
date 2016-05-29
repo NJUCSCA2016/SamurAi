@@ -7,6 +7,7 @@ import team.csca.control.netControl.NetGameControl;
 import team.csca.server.GameNotice;
 
 public class GameNoticeImp extends UnicastRemoteObject implements GameNotice{
+	
 	protected GameNoticeImp() throws RemoteException {
 		super();
 	}

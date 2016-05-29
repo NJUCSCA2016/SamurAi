@@ -3,7 +3,6 @@ package server;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import control.GameNotFoundException;
 import serviceImp.GameReceiveImp;
 import serviceImp.UserImp;
 import team.csca.server.GameNotice;
@@ -36,12 +35,12 @@ public class LinkServer extends UnicastRemoteObject implements User , GameReceiv
 	}
 
 	@Override
-	public void acceptActionTra(int action , int indexOfGame) throws RemoteException, GameNotFoundException {
+	public void acceptActionTra(int action , int indexOfGame) throws RemoteException {
 		receive.acceptActionTra(action , indexOfGame);
 	}
 
 	@Override
-	public void acceptActionProp(int action , int indexOfGame) throws RemoteException, GameNotFoundException {
+	public void acceptActionProp(int action , int indexOfGame) throws RemoteException {
 		receive.acceptActionProp(action , indexOfGame);
 	}
 
@@ -66,12 +65,12 @@ public class LinkServer extends UnicastRemoteObject implements User , GameReceiv
 	}
 
 	@Override
-	public void acceptTRAActionFinishedSign(int indexOfGame) throws RemoteException, GameNotFoundException {
+	public void acceptTRAActionFinishedSign(int indexOfGame) throws RemoteException {
 		receive.acceptTRAActionFinishedSign(indexOfGame);
 	}
 
 	@Override
-	public void acceptPPActionFinishedSign(int indexOfGame) throws RemoteException, GameNotFoundException {
+	public void acceptPPActionFinishedSign(int indexOfGame) throws RemoteException {
 		receive.acceptTRAActionFinishedSign(indexOfGame);
 	}
 

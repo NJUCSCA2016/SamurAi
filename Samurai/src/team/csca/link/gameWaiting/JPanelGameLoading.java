@@ -50,8 +50,8 @@ public class JPanelGameLoading extends JPanel{
 						e.printStackTrace();
 					}
 					synchronized (this) {
-						System.out.println(i);
 						if(RemoteHelper.getInstance().getNotic().unNotice()){
+							System.out.println("i");
 							currentImg = getImage(i);
 							repaint();
 						}else{

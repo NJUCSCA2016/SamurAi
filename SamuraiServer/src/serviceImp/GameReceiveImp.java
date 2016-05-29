@@ -6,9 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import control.Control;
-import control.GameNotFoundException;
-import control.TRAGameControl;
 import control.PPGameControl;
+import control.TRAGameControl;
 import team.csca.server.GameReceive;
 /**
  * 
@@ -40,7 +39,7 @@ public class GameReceiveImp implements GameReceive {
 	/**
 	 * 请严格按照格式： Action1 + space + Action2 + space + Action3 ******
 	 */
-	public void acceptActionTra(int action , int indexOfGame) throws RemoteException, GameNotFoundException {
+	public void acceptActionTra(int action , int indexOfGame) throws RemoteException {
 		
 		Iterator<TRAGameControl> iterator = TRAGAME_ON.iterator();
 		TRAGameControl control  = null;
@@ -54,7 +53,7 @@ public class GameReceiveImp implements GameReceive {
 		if(control != null){
 			new Thread(new TraHandleRequest(action, control)).run();
 		}else{
-			throw new GameNotFoundException();
+			System.err.println("Error");
 		}
 		
 	}
@@ -81,7 +80,7 @@ public class GameReceiveImp implements GameReceive {
 	}
 
 	@Override
-	public void acceptActionProp(int action , int indexOfGame) throws RemoteException, GameNotFoundException {
+	public void acceptActionProp(int action , int indexOfGame) throws RemoteException {
 		
 		Iterator<PPGameControl> iterator = PPGAME_ON.iterator();
 		PPGameControl control = null;
@@ -95,7 +94,7 @@ public class GameReceiveImp implements GameReceive {
 		if(control != null){
 			new Thread(new PropHandleRequest(action, control)).run();
 		}else{
-			throw new GameNotFoundException();
+//			throw new GameNotFoundException();
 		}
 	}
 	/**
@@ -128,7 +127,7 @@ public class GameReceiveImp implements GameReceive {
 	}
 
 	@Override
-	public void acceptTRAActionFinishedSign(int indexOfGame) throws RemoteException, GameNotFoundException {
+	public void acceptTRAActionFinishedSign(int indexOfGame) throws RemoteException {
 		Iterator<TRAGameControl> iterator = TRAGAME_ON.iterator();
 		TRAGameControl control = null;
 		while(iterator.hasNext()){
@@ -141,14 +140,14 @@ public class GameReceiveImp implements GameReceive {
 		if(control != null){
 			new Thread(new ActionSign(control)).run();;
 		}else{
-			throw new GameNotFoundException();
+//			throw new GameNotFoundException();
 		}
 	}
 	
 	
 
 	@Override
-	public void acceptPPActionFinishedSign(int indexOfGame) throws RemoteException, GameNotFoundException {
+	public void acceptPPActionFinishedSign(int indexOfGame) throws RemoteException {
 		Iterator<PPGameControl> iterator = PPGAME_ON.iterator();
 		PPGameControl control = null;
 		while(iterator.hasNext()){
@@ -161,7 +160,7 @@ public class GameReceiveImp implements GameReceive {
 		if(control != null){
 			new Thread(new ActionSign(control)).run();
 		}else{
-			throw new GameNotFoundException();
+//			throw new GameNotFoundException();
 		}
 	}
 	

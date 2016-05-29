@@ -2,8 +2,6 @@ package team.csca.server;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-
-import control.GameNotFoundException;
 /**
  * 游戏监控器接口
  * @author With You
@@ -18,7 +16,7 @@ public interface GameReceive extends Remote{
 	 * @throws RemoteException
 	 * @throws GameNotFoundException 
 	 */
-	public void acceptActionTra(int action , int indexOfGame) throws RemoteException, GameNotFoundException;
+	public void acceptActionTra(int action , int indexOfGame) throws RemoteException;
 	/**
 	 * 接受道具模式下用户传来的动作。
 	 * 
@@ -26,12 +24,12 @@ public interface GameReceive extends Remote{
 	 * @throws RemoteException
 	 * @throws GameNotFoundException 
 	 */
-	public void acceptActionProp(int action , int indexOfGame) throws RemoteException, GameNotFoundException;
+	public void acceptActionProp(int action , int indexOfGame) throws RemoteException;
 	/**
 	 * User Finished Action Sign
 	 * @throws RemoteException
 	 * @throws GameNotFoundException 
 	 */
-	public void acceptTRAActionFinishedSign(int indexOfGame)throws RemoteException, GameNotFoundException;
-	public void acceptPPActionFinishedSign(int indexOfGame)throws RemoteException, GameNotFoundException;
+	public void acceptTRAActionFinishedSign(int indexOfGame)throws RemoteException;
+	public void acceptPPActionFinishedSign(int indexOfGame)throws RemoteException;
 }
