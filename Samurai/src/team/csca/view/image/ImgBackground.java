@@ -33,6 +33,13 @@ public class ImgBackground {
 				new ImageIcon("Image/HelpPanel/backgroundhelp_page4.png").getImage(),
 				new ImageIcon("Image/HelpPanel/backgroundhelp_page5.png").getImage(),
 				new ImageIcon("Image/HelpPanel/backgroundhelp_page6.png").getImage(),
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page7.png").getImage(),
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page8.png").getImage(),
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page9.png").getImage(),
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page10.png").getImage(),
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page11.png").getImage(),
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page12.png").getImage(),
+				new ImageIcon("Image/HelpPanel/backgroundhelp_page13.png").getImage(),
 				};
 	}
 	

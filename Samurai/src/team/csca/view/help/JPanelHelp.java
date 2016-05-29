@@ -9,7 +9,7 @@ import team.csca.view.image.ImgBackground;
 
 public class JPanelHelp extends JPanel{
 	
-	protected final static int LAST_INDEX = 6;
+	protected final static int LAST_INDEX = 13;
 	
 	protected int numOfPic = 0;
 	
