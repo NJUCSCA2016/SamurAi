@@ -35,10 +35,7 @@ import team.csca.view.image.ImgSamurai;
 public class JPanelPropPattern extends JPanelGame implements KeyListener{
 	
 	
-	/**
-	 * 视野
-	 */
-	public int[] sight = new int[6];
+
 
 	/**
 	 * 道具坐标
@@ -252,6 +249,9 @@ public class JPanelPropPattern extends JPanelGame implements KeyListener{
 		}
 		if (!outSight[propX[4]][propY[4]]) {
 			g.drawImage(ImgProps.TRANSMISSION, propX[4] * 40 + propY[4] * 13 + 228, propY[4] * (-36) + 600, 42, 48, this);
+		}
+		if (!outSight[propX[5]][propY[5]] && propNum[5] > 0) {
+			g.drawImage(ImgProps.GET_LOCATION, propX[5] * 40 + propY[5] * 13 + 228, propY[5] * (-36) + 600, 42, 48, this);
 		}
 		/*
 		 * 状态栏
@@ -772,7 +772,31 @@ public class JPanelPropPattern extends JPanelGame implements KeyListener{
 		addSight();
 		// 传送门
 		transmitMe();
+		// 获得位置
+		getAILocation();
 	}
+	/**
+	 * 获得随机一个对方武士的位置
+	 */
+	private void getAILocation() {
+		// TODO:人人对战需要修改
+		if (x[index] == propX[5] && y[index] == propY[5] && propNum[5] > 0 && index < 3) {
+			int unlucky = random.nextInt(3) + 3;
+			outSight[x[unlucky]][y[unlucky]] = false;
+			direction[unlucky] = 0;
+			System.out.println(unlucky);
+			System.out.println(x[unlucky]);
+			System.out.println(y[unlucky]);
+			propNum[5] -= 1;
+			if (Player.MUSiC_PLAYER.isGame_ON()) {
+				// TODO:添加音乐
+			}
+		}
+	}
+
+	/**
+	 * 传送
+	 */
 	private void transmitMe() {
 		if (x[index] == propX[3] && y[index] == propY[3] && !isTransmitted[index] && canMoveTo(11 - x[index], 12 - y[index])) {
 			x[index] = propX[4];
@@ -867,6 +891,8 @@ public class JPanelPropPattern extends JPanelGame implements KeyListener{
 		propY[3] = 3;
 		propX[4] = 11;
 		propY[4] = 12;
+		propX[5] = 7;
+		propY[5] = 11;
 		
 		
 		props[0] = ImgProps.ANOTHER_LIFE;
@@ -930,7 +956,7 @@ public class JPanelPropPattern extends JPanelGame implements KeyListener{
 	 * 刷新道具
 	 */
 	public void refreshProps(){
-		if (propNum[0] == 0 && propNum[1] == 0 && propNum[2] == 0) {
+		if (propNum[0] == 0 && propNum[1] == 0 && propNum[2] == 0 && propNum[4] == 0) {
 			if (round == 36 || round == 72 || round == 108 || round == 144 || round == 180) {
 				randomProp0();
 				while(!canRefreshProp0()){
@@ -949,9 +975,26 @@ public class JPanelPropPattern extends JPanelGame implements KeyListener{
 					randomProp2();
 				}
 				propNum[2] ++;
+				
+
+				if(canRefreshProp5()){
+					propNum[5] ++;
+				}
+				
 			}
 		}
 	}
+
+
+	private boolean canRefreshProp5() {
+		for (int i = 0; i < 6; i++) {	
+			if (propX[5] == x[i] && propY[5] == y[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	/**
 	 * 是否可以刷新道具0
 	 * @return

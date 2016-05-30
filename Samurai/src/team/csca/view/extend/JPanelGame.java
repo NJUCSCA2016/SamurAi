@@ -27,6 +27,11 @@ public class JPanelGame extends JPanel{
 	protected JPanelGameDraw gameDraw;
 	
 	/**
+	 * 视野
+	 */
+	public static int[] sight = new int[6];
+	
+	/**
 	 * 面板上的组件
 	 */
 	protected static Layer[] layers;
