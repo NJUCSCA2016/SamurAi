@@ -22,4 +22,6 @@ public class ImgProps {
 	 * 增加视野
 	 */
 	public static final Image ADD_SIGHT = new ImageIcon("Image/Gamepanel/props/sight.png").getImage();
+	
+	public static final Image TRANSMISSION = new ImageIcon("Image/Gamepanel/props/transmission.png").getImage();
 }

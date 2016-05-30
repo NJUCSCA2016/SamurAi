@@ -44,8 +44,8 @@ public class JPanelPropPattern extends JPanelGame implements KeyListener{
 	 * 道具坐标
 	 * TODO:可能需要修改数量
 	 */
-	public int[] propX = new int[3];
-	public int[] propY = new int[3];
+	public int[] propX = new int[7];
+	public int[] propY = new int[7];
 	/**
 	 * 道具图片
 	 */
@@ -54,15 +54,19 @@ public class JPanelPropPattern extends JPanelGame implements KeyListener{
 	 * 道具数量
 	 * TODO:可能需要修改数量
 	 */
-	public int[] propNum = new int[3];
+	public int[] propNum = new int[7];
 	
 	/**
 	 * 每个武士的额外生命
 	 */
 	public int[] life = new int[6];
+
 	/**
-	 * 最大回合数
+	 * 是否传送过
 	 */
+	public boolean[] isTransmitted = new boolean[6];
+	
+	
 
 
 	private PlayerAxe axe;
@@ -242,6 +246,12 @@ public class JPanelPropPattern extends JPanelGame implements KeyListener{
 		}
 		if (!outSight[propX[2]][propY[2]] && propNum[2] > 0) {
 			g.drawImage(ImgProps.ADD_SIGHT, propX[2] * 40 + propY[2] * 13 + 228, propY[2] * (-36) + 600, 42, 48, this);
+		}
+		if (!outSight[propX[3]][propY[3]]) {
+			g.drawImage(ImgProps.TRANSMISSION, propX[3] * 40 + propY[3] * 13 + 228, propY[3] * (-36) + 600, 42, 48, this);
+		}
+		if (!outSight[propX[4]][propY[4]]) {
+			g.drawImage(ImgProps.TRANSMISSION, propX[4] * 40 + propY[4] * 13 + 228, propY[4] * (-36) + 600, 42, 48, this);
 		}
 		/*
 		 * 状态栏
@@ -504,6 +514,7 @@ public class JPanelPropPattern extends JPanelGame implements KeyListener{
 		calculateIndex();
 		nowPower = 7;
 		calculateIndex();
+		isTransmitted[index] = false;
 		if (index >= 3) {
 			
 			if(recoverRound[index] == 0){
@@ -759,8 +770,33 @@ public class JPanelPropPattern extends JPanelGame implements KeyListener{
 		getPower();
 		// 增加视野
 		addSight();
-		
+		// 传送门
+		transmitMe();
 	}
+	private void transmitMe() {
+		if (x[index] == propX[3] && y[index] == propY[3] && !isTransmitted[index] && canMoveTo(11 - x[index], 12 - y[index])) {
+			x[index] = propX[4];
+			y[index] = propY[4];
+			isTransmitted[index] = true;
+			
+			if (Player.MUSiC_PLAYER.isGame_ON()) {
+				// TODO:添加音乐
+//				Player.playSound("hp");
+			}
+		}
+		if (x[index] == propX[4] && y[index] == propY[4] && !isTransmitted[index] && canMoveTo(3 - x[index], 3 - y[index])) {
+			x[index] = propX[3];
+			y[index] = propY[3];
+			isTransmitted[index] = true;
+			
+			if (Player.MUSiC_PLAYER.isGame_ON()) {
+				// TODO:添加音乐
+//				Player.playSound("hp");
+			}
+		}
+
+	}
+
 	/**
 	 * 加一条命
 	 */
@@ -827,11 +863,18 @@ public class JPanelPropPattern extends JPanelGame implements KeyListener{
 		propY[1] = random.nextInt(2) + 11;// 11- 12
 		propX[2] = random.nextInt(2) + 10;// 10- 11
 		propY[2] = random.nextInt(2) + 2; // 6 - 9
+		propX[3] = 3;
+		propY[3] = 3;
+		propX[4] = 11;
+		propY[4] = 12;
 		
 		
 		props[0] = ImgProps.ANOTHER_LIFE;
 		props[1] = ImgProps.ADD_NOWPOWER;
 		props[2] = ImgProps.ADD_SIGHT;
+		props[3] = ImgProps.TRANSMISSION;
+		props[4] = ImgProps.TRANSMISSION;
+				
 		
 		for (int i = 0; i < propNum.length; i++) {
 			propNum[i] = 1;
@@ -869,12 +912,19 @@ public class JPanelPropPattern extends JPanelGame implements KeyListener{
 		for (int i = 0; i < 6; i++) {
 			sight[i] = 5;
 		}
+		
+		
+		for (int i = 0; i < 6; i++) {
+			isTransmitted[i] = false;
+		}
 	}
 	protected void initRecoverRound() {
 		for (int i = 0; i < recoverRound.length; i++) {
 			recoverRound[i] = 0;
 		}
 	}
+	
+	
 
 	/**
 	 * 刷新道具
