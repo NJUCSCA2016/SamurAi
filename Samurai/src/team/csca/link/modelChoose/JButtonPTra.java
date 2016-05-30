@@ -24,10 +24,10 @@ public class JButtonPTra extends DynamicButton{
 	public void mouseClicked(MouseEvent e){
 		super.mouseClicked(e);
 		try {
-			GameNoticeImp notice = new GameNoticeImp();
-			RemoteHelper.getInstance().setNotic(notice);
+			GameNoticeImp notice = RemoteHelper.getInstance().getNotic();
+//			RemoteHelper.getInstance().setNotic(notice);
 			NetGameControl control = NetGameControl.getInstance();
-			helper.getNotic().setControl(control);
+			notice.setControl(control);
 			this.frame.remove(this.fatherPanel);
 			this.frame.setContentPane(new JPanelGameLoading());
 			System.out.println("Reach");

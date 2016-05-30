@@ -24,8 +24,8 @@ public class JButtonPP extends DynamicButton{
 	public void mouseClicked(MouseEvent e){
 		super.mouseClicked(e);
 		try {
-			GameNoticeImp notice = new GameNoticeImp();
-			RemoteHelper.getInstance().setNotic(notice);
+			GameNoticeImp notice = helper.getNotic();
+//			RemoteHelper.getInstance().setNotic(notice);
 			NetGameControl control = NetGameControl.getInstance();
 			notice.setControl(control);
 			this.frame.remove(this.fatherPanel);

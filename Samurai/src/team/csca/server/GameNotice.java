@@ -1,8 +1,9 @@
 package team.csca.server;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface GameNotice {
+public interface GameNotice extends Remote{
 	/**
 	 * 初始化信息反馈给每个Player
 	 * 
