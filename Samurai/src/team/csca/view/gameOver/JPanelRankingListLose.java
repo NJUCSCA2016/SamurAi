@@ -29,7 +29,7 @@ public class JPanelRankingListLose extends JPanel{
 		this.setLayout(null);
 		repaint();
 		this.add(new JButtonReturnToLose());
-		this.add(new JButtonGameBackToMain(this));
+		
 	}
 	
 	public void paintComponent(Graphics g) {

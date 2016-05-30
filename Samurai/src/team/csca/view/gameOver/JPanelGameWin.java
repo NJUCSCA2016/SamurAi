@@ -13,6 +13,8 @@ public class JPanelGameWin extends JPanel{
 	public JPanelGameWin(){
 		setLayout(null);
 		background = new LayerBackground(0, 0, 1250, 700, ImgGameOver.YOU_WIN);
+		this.add(new JButtonRankingListWin());
+		this.add(new JButtonGameBackToMain(this));
 	}
 	protected LayerBackground background;
 	@Override

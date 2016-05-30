@@ -15,6 +15,7 @@ public class JButtonRankingListLose extends DynamicButton{
 				ImgButton.WATCH_RANKING_LIST_1,
 				ImgButton.WATCH_RANKING_LIST_2, 
 				ImgButton.WATCH_RANKING_LIST_3);
+		
 	}
 	
 	@Override

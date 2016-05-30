@@ -15,7 +15,7 @@ public class JButtonReturnToLose extends DynamicButton{
 	}
 	
 	public void mouseClicked(MouseEvent e){
-//		frameMain.setContentPane(new JPanelGameLose(new JButtonGameBackToMain()));
+		frameMain.setContentPane(new JPanelGameLose());
 		frameMain.revalidate();
 	}
 }

@@ -13,6 +13,7 @@ public class JPanelGameDraw extends JPanel{
 		setLayout(null);
 		this.add(new JButtonGameBackToMain(this));
 		background = new LayerBackground(0, 0, 1250, 700, ImgGameOver.YOU_DRAW);
+		this.add(new JButtonRankingListDraw());
 	}
 	protected LayerBackground background;
 	@Override

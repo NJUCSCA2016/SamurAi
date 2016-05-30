@@ -14,7 +14,8 @@ public class JPanelGameLose extends JPanel{
 	public JPanelGameLose() {
 		this.setLayout(null);
 		background = new LayerBackground(0, 0, 1250, 700, ImgGameOver.YOU_LOSE);
-//		this.add(new JButtonRankingListLose());
+		this.add(new JButtonRankingListLose());
+		this.add(new JButtonGameBackToMain(this));
 	}
 	protected LayerBackground background;
 	@Override
